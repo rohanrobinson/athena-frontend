@@ -10,9 +10,7 @@ We created an initial preference quiz to get an understanding of what philosophi
 * Derek Bai
 * Isaiah Martin
 
-## Q and A
-
-**Roles**
+## Roles
 
 (Informal) Product Manager
 * Rohan: Frontend (React, Design, Data Mining/ML)
