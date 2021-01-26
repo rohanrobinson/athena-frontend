@@ -10,7 +10,7 @@
 
 ## Q and A
 
-**Who is going to look at which platforms, get a rough task distribution?**
+**Roles**
 
 (Informal) Product Manager
 * Rohan: Frontend (React, Design, Data Mining/ML)
