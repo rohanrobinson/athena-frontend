@@ -11,8 +11,9 @@ write functions to access the database
 
 
 ## User Collection
-Consists of individual documents corresponding to individual users. 
-Each document will store user's basic profile information (ie. ObjectId, Username, Age etc.) 
+
+Consists of individual documents corresponding to individual users. <br>
+Each document will store user's basic profile information (ie. ObjectId, Username, Age etc.)<br>
 along with embedded documents containing the user's survey results, preferences and liked/saved quotes.
 {
     _id: <ObjectId1>, // takes care of email and password
