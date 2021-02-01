@@ -14,7 +14,7 @@ write functions to access the database
 
 Consists of individual documents corresponding to individual users. <br>
 Each document will store user's basic profile information (ie. ObjectId, Username, Age etc.)<br>
-along with embedded documents containing the user's survey results, preferences and liked/saved quotes.
+along with embedded documents containing the user's survey results, preferences and liked/saved quotes.<br>
 {
     _id: <ObjectId1>, // takes care of email and password
     username: "name123",
@@ -44,9 +44,9 @@ along with embedded documents containing the user's survey results, preferences 
 ```
 
 ## Philosphy Collection
-Consists of individual documents corresponding to individual philosophies (ie. Platoism, Taoism, Rationalism etc). 
-Each document will store basic information about its philosophy (ie. id, name, description, key figures etc), 
-along with a list of related quotes (stored using ids referencing quote documents) and image(s).
+Consists of individual documents corresponding to individual philosophies (ie. Platoism, Taoism, Rationalism etc).<br> 
+Each document will store basic information about its philosophy (ie. id, name, description, key figures etc),<br>
+along with a list of related quotes (stored using ids referencing quote documents) and image(s).<br>
 {
     _id: 4099018,
     name: "Platoism",
@@ -59,9 +59,9 @@ along with a list of related quotes (stored using ids referencing quote document
 
 
 ## Sentiment Collection
-Consists of individual documents corresponding to individual sentiments (ie. happiness, sadness, jealousy etc).
-Each document will store its sentiment's name and id, 
-along with a list of related quotes (stored using ids referencing quote documents).
+Consists of individual documents corresponding to individual sentiments (ie. happiness, sadness, jealousy etc).<br>
+Each document will store its sentiment's name and id,<br> 
+along with a list of related quotes (stored using ids referencing quote documents).<br>
 {
     _id: "happiness",
     quotes: [40982,20980,2099,20009] \\ reference to quote documents
@@ -69,9 +69,9 @@ along with a list of related quotes (stored using ids referencing quote document
 
 
 ## Quotes Collection
-Consists of individual documents corresponding to individual quotes. 
-Each document will store basic information about its quote (ie. id, philosophy, author, date etc) 
-along with the actual text of the quote and corresponding sentiment tags.
+Consists of individual documents corresponding to individual quotes.<br>
+Each document will store basic information about its quote (ie. id, philosophy, author, date etc)<br>
+along with the actual text of the quote and corresponding sentiment tags.<br>
 {
     _id: 0980982,
     philosophy: "Platonic",
