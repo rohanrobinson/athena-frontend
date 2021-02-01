@@ -40,7 +40,7 @@ Consists of individual documents corresponding to individual users. Each documen
 }
 ```
 
-## Philosphy Collection
+## Philosophy Collection
 Consists of individual documents corresponding to individual philosophies (ie. Platoism, Taoism, Rationalism etc). Each document will store basic information about its philosophy (ie. id, name, description, key figures etc),along with a list of related quotes (stored using ids referencing quote documents) and image(s).
 ```
 {
