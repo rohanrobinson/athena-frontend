@@ -1,4 +1,4 @@
-# athena-frontend
+# athena 21W
 
 We created an initial preference quiz web app to get an understanding of what philosophies appeal to the user. The quiz contains six questions, each containing three philosophical quotes from different sources. The user chooses which quotes they like the most. They also are asked to enter how they feel. On submitting the quiz, the user's answers are printed to the console. 
 
