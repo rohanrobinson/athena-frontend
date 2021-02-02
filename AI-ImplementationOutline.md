@@ -43,33 +43,34 @@ Let us then use these sentiments to search our database.
 {anger, sadness} goes to our database 
 
 Potential Database JSON Structure <br>
-[	<br>
-&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;“Anger”:  [ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{“quoteID”: “1”, “quote”:  “Once I was....”, “author”: “Freud”},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”}, <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
- &nbsp;&nbsp;&nbsp;&nbsp;], <br>
-&nbsp;&nbsp;&nbsp;&nbsp;“Sadness”: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “450”, “quote”: “......”, “author”: “.....”}, <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “451”,  “quote”: “Now is….”, “author”: “Kant”}, <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;], <br>
-&nbsp;&nbsp;&nbsp;&nbsp;“Disgust”: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “800”,  “quote”:  “........”, “author”: “........”},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;], <br>
-&nbsp;&nbsp;&nbsp;&nbsp;“Fear”: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “...”, “quote”:  “........”, “author”: “........”},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;&nbsp;&nbsp;“Joy”: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “....”, “quote”:  “........”, “author”: “........”},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;]<br>
-&nbsp;&nbsp;}<br>
+```
+[	
+	{
+		“Anger”:  [ 
+			{“quoteID”: “1”, “quote”:  “Once I was....”, “author”: “Freud”},
+			{“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”},
+			{......}
+			], 
+		“Sadness”: [
+			{quoteID”: “450”, “quote”: “......”, “author”: “.....”}, 
+			{quoteID”: “451”,  “quote”: “Now is….”, “author”: “Kant”}, 
+			{......}
+			], 
+		“Disgust”: [
+			{quoteID”: “800”,  “quote”:  “........”, “author”: “........”},
+			{......}
+			], 
+		“Fear”: [
+			{quoteID”: “...”, “quote”:  “........”, “author”: “........”},
+			{......}
+			],
+		“Joy”: [
+			{quoteID”: “....”, “quote”:  “........”, “author”: “........”},
+			{......}
+			]
+	}
 ]
-
+```
 Quote object {“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”} has been selected by **match of quote in categories “anger” and “sadness”**, **feature B**, **feature C**. 
 
 #### III. Returning a Data Object of quotes to the user 
