@@ -98,8 +98,9 @@ c. Optimize model.
 * Naive Bayes Implementation based on features
 
 ### 3. Matching user input to useful quotes.
-a. Score quotes on level of relevance to topic category? <br>
+a. Score quotes on level of relevance to topic category? 
 b. Score user input on level of relevance to topic category?
+* User feedback 
 
 ### Text/Emotion Dataset:
 Good Summary:
