@@ -71,11 +71,11 @@ Potential Database JSON Structure <br>
 	}
 ]
 ```
-Quote object {“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”} has been selected by **match of quote in categories “anger” and “sadness”**, **feature B**, **feature C**. 
+Quote object ```{“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”}``` has been selected by **match of quote in categories “anger” and “sadness”**, **feature B**, **feature C**. 
 
 #### III. Returning a Data Object of quotes to the user 
 
-Once a quote object comprised of {“quote”: “.....”, “author”: “......”} is received, we are to add it to a list of quote objects. 
+Once a quote object comprised of ```{“quote”: “.....”, “author”: “......”}``` is received, we are to add it to a list of quote objects. 
 
 Once our list has reached the size of k quote objects, our list of quote objects will be returned to the front end for display. 
 
