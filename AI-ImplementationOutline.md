@@ -3,10 +3,13 @@
 ## AI Components:
 ### 1. Determine sentiment category of user input.
 
+
+![](AI-ImplementationOutline-Image1.png)   
+ 
 That is, when the user inputs information in the search bar such as:
 
 "I am feeling stressed"
-        
+
 Our Backend is to:
 1. Use ML to identify sentiment categories in user input 
 2. Search our database for quotes in those sentiment categories
