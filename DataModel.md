@@ -15,14 +15,10 @@ Consists of individual documents corresponding to individual users. Each documen
 {
     _id: <ObjectId1>, // takes care of email, password, and authentication
     username: "name123",
-    age: "25",
     surveyResults: {
         personalityType: "INTJ", // personality type, maybe use Meyers-Briggs
         likedPhilosophies: ["Stoicism", "Hedonism"],
-        freeResponse: "I like philosophies that...",
-        mlMetrics: {
-            ...
-        } // TBD
+        freeResponse: "I like philosophies that..."
     },
     savedQuotes: [
         {
@@ -73,7 +69,6 @@ Consists of individual documents corresponding to individual quotes. Each docume
     philosophyId: 4099018, // reference to philosophy document
     author: "Plato",
     quote: "Love is a serious mental disease.",
-    tags: [...], // TBD
     mlScore: 234,
     timesSaved: 23
 }
