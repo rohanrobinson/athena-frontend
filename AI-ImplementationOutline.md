@@ -70,7 +70,7 @@ Potential Database JSON Structure <br>
 &nbsp;&nbsp;}<br>
 ]
 
-Quote object {“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”} has been selected by <match of quote in categories “anger” and “sadness”>, <feature B>, <feature C>. 
+Quote object {“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”} has been selected by **match of quote in categories “anger” and “sadness”**, **feature B**, **feature C**. 
 
 #### III. Returning a Data Object of quotes to the user 
 
