@@ -42,7 +42,7 @@ Let us then use these sentiments to search our database.
 
 {anger, sadness} goes to our database 
 
-Potential Database JSON Structure
+Potential Database JSON Structure <br>
 [	<br>
 &nbsp;&nbsp;{<br>
 &nbsp;&nbsp;&nbsp;&nbsp;“Anger”:  [ <br>
