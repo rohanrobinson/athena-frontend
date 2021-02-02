@@ -13,28 +13,27 @@ write functions to access the database <br>
 Consists of individual documents corresponding to individual users. Each document will store user's basic profile information (ie. ObjectId, Username, Age etc.) along with embedded documents containing the user's survey results, preferences and liked/saved quotes.
 ```
 {
-    _id: <ObjectId1>, // takes care of email and password
+    _id: <ObjectId1>, // takes care of email, password, and authentication
     username: "name123",
     age: "25",
     surveyResults: {
-        ...
-    },
-    preferences: {
-        religion: ["Judaism", "Hinduism", "Islam"],
+        personalityType: "INTJ", // personality type, maybe use Meyers-Briggs
         likedPhilosophies: ["Stoicism", "Hedonism"],
+        freeResponse: "I like philosophies that...",
         mlMetrics: {
             ...
-        },
-        ...
+        } // TBD
     },
     savedQuotes: [
         {
             quoteId: 409898, // reference to quote document
-            note: "this quote made me happy"
+            note: "this quote made me happy",
+            date: 49302089889
         }, 
         {
             quoteId: 60980,
-            note: "I like this quote"
+            note: "I like this quote",
+            date: 49302089889
         }
     ]
 }
@@ -46,11 +45,11 @@ Consists of individual documents corresponding to individual philosophies (ie. P
 {
     _id: 4099018,
     name: "Platoism",
-    date: "420 BC",
     description: "This is a philosophy that ...",
-    figuresList: ["Plato", "Aristotle"],
     quotes: [20984, 209840, 2089454], // reference to quote documents
-    image: "sdvonn.url.com" // reference to ???
+    image: "sdvonn.url.com", // reference to url of where image is stored
+    timesClicked: 45, 
+    sumOfSaves: 123
 }
 ```
 
@@ -73,10 +72,10 @@ Consists of individual documents corresponding to individual quotes. Each docume
     philosophy: "Platonic",
     philosophyId: 4099018, // reference to philosophy document
     author: "Plato",
-    date: "420 BC",
     quote: "Love is a serious mental disease.",
-    tags: ["love", "saddness"],
-    mlScore: "234"
+    tags: [...], // TBD
+    mlScore: 234,
+    timesSaved: 23
 }
 ```
 
