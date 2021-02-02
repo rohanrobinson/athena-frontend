@@ -43,31 +43,31 @@ Let us then use these sentiments to search our database.
 {anger, sadness} goes to our database 
 
 Potential Database JSON Structure
-[	
-&nbsp;&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;“Anger”:  [ 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{“quoteID”: “1”, “quote”:  “Once I was....”, “author”: “Freud”},
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”}, 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}
- &nbsp;&nbsp;&nbsp;&nbsp;], 
-&nbsp;&nbsp;&nbsp;&nbsp;“Sadness”: [
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “450”, “quote”: “......”, “author”: “.....”}, 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “451”,  “quote”: “Now is….”, “author”: “Kant”}, 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}
-&nbsp;&nbsp;&nbsp;&nbsp;], 
-&nbsp;&nbsp;&nbsp;&nbsp;“Disgust”: [
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “800”,  “quote”:  “........”, “author”: “........”},
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}
-&nbsp;&nbsp;&nbsp;&nbsp;], 
-&nbsp;&nbsp;&nbsp;&nbsp;“Fear”: [
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “...”, “quote”:  “........”, “author”: “........”},
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}
-&nbsp;&nbsp;&nbsp;&nbsp;],
-&nbsp;&nbsp;&nbsp;&nbsp;“Joy”: [
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “....”, “quote”:  “........”, “author”: “........”},
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}
-&nbsp;&nbsp;&nbsp;&nbsp;]
-&nbsp;&nbsp;}
+[	<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;“Anger”:  [ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{“quoteID”: “1”, “quote”:  “Once I was....”, “author”: “Freud”},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”}, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;], <br>
+&nbsp;&nbsp;&nbsp;&nbsp;“Sadness”: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “450”, “quote”: “......”, “author”: “.....”}, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “451”,  “quote”: “Now is….”, “author”: “Kant”}, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;], <br>
+&nbsp;&nbsp;&nbsp;&nbsp;“Disgust”: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “800”,  “quote”:  “........”, “author”: “........”},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;], <br>
+&nbsp;&nbsp;&nbsp;&nbsp;“Fear”: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “...”, “quote”:  “........”, “author”: “........”},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;“Joy”: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{quoteID”: “....”, “quote”:  “........”, “author”: “........”},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{......}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;}<br>
 ]
 
 Quote object {“quoteID”: “2”, “quote”: “Now is….”, “author”: “Kant”} has been selected by <match of quote in categories “anger” and “sadness”>, <feature B>, <feature C>. 
