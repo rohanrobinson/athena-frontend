@@ -14,7 +14,7 @@ function App() {
           <Route path="/contact" exact component={() => <Contact />} />
           <Route path="/todo" exact component={() => <TodoPage />} />
         </Switch>
-        <Footer />
+        {/* <Footer /> no need for a footer (as of 2/9/21) */}
       </Router>
     </div>
   );

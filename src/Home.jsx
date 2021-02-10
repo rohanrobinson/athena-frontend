@@ -1,26 +1,52 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
+
+const h1Style = {
+  marginBottom: '-10px'
+};
+
+const pStyle = {
+  marginLeft: '70px',
+  marginRight: '70px'
+}
+
+const referralStyle = {
+
+  color: 'var(--primary-col-var)',
+	textDecoration: 'none',
+	transition: '.5s',
+
+  "&:hover": {
+    background: "#efefef"
+  },
+}
+
 
 function Home() {
   return (
-    <div className="home">
-      <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-5">
-            <h1 class="font-weight-light">Athena</h1>
-            <h2 class="font-weight-light">Get Advice. Gain Wisdom.</h2>
-            <p>
-              Athena provides you with inspirational quotes and philosophies that best suit your needs and personality.
-            </p>
-            <form>
-                <input size="40" placeholder="Phone number, username, or email" /> <br />
-                <input size="40" placeholder="Password" /> <br />
-                <button>Login In!</button>
-            </form>
-          </div>
-        </div>
+  <div>
+    <div id="container">
+      <h1 style={h1Style}>Athena</h1>
+      <h2>Get Advice. Gain Wisdom</h2>
+      <p style={pStyle}>Athena uses Machine Learning to provide you with inspirational quotes and philosophies that best suit your needs and personality</p>
+      <div id="login-form">
+        <form>
+          <input type="text" class="data-input" id="username" placeholder="username or email" />
+          <input type="password" class="data-input" id="password" placeholder="password" />
+          <button type="submit">Log In</button>
+        </form>
       </div>
-    </div>
+      <div id="signup-link">
+        <p>
+          Don't have an account? 
+          <Link class="nav-link" to="/contact">
+                  Sign up
+          </Link>
+        </p>
+      </div>
+    </div >
+  </div>
   );
 }
 
-export default Home;
+export default withRouter(Home);

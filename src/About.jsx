@@ -6,7 +6,7 @@ function About() {
       <div class="container">
         <div class="row align-items-center my-5">
           <div class="col-lg-5">
-            <h1 class="font-weight-light">About</h1>
+            <h1 class="font-weight-light">Saved Quotes</h1>
             <p>
               
             </p>
