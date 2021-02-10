@@ -1,52 +1,30 @@
-from flask import Flask, request, Response
-from database.db import initialize_db
-from database.models import User
-import json
+from flask import Flask
+from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager
+from flask_restful import Api
 
-# To run:
+from database.db import initialize_db
+from resources.routes import initialize_routes
+
+# instructions:
 # `pipenv shell`
-# `python app.py`
-# then use postman to test the apis
+# `pipenv install flask flask-bcrypt flask-jwt-extended flask-restful`
+# to set env file location on mac:
+#   `export ENV_FILE_LOCATION=./.env`
+
 
 app = Flask(__name__)
+app.config.from_envvar('ENV_FILE_LOCATION')
+
+api = Api(app)
+bcrypt = Bcrypt(app)
+jwt = JWTManager(app)
 
 app.config['MONGODB_SETTINGS'] = {
-    'host': 'mongodb://localhost/users'
+    'host': 'mongodb://localhost/athena'
 }
 
 initialize_db(app)
-
-# get all user docs
-@app.route('/users')
-def get_users():
-    users = User.objects().to_json()
-    return Response(users, mimetype="application/json", status=200)
-
-# get one user doc
-@app.route('/users/<id>')
-def get_User(id):
-    users = User.objects.get(id=id).to_json()
-    return Response(users, mimetype="application/json", status=200)
-
-# add a user doc
-@app.route('/users', methods=['POST'])
-def add_user():
-    body = request.get_json()
-    user =  User(**body).save()
-    id = user.id
-    return {'id': str(id)}, 200
-
-# update a user doc
-@app.route('/users/<id>', methods=['PUT'])
-def update_user(id):
-    body = request.get_json()
-    User.objects.get(id=id).update(**body)
-    return '', 200
-
-# delete a user doc
-@app.route('/users/<id>', methods=['DELETE'])
-def delete_user(id):
-    user = User.objects.get(id=id).delete()
-    return '', 200
+initialize_routes(api)
 
 app.run()

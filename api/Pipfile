@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-mongoengine = "*"
+flask-bcrypt = "*"
+flask-jwt-extended = "*"
+flask-restful = "*"
 
 [dev-packages]
 
