@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Contact extends React.Component {
   state = {
@@ -40,11 +41,19 @@ class Contact extends React.Component {
   }
 
     const userSurveyObject = {
-      username: this.state.username,
+      email: this.state.username,
       password: this.state.password,
-      favoriteQuote: favoriteQuote,
+      savedQuotes: [favoriteQuote],
     }
-  console.log(userSurveyObject);
+
+    axios.post(`http://localhost:5000/api/auth/signup`, userSurveyObject )
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        // we will need to save the token globally somewhere
+      })
+
+      // console.log(userSurveyObject);
   };
 
   handleUsernameChange = e => {
@@ -66,14 +75,14 @@ class Contact extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         
-        Username:
+        Email:
         <br />
         <input
           type="text"
           name="username"
           value={this.state.username}
           onChange={this.handleUsernameChange}
-          placeholder="example: plato :)"
+          placeholder="example@gmail.com"
         />
         <br />
 
