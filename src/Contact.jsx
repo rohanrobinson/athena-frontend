@@ -50,6 +50,7 @@ class Contact extends React.Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        // we will need to save the token globally somewhere
       })
 
       // console.log(userSurveyObject);
