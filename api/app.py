@@ -7,6 +7,7 @@ from flask_cors import CORS
 from database.db import initialize_db
 from resources.routes import initialize_routes
 
+# mongodb must be installed
 # instructions:
 # `pipenv shell`
 # `pipenv install flask flask-bcrypt flask-jwt-extended flask-restful flask-cors`
