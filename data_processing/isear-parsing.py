@@ -2,7 +2,7 @@
 import csv
 
 # Current Tasks
-# - Find an autocorrect/spellchecker R&D
+# - Find an autocorrect/spellchecker R&D. Avoid cloud services...
 # - Move processed dictionary to dataset 
 # - Apply ML model to current user input. 
 

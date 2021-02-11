@@ -4,7 +4,7 @@ import re
 #ref: https://stackoverflow.com/questions/33404752/removing-emojis-from-a-string-in-python
 
 # Current Tasks
-# - Find an autocorrect/spellchecker R&D
+# - Find an autocorrect/spellchecker R&D. Avoid cloud services...
 # - Move processed dictionary to dataset 
 # - Apply ML model to current user input. 
 
