@@ -1,11 +1,10 @@
 #make sure to download isear.csv from https://raw.githubusercontent.com/sinmaniphel/py_isear_dataset/master/isear.csv
 import csv
 
-
-#Completely finish getting and cleaning datasets....
-
-#remove weird a character x
-#consistent attributes x
+# Current Tasks
+# - Find an autocorrect/spellchecker R&D
+# - Move processed dictionary to dataset 
+# - Apply ML model to current user input. 
 
 def ISEARparser(filename, inputSampleLimit):
     count = 0

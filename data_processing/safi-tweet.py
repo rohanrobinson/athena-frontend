@@ -3,10 +3,10 @@ import re
 #deEmoji method adapted from removing emoji's from a string in python 
 #ref: https://stackoverflow.com/questions/33404752/removing-emojis-from-a-string-in-python
 
-# Main Question: *proper spell check * 
-
-#spellcheck 
-#other sentiments
+# Current Tasks
+# - Find an autocorrect/spellchecker R&D
+# - Move processed dictionary to dataset 
+# - Apply ML model to current user input. 
 
 def deEmojify(tweet):
     regrex_pattern = re.compile(pattern = "["
