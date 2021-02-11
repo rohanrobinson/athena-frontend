@@ -47,10 +47,11 @@ nav ul {
 	font-weight: bold;
 	line-height: 80px;
 	float: left;
+	text-align: left !important;
 	/*min-width: 500px;
 	max-width: 1000px; */
-	margin: 0 auto;
-	/*padding-left: 80px;*/
+	/*margin: 0 auto; */
+	padding-left: 80px;
 }
 
 .nav-item {
