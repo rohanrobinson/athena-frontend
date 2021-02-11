@@ -37,7 +37,7 @@ function Navigation(props) {
                 }`}
               >
                 <Link class="nav-link" to="/contact">
-                  Survey
+                  Sign Up
                 </Link>
               </li>
             </ul>
