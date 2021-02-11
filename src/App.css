@@ -40,19 +40,20 @@ nav ul {
 	line-height: 80px;
 }
 
-label.logo
+.navbar-brand
 {
 	color: var(--white-tone);
 	font-size: 35px;
 	font-weight: bold;
 	line-height: 80px;
-	min-width: 500px;
-	max-width: 1000px;
+	float: left;
+	/*min-width: 500px;
+	max-width: 1000px; */
 	margin: 0 auto;
-	padding-left: 80px;
+	/*padding-left: 80px;*/
 }
 
-.navbar-item {
+.nav-item {
 	transition: .5s;
 	font-size: 20px;
 	text-decoration: none;
@@ -77,12 +78,14 @@ label.logo
 h1 { /* ATHENA LANDING PAGE HEADER TEXT */
 	color: var(--primary-col);
 	font-size: 110px;
+	font-weight: bold;
+	margin-bottom: -15px;
 }
 
 h2 { /* PAGE HEADERS */
 	color: var(--secondary-col);
-	font-size: 30px;
-	font-weight: 200;
+	font-size: 35px;
+	font-weight: 300;
 	margin-bottom: 20px;
 }
 
@@ -103,7 +106,7 @@ p {
 	border: 5px 10px;
 	padding: 30px;
 	margin: 30px auto;
-	/*transition: .5s;*/
+	transition: .5s;
 }
 
 #login-form:hover {
@@ -183,6 +186,44 @@ button[type="submit"]:hover {
 }
 
 /***************************************************************************/
+
+/******************** SURVEY STYLING ***************************************/
+.survey-button{
+	background-color: var(--primary-col-var);
+	border: none !important;
+	display: inline-block !important;
+	color: white;
+	font-size: 16px;
+	margin: 5px;
+	padding: 15px 32px;
+	transition: .5s;
+}
+
+.survey-button:hover {
+	background-color: var(--primary-col);
+	transition: .5s;
+	transform: scale(1.02);
+}
+
+.quotes {
+	text-align: left;
+	border-radius: 15px;
+	border: solid 2px var(--secondary-col-var);
+	width: 50%;
+	border: 5px 10px;
+	padding: 30px;
+	margin: 30px auto;
+	transition: .5s;
+}
+
+.quotes:hover {
+	transform: scale(1.02) !important;
+	transition: .5s;
+}
+
+.quote-text {
+	font-size: 22px;
+}
 
 
 

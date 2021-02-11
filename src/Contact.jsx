@@ -74,38 +74,41 @@ class Contact extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        
-        Email:
-        <br />
+      < br />
+      <h2>Account Creation</h2>
+      <div id = "login-form">
         <input
           type="text"
+          class="data-input"
+          id="username"
           name="username"
           value={this.state.username}
           onChange={this.handleUsernameChange}
           placeholder="example@gmail.com"
         />
-        <br />
-
-        Password:
-        <br />
         <input
           type="password"
+          class="data-input"
+          id="password"
+          placeholder="password"
           name="password"
           value={this.state.password}
           onChange={this.handlePasswordChange}
         />
-        <br />
-        <b>Pick your favorite of the quotes listed here!</b> <br />
+        </div>
         <div className="quotes">
-          <input type="radio" name="quote1" value="Waste no more time arguing what a good man should be. Be One" className="quote" /> Waste no more time arguing what a good man should be. Be One < br />  < br />
-          <input type="radio" name="quote2" value="The words of truth are always paradoxical" className="quote" /> The words of truth are always paradoxical  < br />  < br />
-          <input type="radio" name="quote3" value="It is not so much our friends help that helps us, as the confidence of their help" className="quote" /> It is not so much our friends help that helps us, as the confidence of their help  < br />  < br />
-          <input type="radio" name="quote4" value="I finally figured out the only reason to be alive is to enjoy it" className="quote" /> I finally figured out the only reason to be alive is to enjoy it  < br />  < br />
-          <input type="radio" name="quote5" value="All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason." className="quote" /> All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason.  < br />  < br />
-          <input type="radio" name="quote6" value="Boredom is simply romanticism with a morning-after thirst." className="quote" /> Boredom is simply romanticism with a morning-after thirst.  < br />  < br />
+          <h2>Pick your favorite quote!</h2>
+          <p class = "quote-text">
+          <input type="radio" name="quote1" value="Waste no more time arguing what a good man should be. Be One" /> Waste no more time arguing what a good man should be. Be One < br />
+          <input type="radio" name="quote2" value="The words of truth are always paradoxical" className="quote" /> The words of truth are always paradoxical <br />
+          <input type="radio" name="quote3" value="It is not so much our friends help that helps us, as the confidence of their help" className="quote"/> It is not so much our friends help that helps us, as the confidence of their help < br />
+          <input type="radio" name="quote4" value="I finally figured out the only reason to be alive is to enjoy it" className="quote" /> I finally figured out the only reason to be alive is to enjoy it < br />
+          <input type="radio" name="quote5" value="All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason." className="quote" />  All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason. < br />
+          <input type="radio" name="quote6" value="Boredom is simply romanticism with a morning-after thirst." className="quote" /> Boredom is simply romanticism with a morning-after thirst. </p> < br />
         </div>
         
-        <button onClick={this.createAccount}>Create Account</button>
+        <button class="survey-button" onClick={this.createAccount}>Create Account</button>
+        <br /> <br />
       </form>
     );
   }
