@@ -7,7 +7,7 @@ import csv
 #remove weird a character x
 #consistent attributes x
 
-def ISEARparser(filename, quoteLimit):
+def ISEARparser(filename, inputSampleLimit):
     count = 0
     inputSampleCollection = {}
     inputSampleCollection["joy"] = []
@@ -36,9 +36,9 @@ def ISEARparser(filename, quoteLimit):
                     count+=1
             if count==0:
                 count+=1
-            if count == quoteLimit:
+            if count == inputSampleLimit:
                 break
-        print("\n\Input Sample Collection of "+str(count)+" quotes:\n"+str(inputSampleCollection))
+        print("\n\Input Sample Collection of "+str(count)+" inputs:\n"+str(inputSampleCollection))
         print(count)
     return inputSampleCollection
 
