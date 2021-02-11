@@ -41,24 +41,24 @@ def removeTwitterness(tweet):
 
 #print(removeTwitterness("@DPD_UK I asked for my parcel to be delivered to a pick up store not my address #fuming #poorcustomerservice "))
 def parseTrainingData(filenameList):
-    quoteCollection = {}
-    quoteCollection["anger"] = []
-    quoteCollection["fear"] = []
-    quoteCollection["joy"] = []
-    quoteCollection["sadness"] = []
+    inputSampleCollection = {}
+    inputSampleCollection["anger"] = []
+    inputSampleCollection["fear"] = []
+    inputSampleCollection["joy"] = []
+    inputSampleCollection["sadness"] = []
     count = 0
     for filename in filenameList:
         for line in open(filename,'r'):
             count+=1
-            quoteObj = {}
+            inputSampleObj = {}
             print("Line: "+line)
-            quoteObj["QuoteID"] = count
-            quoteObj["Score"] = line[-6:-1]
-            quoteObj["Quote"] = deEmojify(removeTwitterness(line[6:-12]).strip())
+            inputSampleObj["QuoteID"] = count
+            inputSampleObj["Score"] = line[-6:-1]
+            inputSampleObj["Quote"] = deEmojify(removeTwitterness(line[6:-12]).strip())
             emotion = filename.split('-')[0]
-            quoteCollection[emotion].append(quoteObj)
-    print(quoteCollection)
-    return quoteCollection
+            inputSampleCollection[emotion].append(inputSampleObj)
+    print(inputSampleCollection)
+    return inputSampleCollection
 
 filenameList = ['anger-training-set.txt', 'fear-training-set.txt', 'joy-training-set.txt', 'sadness-training-set.txt']
 parseTrainingData(filenameList)
