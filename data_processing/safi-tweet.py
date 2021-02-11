@@ -52,9 +52,9 @@ def parseTrainingData(filenameList):
             count+=1
             inputSampleObj = {}
             print("Line: "+line)
-            inputSampleObj["QuoteID"] = count
+            inputSampleObj["InputSampleID"] = count
             inputSampleObj["Score"] = line[-6:-1]
-            inputSampleObj["Quote"] = deEmojify(removeTwitterness(line[6:-12]).strip())
+            inputSampleObj["InputSample"] = deEmojify(removeTwitterness(line[6:-12]).strip())
             emotion = filename.split('-')[0]
             inputSampleCollection[emotion].append(inputSampleObj)
     print(inputSampleCollection)

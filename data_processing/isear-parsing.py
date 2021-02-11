@@ -26,19 +26,19 @@ def ISEARparser(filename, quoteLimit):
                 print("\n\tline: "+str(count))
                 attributes = row[0]
                 attrList = attributes.split("|")
-                inputSampleObj["QuoteID"] = count
+                inputSampleObj["InputSampleID"] = count
                 inputSampleObj["Score"] = 'n/a'
                 emotion = attrList[:-1][-4]
                 if emotion in ["joy", "fear", "anger", "sadness"]:
-                    inputSampleObj["Quote"] = (attrList[-1] + " " + (' '.join(row[1:])) )[:-3].replace(chr(225), "")
+                    inputSampleObj["InputSample"] = (attrList[-1] + " " + (' '.join(row[1:])) )[:-3].replace(chr(225), "")
                     inputSampleCollection[emotion].append(inputSampleObj)
-                    print("Quote Object: "+str(inputSampleObj))
+                    print("InputSample Object: "+str(inputSampleObj))
                     count+=1
             if count==0:
                 count+=1
             if count == quoteLimit:
                 break
-        print("\n\tQuote Collection of "+str(count)+" quotes:\n"+str(inputSampleCollection))
+        print("\n\Input Sample Collection of "+str(count)+" quotes:\n"+str(inputSampleCollection))
         print(count)
     return inputSampleCollection
 
