@@ -26,13 +26,23 @@ class LoginApi(Resource):
         access_token = create_access_token(identity=str(user.id), expires_delta=expires)
         return {'token': access_token}, 200
 
-# class UpdateUserApi(Resource):
-#     @jwt_required
-#     def put(self, id):
-#         user_id = get_jwt_identity()
-#         body = request.get_json()
-#         User.objects.get(email=body.get('email')).update(**body)
-#         return '', 200
+class UpdateUserApi(Resource):
+    @jwt_required
+    def put(self, id):
+        user_id = get_jwt_identity()
+        body = request.get_json()
+        User.objects.get(id=id).update(**body)
+        return '', 200
+
+class AddSavedQuote(Resource):
+    @jwt_required
+    def put(self, id):
+        user_id = get_jwt_identity()
+        body = request.get_json()
+        currUser = User.objects.get(id=id)
+        currUser.savedQuotes.append(body)
+        currUser.save()
+        return '', 200
 
 class GetUserApi(Resource):
     @jwt_required
