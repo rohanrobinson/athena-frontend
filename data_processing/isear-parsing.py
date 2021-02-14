@@ -1,10 +1,14 @@
 #make sure to download isear.csv from https://raw.githubusercontent.com/sinmaniphel/py_isear_dataset/master/isear.csv
 import csv
 
-# Current Tasks
-# - Find an autocorrect/spellchecker R&D. Avoid cloud services...
-# - Move processed dictionary to dataset 
+# AI/ML Goals by 2/17/2021
+# R & D
+# - Find an autocorrect/spellchecker R&D. 
+# Baseline
+# - Work w/ backend team to store default quotes from webscraper.
 # - Apply ML model to current user input. 
+# - - Should be able to take input and categorize it according to sentiment... <Modified tone analyzer>
+# - - Measuring IBM Tone Analyzer Accuracy on train data
 
 def ISEARparser(filename, inputSampleLimit):
     count = 0
