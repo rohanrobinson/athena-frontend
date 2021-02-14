@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-url = "https://wisdomquotes.com/sad-quotes/"
+url = "https://wisdomquotes.com/happy-quotes/"
 
 # retrieve website 
 res = requests.get(url)
@@ -19,10 +19,10 @@ for q in quotes:
 
 print(quotes_list)
 
-with open('sad_quotes.csv', 'w', newline='') as file:
+with open('happy_quotes.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     for quote in quotes_list:
         split_quotes = quote.split('.')
-        author = split_quotes[-1]
+        author = split_quotes[-1].replace("Click to tweet", "")
         complete_quote = ".".join(split_quotes[:-1]) + "."
         writer.writerow((complete_quote, author))
