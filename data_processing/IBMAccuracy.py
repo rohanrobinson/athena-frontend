@@ -6,7 +6,7 @@ from isear_parsing import *
 from customML import *
 
 '''
-https://cloud.ibm.com/apidocs/tone-analyzer?code=python#related-information
+IBM Tone Analyzer Docs: https://cloud.ibm.com/apidocs/tone-analyzer?code=python#related-information
 anger, fear, joy, and sadness (emotional tones); analytical, confident, and tentative (language tones)
 '''
 
