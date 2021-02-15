@@ -12,6 +12,8 @@ import re
 # - - Should be able to take input and categorize it according to sentiment... <Modified tone analyzer>
 # - - Measuring IBM Tone Analyzer Accuracy on train data
 
+# LOOOOOK AT THE NOTEBOOOOK!!!!!!!
+
 #***** Quotes in JSon format by end of next wk...
 
 def deEmojify(tweet):
