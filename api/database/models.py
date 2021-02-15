@@ -19,6 +19,6 @@ class Quote(db.Document):
     philosophyName = db.StringField(required=False)
     philosophyId = db.StringField(required=False)
     author = db.StringField(required=False)
-    timesSaved = db.Intfield(required=False)
+    timesSaved = db.IntField(required=False)
 
 

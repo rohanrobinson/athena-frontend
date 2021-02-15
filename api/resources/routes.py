@@ -1,4 +1,5 @@
 from .auth import SignupApi, LoginApi, GetUserApi, UpdateUserApi, AddSavedQuote
+from .quotes import CreateQuote, GetQuote, UpdateQuote, GetAllQuotes
 
 def initialize_routes(api):
     # ------------ User  ------------#
@@ -25,4 +26,15 @@ def initialize_routes(api):
 
 
     # ------------ Quotes  ------------#
+    # create a quote in database
+    # quote required
+    api.add_resource(CreateQuote, '/api/quote')
 
+    # get a quote from database
+    api.add_resource(GetQuote, '/api/quote/<id>')
+
+    # get all quotes from database
+    api.add_resource(GetAllQuotes, '/api/allquotes')
+
+    # update a quote from database
+    api.add_resource(UpdateQuote, '/api/quote/update/<id>')
