@@ -21,4 +21,15 @@ class Quote(db.Document):
     author = db.StringField(required=False)
     timesSaved = db.IntField(required=False)
 
+class Sentiment(db.Document):
+    sentiment = db.StringField(required=True)
+    quotes = db.ListField(required=False)
+
+class Philosophy(db.Document):
+    philosophy = db.StringField(required=True)
+    quotes = db.ListField(required=False)
+    description = db.StringField(required=False)
+    timesClicked = db.IntField(required=False)
+    sumOfSaves = db.IntField(required=False)
+    
 
