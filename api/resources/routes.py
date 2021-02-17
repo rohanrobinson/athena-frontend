@@ -1,5 +1,7 @@
 from .auth import SignupApi, LoginApi, GetUserApi, UpdateUserApi, AddSavedQuote
 from .quotes import CreateQuote, GetQuote, UpdateQuote, GetAllQuotes
+from .sentiments import CreateSentiment, GetSentiment, GetAllSentiments, UpdateSentiment
+from .philosophies import CreatePhilosophy, GetPhilosophy, GetAllPhilosophies, UpdatePhilosophy
 
 def initialize_routes(api):
     # ------------ User  ------------#
@@ -38,3 +40,24 @@ def initialize_routes(api):
 
     # update a quote from database
     api.add_resource(UpdateQuote, '/api/quote/update/<id>')
+    
+    
+    # ------------ Sentiments  ------------#
+    api.add_resource(CreateSentiment, '/api/sentiment')
+    api.add_resource(GetSentiment, '/api/sentiment/<id>')
+    api.add_resource(GetAllSentiments, '/api/allsentiments')
+    api.add_resource(UpdateSentiment, '/api/sentiment/update/<id>')
+    
+    
+    # ------------ Philosophies  ------------#
+    api.add_resource(CreatePhilosophy, '/api/philosophy')
+    api.add_resource(GetPhilosophy, '/api/philosophy/<id>')
+    api.add_resource(GetAllPhilosophies, '/api/allphilosophies')
+    api.add_resource(UpdatePhilosophy, '/api/philosophy/update/<id>')
+    
+    
+    
+
+    
+    
+    
