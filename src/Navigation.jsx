@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import LogOut from './LogOut'
+import SearchBar from './SearchBar'
+
 function Navigation(props) {
   return (
     <div className="navigation">
@@ -13,7 +14,7 @@ function Navigation(props) {
           <div>
             <ul class="navbar-nav ml-auto">
               <li>
-                <LogOut />              
+                <SearchBar />              
               </li>
               <li
                 class={`nav-item  ${

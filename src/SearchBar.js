@@ -1,6 +1,6 @@
 import React from "react";
 
-class LogOut extends React.Component {
+class SearhBar extends React.Component {
 
     constructor(props) {
         super(props);
@@ -31,4 +31,4 @@ class LogOut extends React.Component {
 
 }
 
-export default LogOut;
+export default SearchBar;
