@@ -1,0 +1,63 @@
+​/******************** EXPLORE PHILOSOPHIES *********************************/
+
+.philosophies {
+	display: flex;
+	flex-flow: row wrap;
+	/*
+	justify-content: space-around;
+	text-align: center;
+	margin: auto;
+	grid-gap: 10px;
+	*/
+	justify-content: center;
+	padding: 0px 5% 0px 5%;
+}
+​
+.philosophy-card {
+  background-color: white;
+  background-size: contain;
+  margin: 0px 20px 20px 20px;
+  padding: 8px;
+  width: 240px;
+  height: 320px;
+  /* 280x375*/
+  position: relative;
+  border-radius: 8px;
+  border: solid 2px var(--secondary-col-var);
+  transition: .3s;
+}
+​
+.philosophy-card:hover {
+	transform: scale(1.03);
+	transition: .3s;
+}
+​
+.philosophy-card-image{
+	margin: 0;
+	position: relative;
+}
+​
+.philosophy-card-image img{
+	width: 100%;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 0 1.5rem rgb(17 17 17 / 30%);
+    transition: .15s;
+}
+​
+.philosophy-card-image img:hover{
+    box-shadow: 0 0 1.5rem rgb(17 17 17 / 40%);
+    transform:rotate(-2deg) scale(1.02);
+    transition: .15s;
+}
+​
+h4 {
+	color:var(--primary-col);
+	padding-top: 10px;
+	font-size: 30px;
+}
+​
+.philosophy-card-descr {
+	color: var(--secondary-col);
+	font-size: 10px;
+}

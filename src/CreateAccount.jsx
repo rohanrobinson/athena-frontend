@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class Contact extends React.Component {
+class CreateAccount extends React.Component {
   state = {
     username: '',
     password: '',
@@ -111,4 +111,4 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact;
+export default CreateAccount;
