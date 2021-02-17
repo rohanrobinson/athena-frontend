@@ -18,7 +18,7 @@ class GetPhilosophy(Resource):
         philosophy = Philosophy.objects.get(id=id).to_json()
         return Response(philosophy, mimetype="application/json", status=200)
 
-class GetAllPhilosophy(Resource):
+class GetAllPhilosophies(Resource):
     def get(self):
         philosophy = Philosophy.objects.to.json()
         return Response(philosophy, mimetype="application/json", status=200)
