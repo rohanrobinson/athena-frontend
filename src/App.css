@@ -98,6 +98,13 @@ h2 { /* PAGE HEADERS */
 	margin-bottom: 20px;
 }
 
+h3 {
+	color: var(--secondary-col);
+	font-size: 50px;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
 p {
 	color: var(--secondary-col);
 	font-size: 22px;
@@ -209,7 +216,6 @@ button[type="submit"]:hover {
 	*/
 	justify-content: center;
 	padding: 0px 5% 0px 5%;
-	background-color: purple
 }
 ​
 .philosophy-card {
