@@ -50,4 +50,3 @@ def extractSentiment(userInput):
                     predictedSentiment['Sentiment'] = SentimentObj['tone_name']
 
     return predictedSentiment
-
