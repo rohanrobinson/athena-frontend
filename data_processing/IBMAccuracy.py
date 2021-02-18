@@ -12,13 +12,13 @@ authenticator - DeYGwsjlnrsV1nxnCOTAgNAYbdxJPb-jsZeVq1H2H-9F
 serviceUrl - https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/63297e0c-284d-428f-9832-d9c3e57e8673/v3/tone?version=2017-09-21
 '''
 
-authenticator = IAMAuthenticator('---')
+authenticator = IAMAuthenticator('DeYGwsjlnrsV1nxnCOTAgNAYbdxJPb-jsZeVq1H2H-9F')
 tone_analyzer = ToneAnalyzerV3(
     version='2017-09-21',
     authenticator=authenticator
 )
 
-tone_analyzer.set_service_url('---')
+tone_analyzer.set_service_url('https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/63297e0c-284d-428f-9832-d9c3e57e8673/v3/tone?version=2017-09-21')
 
 def addTrainingSamples(TrainingData, sentimentList, entry, emotion):
     predictedSentiment = {'Score': 0, 'Sentiment': "N/A"}
@@ -58,7 +58,7 @@ def ISEARTrainingData(filename, keyList, sampleNum, sampleNumLimit):
     return TrainingData
 
 def IBM_Accuracy():
-    TrainingData = ISEARTrainingData("isear.csv", ['joy', 'fear', 'anger', 'sadness'], 100, 4000)
+    TrainingData = ISEARTrainingData("isear.csv", ['joy', 'fear', 'anger', 'sadness'], 20, 4000)
     actualData = []
     predictedData = []
     for sample in TrainingData:
