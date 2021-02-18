@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 class SearchBar extends React.Component {
 
@@ -16,9 +17,37 @@ class SearchBar extends React.Component {
 
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
-          alert(this.state.searchContent);
-        }
+          // const Search = this.state.searchContent;
+        
+        axios.get(`https://athena-back-end.herokuapp.com/api/sentiment/name/joy`)
+        .then(res => {
+          
+          let axiosArray = [];
+          for (var i = 0; i < 3; i++) {
+            let newPromise = axios.get(`https://athena-back-end.herokuapp.com/api/quote/${res.data.quotes[i]}`);
+            axiosArray.push(newPromise);
+          }
+
+          axios.all(axiosArray)
+          .then(axios.spread((...responses) => {
+            // console.log('here');
+            let response_array = []
+            responses.forEach((res) => {
+              console.log(res.data.quote);
+              response_array.push(res.data.quote);
+            });
+            // console.log(response_array);
+          }))
+          .catch((error) => {
+            alert(error);
+            console.log(error);
+          });
+
+
+
+        })
       }
+    }
 
     render() {
         return(
