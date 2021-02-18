@@ -5,11 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 export { default as Navigation } from "./Navigation";
-export { default as Footer } from "./Footer";
-export { default as Home } from "./Home";
-export { default as About } from "./About";
-export { default as Contact } from "./Contact";
-export { default as TodoPage } from "./todoPage";
+export { default as Home } from "./Home.js";
+export { default as CreateAccount } from "./CreateAccount";
+export { default as Explore } from "./Explore";
+export { default as QuotesSaved } from "./QuotesSaved";
+export { default as Philosophy } from "./Philosophy.js";
 
 ReactDOM.render(
   <React.StrictMode>

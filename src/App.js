@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Navigation, Footer, Home, About, Contact, TodoPage } from "./index";
+import { Navigation, Home, CreateAccount, QuotesSaved, Explore, Philosophy } from "./index";
 
 function App() {
   return (
@@ -10,11 +10,11 @@ function App() {
         <Navigation />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
-          <Route path="/about" exact component={() => <About />} />
-          <Route path="/contact" exact component={() => <Contact />} />
-          <Route path="/todo" exact component={() => <TodoPage />} />
+          <Route path="/quotesSaved" exact component={() => <QuotesSaved />} />
+          <Route path="/createAccount" exact component={() => <CreateAccount />} />
+          <Route path="/explore" exact component={() => <Explore />} />
+          <Route path="/philosophy" component={Philosophy} />
         </Switch>
-        {/* <Footer /> no need for a footer (as of 2/9/21) */}
       </Router>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 
-function About() {
+function QuotesSaved() {
   return (
     <div className="about">
       <div class="container">
@@ -17,4 +17,4 @@ function About() {
   );
 }
 
-export default About;
+export default QuotesSaved;
