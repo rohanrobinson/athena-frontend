@@ -17,35 +17,51 @@ class SearchBar extends React.Component {
 
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
-          // const Search = this.state.searchContent;
+          const Search = this.state.searchContent;
+          const data = {
+            sentence: Search,
+          };
         
-        axios.get(`https://athena-back-end.herokuapp.com/api/sentiment/name/joy`)
-        .then(res => {
-          
-          let axiosArray = [];
-          for (var i = 0; i < 3; i++) {
-            let newPromise = axios.get(`https://athena-back-end.herokuapp.com/api/quote/${res.data.quotes[i]}`);
-            axiosArray.push(newPromise);
-          }
-
-          axios.all(axiosArray)
-          .then(axios.spread((...responses) => {
-            // console.log('here');
-            let response_array = []
-            responses.forEach((res) => {
-              console.log(res.data.quote);
-              response_array.push(res.data.quote);
+          // gets 1 random quotes
+          axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
+            .then(res => {
+              const l = res.data.quotes.length;
+              const j = Math.floor(Math.random()*l);
+              axios.get(`https://athena-back-end.herokuapp.com/api/quote/${res.data.quotes[j]}`)
+                .then ((response) => {
+                  // success
+                  console.log("quote:");
+                  console.log(response.data.quote);
+                })
+                .catch((err) => {
+                  // error
+                  alert(err);
+                  console.log(err)
+                });
+              })
+            .catch((error) => {
+              alert(error);
+              console.log(error);
             });
-            // console.log(response_array);
-          }))
-          .catch((error) => {
-            alert(error);
-            console.log(error);
-          });
 
+          // gets first three quotes:
+          // let axiosArray = [];
+          // for (var i = 0; i < 3; i++) {
+          //   let newPromise = axios.get(`https://athena-back-end.herokuapp.com/api/quote/${res.data.quotes[i]}`);
+          //   axiosArray.push(newPromise);
+          // }
 
+          // axios.all(axiosArray)
+          // .then(axios.spread((...responses) => {
+          //   // console.log('here');
+          //   let response_array = []
+          //   responses.forEach((res) => {
+          //     console.log(res.data.quote);
+          //     response_array.push(res.data.quote);
+          //   });
+          //   // console.log(response_array);
+          // }))
 
-        })
       }
     }
 
