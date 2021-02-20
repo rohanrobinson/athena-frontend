@@ -1,5 +1,6 @@
 #make sure to download isear.csv from https://raw.githubusercontent.com/sinmaniphel/py_isear_dataset/master/isear.csv
 import csv
+import random
 # AI/ML Goals by 2/17/2021
 # R & D
 # - Find an autocorrect/spellchecker R&D.  ....... 
@@ -9,7 +10,7 @@ import csv
 # - - Should be able to take input and categorize it according to sentiment... <Modified tone analyzer>
 # - - Measuring IBM Tone Analyzer Accuracy on train data
 
-def ISEARparser(filename, inputSampleLimit):
+def ISEARparser(filename, inputSampleLimit, k):
     count = 0
     inputSampleCollection = {}
     inputSampleCollection["joy"] = []
@@ -22,29 +23,32 @@ def ISEARparser(filename, inputSampleLimit):
     inputSampleCollection["guilt"] = []'''
     with open(filename, newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-        for row in spamreader:
-            if count > 0:
-                inputSampleObj = {}
-                #print("\n\tline: "+str(count))
-                attributes = row[0]
-                attrList = attributes.split("|")
-                inputSampleObj["InputSampleID"] = count
-                inputSampleObj["Score"] = 'n/a'
-                emotion = attrList[:-1][-4]
-                if emotion in ["joy", "fear", "anger", "sadness"]:
-                    inputSampleObj["InputSample"] = (attrList[-1] + " " + (' '.join(row[1:])) )[:-3].replace(chr(225), "")
-                    inputSampleCollection[emotion].append(inputSampleObj)
-                    #print("InputSample Object: "+str(inputSampleObj))
-                    count+=1
-            if count==0:
-                count+=1
-            if count == inputSampleLimit:
-                break
+        visited_rows = []
+        while count < inputSampleLimit: #no more than 70 percent of csv file
+            for row in spamreader:
+                randSelection = random.uniform(0, 1) # randSelection outputs random float btwn 0 and 1.
+                if count >= 0 and randSelection > k and spamreader.line_num not in visited_rows:
+                    visited_rows.append(spamreader.line_num)
+                    inputSampleObj = {}
+                    #print("\n\tline: "+str(count))
+                    attributes = row[0]
+                    attrList = attributes.split("|")
+                    inputSampleObj["InputSampleID"] = count
+                    inputSampleObj["Score"] = 'n/a'
+                    emotion = attrList[:-1][-4]
+                    if emotion in ["joy", "fear", "anger", "sadness"]:
+                        inputSampleObj["InputSample"] = (attrList[-1] + " " + (' '.join(row[1:])) )[:-3].replace(chr(225), "")
+                        inputSampleCollection[emotion].append(inputSampleObj)
+                        count+=1
+                    if count >= inputSampleLimit:
+                        break
+        print("last line number reached in isear.csv was: "+str(spamreader.line_num)+"\n")
         #print("\n\Input Sample Collection of "+str(count)+" inputs:\n"+str(inputSampleCollection))
         #print(count)
     return inputSampleCollection
 
-collection = ISEARparser('isear.csv', 5000)
+#print(ISEARparser('isear.csv', 100, 0.5))
+
 '''
 ID|CITY|COUN|SUBJ|SEX|AGE|RELI|PRAC|FOCC|MOCC|FIEL|EMOT|WHEN|LONG|INTS|ERGO|TROPHO|TEMPER|EXPRES|
 MOVE|EXP1|EXP2|EXP10|PARAL|CON|EXPC|PLEA|PLAN|FAIR|CAUS|COPING|MORL|SELF|RELA|VERBAL|NEUTRO|Field1|
