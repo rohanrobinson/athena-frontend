@@ -8,20 +8,26 @@ class Navigation extends React.Component {
   componentDidMount() {
   const config = {
     headers: {
-      Authorization: 'Bearer ' + localStorage.getItem('token')
+      Authorization: 'Bearer ' + sessionStorage.getItem('token')
     }
   };
-    axios.get(`https://athena-back-end.herokuapp.com/api/auth/get`, config).then(
-      res => {
-        this.setState({
-          user: res.data
-        });
-        console.log(res)
-      }
-    )
+  //
+  //  axios.get(`https://athena-back-end.herokuapp.com/api/auth/get`, config).then(
+  //    res => {
+  //      this.setState({
+  //        user: res.data
+  //      });
+  //      console.log(res)
+  //    }
+  //  )
+  }
+
+  logout = () => {
+    sessionStorage.removeItem('token');
   }
   render() {
-    if(this.state.user){
+    //if(this.state.user){
+    if(sessionStorage.getItem("token")){
       return (
         <div className="navigation">
           <nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -61,7 +67,7 @@ class Navigation extends React.Component {
                   >
                   </li>
                   <li class="nav-link">
-                    <a class="log-out" onClick={()=>alert("You have been succesfully logged out!")}>Log Out</a>
+                    <a class="log-out" onClick={()=>this.logout()}>Log Out</a>
                   </li>
                 </ul>
               </div>

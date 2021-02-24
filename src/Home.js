@@ -43,8 +43,10 @@ handleLogin = e => {
       .then(res => {
         console.log("here");
         console.log(res);
-        console.log(res.data);
-        localStorage.setItem('token', res.data.token);
+        //console.log(res.data);
+        //console.log(res.data.token);
+        sessionStorage.setItem('token', res.data.token);
+        console.log(sessionStorage.getItem('token'));
         // we will need to save the token globally somewhere
       })
 
