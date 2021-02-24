@@ -11,7 +11,7 @@ class Navigation extends React.Component {
       Authorization: 'Bearer ' + localStorage.getItem('token')
     }
   };
-    axios.get(`http://localhost:5000/api/auth/get`, config).then(
+    axios.get(`https://athena-back-end.herokuapp.com/api/auth/get`, config).then(
       res => {
         this.setState({
           user: res.data

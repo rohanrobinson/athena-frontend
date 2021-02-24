@@ -46,7 +46,7 @@ class CreateAccount extends React.Component {
       savedQuotes: [favoriteQuote],
     }
 
-    axios.post(`http://localhost:5000/api/auth/signup`, userSurveyObject )
+    axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
       .then(res => {
         console.log(res);
         console.log(res.data);
