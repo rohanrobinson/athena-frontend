@@ -1,0 +1,35 @@
+*{font-family: 'Oswald', sans-serif; font-weight: 400; box-sizing: border-box;}
+
+  body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+    margin: 0; padding: 0; border: 0;
+}
+
+nav {
+  background-color: white;
+}
+
+nav ul {
+  float: right;
+  padding-right: 160px;
+  display: inline-block;
+  line-height: 67px;
+}
+
+.navbar-brand
+{
+  color: black;
+  font-size: 36px;
+  line-height: 67px;
+  min-width: 500px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 160px;
+}
+
+.nav-link {
+  transition: .5s;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}

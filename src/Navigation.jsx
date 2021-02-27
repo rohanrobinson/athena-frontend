@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import SearchBar from './SearchBar'
 import axios from 'axios';
+import "./navigation.css";
 
 class Navigation extends React.Component {
   state = {};
@@ -26,11 +27,10 @@ class Navigation extends React.Component {
     sessionStorage.removeItem('token');
   }
   render() {
-    //if(this.state.user){
     if(sessionStorage.getItem("token")){
       return (
         <div className="navigation">
-          <nav class="navbar navbar-expand navbar-dark bg-primary">
+          <nav>
             <div class="container">
               <Link class="navbar-brand" to="/">
                 Athena
@@ -79,17 +79,11 @@ class Navigation extends React.Component {
     else {
       return (
         <div className="navigation">
-          <nav class="navbar navbar-expand navbar-dark bg-primary">
-            <div class="container">
+          <nav>
               <Link class="navbar-brand" to="/">
                 Athena
               </Link>
-
-              <div>
-                <ul class="navbar-nav ml-auto">
-                  <li>
-                    <SearchBar />              
-                  </li>
+                <ul>
                   <li
                     class={`nav-item  ${
                       this.props.location.pathname === "/" ? "active" : ""
@@ -119,8 +113,6 @@ class Navigation extends React.Component {
                     </Link>
                   </li>
                 </ul>
-              </div>
-            </div>
           </nav>
         </div>
       );

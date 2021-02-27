@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
+import "./home.css";
 
 class Home extends React.Component {
   state = {
@@ -54,30 +55,31 @@ handleLogin = e => {
 };
 render() {
   return (
-  <div>
-    <div id="container">
-      <h1 >Athena</h1>
-      <h2>Get Advice. Gain Wisdom</h2>
-      <p >Athena uses Machine Learning to provide you with inspirational quotes and philosophies that best suit your needs and personality</p>
-      <div id="login-form">
-        <form>
-          <input type="text" class="data-input" id="username" placeholder="username or email" value={this.state.username}
-          onChange={this.handleUsernameChange} name="username" />
-          <input type="password" class="data-input" id="password" placeholder="password" value={this.state.password}
-          onChange={this.handlePasswordChange} name="password" />
-          <button type="submit" onClick={this.handleLogin}>Log In</button>
+    <div className="wrapper">
+      <div className="container">
+        <h1>WELCOME</h1>
+        <h2>Athena uses Machine Learning to provide you with inspirational quotes and philosophies that best suit your needs and personality</h2>
+        
+        <form className="form">
+          <input type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameChange}/>
+          <input type="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
+          <button type="submit" id="login-button" onClick={this.handleLogin}>Login</button>
         </form>
       </div>
-      <div id="signup-link">
-        <p>
-          Don't have an account?
-          <Link class="nav-link" to="/contact">
-                  Sign up
-          </Link>
-        </p>
-      </div>
-    </div >
-  </div>
+      
+      <ul className="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
   );
 }
 }
