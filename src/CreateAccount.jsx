@@ -73,40 +73,26 @@ class CreateAccount extends React.Component {
 
   render() {
     return (
+    <div className="container">
+    <h2>Account Creation</h2>
       <form onSubmit={this.handleSubmit}>
-        
-        Email:
-        <br />
         <input
           type="text"
           name="username"
           value={this.state.username}
           onChange={this.handleUsernameChange}
-          placeholder="example@gmail.com"
+          placeholder="Username"
         />
-        <br />
-
-        Password:
-        <br />
         <input
           type="password"
           name="password"
           value={this.state.password}
           onChange={this.handlePasswordChange}
-        />
-        <br />
-        <b>Pick your favorite of the quotes listed here!</b> <br />
-        <div className="quotes">
-          <input type="radio" name="quote1" value="Waste no more time arguing what a good man should be. Be One" className="quote" /> Waste no more time arguing what a good man should be. Be One < br />  < br />
-          <input type="radio" name="quote2" value="The words of truth are always paradoxical" className="quote" /> The words of truth are always paradoxical  < br />  < br />
-          <input type="radio" name="quote3" value="It is not so much our friends help that helps us, as the confidence of their help" className="quote" /> It is not so much our friends help that helps us, as the confidence of their help  < br />  < br />
-          <input type="radio" name="quote4" value="I finally figured out the only reason to be alive is to enjoy it" className="quote" /> I finally figured out the only reason to be alive is to enjoy it  < br />  < br />
-          <input type="radio" name="quote5" value="All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason." className="quote" /> All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason.  < br />  < br />
-          <input type="radio" name="quote6" value="Boredom is simply romanticism with a morning-after thirst." className="quote" /> Boredom is simply romanticism with a morning-after thirst.  < br />  < br />
-        </div>
-        
-        <button onClick={this.createAccount}>Create Account</button>
+          placeholder="Password"
+        />       
+        <button type="submit" onClick={this.createAccount}>Create Account</button>
       </form>
+      </div>
     );
   }
 }

@@ -17,11 +17,11 @@ html{
   background-repeat: no-repeat;
   background-size:cover;
 }
-h1{
+.container h1{
   font-size: 72px !important;
   color:white;
 }
-h2{
+.container h2{
   font-size: 36px;
   color:white;
   line-height: 100%;
