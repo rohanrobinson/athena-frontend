@@ -58,17 +58,16 @@ const SearchBar = () => {
 
   return (
     <div className = "search-bar-div">
-      <form className="example">
-        <div className = "button-area">
-          <input type="text" 
-            placeholder="I'm feeling..."
-            onChange={updateSentence}
-            value={sentence}
-            onKeyPress={handleSubmit}
-            />
-          <button type="submit">Search</button>
-        </div>
-      </form>
+      <div className = "button-area">
+        <input className = "searchInput"
+          type="text" 
+          placeholder="I'm feeling..."
+          onChange={updateSentence}
+          value={sentence}
+          onKeyPress={handleSubmit}
+          />
+        <button type="submit">Search</button>
+      </div>
     </div>
   )
 }

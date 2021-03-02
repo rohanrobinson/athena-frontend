@@ -1,7 +1,7 @@
 .search-bar-div .button-area {
 }
 
-.search-bar-div form.example {
+.search-bar-div {
   max-width: 400px;
   display: block;
   width: 0 auto;
@@ -9,7 +9,7 @@
   padding-top: 30px;
 }
 
-.search-bar-div form.example input[type=text] {
+.search-bar-div input[type=text] {
   padding: 8px;
   font-size: 20px;
   float: left;
@@ -22,11 +22,11 @@
   transition-duration: 0.25s;
 }
 
-.search-bar-div form.example input:focus {
+.search-bar-div input:focus {
   color: #71a8a3;
 }
 
-.search-bar-div form.example button {
+.search-bar-div button {
   float: left;
   width: 20%;
   padding: 8px;
@@ -40,6 +40,6 @@
   transition-duration: 0.25s;
 }
 
-.search-bar-div form.example button:hover {
+.search-bar-div button:hover {
   background-color: #71a8a3;
 }
