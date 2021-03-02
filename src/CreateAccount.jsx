@@ -75,6 +75,7 @@ class CreateAccount extends React.Component {
     return (
     <div className="container">
     <h2>Account Creation</h2>
+    <div className="log-form">
       <form onSubmit={this.handleSubmit}>
         <input
           type="text"
@@ -92,6 +93,7 @@ class CreateAccount extends React.Component {
         />       
         <button type="submit" onClick={this.createAccount}>Create Account</button>
       </form>
+      </div>
       </div>
     );
   }

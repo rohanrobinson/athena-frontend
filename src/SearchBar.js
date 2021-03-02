@@ -64,8 +64,9 @@ const SearchBar = () => {
             placeholder="I'm feeling..."
             onChange={updateSentence}
             value={sentence}
+            onKeyPress={handleSubmit}
             />
-          <button type="submit" onClick={handleSubmit}>Search</button>
+          <button type="submit">Search</button>
         </div>
       </form>
     </div>
