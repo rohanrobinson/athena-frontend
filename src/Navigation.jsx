@@ -31,16 +31,10 @@ class Navigation extends React.Component {
       return (
         <div className="navigation">
           <nav>
-            <div class="container">
               <Link class="navbar-brand" to="/">
                 Athena
               </Link>
-
-              <div>
-                <ul class="navbar-nav ml-auto">
-                  <li>
-                    <SearchBar />              
-                  </li>
+                <ul>
                   <li
                     class={`nav-item  ${
                       this.props.location.pathname === "/" ? "active" : ""
@@ -70,8 +64,6 @@ class Navigation extends React.Component {
                     <a class="log-out" onClick={()=>this.logout()}>Log Out</a>
                   </li>
                 </ul>
-              </div>
-            </div>
           </nav>
         </div>
       )
