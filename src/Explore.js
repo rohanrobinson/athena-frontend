@@ -3,6 +3,7 @@ import Philosophy from './Philosophy';
 import { Link, withRouter } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from 'axios';
+import SearchBar from './SearchBar'
 import "./explore.css";
 
 class Explore extends React.Component {
@@ -43,12 +44,7 @@ class Explore extends React.Component {
         <div className="inspiration-content">
           <h1>GET INSPIRATION</h1>
           <h2>Describe how you're feeling and we'll match you with quotes to provide you with inspiration</h2>
-          <form className="example" action="/action_page.php">
-            <div className="button-area">
-              <input type="text" placeholder="I'm feeling..." name="search2"/>
-              <button type="submit">Search</button>
-            </div>
-          </form>
+          <SearchBar/>
         </div>
       </div>
       <div className="discover">
