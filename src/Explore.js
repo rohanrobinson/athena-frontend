@@ -1,7 +1,5 @@
 import React from 'react';
-import Philosophy from './Philosophy';
 import { Link, withRouter } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from 'axios';
 
 class Explore extends React.Component {

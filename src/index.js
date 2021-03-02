@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 export { default as Navigation } from "./Navigation";
@@ -13,6 +12,7 @@ export { default as QuotesSaved } from "./QuotesSaved";
 export { default as Philosophy } from "./Philosophy.js";
 export { default as SearchResult } from "./SearchResult.js";
 export { default as SearchBar } from "./SearchBar.js";
+export { default as Favorites } from "./Favorites.js";
 
 ReactDOM.render(
   <React.StrictMode>

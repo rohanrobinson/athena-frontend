@@ -30,6 +30,7 @@ const SearchBar = () => {
                     quotes: JSON.stringify(quotes),
                     quote: response.data.quote,
                     author: response.data.author || "unknown",
+                    quoteId: response.data._id.$oid,
                   }
                   }
                 );
@@ -57,7 +58,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input class="search-bar"
+      <input className="search-bar"
         type="text" 
         placeholder="How are you feeling?"
         onChange={updateSentence}

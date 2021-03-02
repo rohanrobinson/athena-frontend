@@ -1,10 +1,12 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import SearchBar from './SearchBar'
-import axios from 'axios';
+// import axios from 'axios';
 
 class Navigation extends React.Component {
   state = {};
+
+
   componentDidMount() {
   const config = {
     headers: {
@@ -24,51 +26,55 @@ class Navigation extends React.Component {
 
   logout = () => {
     sessionStorage.removeItem('token');
+    sessionStorage.setItem('user', '');
   }
   render() {
     //if(this.state.user){
     if(sessionStorage.getItem("token")){
       return (
         <div className="navigation">
-          <nav class="navbar navbar-expand navbar-dark bg-primary">
-            <div class="container">
-              <Link class="navbar-brand" to="/">
+          <nav className="navbar navbar-expand navbar-dark bg-primary">
+            <div className="container">
+              <Link className="navbar-brand" to="/">
                 Athena
               </Link>
 
               <div>
-                <ul class="navbar-nav ml-auto">
+                <ul className="navbar-nav ml-auto">
                   <li>
                     <SearchBar />              
                   </li>
                   <li
-                    class={`nav-item  ${
+                    className={`nav-item  ${
                       this.props.location.pathname === "/" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/explore">
+                    <Link className="nav-link" to="/explore">
                       Explore
-                      <span class="sr-only">(current)</span>
+                      <span className="sr-only">(current)</span>
                     </Link>
                   </li>
                   <li
-                    class={`nav-item  ${
+                    className={`nav-item  ${
                       this.props.location.pathname === "/about" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/quotesSaved">
+                    <Link className="nav-link" to="/favorites">
                       My Favorites
                     </Link>
                   </li>
                   <li
-                    class={`nav-item  ${
+                    className={`nav-item  ${
                       this.props.location.pathname === "/contact" ? "active" : ""
                     }`}
                   >
                   </li>
-                  <li class="nav-link">
-                    <a class="log-out" onClick={()=>this.logout()}>Log Out</a>
-                  </li>
+                  {/* <li className="nav-link">
+                    <a className="log-out" onClick={()=>this.logout()} >Log Out</a>
+                  </li> */}
+                  <Link  className="nav-link" onClick={()=>this.logout()} to="/">
+                    Log Out
+                  </Link>
                 </ul>
               </div>
             </div>
@@ -79,42 +85,42 @@ class Navigation extends React.Component {
     else {
       return (
         <div className="navigation">
-          <nav class="navbar navbar-expand navbar-dark bg-primary">
-            <div class="container">
-              <Link class="navbar-brand" to="/">
+          <nav className="navbar navbar-expand navbar-dark bg-primary">
+            <div className="container">
+              <Link className="navbar-brand" to="/">
                 Athena
               </Link>
 
               <div>
-                <ul class="navbar-nav ml-auto">
+                <ul className="navbar-nav ml-auto">
                   <li>
                     <SearchBar />              
                   </li>
                   <li
-                    class={`nav-item  ${
+                    className={`nav-item  ${
                       this.props.location.pathname === "/" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/explore">
+                    <Link className="nav-link" to="/explore">
                       Explore
-                      <span class="sr-only">(current)</span>
+                      <span className="sr-only">(current)</span>
                     </Link>
                   </li>
                   <li
-                    class={`nav-item  ${
+                    className={`nav-item  ${
                       this.props.location.pathname === "/about" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/quotesSaved">
-                      My Favorites
+                    <Link className="nav-link" to="/favorites">
+                      Favorites
                     </Link>
                   </li>
                   <li
-                    class={`nav-item  ${
+                    className={`nav-item  ${
                       this.props.location.pathname === "/contact" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/createAccount">
+                    <Link className="nav-link" to="/createAccount">
                       Sign Up
                     </Link>
                   </li>
