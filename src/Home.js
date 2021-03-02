@@ -60,7 +60,7 @@ render() {
         <h1>WELCOME</h1>
         <h2>Athena uses Machine Learning to provide you with inspirational quotes and philosophies that best suit your needs and personality</h2>
         
-        <form className="form">
+        <form className="log-form">
           <input type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameChange}/>
           <input type="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
           <button type="submit" id="login-button" onClick={this.handleLogin}>Login</button>

@@ -70,12 +70,12 @@ body{
    transition-timing-function: ease-in-put;
    font-weight: 200;
 }
- form {
+ .log-form {
    padding: 20px 0;
    position: relative;
    z-index: 2;
 }
- form input {
+ .log-form input {
    display: block;
    appearance: none;
    outline: 0;
@@ -91,15 +91,15 @@ body{
    transition-duration: 0.25s;
    font-weight: 300;
 }
- form input:hover {
+  .log-form input:hover {
    background-color: rgba(255,255,255,0.9);
 }
- form input:focus {
+  .log-form input:focus {
    background-color: white;
    width: 300px;
    color: #53e3a6;
 }
- form button {
+  .log-form button {
    appearance: none;
    outline: 0;
    background-color: #90cbc5;
@@ -112,7 +112,7 @@ body{
    font-size: 18px;
    transition-duration: 0.25s;
 }
- form button:hover {
+  .log-form button:hover {
    background-color: #71a8a3;
 }
  .bg-bubbles {
