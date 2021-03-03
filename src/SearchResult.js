@@ -129,9 +129,11 @@ class SearchResult extends Component {
     return (
     <div>
       <div className="QuoteCont">
-        <p className="sentence">{this.state.sentence}</p>
+        <p className="sentence">Displaying Quotes Inspired By Your Search: {this.state.sentence}</p>
+       <hr></hr>
         <h3>{this.state.quote}</h3>
         <p className="sentence">Author - {this.state.author}</p>
+        <hr></hr>
         <button className="nextButton" onClick={this.getQuote}>Next</button>
         { !(this.state.authenticated) ? (
           <>
@@ -139,7 +141,9 @@ class SearchResult extends Component {
         ):(
           <>
             <br></br>
+            <br></br>
             <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Red"): ("Gray")} className="heartIcon"/>
+            <p>Favorite</p>
           </>
         )}
       </div>
