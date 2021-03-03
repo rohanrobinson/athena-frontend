@@ -266,3 +266,7 @@ h4 {
 	color: var(--secondary-col);
 	font-size: 10px;
 }
+
+.philosophyImage {
+	width: 25%;
+}
