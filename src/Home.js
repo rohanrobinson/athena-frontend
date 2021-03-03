@@ -55,7 +55,9 @@ render() {
       <h1 >Athena</h1>
       <h2>Get Advice. Gain Wisdom</h2>
       <p >Athena uses Machine Learning to provide you with inspirational quotes and philosophies that best suit your needs and personality</p>
-      <div id="login-form">
+      { sessionStorage.getItem('token')===null || sessionStorage.getItem('token')==='' ? (
+        <>
+        <div id="login-form">
         <form>
           <input type="text" className="data-input" id="username" placeholder="username or email" value={this.state.username}
           onChange={this.handleUsernameChange} name="username" />
@@ -72,6 +74,12 @@ render() {
           </Link>
         </p>
       </div>
+      </>
+      ):(
+        <>
+        </>
+      )}
+      
     </div >
   </div>
   );
