@@ -54,4 +54,4 @@ def sentimentExtractor(userInput):
 
     return class_names[np.argmax(pred)]
 
-print(sentimentExtractor("i closed the door on my finger and it hurts"))
+print(sentimentExtractor("delivery was hour late and my pizza was cold!"))
