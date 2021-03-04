@@ -2,20 +2,6 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
-<<<<<<< HEAD
-class SearchBar extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {searchContent: ''};
-    
-        this.handleChange = this.handleChange.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-      }
-
-    handleChange(event) {
-        this.setState({searchContent: event.target.value});
-=======
 const SearchBar = () => {
   const history = useHistory();
   const [sentence, setSentence] = useState('');
@@ -25,7 +11,6 @@ const SearchBar = () => {
       var quotes = [];
       const data = {
         sentence: sentence,
->>>>>>> ede85f57f910558a2a5a20694a8d74b3306c3405
       }
       axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
         .then(res => {
