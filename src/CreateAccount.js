@@ -1,87 +1,63 @@
-import React from 'react';
+import React, { useState } from "react";
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
-class CreateAccount extends React.Component {
-  state = {
-    username: '',
-    password: '',
-    quoteSelected: ''
-  };
+const CreateAccount = () => {
+  const history = useHistory();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  createAccount = e => {
-    e.preventDefault();
-    // fetch('http://localhost:5000/api/login', {
-    //   method: 'POST',
-    //   mode: 'cors',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     username: this.state.username,
-    //     password: this.state.password
-    //
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(json => {
-    //     const accessToken = json.access_token;
-    //     this.props.onLogin(accessToken);
-    //   })
-    //   .catch(error => {
-    //     this.props.onLoginError();
-    //   });
-    
+  const createAccount = (event) => {
+    event.preventDefault();
     var radios = document.getElementsByClassName('quote');
     var favoriteQuote = '';
     for( let i = 0; i < radios.length; i++ ) {
-        
         if (radios[i].checked) {
           favoriteQuote = radios[i].value;
         }
-  }
-
-    const userSurveyObject = {
-      email: this.state.username,
-      password: this.state.password,
-      savedQuotes: [favoriteQuote],
     }
 
-    axios.post(`http://localhost:5000/api/auth/signup`, userSurveyObject )
+    const userSurveyObject = {
+      email: username,
+      password: password,
+      savedQuotes: [],
+      surveyResults: {
+        quote: favoriteQuote
+      },
+    }
+
+    axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
       .then(res => {
         console.log(res);
         console.log(res.data);
-        // we will need to save the token globally somewhere
+        alert("Account created. You can now log in.");
+        history.push('/');
       })
+      .catch((error) => {
+        console.log(error);
+        alert(error);
+      });
+  }
 
-      // console.log(userSurveyObject);
-  };
+  const updateUsername = (event) => {
+    setUsername(event.target.value);
+  }
 
-  handleUsernameChange = e => {
-    this.setState({
-      username: e.target.value
-    });
-  };
+  const updatePassword = (event) => {
+    setPassword(event.target.value);
+  }
 
-  handlePasswordChange = e => {
-    this.setState({
-      password: e.target.value
-    });
-  };
-
-  
-
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
+  return (
+    <div>
+        <form>
         
         Email:
         <br />
         <input
           type="text"
           name="username"
-          value={this.state.username}
-          onChange={this.handleUsernameChange}
+          value={username}
+          onChange={updateUsername}
           placeholder="example@gmail.com"
         />
         <br />
@@ -91,8 +67,8 @@ class CreateAccount extends React.Component {
         <input
           type="password"
           name="password"
-          value={this.state.password}
-          onChange={this.handlePasswordChange}
+          value={password}
+          onChange={updatePassword}
         />
         <br />
         <b>Pick your favorite of the quotes listed here!</b> <br />
@@ -105,10 +81,9 @@ class CreateAccount extends React.Component {
           <input type="radio" name="quote6" value="Boredom is simply romanticism with a morning-after thirst." className="quote" /> Boredom is simply romanticism with a morning-after thirst.  < br />  < br />
         </div>
         
-        <button onClick={this.createAccount}>Create Account</button>
+        <button onClick={createAccount}>Create Account</button>
       </form>
-    );
-  }
+    </div>
+  )
 }
-
 export default CreateAccount;

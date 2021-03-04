@@ -1,93 +1,69 @@
 import React from 'react';
-import Philosophy from './Philosophy';
 import { Link, withRouter } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import axios from 'axios';
 
 class Explore extends React.Component {
-  state = {
-    randomTrait: "",
-  };
+ 
+  constructor(props) {
+    super(props);
+    this.state = { 
+      names: [],
+      descriptions: [],
+      philosophies: [],
+    };
+  }
+
+
+
+  componentDidMount(){
+    axios.get(`https://athena-back-end.herokuapp.com/api/allphilosophies` )
+      .then((response) => {
+          // success
+          console.log("here");
+          console.log(response);
+          this.setState({philosophies: response.data });
+      })
+      .catch((error) => {
+        // error
+        console.log(error);
+      });
+  }
+
+  displayPhilosophies () {
+    return this.state.philosophies.map((phil) => {
+      return (
+          <div key={phil.philosophy} className = "philosophy-card">
+            <div className = "philosophy-card-image">
+              <a>
+                <img alt="taoism" src={phil.imageUrl}/>
+              </a>
+            </div>
+            <div className = "philosophy-card-descr">
+              <Link 
+                to={{
+                  pathname: '/philosophy',
+                  aboutProps: {
+                    phil: phil
+                }
+              }}>
+                <h4>{phil.philosophy}</h4></Link>
+              <p className="philosophy-tags"></p>
+            </div>
+          </div>
+        )
+    });
+  }
+
+
 
   render() {
     return (	
       <div id="container">
-      <h3>Explore Philosophies</h3>
-      
-        <Link to={{
-          pathname: '/philosophy',
-          aboutProps: {
-            name: "Romanticism",
-            description: "Lovely things",
-            quote: "Please fall in love",
-            quotee: "William the Shakespeare"
-          }
-        }}>Romanticism</Link>
-      <div className = "philosophies">
-        <div className = "philosophy-card"> 
-          <div className = "philosophy-card-image">
-            <a href="#">
-              <img src = "https://via.placeholder.com/250" />
-            </a>
-          </div>
-          <div className = "philosophy-card-descr">
-          <Link to={{
-          pathname: '/philosophy',
-          aboutProps: {
-            name: "Stoicism",
-            description: "Don't complain",
-            quote: "Be Strong",
-            quotee: "Marcus Aurelius"
-          }
-        }}>Stoicism</Link>
-            <p className="philosophy-tags">#Nature #Expression</p>
-          </div>
-        </div>
-        <div className = "philosophy-card">
-          <div className = "philosophy-card-image">
-            <a href="#">
-              <img src = "https://via.placeholder.com/250" />
-            </a>
-          </div>
-          <div className = "philosophy-card-descr">
-            <h4>Romanticism</h4>
-            <p className ="philosophy-tags">#Nature #Expression</p>
-          </div>
-        </div>
-        <div className = "philosophy-card">
-          <div className = "philosophy-card-image">
-            <a href="#">
-              <img src = "https://via.placeholder.com/250" />
-            </a>
-          </div>
-          <div className = "philosophy-card-descr">
-            <h4>Romanticism</h4>
-            <p className="philosophy-tags">#Nature #Expression</p>
-          </div>
-        </div>
-        <div className = "philosophy-card">
-          <div className = "philosophy-card-image">
-            <a href="#">
-              <img src = "https://via.placeholder.com/250" />
-            </a>
-          </div>
-          <div className = "philosophy-card-descr">
-            <h4>Romanticism</h4>
-            <p className="philosophy-tags">#Nature #Expression</p>
-          </div>
-        </div>
-        <div className = "philosophy-card">
-          <div className = "philosophy-card-image">
-            <a href="#">
-              <img src = "https://via.placeholder.com/250" />
-            </a>
-          </div>
-          <div className = "philosophy-card-descr">
-            <h4>Romanticism</h4>
-            <p className="philosophy-tags">#Nature #Expression</p>
-          </div>
+        <h3>Explore Philosophies</h3>
+        <div className = "philosophies">
+          {this.displayPhilosophies()}
         </div>
     
-      </div>
     </div>
         
       );

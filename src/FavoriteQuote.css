@@ -1,0 +1,13 @@
+.favQuoteCont {
+    width: 200px;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.favQuoteCont>p {
+    font-size: 20px;
+    margin: 10px;
+}
+.favQuoteCont>h5 {
+    margin: 10px;
+}

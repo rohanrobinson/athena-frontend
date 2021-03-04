@@ -1,10 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
-
-.App {
-  text-align: center;
-}
-
-
 *{font-family: 'Fira Sans', sans-serif;}
 
 body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
@@ -59,17 +52,48 @@ label.logo
 	color: var(--white-tone);
 }
 
-.search-bar {
-	margin-top: 35px;
-	margin-right: 50px;
-	height: 25px;
-}
-.search-bar:hover {
-	width: 200px;
+/* search bar */
+.searchBox {
+    background: var(--white-tone);
+    height: 40px;
+    border-radius: 40px;
+    display: inline-block;
+    margin-left: 50px;
+    vertical-align: middle;
+
 }
 
-.log-out{
-	cursor: pointer;
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0px 20px;
+}
+
+.searchBox:hover > .searchButton {
+  background: var(--primary-col-var);
+  color : var(--primary-col-var);
+}
+
+.searchButton {
+    color: var(--secondary-col);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: var(--primary-col-var);
+    background: var(--primary-col);
+    transition: 0.4s;
+    margin-left: -4px; /*not sure why the button is offset? */
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    padding: 0;
+    color: var(--secondary-col);
+    font-size: 16px;
+    transition: 0.4s;
+    width: 0px;
+
 }
 /******************************************************/
 
@@ -79,7 +103,7 @@ label.logo
 	/*width: 960px; margin: 0 auto;*/
 	min-width: 500px;
 	max-width: 1000px;
-	padding-top: 50px;
+	padding-top: 30px;
 	width: auto;
 	height: auto;
 	margin: 0 auto;
@@ -203,8 +227,7 @@ button[type="submit"]:hover {
 
 /***************************************************************************/
 
-​/******************** EXPLORE PHILOSOPHIES *********************************/
-
+/******************** EXPLORE PHILOSOPHIES *********************************/
 .philosophies {
 	display: flex;
 	flex-flow: row wrap;
@@ -217,7 +240,7 @@ button[type="submit"]:hover {
 	justify-content: center;
 	padding: 0px 5% 0px 5%;
 }
-​
+
 .philosophy-card {
   background-color: white;
   background-size: contain;
@@ -231,17 +254,17 @@ button[type="submit"]:hover {
   border: solid 2px var(--secondary-col-var);
   transition: .3s;
 }
-​
+
 .philosophy-card:hover {
 	transform: scale(1.03);
 	transition: .3s;
 }
-​
+
 .philosophy-card-image{
 	margin: 0;
 	position: relative;
 }
-​
+
 .philosophy-card-image img{
 	width: 100%;
     display: block;
@@ -249,24 +272,47 @@ button[type="submit"]:hover {
     box-shadow: 0 0 1.5rem rgb(17 17 17 / 30%);
     transition: .15s;
 }
-​
+
 .philosophy-card-image img:hover{
     box-shadow: 0 0 1.5rem rgb(17 17 17 / 40%);
     transform:rotate(-2deg) scale(1.02);
     transition: .15s;
 }
-​
+
 h4 {
 	color:var(--primary-col);
 	padding-top: 10px;
 	font-size: 30px;
 }
-​
+
 .philosophy-card-descr {
 	color: var(--secondary-col);
 	font-size: 10px;
 }
 
-.philosophyImage {
-	width: 25%;
+/****************************************************/
+
+/****************** PHILOSOPHY PAGE ******************/
+
+.philosophy-image {
+	float:left;
+	padding-right: 10px;
+}
+
+.philosophy-content {
+	text-align: left;
+}
+
+.philosophy-figures {
+	padding-top: 20px;
+}
+
+.related-quotes {
+	padding-top: 80px;
+	text-align: center;
+}
+
+.related-quote-text {
+	font-style: italic;
+	font-size: 40px;
 }
