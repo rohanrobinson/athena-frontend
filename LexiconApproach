@@ -1,0 +1,88 @@
+import random
+
+f = open("NRC-Emotion-Lexicon-Wordlevel-v0.92.txt", "r")
+
+word_dict = {}
+
+for line in f:
+        line_array = line.split()
+        if len(line_array) != 0:
+            if line_array[0] in word_dict:
+                sentiments_dict = word_dict.get(line_array[0])
+                sentiments_dict[line_array[1]] = line_array[2]
+                word_dict[line_array[0]] = sentiments_dict
+            else:
+                sentiments_dict = {}
+                sentiments_dict[line_array[1]] = line_array[2]
+                word_dict[line_array[0]] = sentiments_dict
+
+
+
+input = "I'm feeling distraught"
+
+input_array = input.split()
+
+sentimentScore_dict = {}
+
+for word in input_array:
+    if word in word_dict:
+        sentiments_dict = word_dict[word]
+        for key in sentiments_dict:
+            if sentiments_dict[key] == '1':
+                if key in sentimentScore_dict:
+                    sentimentScore_dict[key] = sentimentScore_dict[key] + 1
+                else:
+                    sentimentScore_dict[key] = 1
+
+print(sentimentScore_dict)
+
+
+max = 0
+max_list = []
+for sentiment in sentimentScore_dict:
+    if sentimentScore_dict[sentiment] > max:
+        max = sentimentScore_dict[sentiment]
+for sentiment in sentimentScore_dict:
+    if sentimentScore_dict[sentiment] == max:
+        max_list.append(sentiment)
+
+print(max_list)
+print(len(max_list))
+
+if len(max_list) > 0:
+    if "joy" in max_list or "positive" in max_list or "anticipation" in max_list or "trust" in max_list:
+        if "anger" in max_list or "sadness" in max_list or "fear" in max_list or "disgust" in max_list or "negative" in max_list:
+            final_sentiment = "neutral"
+        else:
+            final_sentiment = "joy"
+    elif len(max_list) == 1:
+        if max_list[0] == "disgust":
+            final_sentiment = "anger"
+        elif max_list[0] == "anger":
+            final_sentiment = "anger"
+        elif max_list[0] == "sadness":
+            final_sentiment = "sadness"
+        elif max_list[0] == "fear":
+            final_sentiment = "fear"
+        elif max_list[0] == "negative":
+            final_sentiment = "sadness"
+    elif "anger" and "disgust" in max_list:
+        final_sentiment = "anger"
+    elif "disgust" in max_list:
+        max_list.remove("disgust")
+        if "negative" in max_list:
+            max_list.remove("negative")
+            final_sentiment = random.choice(max_list)
+        else:
+            final_sentiment = random.choice(max_list)
+    elif "negative" in max_list:
+        max_list.remove("negative")
+        final_sentiment = random.choice(max_list)
+    else:
+        final_sentiment = random.choice(max_list)
+else:
+    final_sentiment = "neutral"
+
+
+
+print(final_sentiment)
