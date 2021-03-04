@@ -1,0 +1,29 @@
+@media all and (min-width: 480px) {
+    .QuoteCont {
+      padding: 20px 0;
+      padding-bottom: 60px;
+      margin: 0 auto;
+      max-width: 500px;
+    }
+}
+
+.sentence {
+    margin: 20px;
+}
+
+.nextButton {
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #0099e5;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+.nextButton:hover {
+    background-color: #57b9ff;
+}
+.nextButton:focus {
+    outline: none;
+}

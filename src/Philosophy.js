@@ -1,35 +1,44 @@
 import React from "react";
 
 class Philosophy extends React.Component {
-
-    state = {
-        name: this.props.location.aboutProps.name,
-        description: this.props.location.aboutProps.description,
-        quote: this.props.location.aboutProps.quote,
-        quotee: this.props.location.aboutProps.quotee // quotee is the name of someone who said a quote 
-    };
-
-    componentDidMount() {
-        console.log(this.props.location.aboutProps.name)
-
+    constructor(props) {
+        super(props);
+        if (this.props.location.aboutProps) {
+            sessionStorage.setItem('philosophy', JSON.stringify(this.props.location.aboutProps.phil));
+        }
+        this.state = {
+            // phil: this.props.location.aboutProps.phil,
+            // name: this.props.location.aboutProps.phil.philosophy,
+            // description: this.props.location.aboutProps.phil.description,
+            // imageUrl: this.props.location.aboutProps.phil.imageUrl,
+            // quote: "sample quote",
+            // quotee: "sample quote author" // quotee is the name of someone who said a quote
+            phil: JSON.parse(sessionStorage.getItem('philosophy')),
+            name: JSON.parse(sessionStorage.getItem('philosophy')).philosophy,
+            description: JSON.parse(sessionStorage.getItem('philosophy')).description,
+            imageUrl: JSON.parse(sessionStorage.getItem('philosophy')).imageUrl,
+            quote: "sample quote",
+            quotee: "sample quote author" // quotee is the name of someone who said a quote 
+        };
     }
+
 
     render () {
         
         return(
             <div id="container">
             <h3>{this.state.name}</h3>
-            <div class = "philosophy">
-                <div class = "philosophy-image">
-                    <img src = "https://via.placeholder.com/250" />
+            <div className = "philosophy">
+                <div className = "philosophy-image">
+                    <img className="philosophyImage" alt="philosophy" src={this.state.imageUrl}/>
                 </div>
-                <div class = "philosophy-content">
-                    <div class = "philosophy-descr">
+                <div className = "philosophy-content">
+                    <div className = "philosophy-descr">
                         <p>{this.state.description}</p>
                     </div>
-                    <div class = "related-quotes">
-                        <p class = "related-quote-text">"{this.state.quote}"</p>
-                        <p class = "related-quote-author">-{this.state.quotee}</p>
+                    <div className = "related-quotes">
+                        <p className = "related-quote-text">"{this.state.quote}"</p>
+                        <p className = "related-quote-author">-{this.state.quotee}</p>
                     </div>
                 </div>
             </div>
