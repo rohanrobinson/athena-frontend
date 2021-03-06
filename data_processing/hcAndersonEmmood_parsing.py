@@ -44,13 +44,13 @@ def customMLModel(inputSampleCollection, sentenceInput):
     #print(fearScore)
     #print(sadnessScore)
     if maxScore == joyScore:
-        return 0.3#"joy"
+        return "joy" #0.3
     if maxScore == angerScore:
-        return 0.5#"anger"
+        return "anger" #0.5#
     if maxScore == fearScore:
-        return 0.4#"fear"
+        return "fear" #0.4
     if maxScore == sadnessScore:
-        return 0.7#"sadness"
+        return "sadness" #0.7
 
 def hcAndersonparser(directory_str, inputSampleLimit, k):
     
@@ -203,11 +203,13 @@ sentimentData = []
 for key in ["joy", "anger", "fear", "sadness"]:
     for dataSample in inputSampleCollection[key]:
         sentence = dataSample["sentence"]
-        #print(sentence)
+        print("Sentence: "+ sentence)
         modelData.append(customMLModel(inputSampleCollection, sentence))
+        print("Result: "+ customMLModel(inputSampleCollection, sentence))
         sentimentData.append(len(key)/10)
+        break 
 print(modelData)
-print(sentimentData)
+#print(sentimentData)
 
 # Split dataset into training set and test set
 x_train, x_test, y_train, y_test = train_test_split(modelData, sentimentData, test_size=0.3,random_state=109) # 70% training and 30% test
@@ -218,6 +220,7 @@ clf = svm.SVC(kernel='linear') # Linear Kernel
 #print(len(x_train))
 #print(len(y_train))
 
+'''
 #Train the model using the training sets
 clf.fit(np.array(x_train).reshape(-1, 1), np.array(y_train).reshape(-1,1))
 
@@ -226,10 +229,13 @@ y_pred = clf.predict(x_test)
 
 # Model Accuracy: how often is the classifier correct?
 print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
-
+'''
 '''
 ID|CITY|COUN|SUBJ|SEX|AGE|RELI|PRAC|FOCC|MOCC|FIEL|EMOT|WHEN|LONG|INTS|ERGO|TROPHO|TEMPER|EXPRES|
 MOVE|EXP1|EXP2|EXP10|PARAL|CON|EXPC|PLEA|PLAN|FAIR|CAUS|COPING|MORL|SELF|RELA|VERBAL|NEUTRO|Field1|
 Field3|Field2|MYKEY|SIT|STATE|
+
+- Quotes related to philosophies that may not be pertain to sentiments
+- 
 '''
 
