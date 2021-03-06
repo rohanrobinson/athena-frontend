@@ -58,7 +58,7 @@ def ISEARTrainingData(filename, keyList, sampleNum, sampleNumLimit):
     return TrainingData
 
 def IBM_Accuracy():
-    TrainingData = ISEARTrainingData("isear.csv", ['joy', 'fear', 'anger', 'sadness'], 100, 4000)
+    TrainingData = ISEARTrainingData("isear.csv", ['joy', 'fear', 'anger', 'sadness'], 20, 4000)
     actualData = []
     predictedData = []
     for sample in TrainingData:

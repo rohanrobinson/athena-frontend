@@ -7,7 +7,7 @@ def extractSentiment(userInput):
 
     # create IBM Tone Analyzer object
     # fill with API key
-    authenticator = IAMAuthenticator('---')
+    authenticator = IAMAuthenticator('1JP8Q-BE_S90GcwBOmyo6WcJ1lbrSO8JbjE77wdsV8X1')
     
     tone_analyzer = ToneAnalyzerV3(
         version='2017-09-21',
@@ -15,11 +15,12 @@ def extractSentiment(userInput):
     )
 
     # fill with URL
-    tone_analyzer.set_service_url('---')
+    tone_analyzer.set_service_url('https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/7d7cac99-0e1b-4e25-b5ad-975d20330124')
 
     # extracting list of sentiments from IBM Tone Analzyer
     tone_analysis = tone_analyzer.tone({'text': userInput}, content_type='application/json').get_result()
     sentimentList = tone_analysis["document_tone"]["tones"]
+    print(sentimentList)
 
     # contains list of sentiments in sentimentList if it is joy, fear, anger, or sadness
     cleanedSentimentList = []
@@ -33,6 +34,7 @@ def extractSentiment(userInput):
     # IBM Tone Analyzer failed to find tones
     # Return joy if positive statement, sadness if negative statement
     if cleanedSentimentList == []:
+        print("textblob")
         analysis = TextBlob(userInput).sentiment
         if(analysis.polarity <= 0):
             predictedSentiment['Sentiment'] = 'sadness'
@@ -50,3 +52,6 @@ def extractSentiment(userInput):
                     predictedSentiment['Sentiment'] = SentimentObj['tone_name']
 
     return predictedSentiment
+
+
+print(extractSentiment("When I pass an examination which I did not think I did well."))
