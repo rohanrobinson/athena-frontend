@@ -53,7 +53,7 @@ class Navigation extends React.Component {
                       this.props.location.pathname === "/about" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/quotesSaved">
+                    <Link class="nav-link" to="/favorites">
                       My Favorites
                     </Link>
                   </li>
