@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import "./searchBar.css";
 
 const SearchBar = () => {
   const history = useHistory();
@@ -57,14 +58,17 @@ const SearchBar = () => {
   }
 
   return (
-    <div>
-      <input className="search-bar"
-        type="text" 
-        placeholder="How are you feeling?"
-        onChange={updateSentence}
-        value={sentence}
-        onKeyPress={handleSubmit}
-        />
+    <div className = "search-bar-div">
+      <div className = "button-area">
+        <input className = "searchInput"
+          type="text" 
+          placeholder="I'm feeling..."
+          onChange={updateSentence}
+          value={sentence}
+          onKeyPress={handleSubmit}
+          />
+        <button type="submit">Search</button>
+      </div>
     </div>
   )
 }
