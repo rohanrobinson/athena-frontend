@@ -7,6 +7,8 @@ from sklearn import svm, metrics
 import numpy as np
 # pip install -U scikit-learn
 
+# SVM tutorial https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python
+
 # via readme.txt
 # 1. emmood  	Lists sentences with unmerged affect labels for two annotators (A and B). 
 # The label set for both Primary emotion (1em) and Mood were: 
