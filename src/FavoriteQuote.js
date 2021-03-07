@@ -64,8 +64,8 @@ const FavoriteQuote = ({ quoteId }) => {
 
   return (
     <div className="favQuoteCont">
-        <h5>{quote}</h5>
-        <p>{author}</p>
+        <h5>"{quote}"</h5>
+        <p>-{author}</p>
         <FontAwesomeIcon icon={faTrash} className="trash_icon" onClick={removeQuote} />
     </div>
   )
