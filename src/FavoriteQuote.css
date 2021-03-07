@@ -11,3 +11,9 @@
 .favQuoteCont>h5 {
     margin: 10px;
 }
+.trash_icon {
+    cursor: pointer;
+}
+.trash_icon:hover {
+    color: gray;
+}
