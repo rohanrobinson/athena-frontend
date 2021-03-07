@@ -177,19 +177,17 @@ class SearchResult extends Component {
        <hr></hr>
         <h3>{this.state.quote}</h3>
         <p className="sentence">Author - {this.state.author}</p>
-        <hr></hr>
-        <button className="nextButton" onClick={this.getQuote}>Next</button>
         { !(this.state.authenticated) ? (
           <>
           </>
         ):(
           <>
-            <br></br>
-            <br></br>
             <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Red"): ("Gray")} className="heartIcon"/>
             <p>Favorite</p>
           </>
         )}
+         <hr></hr>
+         <button className="nextButton" onClick={this.getQuote}>Next</button>
       </div>
     </div>
     );

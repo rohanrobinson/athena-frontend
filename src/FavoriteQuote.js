@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 
+
 const FavoriteQuote = ({ quoteId }) => {
   const history = useHistory();
   const [quote, setQuote] = useState();
   const [author, setAuthor] = useState();
-
   useEffect(() => {
     axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quoteId}`)
       .then ((response) => {
