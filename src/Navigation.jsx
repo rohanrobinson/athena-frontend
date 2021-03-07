@@ -34,9 +34,9 @@ class Navigation extends React.Component {
       return (
         <div className="navigation">
           <nav>
-              <Link class="navbar-brand" to="/">
+              <div class="navbar-brand" to="/">
                 Athena
-              </Link>
+              </div>
                 <ul>
                   <li
                     class={`nav-item  ${
