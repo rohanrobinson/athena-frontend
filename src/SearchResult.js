@@ -95,12 +95,48 @@ class SearchResult extends Component {
   likeQuote = (event) => {
     console.log("liked");
     // console.log(this.state.quoteId);
-    if (this.state.liked == true) {
-      // already liked
-      // do nothing
-      console.log("unliked");
-      this.setState({ 
-        liked: false
+    console.log(this.state.quotesList);
+    if (this.state.quotesList.includes(this.state.quoteId)) {
+      // already liked, remove from liked
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' + this.state.token
+        }
+      };
+      const body = {
+        removeQuote: this.state.quoteId
+      };
+      console.log(body);
+      axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
+      .then((res) => {
+        // success, get new user object
+        console.log(res);
+        axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
+          .then((response) => {
+            // success
+            console.log(response);
+            sessionStorage.setItem('user', JSON.stringify(response.data));
+
+            var temp = [];
+            for (var i=0; i<this.state.quotesList.length; i++) {
+              if (this.state.quotesList[i] !== this.state.quoteId) {
+                temp.push(this.state.quotesList[i]);
+              }
+            }
+            console.log(temp);
+            this.setState({ 
+              quotesList: temp,
+              liked: false
+            });
+          })
+          .catch((error) => {
+            // error
+            console.log(error);
+          });
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
       });
     } else {
       // add to liked
@@ -117,8 +153,12 @@ class SearchResult extends Component {
       axios.put(`https://athena-back-end.herokuapp.com/api/auth/saveQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success
+        var temp = this.state.quotesList;
+        temp.push(this.state.quoteId);
+        console.log(temp);
+        
         this.setState({ 
-          quotesList: this.state.quotesList.push(this.state.quoteId),
+          quotesList: temp,
           liked: true
         });
       })
