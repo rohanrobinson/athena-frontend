@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import "./createAccount.css"
 
 const CreateAccount = () => {
   const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [incorrect, setIncorrect] = useState(false);
 
   const createAccount = (event) => {
     event.preventDefault();
+    setIsLoading(true);
     // var radios = document.getElementsByClassName('quote');
     // var favoriteQuote = '';
     // for( let i = 0; i < radios.length; i++ ) {
@@ -30,12 +34,15 @@ const CreateAccount = () => {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        alert("Account created. You can now log in.");
+        // alert("Account created. You can now log in.");
+        setIsLoading(false);
         history.push('/');
       })
       .catch((error) => {
         console.log(error);
-        alert(error);
+        // alert("Make sure email is valid and password is at least six characters");
+        setIsLoading(false);
+        setIncorrect(true);
       });
   }
 
@@ -48,41 +55,58 @@ const CreateAccount = () => {
   }
 
   return (
-    <div>
-        <form>
-        
-        Email:
-        <br />
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={updateUsername}
-          placeholder="example@gmail.com"
-        />
-        <br />
+    <div className="createAccountPage">
+      <div className="container">
+        <form className="log-form">
+        <h1>Create an Account</h1>
+        <br/>
+        <h2>Email</h2>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={updateUsername}
+            placeholder="example@gmail.com"
+          />
+          <br />
 
-        Password:
-        <br />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={updatePassword}
-        />
-        <br />
-        {/* <b>Pick your favorite of the quotes listed here!</b> <br />
-        <div className="quotes">
-          <input type="radio" name="quote1" value="Waste no more time arguing what a good man should be. Be One" className="quote" /> Waste no more time arguing what a good man should be. Be One < br />  < br />
-          <input type="radio" name="quote2" value="The words of truth are always paradoxical" className="quote" /> The words of truth are always paradoxical  < br />  < br />
-          <input type="radio" name="quote3" value="It is not so much our friends help that helps us, as the confidence of their help" className="quote" /> It is not so much our friends help that helps us, as the confidence of their help  < br />  < br />
-          <input type="radio" name="quote4" value="I finally figured out the only reason to be alive is to enjoy it" className="quote" /> I finally figured out the only reason to be alive is to enjoy it  < br />  < br />
-          <input type="radio" name="quote5" value="All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason." className="quote" /> All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason.  < br />  < br />
-          <input type="radio" name="quote6" value="Boredom is simply romanticism with a morning-after thirst." className="quote" /> Boredom is simply romanticism with a morning-after thirst.  < br />  < br />
-        </div> */}
-        
-        <button onClick={createAccount}>Create Account</button>
-      </form>
+          <h2>Password</h2>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={updatePassword}
+          />
+          {/* <b>Pick your favorite of the quotes listed here!</b> <br />
+          <div className="quotes">
+            <input type="radio" name="quote1" value="Waste no more time arguing what a good man should be. Be One" className="quote" /> Waste no more time arguing what a good man should be. Be One < br />  < br />
+            <input type="radio" name="quote2" value="The words of truth are always paradoxical" className="quote" /> The words of truth are always paradoxical  < br />  < br />
+            <input type="radio" name="quote3" value="It is not so much our friends help that helps us, as the confidence of their help" className="quote" /> It is not so much our friends help that helps us, as the confidence of their help  < br />  < br />
+            <input type="radio" name="quote4" value="I finally figured out the only reason to be alive is to enjoy it" className="quote" /> I finally figured out the only reason to be alive is to enjoy it  < br />  < br />
+            <input type="radio" name="quote5" value="All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason." className="quote" /> All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason.  < br />  < br />
+            <input type="radio" name="quote6" value="Boredom is simply romanticism with a morning-after thirst." className="quote" /> Boredom is simply romanticism with a morning-after thirst.  < br />  < br />
+          </div> */}
+
+          { incorrect ? (
+            <>
+            <p id="bad_signup">Email must be valid and password must be at least 6 characters.</p>
+            </>
+          ):(
+            <>
+            </>
+          )}
+
+          <button onClick={createAccount}>Create Account</button>
+          { isLoading ? (
+            <>
+            <div class="loader"></div>
+            </>
+          ):(
+            <>
+            </>
+          )}
+        </form>
+      </div>
     </div>
   )
 }
