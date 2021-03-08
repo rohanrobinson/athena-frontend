@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from 'axios';
 import "./home.css"
 
@@ -8,7 +8,9 @@ class Home extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      isLoading: false,
+      incorrect: false,
     };
   }
 
@@ -24,6 +26,7 @@ handlePasswordChange = e => {
 };
 handleLogin = e => {
   e.preventDefault();
+  this.setState({ isLoading: true });
   const loginObject = {
     email: this.state.username,
     password: this.state.password,
@@ -39,12 +42,14 @@ handleLogin = e => {
         sessionStorage.setItem('user', res.data.user);
         console.log(sessionStorage.getItem('user'));
         // console.log(sessionStorage.getItem('token'));
+        this.setState({ isLoading: false });
         this.props.history.push('/explore/');
         // we will need to save the token globally somewhere
       })
       .catch((error) => {
-        alert('Incorrect username or password.');
+        // alert('Incorrect username or password.');
         console.log(error);
+        this.setState({ isLoading: false, incorrect: true });
       });
 
   console.log(loginObject);
@@ -56,10 +61,29 @@ render() {
         <h1>WELCOME</h1>
         <h2>Athena uses Machine Learning to provide you with inspirational quotes and philosophies that best suit your needs and personality</h2>
         <form className="log-form">
-          <input type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameChange}/>
+          <input type="text" placeholder="Email" value={this.state.username} onChange={this.handleUsernameChange}/>
           <input type="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
+          { this.state.incorrect ? (
+            <>
+            <p id="incorrect_login">Incorrect email or password.</p>
+            </>
+          ):(
+            <>
+            </>
+          )}
+          
           <button type="submit" id="login-button" onClick={this.handleLogin}>Login</button>
+          { this.state.isLoading ? (
+            <>
+            <div class="loader"></div>
+            </>
+          ):(
+            <>
+            </>
+          )}
+          
         </form>
+        
       </div>
       
       <ul className="bg-bubbles">

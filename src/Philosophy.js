@@ -1,5 +1,9 @@
 import React from "react";
+
+import axios from "axios";
+
 import "./Philosophy.css";
+
 
 class Philosophy extends React.Component {
     constructor(props) {
@@ -18,14 +22,59 @@ class Philosophy extends React.Component {
             name: JSON.parse(sessionStorage.getItem('philosophy')).philosophy,
             description: JSON.parse(sessionStorage.getItem('philosophy')).description,
             imageUrl: JSON.parse(sessionStorage.getItem('philosophy')).imageUrl,
-            quote: "sample quote",
-            quotee: "sample quote author" // quotee is the name of someone who said a quote 
+            quotes: JSON.parse(sessionStorage.getItem('philosophy')).quotes,
+            quote: '',
+            author: '',// quotee is the name of someone who said a quote 
+            quoteId: '',
         };
+
+    }
+
+    componentDidMount() {
+        const l = this.state.quotes.length;
+        const j = Math.floor(Math.random()*l);
+        axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
+          .then ((response) => {
+            // success
+            console.log("quote:");
+            console.log(response.data.quote);
+            this.setState({
+              quoteId: response.data._id.$oid,
+              quote: response.data.quote,
+              author: response.data.author,
+            });
+          })
+          .catch((err) => {
+            // error
+            alert(err);
+            console.log(err)
+          });
+    }
+
+    getQuote = (event) => {
+        event.preventDefault();
+        const l = this.state.quotes.length;
+        const j = Math.floor(Math.random()*l);
+        axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
+          .then ((response) => {
+            // success
+            console.log("quote:");
+            console.log(response.data.quote);
+            this.setState({
+              quoteId: response.data._id.$oid,
+              quote: response.data.quote,
+              author: response.data.author,
+            });
+          })
+          .catch((err) => {
+            // error
+            alert(err);
+            console.log(err)
+          });
     }
 
 
     render () {
-        
         return(
             <div id="container">
             <h3>{this.state.name}</h3>
@@ -39,8 +88,9 @@ class Philosophy extends React.Component {
                     </div>
                     <div className = "related-quotes">
                         <p className = "related-quote-text">"{this.state.quote}"</p>
-                        <p className = "related-quote-author">-{this.state.quotee}</p>
+                        <p className = "related-quote-author">-{this.state.author}</p>
                     </div>
+                    <button onClick={this.getQuote}>Next</button>
                 </div>
             </div>
         </div>
