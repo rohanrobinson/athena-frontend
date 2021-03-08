@@ -211,6 +211,13 @@ body{
   }
 }
 
+
+#loader_cont {
+  width: 100%;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
@@ -218,9 +225,8 @@ body{
   width: 60px;
   height: 60px;
   animation: spin 2s linear infinite;
-  position: fixed;
-  left: 50%;
-  margin-top: 50px;
+  margin-top: 25px;
+  align-self: center;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }

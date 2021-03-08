@@ -31,6 +31,7 @@ class Philosophy extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         const l = this.state.quotes.length;
         const j = Math.floor(Math.random()*l);
         axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
@@ -76,21 +77,24 @@ class Philosophy extends React.Component {
 
     render () {
         return(
-            <div id="container">
-            <h3>{this.state.name}</h3>
-            <div className = "philosophy">
-                <div className = "philosophy-image">
-                    <img className="philosophyImage" alt="philosophy" src={this.state.imageUrl}/>
-                </div>
-                <div className = "philosophy-content">
-                    <div className = "philosophy-descr">
-                        <p>{this.state.description}</p>
-                    </div>
-                    <div className = "related-quotes">
-                        <p className = "related-quote-text">"{this.state.quote}"</p>
-                        <p className = "related-quote-author">-{this.state.author}</p>
-                    </div>
-                    <button onClick={this.getQuote}>Next</button>
+            <div id="phil_cont">
+                <div id="phil_inner_cont">
+                    <p id="phil_title">{this.state.name}</p>
+                    <div className = "philosophy">
+                        <div>
+                            <img id = "phil-image" alt="philosophy" src={this.state.imageUrl}/>
+                        </div>
+                        <div className = "philosophy-content">
+                            <div className = "philosophy-descr">
+                                <p id="phil_desc">{this.state.description}</p>
+                            </div>
+                            <br></br>
+                            <div className = "related-quotes">
+                                <p id="phil_quote" className = "related-quote-text">"{this.state.quote}"</p>
+                                <p className = "related-quote-author">-{this.state.author}</p>
+                            </div>
+                            <button id="next_phil_button" onClick={this.getQuote}>Next Quote</button>
+                        </div>
                 </div>
             </div>
         </div>

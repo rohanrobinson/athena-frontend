@@ -14,6 +14,7 @@
   margin: 0 auto;
   max-width: 700px;
   text-align: center;
+  align-content: center;
 }
 
 .QuoteCont .sentence {
@@ -26,7 +27,9 @@
   color:white;
   font-size: 42px;
   font-style: italic;
-
+  align-self: center;
+  text-align: center;
+  align-content: center;
 }
 
 hr {
@@ -49,4 +52,9 @@ hr {
 }
 .nextButton:focus {
     outline: none;
+}
+
+#quote_display {
+  font-size: 40px;
+  color: rgb(221, 215, 215);
 }

@@ -99,7 +99,9 @@ const CreateAccount = () => {
           <button onClick={createAccount}>Create Account</button>
           { isLoading ? (
             <>
-            <div class="loader"></div>
+            <div id="sign_up_load_cont">
+              <div class="loader"></div>
+            </div>
             </>
           ):(
             <>

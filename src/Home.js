@@ -75,7 +75,9 @@ render() {
           <button type="submit" id="login-button" onClick={this.handleLogin}>Login</button>
           { this.state.isLoading ? (
             <>
-            <div class="loader"></div>
+            <div id="loader_cont">
+              <div class="loader"></div>
+            </div>
             </>
           ):(
             <>

@@ -174,8 +174,8 @@ class SearchResult extends Component {
     <div>
       <div className="QuoteCont">
         <p className="sentence">Displaying Quotes Inspired By Your Search: {this.state.sentence}</p>
-       <hr></hr>
-        <h3>{this.state.quote}</h3>
+        <hr></hr>
+        <p id="quote_display">{this.state.quote}</p>
         <p className="sentence">Author - {this.state.author}</p>
         { !(this.state.authenticated) ? (
           <>

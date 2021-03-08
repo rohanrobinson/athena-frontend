@@ -1,3 +1,11 @@
+#phil_cont {
+    width: 100%;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+
 h3 {
     text-align: center;
     margin-left: 470px;
@@ -6,4 +14,46 @@ h3 {
 
 .philosophy {
     text-align: center;
+}
+
+#phil_inner_cont {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#phil-image {
+    width: 75%;
+    max-width: 300px;
+    margin: 20px;
+}
+
+#phil_title {
+    align-self: center;
+    font-size: 40px;
+    color: white;
+    margin-top: 10px;
+}
+
+#next_phil_button {
+    background-color: #90cbc5;
+    color: white;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin: 10px;
+}
+#next_phil_button:hover {
+    background-color: gray;
+}
+#phil_desc {
+    color: rgb(196, 191, 191);
+    font-size: 20px;
+    text-align: start;
+}
+
+#phil_quote {
+    font-size: 18px;
 }

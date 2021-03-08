@@ -124,7 +124,9 @@ const SearchBar = () => {
       </div>
       { isLoading ? (
         <>
-          <div class="loader"></div>
+        <div id="search_loader_cont">
+          <div id="loader_search"></div>
+        </div>
         </>
       ):(
         <>
