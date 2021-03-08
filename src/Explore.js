@@ -36,8 +36,8 @@ class Explore extends React.Component {
       return (
           <div key={phil.philosophy} className = "philosophy-card">
             <div className = "philosophy-card-image">
-              <a href="#">
-                <img alt="taoism" src={phil.imageUrl}/>
+              <a>
+                <img alt={phil.philosophy} src={phil.imageUrl} />
               </a>
             </div>
             <div className = "philosophy-card-descr">

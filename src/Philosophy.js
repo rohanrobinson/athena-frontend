@@ -1,5 +1,9 @@
 import React from "react";
+
 import axios from "axios";
+
+import "./Philosophy.css";
+
 
 class Philosophy extends React.Component {
     constructor(props) {
