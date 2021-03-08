@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
+import SearchBar from './SearchBar'
+import "./explore.css";
 
 class Explore extends React.Component {
  
@@ -35,7 +37,7 @@ class Explore extends React.Component {
           <div key={phil.philosophy} className = "philosophy-card">
             <div className = "philosophy-card-image">
               <a>
-                <img alt="taoism" src={phil.imageUrl}/>
+                <img alt={phil.philosophy} src={phil.imageUrl} />
               </a>
             </div>
             <div className = "philosophy-card-descr">
@@ -58,14 +60,25 @@ class Explore extends React.Component {
 
   render() {
     return (	
-      <div id="container">
-        <h3>Explore Philosophies</h3>
-        <div className = "philosophies">
-          {this.displayPhilosophies()}
+      <div className = "explore-page">
+        <div className="inspiration">
+          <div className="inspiration-content">
+            <h1>GET INSPIRATION</h1>
+            <h2>Describe how you're feeling and we'll match you with quotes to provide you with inspiration</h2>
+            <SearchBar/>
+          </div>
         </div>
-    
-    </div>
-        
+        <div className="discover">
+          <div className="discover-content">
+            <h1>DISCOVER PHILOSOPHIES</h1>
+            <h2>Learn about new philosophies and browse through related quotes</h2>
+          </div>
+          <div className = "discover-philosophies">
+            {this.displayPhilosophies()}
+          </div>
+        </div>
+      </div>
+                
       );
   }
   

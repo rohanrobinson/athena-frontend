@@ -95,9 +95,49 @@ class SearchResult extends Component {
   likeQuote = (event) => {
     console.log("liked");
     // console.log(this.state.quoteId);
+    console.log(this.state.quotesList);
     if (this.state.quotesList.includes(this.state.quoteId)) {
-      // already liked
-      // do nothing
+      // already liked, remove from liked
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' + this.state.token
+        }
+      };
+      const body = {
+        removeQuote: this.state.quoteId
+      };
+      console.log(body);
+      axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
+      .then((res) => {
+        // success, get new user object
+        console.log(res);
+        axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
+          .then((response) => {
+            // success
+            console.log(response);
+            sessionStorage.setItem('user', JSON.stringify(response.data));
+
+            var temp = [];
+            for (var i=0; i<this.state.quotesList.length; i++) {
+              if (this.state.quotesList[i] !== this.state.quoteId) {
+                temp.push(this.state.quotesList[i]);
+              }
+            }
+            console.log(temp);
+            this.setState({ 
+              quotesList: temp,
+              liked: false
+            });
+          })
+          .catch((error) => {
+            // error
+            console.log(error);
+          });
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
     } else {
       // add to liked
       const config = {
@@ -113,8 +153,12 @@ class SearchResult extends Component {
       axios.put(`https://athena-back-end.herokuapp.com/api/auth/saveQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success
+        var temp = this.state.quotesList;
+        temp.push(this.state.quoteId);
+        console.log(temp);
+        
         this.setState({ 
-          quotesList: this.state.quotesList.push(this.state.quoteId),
+          quotesList: temp,
           liked: true
         });
       })
@@ -127,25 +171,23 @@ class SearchResult extends Component {
 
   render() {
     return (
-    <div>
+    <div className = "quotePage">
       <div className="QuoteCont">
         <p className="sentence">Displaying Quotes Inspired By Your Search: {this.state.sentence}</p>
-       <hr></hr>
-        <h3>{this.state.quote}</h3>
-        <p className="sentence">Author - {this.state.author}</p>
         <hr></hr>
-        <button className="nextButton" onClick={this.getQuote}>Next</button>
+        <p id="quote_display">{this.state.quote}</p>
+        <p className="sentence">Author - {this.state.author}</p>
         { !(this.state.authenticated) ? (
           <>
           </>
         ):(
           <>
-            <br></br>
-            <br></br>
             <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Red"): ("Gray")} className="heartIcon"/>
             <p>Favorite</p>
           </>
         )}
+         <hr></hr>
+         <button className="nextButton" onClick={this.getQuote}>Next</button>
       </div>
     </div>
     );

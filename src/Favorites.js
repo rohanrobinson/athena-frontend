@@ -43,7 +43,7 @@ const Favorites = () => {
   }, []);
 
   return (
-    <div>
+    <div className="favorites-page">
       { (user===null || user==='') ? (
         <>
           <p>Favorites</p>
@@ -51,7 +51,7 @@ const Favorites = () => {
         </>
       ):(
         <>
-          <p>Favorites</p>
+          <h1>Favorites</h1>
           <div>
             { loaded ? (
               <div className="quotesCont">

@@ -1,4 +1,4 @@
-@media all and (min-width: 480px) {
+/*@media all and (min-width: 480px) {
     .QuoteCont {
       padding: 20px 0;
       padding-bottom: 60px;
@@ -6,24 +6,59 @@
       max-width: 500px;
     }
 }
+*/
 
-.sentence {
+.quotePage {
+  height: 100%;
+}
+
+.QuoteCont {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+  align-content: center;
+}
+
+.QuoteCont .sentence {
     margin: 20px;
+    color: white;
+    font-size:20px;
+}
+
+.QuoteCont h3 {
+  color:white;
+  font-size: 42px;
+  font-style: italic;
+  align-self: center;
+  text-align: center;
+  align-content: center;
+}
+
+hr {
+  border-color: #c4c4c4;
 }
 
 .nextButton {
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 20px;
     padding: 10px 20px;
-    background-color: #0099e5;
+    background-color: #90cbc5;
     color: white;
     cursor: pointer;
     outline: none;
+    transition-duration: 0.25s;
 }
 .nextButton:hover {
-    background-color: #57b9ff;
+    background-color: #71a8a3;
 }
 .nextButton:focus {
     outline: none;
+}
+
+#quote_display {
+  font-size: 40px;
+  color: rgb(221, 215, 215);
 }
