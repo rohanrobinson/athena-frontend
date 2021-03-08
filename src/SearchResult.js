@@ -171,7 +171,7 @@ class SearchResult extends Component {
 
   render() {
     return (
-    <div>
+    <div className = "quotePage">
       <div className="QuoteCont">
         <p className="sentence">Displaying Quotes Inspired By Your Search: {this.state.sentence}</p>
         <hr></hr>

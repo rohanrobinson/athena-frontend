@@ -8,6 +8,10 @@
 }
 */
 
+.quotePage {
+  height: 100%;
+}
+
 .QuoteCont {
   padding-top: 20px;
   padding-bottom: 60px;
