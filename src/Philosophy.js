@@ -79,7 +79,7 @@ class Philosophy extends React.Component {
         return(
             <div id="phil_cont">
                 <div id="phil_inner_cont">
-                    <p id="phil_title">{this.state.name}</p>
+                    <p id="phil_title">{this.state.name[0].toUpperCase() + this.state.name.slice(1)}</p>
                     <div className = "philosophy">
                         <div>
                             <img id = "phil-image" alt="philosophy" src={this.state.imageUrl}/>
