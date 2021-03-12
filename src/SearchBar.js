@@ -15,7 +15,8 @@ const SearchBar = () => {
       const data = {
         sentence: sentence,
       }
-      axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
+      axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/test`, data)
+      // axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
         .then(res => {
             // success
             quotes = res.data.quotes;
@@ -64,7 +65,8 @@ const SearchBar = () => {
       const data = {
         sentence: sentence,
       }
-      axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
+      axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/test`, data)
+      // axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
         .then(res => {
             // success
             quotes = res.data.quotes;
