@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import FavoriteQuote from "./FavoriteQuote";
 import "./Favorites.css";
+import QuoteOfTheDay from "./QuoteOfTheDay";
 
 const Favorites = () => {
   const [user, setUser] = useState();
@@ -48,20 +49,26 @@ const Favorites = () => {
         <>
           <p>Favorites</p>
           <p>Login to view</p>
+          <QuoteOfTheDay />
         </>
       ):(
         <>
           <h1>Favorites</h1>
           <div>
             { loaded ? (
+              <>
               <div className="quotesCont">
                 {savedQuotes.map((quote) => (
                   <FavoriteQuote key={quote} quoteId={quote}/>
                 ))}
               </div>
-                
+              <QuoteOfTheDay />
+              </>
             ):(
+              <>
               <p>Login to view.</p>
+              <QuoteOfTheDay />
+              </>
             )}
             
           </div>
