@@ -168,6 +168,9 @@ class SearchResult extends Component {
       });
     }
   }
+  reportQuote = (event) => {
+    console.log("A new report has been made:\n"+"quote ID: "+(this.state.quoteId)+"\nquote: "+(this.state.quote));
+  }
 
   render() {
     return (
@@ -187,7 +190,11 @@ class SearchResult extends Component {
           </>
         )}
          <hr></hr>
-         <button className="nextButton" onClick={this.getQuote}>Next</button>
+         <div className="btnOverride">
+            <button className="nextButton" onClick={this.getQuote}>Next</button>
+            &nbsp;&nbsp;&nbsp;
+            <button className="reportButton" onClick={this.reportQuote}>Report</button>
+          </div>
       </div>
     </div>
     );
