@@ -40,6 +40,13 @@ hr {
   border-color: #c4c4c4;
 }
 
+.btnOverride{
+  display: inline-flex;
+  align-self: center;
+  text-align: center;
+  align-content: space-between;
+}
+
 .nextButton {
     border: none;
     border-radius: 5px;
@@ -56,6 +63,24 @@ hr {
 }
 .nextButton:focus {
     outline: none;
+}
+
+.reportButton {
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #90cbc5;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition-duration: 0.25s;
+}
+.reportButton:hover {
+  background-color: #71a8a3;
+}
+.reportButton:focus {
+  outline: none;
 }
 
 #quote_display {
