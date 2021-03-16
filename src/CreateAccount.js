@@ -31,16 +31,33 @@ const CreateAccount = () => {
     }
 
     axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        // alert("Account created. You can now log in.");
-        setIsLoading(false);
-        history.push('/');
+      .then(resp => {
+        // success
+        const loginObject = {
+          email: username,
+          password: password,
+        }
+        axios.post(`https://athena-back-end.herokuapp.com/api/auth/login`, loginObject )
+            .then(res => {
+              console.log("here");
+              console.log(res);
+              //console.log(res.data);
+              //console.log(res.data.token);
+              sessionStorage.setItem('token', res.data.token);
+              sessionStorage.setItem('user', res.data.user);
+              console.log(sessionStorage.getItem('user'));
+              setIsLoading(false);
+              history.push('/explore');
+            })
+            .catch((error) => {
+              // alert('Incorrect username or password.');
+              console.log(error);
+              this.setState({ isLoading: false, incorrect: true });
+              setIsLoading(false);
+            });
       })
-      .catch((error) => {
-        console.log(error);
-        // alert("Make sure email is valid and password is at least six characters");
+      .catch((err) => {
+        console.log(err);
         setIsLoading(false);
         setIncorrect(true);
       });
