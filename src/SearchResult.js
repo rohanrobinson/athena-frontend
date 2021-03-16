@@ -182,7 +182,7 @@ class SearchResult extends Component {
           </>
         ):(
           <>
-            <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Red"): ("Gray")} className="heartIcon"/>
+            <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Pink"): ("Gray")} className="heartIcon"/>
             <p className="favoriteTag">Favorite</p>
           </>
         )}
