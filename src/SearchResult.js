@@ -168,6 +168,9 @@ class SearchResult extends Component {
       });
     }
   }
+  reportQuote = (event) => {
+    console.log("A new report has been made:\n"+"quote ID: "+(this.state.quoteId)+"\nquote: "+(this.state.quote));
+  }
 
   render() {
     return (
@@ -182,12 +185,16 @@ class SearchResult extends Component {
           </>
         ):(
           <>
-            <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Red"): ("Gray")} className="heartIcon"/>
+            <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Pink"): ("Gray")} className="heartIcon"/>
             <p className="favoriteTag">Favorite</p>
           </>
         )}
          <hr></hr>
-         <button className="nextButton" onClick={this.getQuote}>Next</button>
+         <div className="btnOverride">
+            <button className="nextButton" onClick={this.getQuote}>Next</button>
+            &nbsp;&nbsp;&nbsp;
+            <button className="reportButton" onClick={this.reportQuote}>Report</button>
+          </div>
       </div>
     </div>
     );
