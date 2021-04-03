@@ -61,6 +61,15 @@ class Navigation extends React.Component {
                   </li>
                   <li
                     class={`nav-item  ${
+                      this.props.location.pathname === "/about" ? "active" : ""
+                    }`}
+                  >
+                    <Link class="nav-link" to="/aboutus">
+                      About Us
+                    </Link>
+                  </li>
+                  <li
+                    class={`nav-item  ${
                       this.props.location.pathname === "/contact" ? "active" : ""
                     }`}
                   >

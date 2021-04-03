@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./SearchResult.css";
+import SearchBar from './SearchBar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,6 +19,8 @@ class SearchResult extends Component {
       quoteId: this.props.location.state.quoteId,
       token: '',
       id: '',
+      reportClicked: false,
+      analysisClicked: false,
     };
   }
 
@@ -168,8 +171,23 @@ class SearchResult extends Component {
       });
     }
   }
+
   reportQuote = (event) => {
     console.log("A new report has been made:\n"+"quote ID: "+(this.state.quoteId)+"\nquote: "+(this.state.quote));
+    this.setState({ reportClicked: true });
+  }
+
+  closeReportModal = (event) => {
+    this.setState({ reportClicked: false });
+  }
+
+  MLInfo = (event) => {
+    console.log("Getting MLinfo");
+    this.setState({ analysisClicked: true });
+  }
+
+  closeAnalysisModal = (event) => {
+    this.setState({ analysisClicked: false });
   }
 
   render() {
@@ -177,6 +195,7 @@ class SearchResult extends Component {
     <div className = "quotePage">
       <div className="QuoteCont">
         <p className="sentence">Displaying Quotes Inspired By Your Search: {this.state.sentence}</p>
+        <button className="MLButton" onClick={this.MLInfo}>Click Here To Learn How We Analyzed Your Quote</button>
         <hr></hr>
         <p id="quote_display">{this.state.quote}</p>
         <p className="sentence">Author - {this.state.author}</p>
@@ -191,11 +210,45 @@ class SearchResult extends Component {
         )}
          <hr></hr>
          <div className="btnOverride">
+            <button className="reportButton" onClick={this.reportQuote}>Report</button>
+            &nbsp;&nbsp;&nbsp;
             <button className="nextButton" onClick={this.getQuote}>Next</button>
             &nbsp;&nbsp;&nbsp;
-            <button className="reportButton" onClick={this.reportQuote}>Report</button>
           </div>
       </div>
+      <br></br><br></br>
+      <div class="searchBar">
+        Didn't get what you were looking for? Try again here:
+        <SearchBar/>
+      </div>
+      { this.state.reportClicked ? (
+        <>
+          <div className="reportModal"></div>
+          <div className="reportText">
+            We have received your report. Thank you for your feedback.
+            <br></br>
+            <br></br>
+            <button className="closeReportModal" onClick={this.closeReportModal}>Close</button>
+          </div>
+        </>
+      ):(
+        <>
+        </>
+      )}
+      { this.state.analysisClicked ? (
+        <>
+        <div className="analysisModal"></div>
+          <div className="analysisText">
+            Machine learning explanation...
+            <br></br>
+            <br></br>
+            <button className="closeAnalysisModal" onClick={this.closeAnalysisModal}>Close</button>
+          </div>
+        </>
+      ):(
+        <>
+        </>
+      )}
     </div>
     );
   }
