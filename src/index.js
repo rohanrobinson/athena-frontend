@@ -13,6 +13,7 @@ export { default as Philosophy } from "./Philosophy.js";
 export { default as SearchResult } from "./SearchResult.js";
 export { default as SearchBar } from "./SearchBar.js";
 export { default as Favorites } from "./Favorites.js";
+export { default as Survey } from "./Survey.js";
 
 ReactDOM.render(
   <React.StrictMode>
