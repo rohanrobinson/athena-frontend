@@ -47,7 +47,7 @@ const CreateAccount = () => {
               sessionStorage.setItem('user', res.data.user);
               console.log(sessionStorage.getItem('user'));
               setIsLoading(false);
-              history.push('/explore');
+              history.push('/survey');
             })
             .catch((error) => {
               // alert('Incorrect username or password.');

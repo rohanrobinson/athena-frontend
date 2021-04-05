@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-// import MultChoice from "./MultipleChoice";
+import "./Survey.css";
 
 const Survey = () => {
   const history = useHistory();
@@ -11,6 +11,7 @@ const Survey = () => {
   const [userId, setUserId] = useState();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selected, setSelected] = useState("");
+  const [validated, setValidated] = useState(false);
 
   const [questions, setQuestions] = useState([
     {
@@ -80,6 +81,28 @@ const Survey = () => {
     event.preventDefault();
     console.log("submit");
     console.log(questions);
+
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('token')
+      }
+    };
+    const body = {
+      surveyResults: questions
+    };
+    console.log(body);
+    axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+      .then((response) => {
+        // success
+        console.log("success");
+        console.log(response);
+        setValidated(false);
+        history.push('/explore');
+      })
+      .catch((error) => {
+        // error
+        console.log(error);
+      });
   };
 
   const updateAnswer = (event) => {
@@ -94,18 +117,30 @@ const Survey = () => {
       temp[currentQuestionIndex].ans = event.target.value;
       setQuestions(temp);
     }
+    var sub = true;
+    for (var i=0; i < temp.length; i++) {
+      if (temp[i].ans === "") {
+        sub = false;
+      }
+    }
+    setValidated(sub);
   }
 
   const displayQuestion = () => {
     const name = Date.now();
     if (questions[currentQuestionIndex].type === "mult"){
       return (
-        <div key={selected} id={name}>
+        <div key={selected} id="mult_choice">
           <p>{questions[currentQuestionIndex].q}</p>
-          <input onChange={updateAnswer} type="radio" value={questions[currentQuestionIndex].a} name={name} checked={ questions[currentQuestionIndex].a === selected }/> {questions[currentQuestionIndex].a}
-          <input onChange={updateAnswer} type="radio" value={questions[currentQuestionIndex].b} name={name} checked={ questions[currentQuestionIndex].b === selected }/> {questions[currentQuestionIndex].b}
+          <div className="mult_choice_opt">
+            <input onChange={updateAnswer} type="radio" value={questions[currentQuestionIndex].a} name={name} checked={ questions[currentQuestionIndex].a === selected }/> {questions[currentQuestionIndex].a}
+          </div>
+          <div className="mult_choice_opt">
+            <input onChange={updateAnswer} type="radio" value={questions[currentQuestionIndex].b} name={name} checked={ questions[currentQuestionIndex].b === selected }/> {questions[currentQuestionIndex].b}
+          </div>
+          <div className="mult_choice_opt">
           <input onChange={updateAnswer} type="radio" value={questions[currentQuestionIndex].c} name={name} checked={ questions[currentQuestionIndex].c === selected }/> {questions[currentQuestionIndex].c}
-          <p>{questions[currentQuestionIndex].ans}</p>
+          </div>
         </div>
       )
     }
@@ -129,16 +164,38 @@ const Survey = () => {
     <div>
       { loggedIn ? (
         <>
-          <p>Survey</p>
-
-          <div>
-            { displayQuestion() }
+        <div id="out_cont">
+          <div id="survey_cont">
+            <div id="question_cont">
+              <div className="button_cont">
+                {currentQuestionIndex === 0 ? (
+                  <>
+                  </>
+                ):(
+                  <button onClick={handleBack}>Back</button>
+                )}
+              </div>
+              <div id="ques">
+                { displayQuestion() }
+              </div>
+              <div className="button_cont">
+                {currentQuestionIndex === questions.length - 1 ? (
+                  <>
+                  </>
+                ):(
+                  <button id="nxt_button" onClick={handleNext}>Next</button>
+                )}
+              </div>
+            </div>
+            
+            {validated ? (
+              <button id="submit_survey" onClick={submitSurvey}>Submit</button>
+            ):(
+              <>
+              </>
+            )}
           </div>
-
-          <button onClick={handleNext}>Next</button>
-          <button onClick={handleBack}>Back</button>
-
-          <button onClick={submitSurvey}>Submit</button>
+        </div>
         </>
       ):(
         <>
