@@ -121,9 +121,7 @@ hr {
 }
 
 
-.reportText {
-  width: 100px;
-	height: 100px;	
+.reportText {	
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -132,9 +130,9 @@ hr {
 	margin: auto;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 15px;
+  padding-top: 10px;
   border-radius: 25px;
-  height: 230px;
+  height: 280px;
   width: 500px;
   border-color: red;
   background-color: white;
@@ -143,10 +141,18 @@ hr {
   font-size: 30px;
 }
 
-.closeReportModal {
+.reportInput {
+  width: 100%;
+  height: 50%;
+  border: 1px solid black;
+  font-size: 18px;
+}
+
+.submitReportModal {
   opacity: 100%;
   background-color: #90cbc5;
   width: 100px;
+  border-radius: 8px;
 }
 
 .analysisModal {
@@ -161,8 +167,8 @@ hr {
 
 
 .analysisText {
-  width: 100px;
-	height: 100px;	
+  width: 1000px;
+	height: 550px;	
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -173,8 +179,6 @@ hr {
   padding-right: 20px;
   padding-top: 15px;
   border-radius: 25px;
-  height: 230px;
-  width: 500px;
   border-color: red;
   background-color: white;
   opacity: 85%;
@@ -182,10 +186,16 @@ hr {
   font-size: 30px;
 }
 
+.analysisText img {
+  width: 60%;
+  height: 60%;
+}
+
 .closeAnalysisModal {
   opacity: 100%;
   background-color: #90cbc5;
   width: 100px;
+  border-radius: 8px;
 }
 
 .searchBar {

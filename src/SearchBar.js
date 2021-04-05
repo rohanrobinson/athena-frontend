@@ -128,7 +128,7 @@ const SearchBar = () => {
         <>
         <div class="loading-icon">
           <div class = "loadingText">
-              Using machine learning to find relevant suggestions...
+              Our machine learning algorithm is perusing thousands of books to find quotes for you...
           </div>
           <div class="book">
               <div class="inner">

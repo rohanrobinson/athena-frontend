@@ -225,10 +225,12 @@ class SearchResult extends Component {
         <>
           <div className="reportModal"></div>
           <div className="reportText">
-            We have received your report. Thank you for your feedback.
+            Please write your report below. 
             <br></br>
+            <textarea className="reportInput" placeholder="Write your report here..." wrap="soft"> 
+            </textarea>
             <br></br>
-            <button className="closeReportModal" onClick={this.closeReportModal}>Close</button>
+            <button className="submitReportModal" onClick={this.closeReportModal}>Submit</button>
           </div>
         </>
       ):(
@@ -238,12 +240,15 @@ class SearchResult extends Component {
       { this.state.analysisClicked ? (
         <>
         <div className="analysisModal"></div>
-          <div className="analysisText">
-            Machine learning explanation...
-            <br></br>
-            <br></br>
-            <button className="closeAnalysisModal" onClick={this.closeAnalysisModal}>Close</button>
-          </div>
+        <div className="analysisText">
+          We use a neural network to do magic
+          <br></br>
+          <br></br>
+          <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
+          <br></br>
+          <br></br>
+          <button className="closeAnalysisModal" onClick={this.closeAnalysisModal}>Close</button>
+        </div>
         </>
       ):(
         <>
