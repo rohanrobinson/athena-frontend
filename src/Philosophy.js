@@ -80,16 +80,18 @@ class Philosophy extends React.Component {
             <div id="phil_cont">
                 <div id="phil_inner_cont">
                     <p id="phil_title">{this.state.name[0].toUpperCase() + this.state.name.slice(1)}</p>
+                    <br></br>
                     <div className = "philosophy">
-                        <div>
-                            <img id = "phil-image" alt="philosophy" src={this.state.imageUrl}/>
-                        </div>
+                        <figure>
+                          <img id = "phil-image" alt="philosophy" src={this.state.imageUrl}/>
+                              <figcaption className = "philosophy-descr">
+                                  {this.state.description}
+                              </figcaption>
+                        </figure>
                         <div className = "philosophy-content">
-                            <div className = "philosophy-descr">
-                                <p id="phil_desc">{this.state.description}</p>
-                            </div>
                             <br></br>
                             <div className = "related-quotes">
+                                Quotes:
                                 <p id="phil_quote" className = "related-quote-text">"{this.state.quote}"</p>
                                 <p className = "related-quote-author">-{this.state.author}</p>
                             </div>

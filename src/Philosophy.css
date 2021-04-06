@@ -13,9 +13,34 @@ h3 {
     margin-left: 470px;
 }
 
+figure {
+    display: flex;
+    align-items: center;
+    color: rgb(196, 191, 191);
+    font-size: 20px;
+    text-align: start;
+    width: 120%;
+  }
+
+#phil-image {
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
 
 .philosophy {
     text-align: center;
+    width: 100%;
+}
+
+.related-quote-author {
+    font-size: 18px;
+    color: black;
+}
+
+.related-quotes {
+    font-size: 30px;
+    color: #90cbc5;
 }
 
 #phil_inner_cont {
@@ -50,12 +75,8 @@ h3 {
 #next_phil_button:hover {
     background-color: gray;
 }
-#phil_desc {
-    color: rgb(196, 191, 191);
-    font-size: 20px;
-    text-align: start;
-}
 
 #phil_quote {
     font-size: 18px;
+    color: black;
 }

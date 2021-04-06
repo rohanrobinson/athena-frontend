@@ -48,15 +48,15 @@ hr {
 }
 
 .nextButton {
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 10px 20px;
-    background-color: #90cbc5;
-    color: white;
-    cursor: pointer;
-    outline: none;
-    transition-duration: 0.25s;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 10px 12px;
+  background-color: #90cbc5;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition-duration: 0.25s;
 }
 .nextButton:hover {
     background-color: #71a8a3;
@@ -68,7 +68,7 @@ hr {
 .reportButton {
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px 20px;
   background-color: #ff6961	;
   color: white;
@@ -84,9 +84,10 @@ hr {
 }
 
 .MLButton {
+  display: inline-block;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px 20px;
   background-color: #90cbc5;
   color: white;
