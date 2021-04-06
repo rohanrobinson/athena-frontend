@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Navigation, Home, CreateAccount, QuotesSaved, Explore, Philosophy, SearchResult, Favorites , AboutUs} from "./index";
+import { Navigation, Home, CreateAccount, QuotesSaved, Explore, Philosophy, SearchResult, Favorites , AboutUs, Survey } from "./index";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route path="/philosophy" component={Philosophy} />
           <Route path="/search" component={SearchResult} />
           <Route path="/favorites" component={Favorites} />
+          <Route path="/survey" component={Survey} />
         </Switch>
       </Router>
     </div>

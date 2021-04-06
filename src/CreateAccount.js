@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import "./createAccount.css"
-
 const CreateAccount = () => {
   const history = useHistory();
   const [username, setUsername] = useState('');
@@ -47,7 +46,7 @@ const CreateAccount = () => {
               sessionStorage.setItem('user', res.data.user);
               console.log(sessionStorage.getItem('user'));
               setIsLoading(false);
-              history.push('/explore');
+              history.push('/survey');
             })
             .catch((error) => {
               // alert('Incorrect username or password.');
@@ -112,7 +111,7 @@ const CreateAccount = () => {
             <>
             </>
           )}
-
+          
           <button onClick={createAccount}>Create Account</button>
           { isLoading ? (
             <>

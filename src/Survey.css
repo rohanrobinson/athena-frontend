@@ -1,0 +1,45 @@
+#out_cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#survey_cont {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#question_cont {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+#question_cont > .button_cont {
+    width: 10%;
+}
+
+#question_cont > .button_cont > button {
+    width: 80%;
+}
+
+#ques {
+    width: 80%;
+    padding: 10px;
+}
+
+#submit_survey {
+    width: 20%;
+    align-content: center;
+}
+
+#mult_choice {
+    display: flex;
+    flex-direction: column;
+}
