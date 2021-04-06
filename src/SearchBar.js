@@ -126,8 +126,37 @@ const SearchBar = () => {
       </div>
       { isLoading ? (
         <>
-        <div id="search_loader_cont">
-          <div id="loader_search"></div>
+        <div class="loading-icon">
+          <div class = "loadingText">
+              Our machine learning algorithm is perusing thousands of books to find quotes for you...
+          </div>
+          <div class="book">
+              <div class="inner">
+                <div class="left"></div>
+                <div class="middle"></div>
+                <div class="right"></div>
+              </div>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+          </div><a class="dribbble" href="https://dribbble.com/shots/7199149-Book-Loader" target="_blank"></a>
         </div>
         </>
       ):(
