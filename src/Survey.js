@@ -39,7 +39,24 @@ const Survey = () => {
       type: "input",
       q: "Where do you live?",
       ans: ""
-    }
+    },
+    {
+      type: "input",
+      q: "What philosophy do you most identify with?",
+      ans: ""
+    },
+    {
+      type: "slider",
+      q:  "Use the slider to show how well the quote below resonates with you?",
+      quote: "Do not Say How a Good Person Should Act. Be One.",
+      ans: ""
+    },
+    {
+      type: "slider",
+      q: "Use the slider to show how self-aware you are about your mental state",
+      quote: "A larger number indicates a larger degree of self-awareness",
+      ans: ""
+    },
   ])
 
   useEffect(() => {
@@ -117,6 +134,13 @@ const Survey = () => {
       temp[currentQuestionIndex].ans = event.target.value;
       setQuestions(temp);
     }
+
+    if (questions[currentQuestionIndex].type === "slider") {
+      setSelected(event.target.value);
+      // console.log(event.target.value);
+      temp[currentQuestionIndex].ans = event.target.value;
+      setQuestions(temp);
+    }
     var sub = true;
     for (var i=0; i < temp.length; i++) {
       if (temp[i].ans === "") {
@@ -124,6 +148,16 @@ const Survey = () => {
       }
     }
     setValidated(sub);
+  }
+
+  const updateSlider = (event) => {
+    let sliderValue =  event.target.value
+    if (currentQuestionIndex === 5)  {
+      document.getElementById("idx-5").value = sliderValue;
+    }
+    else if (currentQuestionIndex === 6) {
+      document.getElementById("idx-6").value = sliderValue;
+    }
   }
 
   const displayQuestion = () => {
@@ -149,6 +183,18 @@ const Survey = () => {
         <div>
           <p>{questions[currentQuestionIndex].q}</p>
           <input type="text" onChange={updateAnswer} value={selected}/>
+        </div>
+      )
+    }
+
+    else if (questions[currentQuestionIndex].type === "slider") {
+      return (
+        <div>
+          <p>{questions[currentQuestionIndex].q}</p> 
+          <p>{questions[currentQuestionIndex].quote}</p>
+          1<input type="range" min="1" max="10" onChange={updateAnswer} onInput={updateSlider}  value={selected}/>10 <br />
+          { currentQuestionIndex === 5 ? (<output id="idx-5"></output>) : ( <></>)  }
+          { currentQuestionIndex === 6 ? (<output id="idx-6"></output>) : ( <></>)  }
         </div>
       )
     }
