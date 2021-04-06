@@ -1,15 +1,15 @@
-.aboutustext {
-	height: 100px;
-    
-	position: absolute;
-	top:0;
-	bottom: 60%;
-	left: 0;
-	right: 0;
-  	
-	margin: auto;
-
-    font-size: 40px;
-    text-align: center;
-    color: white;
+.aboutusimage {
+	top: 1000px;
+	height: 100%;
+	width: 100%;
 }
+
+.bottom-left {
+	position: absolute;
+	bottom: 20px;
+	left: 16px;
+	color: black;
+	font-size: 50px;
+	width: 1200px;
+	font-style: italic;
+  }

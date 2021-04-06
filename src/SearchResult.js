@@ -205,8 +205,12 @@ class SearchResult extends Component {
     return (
     <div className = "quotePage">
       <div className="QuoteCont">
-        <p className="sentence">Displaying Quotes Inspired By Your Search: {this.state.sentence}</p>
-        <button className="MLButton" onClick={this.MLInfo}>Click Here To Learn How We Analyzed Your Quote</button>
+        <p className="sentence">
+          Displaying Quotes Inspired By Your Search: {this.state.sentence}
+          <br></br>
+          <br></br>
+          <button className="MLButton" onClick={this.MLInfo}>Click Here To Learn How We Analyzed Your Quote</button>
+        </p>
         <hr></hr>
         <p className ={this.state.show ? 'show' : 'dontshow'} id="quote_display">{this.state.quote}</p>
         <p className={`sentence ${this.state.show ? 'show' : 'dontshow'}`}>Author - {this.state.author}</p>

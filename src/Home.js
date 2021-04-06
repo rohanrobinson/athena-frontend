@@ -73,6 +73,7 @@ render() {
           )}
           
           <button type="submit" id="login-button" onClick={this.handleLogin}>Login</button>
+          <br></br>
           { this.state.isLoading ? (
             <>
             <div id="loader_cont">
