@@ -12,6 +12,7 @@ class SearchResult extends Component {
       sentence: this.props.location.state.sentence || '',
       quotes: JSON.parse(this.props.location.state.quotes) || [],
       quote: this.props.location.state.quote || '',
+      show: true,
       author: this.props.location.state.author || '',
       liked: false,
       authenticated: false,
@@ -68,6 +69,8 @@ class SearchResult extends Component {
   getQuote = (event) => {
     const l = this.state.quotes.length;
     const j = Math.floor(Math.random()*l);
+    
+    setTimeout(() => {
     axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
       .then ((response) => {
         // success
@@ -77,6 +80,7 @@ class SearchResult extends Component {
           quoteId: response.data._id.$oid,
           quote: response.data.quote,
           author: response.data.author,
+          show: true,
         });
 
         // check if already liked
@@ -93,6 +97,13 @@ class SearchResult extends Component {
         alert(err);
         console.log(err)
       });
+    }, 1000);
+      //setTimeout(() => {
+      //  this.setState({
+      //    show: true,
+      //  });
+      //}, 1000);
+      this.setState({show:false});
   }
 
   likeQuote = (event) => {
@@ -197,15 +208,15 @@ class SearchResult extends Component {
         <p className="sentence">Displaying Quotes Inspired By Your Search: {this.state.sentence}</p>
         <button className="MLButton" onClick={this.MLInfo}>Click Here To Learn How We Analyzed Your Quote</button>
         <hr></hr>
-        <p id="quote_display">{this.state.quote}</p>
-        <p className="sentence">Author - {this.state.author}</p>
+        <p className ={this.state.show ? 'show' : 'dontshow'} id="quote_display">{this.state.quote}</p>
+        <p className={`sentence ${this.state.show ? 'show' : 'dontshow'}`}>Author - {this.state.author}</p>
         { !(this.state.authenticated) ? (
           <>
           </>
         ):(
           <>
-            <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Pink"): ("Gray")} className="heartIcon"/>
-            <p className="favoriteTag">Favorite</p>
+            <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Pink"): ("Gray")} className={`heartIcon ${this.state.show ? 'show' : 'dontshow'}`}/>
+            <p className={`favoriteTag ${this.state.show ? 'show' : 'dontshow'}`}>Favorite</p>
           </>
         )}
          <hr></hr>
