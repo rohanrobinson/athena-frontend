@@ -106,6 +106,17 @@ hr {
   color: rgb(221, 215, 215);
 }
 
+.dontshow{
+  transition: 300ms all ease;
+  opacity: 0;
+  will-change: opacity;
+}
+.show {
+  transition: 300ms all ease;
+  opacity:1;
+  will-change: opacity;
+}
+
 .favoriteTag {
   color: white
 }
