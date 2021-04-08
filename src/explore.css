@@ -16,6 +16,22 @@
   background: linear-gradient(-156deg,#45548f 0%,#9b42b8 100%);
  }
 
+.left-hand {
+  background-image: url(handleft.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 370px;
+  background-position: 0% 90%;
+}
+
+.right-hand {
+  background-image: url(handright.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 370px;
+  background-position: 100% 10%;
+}
+
 .inspiration-content{
   color:white;
   /*text-align: center;*/

@@ -62,10 +62,14 @@ class Explore extends React.Component {
     return (	
       <div className = "explore-page">
         <div className="inspiration">
+          <div className="left-hand">
+          <div className="right-hand">
           <div className="inspiration-content">
             <h1>GET INSPIRATION</h1>
             <h2>Describe how you're feeling and we'll match you with quotes to provide you with inspiration</h2>
             <SearchBar/>
+          </div>
+          </div>
           </div>
         </div>
         <div className="discover">
