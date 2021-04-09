@@ -75,6 +75,7 @@ const Results = () => {
             
           </div>
           <button id="retake_survey" onClick={retakeSurvey}>Retake Survey</button>
+          <p id="learn_more">Click here to learn how to use the app.</p>
         </>
       )
       }

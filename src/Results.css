@@ -36,3 +36,11 @@
 #retake_survey:hover {
     background-color: gray;
 }
+
+#learn_more {
+    text-decoration: underline;
+    cursor: pointer;
+}
+#learn_more:hover {
+    color: black;
+}
