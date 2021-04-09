@@ -1,0 +1,38 @@
+#res_cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#res_cont > h1 {
+    padding-top: 20px;
+    color: white;
+}
+
+#res_cont > p {
+    color: white;
+    padding-top: 10px;
+    font-size: 18px;
+}
+
+#phil_results {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 40px;
+}
+
+#retake_survey {
+    padding: 10px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+
+#retake_survey:hover {
+    background-color: gray;
+}

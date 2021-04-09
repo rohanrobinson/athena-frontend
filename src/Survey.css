@@ -11,27 +11,52 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+    margin-top: 30px;
+}
+
+.survey_title {
+    font-size: 30px;
+    color: white;
 }
 
 #question_cont {
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 250px;
     justify-content: center;
     text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
 #question_cont > .button_cont {
     width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 #question_cont > .button_cont > button {
-    width: 80%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: white;
+    font-size: 40px;
+    color: #3498db;
 }
 
 #ques {
     width: 80%;
     padding: 10px;
+}
+
+.input_ques {
+    background-color: #cccfd1;
+    border-radius: 5px;
 }
 
 #submit_survey {
@@ -42,4 +67,24 @@
 #mult_choice {
     display: flex;
     flex-direction: column;
+}
+
+#results_out_cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#results_cont {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 250px;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 10px;
 }

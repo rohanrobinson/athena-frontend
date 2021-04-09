@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import "./Survey.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Survey = () => {
   const history = useHistory();
@@ -13,51 +15,48 @@ const Survey = () => {
   const [selected, setSelected] = useState("");
   const [validated, setValidated] = useState(false);
 
-  const [questions, setQuestions] = useState([
+  const originalQuestions = [
     {
       type: "mult",
-      q: "Are you happy?",
-      a: "always",
-      b: "sometimes",
-      c: "never",
+      q: "What is the point of life?",
+      a: "nothing, there is no point", // nihilism
+      b: "to be humble and to help others", //taoism
+      c: "to maximize pleasure", // hedonism
       ans: ""
     },
     {
       type: "mult",
-      q: "Are you sad?",
-      a: "never",
-      b: "sometimes",
-      c: "always",
+      q: "What do you value most?",
+      a: "meditation", //buddhism
+      b: "logic", // rationalism
+      c: "discipline", // stoicism
       ans: ""
     },
     {
       type: "input",
-      q: "How are you feeling?",
+      q: "What philosophies are you familiar with?",
       ans: ""
     },
     {
       type: "input",
-      q: "Where do you live?",
+      q: "What are you looking to get out of Athena?",
       ans: ""
     },
     {
-      type: "input",
-      q: "What philosophy do you most identify with?",
+      type: "slider", //existentialism
+      q:  "Use the slider to show how much you agree with the following: 1 (I strongly disagree) - 10 (I strongly agree)",
+      quote: "I realize today that nothing in the world is more distasteful to a man than to take the path that leads to himself.",
       ans: ""
     },
     {
-      type: "slider",
-      q:  "Use the slider to show how well the quote below resonates with you?",
-      quote: "Do not Say How a Good Person Should Act. Be One.",
+      type: "slider", // marxism
+      q:  "Use the slider to show how much you agree with the following (1 (I strongly disagree) - 10 (I strongly agree))",
+      quote: "The philosophers have only interpreted the world, in various ways. The point, however, is to change it.",
       ans: ""
     },
-    {
-      type: "slider",
-      q: "Use the slider to show how self-aware you are about your mental state",
-      quote: "A larger number indicates a larger degree of self-awareness",
-      ans: ""
-    },
-  ])
+  ];
+
+  const [questions, setQuestions] = useState(originalQuestions);
 
   useEffect(() => {
     if (sessionStorage.getItem('user') === null || sessionStorage.getItem('user') === '') {
@@ -99,13 +98,56 @@ const Survey = () => {
     console.log("submit");
     console.log(questions);
 
+    // grade the survey
+    var philosophies = [];
+    // question 1
+    switch(questions[0].ans) {
+      case 'nothing, there is no point':
+        philosophies.push("nihilism");
+        break;
+      case 'to be humble and to help others':
+        philosophies.push("taoism");
+        break;
+      case 'to maximize pleasure':
+        philosophies.push("hedonism");
+        break;
+      default:
+        break;
+    }
+    // question 2
+    switch(questions[1].ans) {
+      case 'meditation':
+        philosophies.push("buddhism");
+        break;
+      case 'logic':
+        philosophies.push("rationalism");
+        break;
+      case 'discipline':
+        philosophies.push("stoicism");
+        break;
+      default:
+        break;
+    }
+    // question 5
+    if (questions[4].ans > 5) {
+      philosophies.push("existentialism");
+    }
+    // question 6
+    if (questions[5].ans > 5) {
+      philosophies.push("marxism");
+    }
+
+
     const config = {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('token')
       }
     };
     const body = {
-      surveyResults: questions
+      surveyResults: {
+        questions: questions,
+        philosophies: philosophies,
+      }
     };
     console.log(body);
     axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
@@ -114,7 +156,7 @@ const Survey = () => {
         console.log("success");
         console.log(response);
         setValidated(false);
-        history.push('/explore');
+        history.push('/results');
       })
       .catch((error) => {
         // error
@@ -137,7 +179,6 @@ const Survey = () => {
 
     if (questions[currentQuestionIndex].type === "slider") {
       setSelected(event.target.value);
-      // console.log(event.target.value);
       temp[currentQuestionIndex].ans = event.target.value;
       setQuestions(temp);
     }
@@ -148,16 +189,6 @@ const Survey = () => {
       }
     }
     setValidated(sub);
-  }
-
-  const updateSlider = (event) => {
-    let sliderValue =  event.target.value
-    if (currentQuestionIndex === 5)  {
-      document.getElementById("idx-5").value = sliderValue;
-    }
-    else if (currentQuestionIndex === 6) {
-      document.getElementById("idx-6").value = sliderValue;
-    }
   }
 
   const displayQuestion = () => {
@@ -182,7 +213,7 @@ const Survey = () => {
       return (
         <div>
           <p>{questions[currentQuestionIndex].q}</p>
-          <input type="text" onChange={updateAnswer} value={selected}/>
+          <input type="text" onChange={updateAnswer} value={selected} className="input_ques"/>
         </div>
       )
     }
@@ -192,9 +223,8 @@ const Survey = () => {
         <div>
           <p>{questions[currentQuestionIndex].q}</p> 
           <p>{questions[currentQuestionIndex].quote}</p>
-          1<input type="range" min="1" max="10" onChange={updateAnswer} onInput={updateSlider}  value={selected}/>10 <br />
-          { currentQuestionIndex === 5 ? (<output id="idx-5"></output>) : ( <></>)  }
-          { currentQuestionIndex === 6 ? (<output id="idx-6"></output>) : ( <></>)  }
+          1<input type="range" min="1" max="10" onChange={updateAnswer} value={selected}/>10 <br />
+          <output>{selected}</output>
         </div>
       )
     }
@@ -210,15 +240,16 @@ const Survey = () => {
     <div>
       { loggedIn ? (
         <>
-        <div id="out_cont">
+          <div id="out_cont">
           <div id="survey_cont">
+            <p className="survey_title">Complete the survey to find your suggested philosophies.</p>
             <div id="question_cont">
               <div className="button_cont">
                 {currentQuestionIndex === 0 ? (
                   <>
                   </>
                 ):(
-                  <button onClick={handleBack}>Back</button>
+                  <button onClick={handleBack}><FontAwesomeIcon icon={faArrowLeft}/></button>
                 )}
               </div>
               <div id="ques">
@@ -229,7 +260,7 @@ const Survey = () => {
                   <>
                   </>
                 ):(
-                  <button id="nxt_button" onClick={handleNext}>Next</button>
+                  <button id="nxt_button" onClick={handleNext}><FontAwesomeIcon icon={faArrowRight}/></button>
                 )}
               </div>
             </div>
