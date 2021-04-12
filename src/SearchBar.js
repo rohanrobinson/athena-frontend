@@ -10,102 +10,36 @@ const SearchBar = () => {
   
   const handleSubmit = (event) => {
     if(event.key === 'Enter') {
-      setIsLoading(true);
-      var quotes = [];
-      const data = {
-        sentence: sentence,
-      }
-      axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/test`, data)
-      // axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
-        .then(res => {
-            // success
-            quotes = res.data.quotes;
-            const l = res.data.quotes.length;
-            const j = Math.floor(Math.random()*l);
-            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${res.data.quotes[j]}`)
-              .then ((response) => {
-                // success
-                console.log("quote:");
-                console.log(response.data.quote);
-                history.push({
-                  pathname: '/search',
-                  state: {
-                    sentence: sentence,
-                    quotes: JSON.stringify(quotes),
-                    quote: response.data.quote,
-                    author: response.data.author || "unknown",
-                    quoteId: response.data._id.$oid,
-                  }
-                  }
-                );
-                console.log(sentence);
-                console.log(sentence);
-                setIsLoading(false);
-                history.go(0);
-              })
-              .catch((err) => {
-                // error
-                alert(err);
-                console.log(err);
-                setIsLoading(false);
-              });
-          })
-        .catch((error) => {
-          // error
-          alert(error);
-          console.log(error);
-          setIsLoading(false);
-        });
+      handleSearch();
     }
   }
 
-  const handleSearch = (event) => {
-    var quotes = [];
-      setIsLoading(true);
-      const data = {
-        sentence: sentence,
-      }
-      axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/test`, data)
-      // axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence`, data)
-        .then(res => {
-            // success
-            quotes = res.data.quotes;
-            const l = res.data.quotes.length;
-            const j = Math.floor(Math.random()*l);
-            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${res.data.quotes[j]}`)
-              .then ((response) => {
-                // success
-                console.log("quote:");
-                console.log(response.data.quote);
-                history.push({
-                  pathname: '/search',
-                  state: {
-                    sentence: sentence,
-                    quotes: JSON.stringify(quotes),
-                    quote: response.data.quote,
-                    author: response.data.author || "unknown",
-                    quoteId: response.data._id.$oid,
-                  }
-                  }
-                );
-                console.log(sentence);
-                console.log(sentence);
-                setIsLoading(false);
-                history.go(0);
-              })
-              .catch((err) => {
-                // error
-                alert(err);
-                console.log(err);
-                setIsLoading(false);
-              });
-          })
-        .catch((error) => {
-          // error
-          alert(error);
-          console.log(error);
+  const handleSearch = () => {
+    setIsLoading(true);
+    const data = {
+      sentence: sentence,
+    }
+    axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence/getten`, data)
+      .then(res => {
+          // success
+          history.push({
+            pathname: '/search',
+            state: {
+              sentence: sentence,
+              data: res.data,
+            }
+            }
+          );
+          console.log(res.data);
           setIsLoading(false);
-        });
+          history.go(0);
+      })
+      .catch((error) => {
+        // error
+        alert(error);
+        console.log(error);
+        setIsLoading(false);
+      });
   }
 
   const updateSentence = (event) => {
