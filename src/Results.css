@@ -44,3 +44,8 @@
 #learn_more:hover {
     color: black;
 }
+
+#instructions {
+    color: white;
+    margin-top: 20px;
+}

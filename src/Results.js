@@ -75,7 +75,10 @@ const Results = () => {
             
           </div>
           <button id="retake_survey" onClick={retakeSurvey}>Retake Survey</button>
-          <p id="learn_more">Click here to learn how to use the app.</p>
+          <h1 id="instructions">How to use the app.</h1>
+          <p>Check out new philosphies and get curated quotes on the Explore page.</p>
+          <p>Navigate to the My Favorites page to view your favorite quotes.</p>
+          <p>View the About Us page to learn more about Athena.</p>
         </>
       )
       }
