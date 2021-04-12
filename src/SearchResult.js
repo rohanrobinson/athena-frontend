@@ -9,15 +9,19 @@ class SearchResult extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      tenQuotes: this.props.location.state.data || [],
+      quotes: [],
+      current: 0,
+      loaded: false,
       sentence: this.props.location.state.sentence || '',
-      quotes: JSON.parse(this.props.location.state.quotes) || [],
-      quote: this.props.location.state.quote || '',
-      show: true,
-      author: this.props.location.state.author || '',
+      likedQuotesList: [],
       liked: false,
+
+      quote: '',
+      show: true,
+      author: '',
       authenticated: false,
-      quotesList: [],
-      quoteId: this.props.location.state.quoteId,
+      quoteId: '',
       token: '',
       id: '',
       reportClicked: false,
@@ -26,6 +30,34 @@ class SearchResult extends Component {
   }
 
   componentDidMount () {
+    // load the 10 quotes
+    let axiosArray = [];
+    const quotesList = this.props.location.state.data;
+    for (var i=0; i < quotesList.length; i++) {
+      let newPromise = axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quotesList[i][0]}`);
+      axiosArray.push(newPromise);
+    }
+    axios.all(axiosArray)
+      .then((responses) => {
+        //success
+        let responseArray = [];
+        responses.forEach((res) => {
+          responseArray.push(res.data)
+        });
+        console.log("quotes");
+        console.log(responseArray);
+        this.setState({
+          quotes: responseArray,
+          loaded: true,
+        });
+      })
+      .catch((error) => {
+        // error
+        console.log(error);
+      });
+
+    
+    // load user information
     const token = sessionStorage.getItem('token');
     this.setState({ token: token });
     if (token===null || token==='') {
@@ -46,141 +78,111 @@ class SearchResult extends Component {
       axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${id}`, config)
       .then((res) => {
         // success
-        this.setState({ quotesList: res.data.savedQuotes });
+        this.setState({ likedQuotesList: res.data.savedQuotes });
         console.log(res.data.savedQuotes);
       })
       .catch((err) => {
         // error
         console.log(err);
       });
-
-      // check if already liked
-      if (this.state.quotesList.includes(this.state.quoteId)) {
-        // already liked
-        this.setState({ liked: true });
-      } else {
-        // not liked
-        this.setState({ liked: false });
-      }
     }
-
   }
 
-  getQuote = (event) => {
-    const l = this.state.quotes.length;
-    const j = Math.floor(Math.random()*l);
-    
-    setTimeout(() => {
-    axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
-      .then ((response) => {
-        // success
-        console.log("quote:");
-        console.log(response.data._id.$oid);
-        this.setState({
-          quoteId: response.data._id.$oid,
-          quote: response.data.quote,
-          author: response.data.author,
-          show: true,
-        });
+  nextQuote = (event) => {
+    // update current quote
+    var num = this.state.current;
+    if (num+1 >= this.state.quotes.length) {
+      num = 0;
+    }
+    else {
+      num = num + 1;
+    }
+    this.setState({ current: num });
 
-        // check if already liked
-        if (this.state.quotesList.includes(response.data._id.$oid)) {
-          // already liked
-          this.setState({ liked: true });
-        } else {
-          // not liked
-          this.setState({ liked: false });
-        }
-      })
-      .catch((err) => {
-        // error
-        alert(err);
-        console.log(err)
-      });
-    }, 1000);
-      //setTimeout(() => {
-      //  this.setState({
-      //    show: true,
-      //  });
-      //}, 1000);
-      this.setState({show:false});
+    // check if the quote is liked
+    if (this.state.likedQuotesList.includes(this.state.quotes[num]._id.$oid)) {
+      this.setState({ liked: true });
+    }
+    else {
+      this.setState({ liked: false });
+    }
   }
 
   likeQuote = (event) => {
     console.log("liked");
-    // console.log(this.state.quoteId);
-    console.log(this.state.quotesList);
-    if (this.state.quotesList.includes(this.state.quoteId)) {
-      // already liked, remove from liked
-      const config = {
-        headers: {
-          Authorization: 'Bearer ' + this.state.token
-        }
-      };
-      const body = {
-        removeQuote: this.state.quoteId
-      };
-      console.log(body);
-      axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
-      .then((res) => {
-        // success, get new user object
-        console.log(res);
-        axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
-          .then((response) => {
-            // success
-            console.log(response);
-            sessionStorage.setItem('user', JSON.stringify(response.data));
+    // // console.log(this.state.quoteId);
+    // console.log(this.state.quotesList);
+    // if (this.state.quotesList.includes(this.state.quoteId)) {
+    //   // already liked, remove from liked
+    //   const config = {
+    //     headers: {
+    //       Authorization: 'Bearer ' + this.state.token
+    //     }
+    //   };
+    //   const body = {
+    //     removeQuote: this.state.quoteId
+    //   };
+    //   console.log(body);
+    //   axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
+    //   .then((res) => {
+    //     // success, get new user object
+    //     console.log(res);
+    //     axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
+    //       .then((response) => {
+    //         // success
+    //         console.log(response);
+    //         sessionStorage.setItem('user', JSON.stringify(response.data));
 
-            var temp = [];
-            for (var i=0; i<this.state.quotesList.length; i++) {
-              if (this.state.quotesList[i] !== this.state.quoteId) {
-                temp.push(this.state.quotesList[i]);
-              }
-            }
-            console.log(temp);
-            this.setState({ 
-              quotesList: temp,
-              liked: false
-            });
-          })
-          .catch((error) => {
-            // error
-            console.log(error);
-          });
-      })
-      .catch((err) => {
-        // error
-        console.log(err);
-      });
-    } else {
-      // add to liked
-      const config = {
-        headers: {
-          Authorization: 'Bearer ' + this.state.token
-        }
-      };
+    //         var temp = [];
+    //         for (var i=0; i<this.state.quotesList.length; i++) {
+    //           if (this.state.quotesList[i] !== this.state.quoteId) {
+    //             temp.push(this.state.quotesList[i]);
+    //           }
+    //         }
+    //         console.log(temp);
+    //         this.setState({ 
+    //           quotesList: temp,
+    //           liked: false
+    //         });
+    //       })
+    //       .catch((error) => {
+    //         // error
+    //         console.log(error);
+    //       });
+    //   })
+    //   .catch((err) => {
+    //     // error
+    //     console.log(err);
+    //   });
+    // } else {
+    //   // add to liked
+    //   const config = {
+    //     headers: {
+    //       Authorization: 'Bearer ' + this.state.token
+    //     }
+    //   };
 
-      const body = {
-        addQuote: this.state.quoteId
-      };
-      console.log(body);
-      axios.put(`https://athena-back-end.herokuapp.com/api/auth/saveQuote/${this.state.id}`, body, config)
-      .then((res) => {
-        // success
-        var temp = this.state.quotesList;
-        temp.push(this.state.quoteId);
-        console.log(temp);
+    //   const body = {
+    //     addQuote: this.state.quoteId
+    //   };
+    //   console.log(body);
+    //   axios.put(`https://athena-back-end.herokuapp.com/api/auth/saveQuote/${this.state.id}`, body, config)
+    //   .then((res) => {
+    //     // success
+    //     var temp = this.state.quotesList;
+    //     temp.push(this.state.quoteId);
+    //     console.log(temp);
         
-        this.setState({ 
-          quotesList: temp,
-          liked: true
-        });
-      })
-      .catch((err) => {
-        // error
-        console.log(err);
-      });
-    }
+    //     this.setState({ 
+    //       quotesList: temp,
+    //       liked: true
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     // error
+    //     console.log(err);
+    //   });
+    // }
   }
 
   reportQuote = (event) => {
@@ -204,6 +206,8 @@ class SearchResult extends Component {
   render() {
     return (
     <div className = "quotePage">
+      { this.state.loaded ? (
+        <>
       <div className="QuoteCont">
         <p className="sentence">
           Displaying Quotes Inspired By Your Search: {this.state.sentence}
@@ -212,8 +216,8 @@ class SearchResult extends Component {
           <button className="MLButton" onClick={this.MLInfo}>Click Here To Learn How We Analyzed Your Quote</button>
         </p>
         <hr></hr>
-        <p className ={this.state.show ? 'show' : 'dontshow'} id="quote_display">{this.state.quote}</p>
-        <p className={`sentence ${this.state.show ? 'show' : 'dontshow'}`}>Author - {this.state.author}</p>
+        <p className ={this.state.show ? 'show' : 'dontshow'} id="quote_display">{this.state.quotes[this.state.current].quote}</p>
+        <p className={`sentence ${this.state.show ? 'show' : 'dontshow'}`}>Author - {this.state.quotes[this.state.current].author}</p>
         { !(this.state.authenticated) ? (
           <>
           </>
@@ -227,7 +231,7 @@ class SearchResult extends Component {
          <div className="btnOverride">
             <button className="reportButton" onClick={this.reportQuote}>Report</button>
             &nbsp;&nbsp;&nbsp;
-            <button className="nextButton" onClick={this.getQuote}>Next</button>
+            <button className="nextButton" onClick={this.nextQuote}>Next</button>
             &nbsp;&nbsp;&nbsp;
           </div>
       </div>
@@ -267,6 +271,12 @@ class SearchResult extends Component {
         </>
       ):(
         <>
+        </>
+      )}
+      </>
+      ):(
+        <>
+        <p>Loading</p>
         </>
       )}
     </div>
