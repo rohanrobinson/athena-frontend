@@ -10,6 +10,7 @@
 
 .quotePage {
   height: 100%;
+
 }
 
 .QuoteCont {
@@ -104,7 +105,26 @@ hr {
 
 #quote_display {
   font-size: 40px;
-  color: rgb(221, 215, 215);
+  color: transparent;
+  /*color: rgb(221, 215, 215);*/
+}
+
+.quoteFade {
+  height: 180px;
+  text-align: center;
+  overflow-y: scroll;
+  
+  background: linear-gradient(
+    transparent 0%,
+    white 36%,
+    white 70%,
+    transparent 100%
+  );
+  -webkit-background-clip: text;
+  
+  align-content: center;
+  
+  
 }
 
 .dontshow{
@@ -114,8 +134,20 @@ hr {
 }
 .show {
   transition: 300ms all ease;
+  /*
+  background: linear-gradient(
+    transparent 0%,
+    white 36%,
+    white 70%,
+    transparent 100%
+  );
+  -webkit-background-clip: text;
+  */
   opacity:1;
+  /*
   will-change: opacity;
+  */
+  
 }
 
 .favoriteTag {

@@ -212,7 +212,9 @@ class SearchResult extends Component {
           <button className="MLButton" onClick={this.MLInfo}>Click Here To Learn How We Analyzed Your Quote</button>
         </p>
         <hr></hr>
-        <p className ={this.state.show ? 'show' : 'dontshow'} id="quote_display">{this.state.quote}</p>
+        <div className="quoteFade">
+          <p className ={this.state.show ? 'show' : 'dontshow'} id="quote_display">{this.state.quote}</p>
+        </div>
         <p className={`sentence ${this.state.show ? 'show' : 'dontshow'}`}>Author - {this.state.author}</p>
         { !(this.state.authenticated) ? (
           <>
@@ -232,10 +234,12 @@ class SearchResult extends Component {
           </div>
       </div>
       <br></br><br></br>
+      {/*
       <div class="searchBar">
         Didn't get what you were looking for? Try again here:
         <SearchBar/>
       </div>
+      */}
       { this.state.reportClicked ? (
         <>
           <div className="reportModal"></div>
