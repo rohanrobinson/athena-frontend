@@ -11,10 +11,13 @@ const QuoteOfTheDay = () => {
     axios.get(`https://athena-back-end.herokuapp.com/api/sentiment/name/neutral`)
         .then((response) => {
             // success
-            setQuotesList(response.data.quotes);
-            const ql = response.data.quotes;
-            const j = Math.floor(Math.random()*ql.length);
-            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${ql[j]}`)
+            var qList = [];
+            response.data.quotes.forEach((q) => {
+                qList.push(q[0])
+            });
+            setQuotesList(qList);
+            const j = Math.floor(Math.random()*qList.length);
+            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${qList[j]}`)
                 .then((res) => {
                     // success
                     setQuote(res.data.quote);
