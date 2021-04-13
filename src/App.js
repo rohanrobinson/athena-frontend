@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { Navigation, Home, CreateAccount, QuotesSaved, Explore, Philosophy, SearchResult, Favorites , AboutUs, Survey, SurveyInfo } from "./index";
+import { Navigation, Home, CreateAccount, QuotesSaved, Explore, Philosophy, SearchResult, Favorites, Results, AboutUs, Survey, SurveyInfo } from "./index";
 
 
 
