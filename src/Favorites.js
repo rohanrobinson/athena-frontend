@@ -44,7 +44,7 @@ const Favorites = () => {
   }, []);
 
   return (
-    <div className="favorites-page">
+    <div className="explore-page">
       { (user===null || user==='') ? (
         <>
           <p>Favorites</p>
@@ -53,16 +53,29 @@ const Favorites = () => {
         </>
       ):(
         <>
-          <h1>Favorites</h1>
           <div>
             { loaded ? (
               <>
-              <div className="quotesCont">
-                {savedQuotes.map((quote) => (
-                  <FavoriteQuote key={quote} quoteId={quote}/>
-                ))}
+              <div className="inspiration">
+                <div className="left-hand">
+                <div className="right-hand">
+                <div className="inspiration-content">
+                  <h1>QUOTE OF THE DAY</h1>
+                  <QuoteOfTheDay/>
+                </div>
+                </div>
+                </div>
               </div>
-              <QuoteOfTheDay />
+              <div className = "discover">
+                <div className = "discover-content">
+                  <h1>MY FAVORITES</h1>
+                </div>
+                <div className="quotesCont">
+                  {savedQuotes.map((quote) => (
+                    <FavoriteQuote key={quote} quoteId={quote}/>
+                  ))}
+                </div>
+              </div>
               </>
             ):(
               <>

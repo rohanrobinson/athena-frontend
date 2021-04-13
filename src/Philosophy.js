@@ -79,9 +79,9 @@ class Philosophy extends React.Component {
         return(
             <div id="phil_cont">
                 <div id="phil_inner_cont">
-                    <p id="phil_title">{this.state.name[0].toUpperCase() + this.state.name.slice(1)}</p>
-                    <br></br>
+                    <p id="phil_title">{this.state.name[0].toUpperCase() + this.state.name.slice(1).toUpperCase()}</p>
                     <div className = "philosophy">
+                    <div className = "philosophy-info">
                         <figure>
                           <img id = "phil-image" alt="philosophy" src={this.state.imageUrl}/>
                               <figcaption className = "philosophy-descr">
@@ -97,7 +97,8 @@ class Philosophy extends React.Component {
                             </div>
                             <button id="next_phil_button" onClick={this.getQuote}>Next Quote</button>
                         </div>
-                </div>
+                    </div>
+                    </div>
             </div>
         </div>
         )
