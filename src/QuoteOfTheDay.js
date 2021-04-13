@@ -11,10 +11,19 @@ const QuoteOfTheDay = () => {
     axios.get(`https://athena-back-end.herokuapp.com/api/sentiment/name/neutral`)
         .then((response) => {
             // success
-            setQuotesList(response.data.quotes);
-            const ql = response.data.quotes;
-            const j = Math.floor(Math.random()*ql.length);
-            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${ql[j]}`)
+            var qList = [];
+            response.data.quotes.forEach((q) => {
+                qList.push(q[0])
+            });
+            setQuotesList(qList);
+            var today = new Date();
+            var ddmm = (String(today.getDate()).padStart(2, '0') + String(today.getMonth() + 1).padStart(2, '0'));
+            console.log(ddmm);
+            const seedrandom = require('seedrandom');
+            const rng = seedrandom(ddmm);
+            console.log(rng());
+            const j = Math.floor(rng()*qList.length);
+            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${qList[j]}`)
                 .then((res) => {
                     // success
                     setQuote(res.data.quote);
@@ -49,10 +58,9 @@ const QuoteOfTheDay = () => {
   return (
     <div id="quoteOfDay-page">
         <div id="qotd_cont">
-            <p id="qotd_title">Quote of the Day</p>
             <p id="qotd_quote">{quote}</p>
             <p id="qotd_author">- {author}</p>
-            <button id="qotd_button" onClick={getQuote}>Next</button>
+            {/* <button id="qotd_button" onClick={getQuote}>Next</button>*/}
         </div>
     </div>
   )

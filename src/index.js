@@ -15,6 +15,7 @@ export { default as SearchBar } from "./SearchBar.js";
 export { default as Favorites } from "./Favorites.js";
 
 export { default as Survey } from "./Survey.js";
+export { default as Results } from "./Results.js";
 
 export { default as SurveyInfo } from './SurveyInfo';
 
