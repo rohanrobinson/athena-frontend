@@ -21,11 +21,31 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from io import BytesIO
 from PyPDF2 import PdfFileWriter, PdfFileReader
+from transformers import pipeline, TFAutoModelForTokenClassification, AutoTokenizer
+import tensorflow as tf
+
+model = TFAutoModelForTokenClassification.from_pretrained("dbmdz/bert-large-cased-finetuned-conll03-english")
+tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
+label_list = [
+     "O",       # Outside of a named entity
+     "B-MISC",  # Beginning of a miscellaneous entity right after another miscellaneous entity
+     "I-MISC",  # Miscellaneous entity
+     "B-PER",   # Beginning of a person's name right after another person's name
+     "I-PER",   # Person's name
+     "B-ORG",   # Beginning of an organisation right after another organisation
+     "I-ORG",   # Organisation
+     "B-LOC",   # Beginning of a location right after another location
+     "I-LOC"    # Location
+]
+
 
 #incorporating The Natural Language Toolkit (NLTK) - open-source Python library for NLP. 
 from nltk.corpus import wordnet
 from nltk.tag import CRFTagger
 import pycrfsuite # pip install python-crfsuite
+
+
+summarizer = pipeline("summarization")
 
 '''
 Instructions for installing ntlk
@@ -160,7 +180,7 @@ def MacbethParser(filename):
             del quoteMap[character]
     return quoteMap, count
 
-def PnPParser(filename): # Custom Parser for Pride and Prejudice
+def ParserA(filename): # Custom Parser for selection A - manybooks.net
     count=1
     sentence = []
     quoteMarker = False
@@ -193,8 +213,7 @@ def PnPParser(filename): # Custom Parser for Pride and Prejudice
     #print(quoteList)
     return quoteList, count
 
-def GatsbyParser(filename):
-    # Gatsby parser.......
+def ParserB(filename): #Parser for selection B - Project Gutenburg Books
     count=1
     sentence = []
     quoteMarker = False
@@ -205,10 +224,10 @@ def GatsbyParser(filename):
         lastWord = ""
         for char in line:
             if char == ' ':
-                print("WORD: "+word)
+                #print("WORD: "+word)
                 lastWord = word
                 word = ""
-                print("LAST WORD: "+lastWord)
+                #print("LAST WORD: "+lastWord)
                 if len(lastWord) > 1 and (lastWord[0] == '“' or lastWord[0] == '"' or lastWord[0] == ' "\ ') and not quoteMarker:
                     quoteMarker = True
                     #print("QUOTE: "+lastWord[1:].lstrip())
@@ -217,7 +236,7 @@ def GatsbyParser(filename):
                     lastSentence = ' '.join(sentence)    #OKAY TIGHTEN UP....
                     #print("LAST SENT: "+str(sentence)) 
                     if len(lastWord) > 1:
-                        if len(lastSentence) > 110 or (lastWord[-1] == '”' or lastWord[-1] == '"' or lastWord[-1] == '“'): #or len(lastSentence) > 30:
+                        if len(lastSentence) > 140 or (lastWord[-1] == '”' or lastWord[-1] == '"' or lastWord[-1] == '“'): 
                             quoteMarker = False
                             if lastSentence not in ['"Project Gutenberg"', '"Plain Vanilla ASCII"', '"Information about donations to the Project   Literary Archive * You provide a full refund of any money paid by', '"Defects,"']:
                                 quoteList.append(lastSentence)
@@ -229,9 +248,26 @@ def GatsbyParser(filename):
 # PART C: Sorting through lines and determining if it is a motivational quote or not
 def validQuote(quote):
     ct = CRFTagger()
-    if len(quote) < 20: #Valid Quote must be more than 20 characters
+    #Quote Length constraints - Feature A
+    if len(quote) < 80 or len(quote) > 140: #Valid Quote must be more than 80 characters
         return False
-    # Valid Quote must also have 2 nouns, 1 verb, 2 adjectives, 1 determiner
+
+    #Name Entity Recognition constraints - Feature B: no names of persons (I-PER)
+    tokens = tokenizer.tokenize(tokenizer.decode(tokenizer.encode(quote)))
+    inputs = tokenizer.encode(quote, return_tensors="tf")
+
+    outputs = model(inputs)[0]
+    predictions = tf.argmax(outputs, axis=2)
+    nerList = [(token, label_list[prediction]) for token, prediction in zip(tokens, predictions[0].numpy())]
+    for obj in nerList:
+        #print(obj)
+        if obj[1] == 'I-PER':
+            return False
+
+    # Summarization - Feature C/D
+    #summary = summarizer(quote, max_length=len(quote), min_length=20, do_sample=False)[0]['summary_text']
+
+    #NTK POS Constraints https://www.nltk.org/book/ch05.html - Feature C/D
     NounCount = 0
     VerbCount = 0
     AdjCount = 0
@@ -245,7 +281,7 @@ def validQuote(quote):
     [('dog','Noun'),('eat','Verb'),('meat','Noun')]]
     ct.train(train_data,'model.crf.tagger')
     tagList = (ct.tag(wordList))
-    for elementTag in tagList: # NTLK POS https://www.nltk.org/book/ch05.html
+    for elementTag in tagList:
         if elementTag[1] == 'Noun': #noun 
             NounCount+=1
         elif elementTag[1] == 'Verb': #verb
@@ -254,10 +290,13 @@ def validQuote(quote):
             AdjCount+=1
         elif elementTag[1] == 'Det': #determiner/article
             DetCount += 1
-    return NounCount > 2 and VerbCount > 1 and AdjCount > 2 and DetCount > 1
+    POSratio = (VerbCount + NounCount) / ((AdjCount + DetCount) + 1) #proportionally, more verbs and nouns then adj's and det's
+    #print(POSratio)
+    return POSratio > 3.0
+
 
 # PART D: Culmination of Parts A-C
-def bookParse(title):
+def bookParse(title, selection, author):
     '''
     path = 'pdf/'+title+'.pdf' #specifiy your main pdf document path. i.e 'pdf/Macbeth.pdf'
     fname = os.listdir('/Users/isaiahmartin/Documents/CS98/athena21W/data_processing/pdf/split') #fname: List contain pdf documents names in folder
@@ -284,93 +323,62 @@ def bookParse(title):
         with open(title+".txt", "a", encoding="utf-8") as text_file:
             text_file.writelines(text1_output)
     '''
-    if title == "Macbeth":
-        quoteMap, count = MacbethParser(title+".txt")
+    if selection == "A": # "A" manybooks.net
+        quoteList, count = ParserA(title+".txt")
         quoteCount = 0
-        characterCount = 0
-        validQuotes = []
-        validQuoteID = 0
-        for key in quoteMap.keys():
-            print("\tCharacter: "+str(key))
-            #print(quoteMap[key])
-            arr, prev = quoteMap[key]
-            #print(arr)
-            quoteCount+=len(arr)
-            characterCount+=1
-            for quote in arr:
-                print("\t*\t"+quote)
-                if(validQuote(quote)):
-                    validQuoteID+=1
-                    validQuotes.append(
-                        {
-                            "quoteID": validQuoteID, 
-                            "quote": quote,
-                            "character": key,
-                            "author": "William Shakespeare",
-                        }
-                    )
-        print("\n\tParsed through "+str(count)+" lines of "+title)
-        print("\tAuthor: William Shakespeare")
-        print("\t"+str(characterCount)+" Characters")
-        print("\t"+str(quoteCount)+" Potential Quotes")
-        print("\tValid Quotes: "+str(len(validQuotes)))
-        print(str(validQuotes))
-    elif title == "Pride-and-Prejudice":
-        quoteList, count = PnPParser(title+".txt")
-        quoteCount = 0
-        characterCount = 'N/A'
         validQuotes = []
         validQuoteID = 0
         
         for quote in quoteList:
             quoteCount+=1
-            print("\t*\t"+quote)
             if(validQuote(quote)):
                 validQuoteID+=1
                 validQuotes.append(
                     {
                         "quoteID": validQuoteID, 
                         "quote": quote,
-                        "character": "N/A",
-                        "author": "Jane Austen"
+                        "author": author
                     }
                 )
-        print("\n\tParsed through "+str(count)+" lines of "+title)
-        print("\tAuthor: Jane Austen")
-        print("\t"+str(characterCount)+" Characters")
+        print("\n\tParserA ~ Parsed through "+str(count)+" lines of "+title)
+        print("\tAuthor: "+author)
         print("\t"+str(quoteCount)+" Potential Quotes")
         print("\tValid Quotes: "+str(len(validQuotes)))
+        print("\tValid to Reg Ratio: "+str(len(validQuotes)/quoteCount))
         print(str(validQuotes))
-    else:
-        quoteList, count = GatsbyParser(title+".txt")
+    else: #B - project Gutenburg
+        quoteList, count = ParserB(title+".txt")
         quoteCount = 0
-        characterCount = 'N/A'
         validQuotes = []
         validQuoteID = 0
         
         for quote in quoteList:
             quoteCount+=1
-            print("\t*\t"+quote)
+            #print("\t*\t"+quote)
             if(validQuote(quote)):
                 validQuoteID+=1
                 validQuotes.append(
                     {
                         "quoteID": validQuoteID, 
                         "quote": quote,
-                        "character": "N/A",
-                        "author": "F. Scott Fitzgerald"
+                        "author": author
                     }
                 )
-        print("\n\tParsed through "+str(count)+" lines of "+title)
-        print("\tAuthor: F. Scott Fitzgerald")
-        print("\t"+str(characterCount)+" Characters")
+        print("\n\tParserB ~ Parsed through "+str(count)+" lines of "+title)
+        print("\tAuthor: "+author)
         print("\t"+str(quoteCount)+" Potential Quotes")
         print("\tValid Quotes: "+str(len(validQuotes)))
+        print("\tValid to Reg Ratio: "+str(len(validQuotes)/quoteCount))
         print(str(validQuotes))
-        
-#bookParse("Macbeth")
-#bookParse("Pride-and-Prejudice")
-bookParse("Gatsby")
+
+# TypeA ManyBooks        
+#bookParse("Pride-and-Prejudice", "A", "Jane Austen")
+
+#TypeB Project Gutenburg 
+bookParse("Gatsby", "B", "F. Scott Fitzgerald")
+#bookParse("ScarletLetter", "B", "Nathaniel Hawthorne")
+#bookParse("AliceAndWonderland", "B", "Lewis Carroll")
+#bookParse("OliverTwist", "B", "Charles Dickens")
 
 '''
 Hugging Face library for transformer models - vectorization
@@ -384,4 +392,40 @@ Quotes from user input // back burner
 ML model this wknd!!!!!
 - Finetune book parser (accurately determine what is a valid quote) 200 more quotes
 - Custom machine learning model
+
+Sample Text: 
+- "I remembered you lived next door She held my hand impersonally, as a promise that she’d take care of in a minute?"
+
+What constitutes a motivational quote?
+- "Waste no more time arguing what a good man should be. Be One." - Marcus Aurelius
+- "The secret of happiness is to face the fact that the world is horrible, horrible, horrible." -Betrand Russell
+- "Those who know do not speak. Those who speak do not know." -Lao Tsu
+
+Okay, so we have something someone said. How could we determine if what that person said is motivational?
+
+Gatsby
+- 
+- “It seems that pretty soon the earth’s going to fall the sun—or wait a minute—it’s just the opposite—the sun’s colder"
+- “Let us learn to show our friendship for a man when he is alive not after he is dead,”
+- 
+- Good quotes don't have names in them...they're general - 3rd person.
+
+Features
+* summarization. I want to see what closely matches the summary of a quote....
+* text-classification. For constraints: NTK restrictions on NAMES, NTK count/percentage!, etc.
+
+* Expand Quote length??
+
+How can I make a basic ML model, trained to motivational quotes already in database???
+pip install transformers
+pip install --upgrade tensorflow
+
+QUOTE * WEIGHT = 0 or 1
 '''
+
+#TrueQuote = "Let us learn to show our friendship for a man when he is alive not after he is dead,"
+
+#FalseQuote = "Mike is my bestest friend. Right Josh?"
+#print((validQuote(TrueQuote), validQuote(FalseQuote)))
+
+
