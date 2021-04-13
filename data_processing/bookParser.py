@@ -310,7 +310,7 @@ def bookParse(title):
                         }
                     )
         print("\n\tParsed through "+str(count)+" lines of "+title)
-        print("\t Author: William Shakespeare")
+        print("\tAuthor: William Shakespeare")
         print("\t"+str(characterCount)+" Characters")
         print("\t"+str(quoteCount)+" Potential Quotes")
         print("\tValid Quotes: "+str(len(validQuotes)))
@@ -336,7 +336,7 @@ def bookParse(title):
                     }
                 )
         print("\n\tParsed through "+str(count)+" lines of "+title)
-        print("\t Author: Jane Austen")
+        print("\tAuthor: Jane Austen")
         print("\t"+str(characterCount)+" Characters")
         print("\t"+str(quoteCount)+" Potential Quotes")
         print("\tValid Quotes: "+str(len(validQuotes)))
@@ -370,4 +370,18 @@ def bookParse(title):
         
 #bookParse("Macbeth")
 #bookParse("Pride-and-Prejudice")
-#bookParse("Gatsby")
+bookParse("Gatsby")
+
+'''
+Hugging Face library for transformer models - vectorization
+https://huggingface.co/transformers/
+Think about it in terms of words vs book
+Ex: Man words in vector space for words closest to it
+Vector space lookup for what you want and what you have
+Sentence as - user input 
+Quotes from user input // back burner  
+
+ML model this wknd!!!!!
+- Finetune book parser (accurately determine what is a valid quote) 200 more quotes
+- Custom machine learning model
+'''
