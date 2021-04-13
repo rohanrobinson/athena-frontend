@@ -3,7 +3,8 @@
     margin: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
     border-radius: 5px;
-    background-color: #ececec;
+    /*background-color: #ececec;*/
+    background-color: white;
     position: relative;
 }
 

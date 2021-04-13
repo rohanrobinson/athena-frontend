@@ -52,10 +52,9 @@ const QuoteOfTheDay = () => {
   return (
     <div id="quoteOfDay-page">
         <div id="qotd_cont">
-            <p id="qotd_title">Quote of the Day</p>
             <p id="qotd_quote">{quote}</p>
             <p id="qotd_author">- {author}</p>
-            <button id="qotd_button" onClick={getQuote}>Next</button>
+            {/* <button id="qotd_button" onClick={getQuote}>Next</button>*/}
         </div>
     </div>
   )
