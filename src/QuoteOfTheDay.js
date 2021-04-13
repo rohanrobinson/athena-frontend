@@ -16,7 +16,13 @@ const QuoteOfTheDay = () => {
                 qList.push(q[0])
             });
             setQuotesList(qList);
-            const j = Math.floor(Math.random()*qList.length);
+            var today = new Date();
+            var ddmm = (String(today.getDate()).padStart(2, '0') + String(today.getMonth() + 1).padStart(2, '0'));
+            console.log(ddmm);
+            const seedrandom = require('seedrandom');
+            const rng = seedrandom(ddmm);
+            console.log(rng());
+            const j = Math.floor(rng()*qList.length);
             axios.get(`https://athena-back-end.herokuapp.com/api/quote/${qList[j]}`)
                 .then((res) => {
                     // success
