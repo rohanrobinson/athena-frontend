@@ -16,6 +16,8 @@ export { default as Favorites } from "./Favorites.js";
 
 export { default as Survey } from "./Survey.js";
 
+export { default as SurveyInfo } from './SurveyInfo';
+
 export { default as AboutUs } from "./AboutUs.js";
 
 

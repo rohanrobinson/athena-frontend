@@ -2,10 +2,15 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import SearchBar from './SearchBar';
 import "./navigation.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { Menu, Button, MenuItem } from "@material-ui/core"
 // import axios from 'axios';
 
 class Navigation extends React.Component {
-  state = {};
+  state = {
+    iconClicked: false
+  };
 
 
   componentDidMount() {
@@ -25,10 +30,24 @@ class Navigation extends React.Component {
   //  )
   }
 
+  iconClicked = () => {
+    if (this.state.iconClicked === false) {
+      this.setState({
+        iconClicked: true,
+      });
+  }
+  else if (this.state.iconClicked === true) {
+    this.setState({
+      iconClicked: false,
+    })
+  }
+}
+
   logout = () => {
     sessionStorage.removeItem('token');
     sessionStorage.setItem('user', '');
   }
+
   render() {
     if(sessionStorage.getItem("token")){
       return (
@@ -77,9 +96,14 @@ class Navigation extends React.Component {
                   {/* <li className="nav-link">
                     <a className="log-out" onClick={()=>this.logout()} >Log Out</a>
                   </li> */}
-                  <Link  className="nav-link" onClick={()=>this.logout()} to="/">
-                    Log Out
+
+                  <Link class="nav-link">
+                    
+                    <FontAwesomeIcon icon={faUser} className="user_icon" onClick={() => this.iconClicked()}  />
+                    { this.state.iconClicked ? <Link className="nav-link" onClick={() => this.logout()} to="/" >LogOut</Link> : <></> }
+                    { this.state.iconClicked ? <Link className="nav-link" to="/surveyInfo" >Survey Info</Link> : <></> }
                   </Link>
+
                 </ul>
           </nav>
         </div>

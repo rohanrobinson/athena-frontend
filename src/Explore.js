@@ -80,7 +80,7 @@ class Explore extends React.Component {
           <div className = "discover-philosophies">
             {this.displayPhilosophies()}
           </div>
-          < Survey />
+          {/* <Survey /> */}
         </div>
       </div>
                 
