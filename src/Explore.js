@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import "./explore.css";
-import Survey from './Survey';
+
 class Explore extends React.Component {
  
   constructor(props) {
@@ -80,7 +80,6 @@ class Explore extends React.Component {
           <div className = "discover-philosophies">
             {this.displayPhilosophies()}
           </div>
-          < Survey />
         </div>
       </div>
                 
