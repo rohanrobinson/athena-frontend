@@ -199,21 +199,32 @@ class SearchResult extends Component {
     this.setState({ analysisClicked: false });
   }
 
+  displayLikes = (id) => {
+    for (var i=0; i < this.state.tenQuotes.length; i++) {
+      if (this.state.tenQuotes[i][0] === id) {
+        return this.state.tenQuotes[i][1];
+      }
+    }
+  }
+
   displayQuotes = (event) => {
     return this.state.quotes.map((quote) => {
       return (
         <div class="item" data-aos="zoom-in" key={quote._id.$oid}>
-           <p>{quote.quote}</p>
-           <p>- {quote.author}</p>
-           <FontAwesomeIcon onClick={(e) => {
-             this.likeQuote(e, quote._id.$oid)
-           }} 
-           icon={faHeart}
-           color={this.state.likedQuotesList.includes(quote._id.$oid) ? ("Pink"): ("Gray")}
-           className="heart_button"
-           />
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
+          <p>{quote.quote}</p>
+          <p>- {quote.author}</p>
+          <div class="stage">
+            <div className={this.state.likedQuotesList.includes(quote._id.$oid) ? ("heart is-active"):("heart")}
+            onClick={(e) => {
+              this.likeQuote(e, quote._id.$oid)
+            }} 
+            ></div>
+          </div>
+
+          <p className="likes_display">{this.displayLikes(quote._id.$oid)} people liked this quote</p>
+
+          <div class="mouse"></div>
+          <div class="scrollText">Scroll</div>
        </div>
       )
     })

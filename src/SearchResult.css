@@ -527,4 +527,34 @@
 .heart_button {
   cursor: pointer;
 }
-  
+
+.likes_display {
+  font-size: 30px;
+}
+
+
+
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+  background-position: 0 0; 
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+.heart.is-active {
+  transition-duration: 1s;
+  background-position: -2800px 0;
+}
+
+.stage {
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
