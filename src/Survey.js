@@ -250,7 +250,6 @@ const Survey = () => {
                   </>
                 ):(
 
-                  // <button id="back_button" onClick={handleBack}>Back</button>
 
                   <button onClick={handleBack}><FontAwesomeIcon icon={faArrowLeft}/></button>
 
