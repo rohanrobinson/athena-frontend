@@ -245,7 +245,9 @@ class SearchResult extends Component {
 
           <div className="background-container">
            <img className="img1" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/nietzsche.png?alt=media&token=e0ac842e-8ccc-4f15-a8bd-f4161b8d8c06" alt=""/>
-           <img className="img2" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt=""/>
+           <img className="img2" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/Geometric_Moon-removebg.png?alt=media&token=f31c894a-194d-4f7f-afcc-3de9f8445703" alt=""/>
+           <img className="lefthand" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/left_hand.png?alt=media&token=c8a5147d-2342-4e5d-ba9d-c8def4387f21" alt=""/>
+           <img className="righthand" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/right_hand.png?alt=media&token=ddf8550e-9b42-4ed0-99b1-c2f72c8a07e2" alt=""/>
            <div className="stars"></div>
            <div className="twinkling"></div>
            <div className="clouds"></div>

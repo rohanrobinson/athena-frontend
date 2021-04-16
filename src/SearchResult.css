@@ -11,7 +11,7 @@
   padding-top: 75px;
   background-color: transparent;
   text-align: center;
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.795);
   font-size: 3em;
   position: relative;
 }
@@ -23,7 +23,7 @@
   font-family: "Cabin", sans-serif;
   letter-spacing: 12px;
   text-indent: 12px;
-  color: #ffffff;
+  color: white;
   position: absolute;
   left: 44.7%;
   bottom: 0;
@@ -503,12 +503,33 @@
   }
 
   .img2 {
-    height: 35vh;
-    width: 35vh;
+    height: 20vh;
+    width: 20vh;
     position: absolute;
     z-index: 3;
-    left: 20px;
+    left: 200px;
+    top: 60px;
   }
+
+  .lefthand {
+    height: 45vh;
+    width: 50vh;
+    position: absolute;
+    z-index: 4;
+    top: 280px;
+  }
+
+  .righthand {
+    height: 45vh;
+    width: 50vh;
+    position: absolute;
+    z-index: 4;
+    right:25px;
+    top: 200px;
+  }
+
+
+
 
 #result_back_button {
   position: fixed;
