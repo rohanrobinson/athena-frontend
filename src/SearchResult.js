@@ -253,7 +253,7 @@ class SearchResult extends Component {
            <div className="clouds"></div>
           </div> 
 
-          <button id="result_back_button" onClick={this.backToExplore}><FontAwesomeIcon icon={faArrowLeft} /></button>
+          <button id="result_back_button" onClick={this.backToExplore}><FontAwesomeIcon icon={faArrowLeft} /> Home</button>
 
           <div>
             {this.displayQuotes()}
