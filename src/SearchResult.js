@@ -131,7 +131,8 @@ class SearchResult extends Component {
         }
       };
       const body = {
-        removeQuote: this.state.quotes[this.state.current]._id.$oid
+        removeQuote: this.state.quotes[this.state.current]._id.$oid,
+        sentiment: this.state.quotes[this.state.current].sentimentName,
       };
       console.log(body);
       axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
@@ -141,20 +142,6 @@ class SearchResult extends Component {
         axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
           .then((response) => {
             // success
-            // console.log(response);
-            // sessionStorage.setItem('user', JSON.stringify(response.data));
-
-            // var temp = [];
-            // for (var i=0; i<this.state.likedQuotesList.length; i++) {
-            //   if (this.state.likedQuotesList[i] !== this.state.quoteId) {
-            //     temp.push(this.state.likedQuotesList[i]);
-            //   }
-            // }
-            // console.log(temp);
-            // this.setState({ 
-            //   quotesList: temp,
-            //   liked: false
-            // });
             sessionStorage.setItem('user', JSON.stringify(response.data));
             this.setState({
               likedQuotesList: res.data.savedQuotes,

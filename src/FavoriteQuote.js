@@ -10,6 +10,8 @@ const FavoriteQuote = ({ quoteId }) => {
   const history = useHistory();
   const [quote, setQuote] = useState();
   const [author, setAuthor] = useState();
+  const [sentiment, setSentiment] = useState();
+
   useEffect(() => {
     axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quoteId}`)
       .then ((response) => {
@@ -17,6 +19,7 @@ const FavoriteQuote = ({ quoteId }) => {
         // console.log("quote:");
         setQuote(response.data.quote);
         setAuthor(response.data.author);
+        setSentiment(response.data.sentimentName);
       })
       .catch((err) => {
         // error
@@ -37,7 +40,8 @@ const FavoriteQuote = ({ quoteId }) => {
       }
     };
     const body = {
-      removeQuote: quoteId
+      removeQuote: quoteId,
+      sentiment: sentiment
     };
     console.log(body);
     axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
