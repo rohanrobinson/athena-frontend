@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SearchResult.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faInfoCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import AOS from "aos";
 
 class SearchResult extends Component {
@@ -19,6 +19,7 @@ class SearchResult extends Component {
       id: '',
       token: '',
       numLikes:'',
+      currentQuote: '',
 
       quote: '',
       show: true,
@@ -182,21 +183,36 @@ class SearchResult extends Component {
     }
   }
 
-  reportQuote = (event) => {
+  reportQuote = (event, id) => {
+    event.preventDefault();
     console.log("A new report has been made:\n"+"quote ID: "+(this.state.quoteId)+"\nquote: "+(this.state.quote));
-    this.setState({ reportClicked: true });
+    this.setState({
+      reportClicked: true,
+      currentQuote: id
+    });
   }
 
-  closeReportModal = (event) => {
-    this.setState({ reportClicked: false });
+  closeReportModal = (event, id) => {
+    event.preventDefault();
+    this.setState({
+      reportClicked: false,
+      currentQuote: '',
+    });
   }
 
-  MLInfo = (event) => {
-    this.setState({ analysisClicked: true });
+  MLInfo = (event, id) => {
+    event.preventDefault();
+    this.setState({
+      analysisClicked: true,
+      currentQuote: id,
+    });
   }
 
   closeAnalysisModal = (event) => {
-    this.setState({ analysisClicked: false });
+    this.setState({
+      analysisClicked: false,
+    currentQuote: '',
+    });
   }
 
   displayLikes = (id) => {
@@ -222,9 +238,57 @@ class SearchResult extends Component {
           </div>
 
           <p className="likes_display">{this.displayLikes(quote._id.$oid)} people liked this quote</p>
+             
+          <nav className="menu">
+            <input type="checkbox" href="#" className="menu-open" name={quote._id.$oid} id={quote._id.$oid} />
+            <label className="menu-open-button" htmlFor={quote._id.$oid}>
+              <span className="hamburger hamburger-1"></span>
+              <span className="hamburger hamburger-2"></span>
+              <span className="hamburger hamburger-3"></span>
+            </label>
+
+            <a className="menu-item"> <FontAwesomeIcon icon={faInfoCircle} onClick={(e) => {this.MLInfo(e, quote._id.$oid)}} /> </a>
+            <a className="menu-item"> <FontAwesomeIcon icon={faExclamationCircle} onClick={(e) => {this.reportQuote(e, quote._id.$oid)}}/> </a>
+          </nav>
 
           <div class="mouse"></div>
           <div class="scrollText">Scroll</div>
+
+          { (this.state.analysisClicked && this.state.currentQuote === quote._id.$oid) ? (
+            <>
+            <div className="analysisModal"></div>
+            <div className="analysisText">
+              We use a neural network to do magic
+              <br></br>
+              <br></br>
+              <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
+              <br></br>
+              <br></br>
+              <button className="closeAnalysisModal" onClick={this.closeAnalysisModal}>Close</button>
+            </div>
+            </>
+          ):(
+            <>
+            </>
+          )}
+
+          { (this.state.reportClicked && this.state.currentQuote === quote._id.$oid) ? (
+            <>
+              <div className="reportModal"></div>
+              <div className="reportText">
+                Please write your report below. 
+                <br></br>
+                <textarea className="reportInput" placeholder="Write your report here..." wrap="soft"> 
+                </textarea>
+                <br></br>
+                <button className="submitReportModal" onClick={(e) => {this.closeReportModal(e, quote._id.$oid)}}>Submit</button>
+              </div>
+            </>
+          ):(
+            <>
+            </>
+          )}
+
        </div>
       )
     })
@@ -241,7 +305,6 @@ class SearchResult extends Component {
       { this.state.loaded ? (
         <>
           <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link>
-
 
           <div className="background-container">
            <img className="img1" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/nietzsche.png?alt=media&token=e0ac842e-8ccc-4f15-a8bd-f4161b8d8c06" alt=""/>
@@ -265,6 +328,7 @@ class SearchResult extends Component {
         </>
       )}
     </div>
+
     );
   }
 }
