@@ -115,6 +115,33 @@ def pdf_to_text(path):
     retstr.close()
     return text
 
+def pdfToTxt(title):
+    path = 'pdf/'+title+'.pdf' #specifiy your main pdf document path. i.e 'pdf/Macbeth.pdf'
+    fname = os.listdir('/Users/isaiahmartin/Documents/CS98/athena21W/data_processing/pdf/split') #fname: List contain pdf documents names in folder
+    length = len(fname) #Retrieve List fname Length.
+    
+    #call pdf remove function
+    pdf_remove(length, fname) 
+    #call pdf splitter function
+    pdf_splitter(path, fname) 
+    clear_text(title)
+    fname = os.listdir('/Users/isaiahmartin/Documents/CS98/athena21W/data_processing/pdf/split') #fname : List contain pdf documents names.
+    print("\n\n\t")
+    print(fname)
+    #fname: must be sorted.
+    fname.sort(key=lambda f: int(re.sub('\D', '', f)))
+    length = len(fname) 
+
+    for i in range(length): #Repeat each operation for each document.
+        text_output = pdf_to_text(('pdf/split/{}').format(fname[i])) #Extract text with PDF_to_text Function call
+        text1_output = text_output.decode("utf-8")     #Decode result from bytes to text
+        #print(text1_output)
+        
+        #Save extracted text to TEXT_FILE    
+        with open(title+".txt", "a", encoding="utf-8") as text_file:
+            text_file.writelines(text1_output)
+
+
 # PART B: Unique parsing of output txt file 
 
 # Start with Macbeth.txt 
@@ -297,38 +324,14 @@ def validQuote(quote):
 
 # PART D: Culmination of Parts A-C
 def bookParse(title, selection, author):
-    '''
-    path = 'pdf/'+title+'.pdf' #specifiy your main pdf document path. i.e 'pdf/Macbeth.pdf'
-    fname = os.listdir('/Users/isaiahmartin/Documents/CS98/athena21W/data_processing/pdf/split') #fname: List contain pdf documents names in folder
-    length = len(fname) #Retrieve List fname Length.
-    
-    #call pdf remove function
-    pdf_remove(length, fname) 
-    #call pdf splitter function
-    pdf_splitter(path, fname) 
-    clear_text(title)
-    fname = os.listdir('/Users/isaiahmartin/Documents/CS98/athena21W/data_processing/pdf/split') #fname : List contain pdf documents names.
-    print("\n\n\t")
-    print(fname)
-    #fname: must be sorted.
-    fname.sort(key=lambda f: int(re.sub('\D', '', f)))
-    length = len(fname) 
-
-    for i in range(length): #Repeat each operation for each document.
-        text_output = pdf_to_text(('pdf/split/{}').format(fname[i])) #Extract text with PDF_to_text Function call
-        text1_output = text_output.decode("utf-8")     #Decode result from bytes to text
-        #print(text1_output)
-        
-        #Save extracted text to TEXT_FILE    
-        with open(title+".txt", "a", encoding="utf-8") as text_file:
-            text_file.writelines(text1_output)
-    '''
     if selection == "A": # "A" manybooks.net
         quoteList, count = ParserA(title+".txt")
         quoteCount = 0
         validQuotes = []
+        inValidQuotes = []
         validQuoteID = 0
-        
+        inValidQuoteID = 0
+
         for quote in quoteList:
             quoteCount+=1
             if(validQuote(quote)):
@@ -340,17 +343,25 @@ def bookParse(title, selection, author):
                         "author": author
                     }
                 )
+            else:
+                inValidQuoteID+=1
+                inValidQuotes.append(quote)
+
         print("\n\tParserA ~ Parsed through "+str(count)+" lines of "+title)
         print("\tAuthor: "+author)
         print("\t"+str(quoteCount)+" Potential Quotes")
         print("\tValid Quotes: "+str(len(validQuotes)))
         print("\tValid to Reg Ratio: "+str(len(validQuotes)/quoteCount))
         print(str(validQuotes))
+
+        return (validQuotes, inValidQuotes)
     else: #B - project Gutenburg
         quoteList, count = ParserB(title+".txt")
         quoteCount = 0
         validQuotes = []
+        inValidQuotes = []
         validQuoteID = 0
+        inValidQuoteID = 0
         
         for quote in quoteList:
             quoteCount+=1
@@ -364,6 +375,10 @@ def bookParse(title, selection, author):
                         "author": author
                     }
                 )
+            else:
+                inValidQuoteID+=1
+                inValidQuotes.append(quote)
+
         print("\n\tParserB ~ Parsed through "+str(count)+" lines of "+title)
         print("\tAuthor: "+author)
         print("\t"+str(quoteCount)+" Potential Quotes")
@@ -371,61 +386,14 @@ def bookParse(title, selection, author):
         print("\tValid to Reg Ratio: "+str(len(validQuotes)/quoteCount))
         print(str(validQuotes))
 
+        return (validQuotes, inValidQuotes)
 # TypeA ManyBooks        
 #bookParse("Pride-and-Prejudice", "A", "Jane Austen")
 
 #TypeB Project Gutenburg 
-bookParse("Gatsby", "B", "F. Scott Fitzgerald")
+#bookParse("Gatsby", "B", "F. Scott Fitzgerald")
 #bookParse("ScarletLetter", "B", "Nathaniel Hawthorne")
 #bookParse("AliceAndWonderland", "B", "Lewis Carroll")
 #bookParse("OliverTwist", "B", "Charles Dickens")
-
-'''
-Hugging Face library for transformer models - vectorization
-https://huggingface.co/transformers/
-Think about it in terms of words vs book
-Ex: Man words in vector space for words closest to it
-Vector space lookup for what you want and what you have
-Sentence as - user input 
-Quotes from user input // back burner  
-
-ML model this wknd!!!!!
-- Finetune book parser (accurately determine what is a valid quote) 200 more quotes
-- Custom machine learning model
-
-Sample Text: 
-- "I remembered you lived next door She held my hand impersonally, as a promise that she’d take care of in a minute?"
-
-What constitutes a motivational quote?
-- "Waste no more time arguing what a good man should be. Be One." - Marcus Aurelius
-- "The secret of happiness is to face the fact that the world is horrible, horrible, horrible." -Betrand Russell
-- "Those who know do not speak. Those who speak do not know." -Lao Tsu
-
-Okay, so we have something someone said. How could we determine if what that person said is motivational?
-
-Gatsby
-- 
-- “It seems that pretty soon the earth’s going to fall the sun—or wait a minute—it’s just the opposite—the sun’s colder"
-- “Let us learn to show our friendship for a man when he is alive not after he is dead,”
-- 
-- Good quotes don't have names in them...they're general - 3rd person.
-
-Features
-* summarization. I want to see what closely matches the summary of a quote....
-* text-classification. For constraints: NTK restrictions on NAMES, NTK count/percentage!, etc.
-
-* Expand Quote length??
-
-How can I make a basic ML model, trained to motivational quotes already in database???
-pip install transformers
-pip install --upgrade tensorflow
-
-QUOTE * WEIGHT = 0 or 1
-'''
-
-#TrueQuote = "Let us learn to show our friendship for a man when he is alive not after he is dead,"
-
-#FalseQuote = "Mike is my bestest friend. Right Josh?"
-#print((validQuote(TrueQuote), validQuote(FalseQuote)))
 
 
