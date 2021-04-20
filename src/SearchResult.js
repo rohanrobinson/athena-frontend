@@ -131,7 +131,8 @@ class SearchResult extends Component {
         }
       };
       const body = {
-        removeQuote: id
+        removeQuote: this.state.quotes[this.state.current]._id.$oid,
+        sentiment: this.state.quotes[this.state.current].sentimentName,
       };
       axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
       .then((res) => {

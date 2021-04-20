@@ -78,6 +78,11 @@ class Philosophy extends React.Component {
     render () {
         return(
             <div id="phil_cont">
+                <div className="page-bar">
+                    <div className="page-bar-content">
+                    <p className="page-bar-info">Explore-></p><p className="page-bar-name">{this.state.name[0].toUpperCase() + this.state.name.slice(1)}</p>
+                    </div>
+                </div>
                 <div id="phil_inner_cont">
                     <p id="phil_title">{this.state.name[0].toUpperCase() + this.state.name.slice(1).toUpperCase()}</p>
                     <div className = "philosophy">

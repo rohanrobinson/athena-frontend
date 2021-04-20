@@ -49,7 +49,7 @@ class Explore extends React.Component {
                 }
               }}>
                 <h4>{phil.philosophy[0].toUpperCase() + phil.philosophy.slice(1)}</h4></Link>
-              <p className="philosophy-tags"></p>
+              <p className="philosophy-tags">100% match</p>
             </div>
           </div>
         )

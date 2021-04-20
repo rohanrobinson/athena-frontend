@@ -1,11 +1,41 @@
 #phil_cont {
     width: 100%;
-    align-content: center;
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(-156deg,#45548f 0%,#9b42b8 100%);
-    padding-bottom: 20px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    background-image: url("test.jpg"); /*#ececec;*/
     margin-bottom: -22px;
+    padding-bottom: 20px;
+}
+
+.page-bar {
+    height: 60px;
+    background: linear-gradient(-156deg,#45548f 0%,#9b42b8 100%);
+}
+
+.page-bar-content {
+  color:white;
+  /*text-align: center;*/
+  min-width: 500px;
+  max-width: 1200px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  line-height: 60px;
+}
+
+.page-bar-info {
+    font-size: 20px;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.page-bar-name {
+    font-size: 20px;
+    opacity: .8;
+    display: inline-block;
+    padding-left: 5px;
 }
 
 h3 {
@@ -16,15 +46,15 @@ h3 {
 figure {
     display: flex;
     align-items: center;
-    color: black;
-    font-size: 20px;
+    color: #4a4a4a;
+    font-size: 25px;
     text-align: start;
     /*width: 100%;*/
   }
 
 .philosophy-descr {
-    margin-top: 20px;
-    margin-right: 20px;
+    margin-top: 0px;
+    margin-right: 0px;
 }
 
 #phil-image {
@@ -37,9 +67,13 @@ figure {
 .philosophy {
     text-align: center;
     width: 100%;
-    background-color: #ececec;
+    background-color: white;
     background-size: contain;
     border-radius: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    opacity: .95;
 }
 
 .related-quote-author {
@@ -53,10 +87,11 @@ figure {
 }
 
 #phil_inner_cont {
-    width: 100%;
-    max-width: 900px;
-    text-align: center;
-    margin-bottom: 100px;
+  min-width: 500px;
+  max-width: 1100px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
 }
 
 #phil-image {
@@ -66,11 +101,11 @@ figure {
 }
 
 #phil_title {
-    align-self: center;
-    font-size: 40px;
-    color: white;
+    text-align: center;
+    font-size: 55px;
+    color: #333333;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 #next_phil_button {

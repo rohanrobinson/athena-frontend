@@ -1,5 +1,36 @@
+.transition {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: -1;
+}
+
+.transition-bg {
+    height:100%;
+    width:1600%;
+    background: url(transition_sprite.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    animation: cd-sequence 0.8s steps(17);
+    animation-fill-mode: forwards;
+}
+
+@keyframes cd-sequence {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+
+}
+
 #out_cont {
     width: 100%;
+    height: 100%;
+    top:0%;
+    position: fixed;
     display: flex;
     justify-content: center;
 }
@@ -26,7 +57,7 @@
     height: 250px;
     justify-content: center;
     text-align: center;
-    background-color: white;
+    /*background-color: white;*/
     border-radius: 20px;
     margin-top: 10px;
 }
@@ -52,6 +83,8 @@
 #ques {
     width: 80%;
     padding: 10px;
+    font-size: 20px;
+    color: #fcfcfc;
 }
 
 .input_ques {
