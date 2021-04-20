@@ -247,8 +247,16 @@ class SearchResult extends Component {
               <span className="hamburger hamburger-3"></span>
             </label>
 
-            <a className="menu-item"> <FontAwesomeIcon icon={faInfoCircle} onClick={(e) => {this.MLInfo(e, quote._id.$oid)}} /> </a>
-            <a className="menu-item"> <FontAwesomeIcon icon={faExclamationCircle} onClick={(e) => {this.reportQuote(e, quote._id.$oid)}}/> </a>
+            <a className="menu-item"> 
+              <div className="icon">
+              <FontAwesomeIcon icon={faInfoCircle} onClick={(e) => {this.MLInfo(e, quote._id.$oid)}} /> 
+              </div>
+            </a>
+            <a className="menu-item"> 
+              <div className="icon">
+              <FontAwesomeIcon icon={faExclamationCircle} onClick={(e) => {this.reportQuote(e, quote._id.$oid)}}/>
+              </div>
+            </a>
           </nav>
 
           <div class="mouse"></div>
@@ -258,7 +266,7 @@ class SearchResult extends Component {
             <>
             <div className="analysisModal"></div>
             <div className="analysisText">
-              We use a neural network to do magic
+              We use a neural network to do magic. We are also pulling quotes from our database using a customized weighted randomization algorithm in order to provide you with the most relevant results!
               <br></br>
               <br></br>
               <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
