@@ -83,6 +83,8 @@
 #ques {
     width: 80%;
     padding: 10px;
+    font-size: 20px;
+    color: #fcfcfc;
 }
 
 .input_ques {
