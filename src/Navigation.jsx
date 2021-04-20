@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import SearchBar from './SearchBar';
 import "./navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { Menu, Button, MenuItem } from "@material-ui/core"
+import Dropdown from 'react-bootstrap/Dropdown';
 // import axios from 'axios';
 
 class Navigation extends React.Component {
@@ -88,21 +88,24 @@ class Navigation extends React.Component {
                     </Link>
                   </li>
                   <li
-                    class={`nav-item  ${
-                      this.props.location.pathname === "/contact" ? "active" : ""
-                    }`}
+                    // class={`nav-item  ${
+                    //   this.props.location.pathname === "/contact" ? "active" : ""
+                    // }`}
+                    className="icon-dropdown"
                   >
-                  </li>
-                  {/* <li className="nav-link">
-                    <a className="log-out" onClick={()=>this.logout()} >Log Out</a>
-                  </li> */}
+                    <Dropdown>
+                      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                      <FontAwesomeIcon icon={faUser} className="user_icon" />
+                      </Dropdown.Toggle>
 
-                  <Link class="nav-link">
-                    
-                    <FontAwesomeIcon icon={faUser} className="user_icon" onClick={() => this.iconClicked()}  />
-                    { this.state.iconClicked ? <Link className="nav-link" onClick={() => this.logout()} to="/" >LogOut</Link> : <></> }
-                    { this.state.iconClicked ? <Link className="nav-link" to="/surveyInfo" >Survey Info</Link> : <></> }
-                  </Link>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account Info</Link></Dropdown.Item>
+                        <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" >LogOut</Link></Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </li>
+
+
 
                 </ul>
           </nav>
