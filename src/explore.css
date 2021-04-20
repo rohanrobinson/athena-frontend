@@ -43,7 +43,7 @@
 }
 
 .discover-content{
-  color:black;
+  color:#333333; /*black*/
   text-align: center;
   min-width: 500px;
   max-width: 1400px;
@@ -127,4 +127,9 @@
 .philosophy-card-descr {
   color: var(--secondary-col);
   font-size: 10px;
+}
+
+.philosophy-tags {
+  font-size:15px;
+  color: #333333;
 }
