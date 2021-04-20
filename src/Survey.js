@@ -276,6 +276,10 @@ const Survey = () => {
             )}
           </div>
         </div>
+        <div className="transition">
+          <div className="transition-bg">
+          </div>
+        </div>
         </>
       ):(
         <>
