@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./SearchResult.css";
-import SearchBar from './SearchBar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faInfoCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import AOS from "aos";
 
 class SearchResult extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class SearchResult extends Component {
       id: '',
       token: '',
       numLikes:'',
+      currentQuote: '',
 
       quote: '',
       show: true,
@@ -31,6 +32,8 @@ class SearchResult extends Component {
   }
 
   componentDidMount () {
+    AOS.init();
+
     // load the 10 quotes
     let axiosArray = [];
     const quotesList = this.props.location.state.data;
@@ -45,8 +48,6 @@ class SearchResult extends Component {
         responses.forEach((res) => {
           responseArray.push(res.data)
         });
-        console.log("quotes");
-        console.log(responseArray);
         this.setState({
           quotes: responseArray,
           loaded: true,
@@ -74,7 +75,6 @@ class SearchResult extends Component {
           .then((res) => {
             // success
             this.setState({ likedQuotesList: res.data.savedQuotes });
-            console.log(res.data.savedQuotes);
 
             // check if liked
             if (res.data.savedQuotes.includes(responseArray[this.state.current]._id.$oid)) {
@@ -121,9 +121,9 @@ class SearchResult extends Component {
     this.setState({ numLikes: this.state.tenQuotes[num][1]})
   }
 
-  likeQuote = (event) => {
-    console.log("liked");
-    if (this.state.likedQuotesList.includes(this.state.quotes[this.state.current]._id.$oid)) {
+  likeQuote = (event, id) => {
+    event.preventDefault();
+    if (this.state.likedQuotesList.includes(id)) {
       // already liked, remove from liked
       const config = {
         headers: {
@@ -134,17 +134,15 @@ class SearchResult extends Component {
         removeQuote: this.state.quotes[this.state.current]._id.$oid,
         sentiment: this.state.quotes[this.state.current].sentimentName,
       };
-      console.log(body);
       axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success, get new user object
-        console.log(res);
         axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
           .then((response) => {
             // success
             sessionStorage.setItem('user', JSON.stringify(response.data));
             this.setState({
-              likedQuotesList: res.data.savedQuotes,
+              likedQuotesList: response.data.savedQuotes,
               liked: false
             });
           })
@@ -165,16 +163,14 @@ class SearchResult extends Component {
         }
       };
       const body = {
-        addQuote: this.state.quotes[this.state.current]._id.$oid,
+        addQuote: id,
         sentiment: this.state.quotes[this.state.current].sentimentName,
       };
-      console.log(body);
       axios.put(`https://athena-back-end.herokuapp.com/api/auth/saveQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success
         var temp = this.state.likedQuotesList;
-        temp.push(this.state.quotes[this.state.current]._id.$oid);
-        console.log(temp);
+        temp.push(id);
         
         this.setState({ 
           likedQuotesList: temp,
@@ -188,22 +184,128 @@ class SearchResult extends Component {
     }
   }
 
-  reportQuote = (event) => {
+  reportQuote = (event, id) => {
+    event.preventDefault();
     console.log("A new report has been made:\n"+"quote ID: "+(this.state.quoteId)+"\nquote: "+(this.state.quote));
-    this.setState({ reportClicked: true });
+    this.setState({
+      reportClicked: true,
+      currentQuote: id
+    });
   }
 
-  closeReportModal = (event) => {
-    this.setState({ reportClicked: false });
+  closeReportModal = (event, id) => {
+    event.preventDefault();
+    this.setState({
+      reportClicked: false,
+      currentQuote: '',
+    });
   }
 
-  MLInfo = (event) => {
-    console.log("Getting MLinfo");
-    this.setState({ analysisClicked: true });
+  MLInfo = (event, id) => {
+    event.preventDefault();
+    this.setState({
+      analysisClicked: true,
+      currentQuote: id,
+    });
   }
 
   closeAnalysisModal = (event) => {
-    this.setState({ analysisClicked: false });
+    this.setState({
+      analysisClicked: false,
+    currentQuote: '',
+    });
+  }
+
+  displayLikes = (id) => {
+    for (var i=0; i < this.state.tenQuotes.length; i++) {
+      if (this.state.tenQuotes[i][0] === id) {
+        return this.state.tenQuotes[i][1];
+      }
+    }
+  }
+
+  displayQuotes = (event) => {
+    return this.state.quotes.map((quote) => {
+      return (
+        <div class="item" data-aos="zoom-in" key={quote._id.$oid}>
+          <p>{quote.quote}</p>
+          <p>- {quote.author}</p>
+          <div class="stage">
+            <div className={this.state.likedQuotesList.includes(quote._id.$oid) ? ("heart is-active"):("heart")}
+            onClick={(e) => {
+              this.likeQuote(e, quote._id.$oid)
+            }} 
+            ></div>
+          </div>
+
+          <p className="likes_display">{this.displayLikes(quote._id.$oid)} people liked this quote</p>
+             
+          <nav className="menu">
+            <input type="checkbox" href="#" className="menu-open" name={quote._id.$oid} id={quote._id.$oid} />
+            <label className="menu-open-button" htmlFor={quote._id.$oid}>
+              <span className="hamburger hamburger-1"></span>
+              <span className="hamburger hamburger-2"></span>
+              <span className="hamburger hamburger-3"></span>
+            </label>
+
+            <a className="menu-item"> 
+              <div className="icon">
+              <FontAwesomeIcon icon={faInfoCircle} onClick={(e) => {this.MLInfo(e, quote._id.$oid)}} /> 
+              </div>
+            </a>
+            <a className="menu-item"> 
+              <div className="icon">
+              <FontAwesomeIcon icon={faExclamationCircle} onClick={(e) => {this.reportQuote(e, quote._id.$oid)}}/>
+              </div>
+            </a>
+          </nav>
+
+          <div class="mouse"></div>
+          <div class="scrollText">Scroll</div>
+
+          { (this.state.analysisClicked && this.state.currentQuote === quote._id.$oid) ? (
+            <>
+            <div className="analysisModal"></div>
+            <div className="analysisText">
+              We use a neural network to do magic. We are also pulling quotes from our database using a customized weighted randomization algorithm in order to provide you with the most relevant results!
+              <br></br>
+              <br></br>
+              <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
+              <br></br>
+              <br></br>
+              <button className="closeAnalysisModal" onClick={this.closeAnalysisModal}>Close</button>
+            </div>
+            </>
+          ):(
+            <>
+            </>
+          )}
+
+          { (this.state.reportClicked && this.state.currentQuote === quote._id.$oid) ? (
+            <>
+              <div className="reportModal"></div>
+              <div className="reportText">
+                Please write your report below. 
+                <br></br>
+                <textarea className="reportInput" placeholder="Write your report here..." wrap="soft"> 
+                </textarea>
+                <br></br>
+                <button className="submitReportModal" onClick={(e) => {this.closeReportModal(e, quote._id.$oid)}}>Submit</button>
+              </div>
+            </>
+          ):(
+            <>
+            </>
+          )}
+
+       </div>
+      )
+    })
+  }
+
+  backToExplore = (event) => {
+    event.preventDefault();
+    this.props.history.push('/explore');
   }
 
   render() {
@@ -211,72 +313,23 @@ class SearchResult extends Component {
     <div className = "quotePage">
       { this.state.loaded ? (
         <>
-      <div className="QuoteCont">
-        <p className="sentence">
-          Displaying Quotes Inspired By Your Search: {this.state.sentence}
-          <br></br>
-          <br></br>
-          <button className="MLButton" onClick={this.MLInfo}>Click Here To Learn How We Analyzed Your Quote</button>
-        </p>
-        <hr></hr>
-        <p className ={this.state.show ? 'show' : 'dontshow'} id="quote_display">{this.state.quotes[this.state.current].quote}</p>
-        <p className={`sentence ${this.state.show ? 'show' : 'dontshow'}`}>Author - {this.state.quotes[this.state.current].author}</p>
-        { !(this.state.authenticated) ? (
-          <>
-          </>
-        ):(
-          <>
-            <FontAwesomeIcon onClick={this.likeQuote} icon={faHeart} color={this.state.liked ? ("Pink"): ("Gray")} className={`heartIcon ${this.state.show ? 'show' : 'dontshow'}`}/>
-            <p className={`favoriteTag ${this.state.show ? 'show' : 'dontshow'}`}>Favorite</p>
-            <p>Number of likes: {this.state.numLikes}</p>
-          </>
-        )}
-         <hr></hr>
-         <div className="btnOverride">
-            <button className="reportButton" onClick={this.reportQuote}>Report</button>
-            &nbsp;&nbsp;&nbsp;
-            <button className="nextButton" onClick={this.nextQuote}>Next</button>
-            &nbsp;&nbsp;&nbsp;
+          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link>
+
+          <div className="background-container">
+           <img className="img1" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/nietzsche.png?alt=media&token=e0ac842e-8ccc-4f15-a8bd-f4161b8d8c06" alt=""/>
+           <img className="img2" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/Geometric_Moon-removebg.png?alt=media&token=f31c894a-194d-4f7f-afcc-3de9f8445703" alt=""/>
+           <img className="lefthand" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/left_hand.png?alt=media&token=c8a5147d-2342-4e5d-ba9d-c8def4387f21" alt=""/>
+           <img className="righthand" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/right_hand.png?alt=media&token=ddf8550e-9b42-4ed0-99b1-c2f72c8a07e2" alt=""/>
+           <div className="stars"></div>
+           <div className="twinkling"></div>
+           <div className="clouds"></div>
+          </div> 
+
+          <button id="result_back_button" onClick={this.backToExplore}><FontAwesomeIcon icon={faArrowLeft} /> Home</button>
+
+          <div>
+            {this.displayQuotes()}
           </div>
-      </div>
-      <br></br><br></br>
-      <div class="searchBar">
-        Didn't get what you were looking for? Try again here:
-        <SearchBar/>
-      </div>
-      { this.state.reportClicked ? (
-        <>
-          <div className="reportModal"></div>
-          <div className="reportText">
-            Please write your report below. 
-            <br></br>
-            <textarea className="reportInput" placeholder="Write your report here..." wrap="soft"> 
-            </textarea>
-            <br></br>
-            <button className="submitReportModal" onClick={this.closeReportModal}>Submit</button>
-          </div>
-        </>
-      ):(
-        <>
-        </>
-      )}
-      { this.state.analysisClicked ? (
-        <>
-        <div className="analysisModal"></div>
-        <div className="analysisText">
-          We use a neural network to do magic
-          <br></br>
-          <br></br>
-          <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
-          <br></br>
-          <br></br>
-          <button className="closeAnalysisModal" onClick={this.closeAnalysisModal}>Close</button>
-        </div>
-        </>
-      ):(
-        <>
-        </>
-      )}
       </>
       ):(
         <>
@@ -284,6 +337,7 @@ class SearchResult extends Component {
         </>
       )}
     </div>
+
     );
   }
 }
