@@ -73,12 +73,16 @@ class Explore extends React.Component {
           </div>
         </div>
         <div className="discover">
+          <div className="left-poly">
+          <div className="right-poly">
           <div className="discover-content">
             <h1>DISCOVER PHILOSOPHIES</h1>
             <h2>Learn about new philosophies and browse through related quotes</h2>
           </div>
           <div className = "discover-philosophies">
             {this.displayPhilosophies()}
+          </div>
+          </div>
           </div>
 
   

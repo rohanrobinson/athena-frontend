@@ -78,6 +78,8 @@ class Philosophy extends React.Component {
     render () {
         return(
             <div id="phil_cont">
+            <div className="left-poly">
+            <div className="right-poly">
                 <div className="page-bar">
                     <div className="page-bar-content">
                     <p className="page-bar-info">Explore-></p><p className="page-bar-name">{this.state.name[0].toUpperCase() + this.state.name.slice(1)}</p>
@@ -104,6 +106,8 @@ class Philosophy extends React.Component {
                         </div>
                     </div>
                     </div>
+            </div>
+            </div>
             </div>
         </div>
         )

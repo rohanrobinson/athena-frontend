@@ -32,6 +32,22 @@
   background-position: 100% 10%;
 }
 
+.left-poly {
+  background-image: url(polyabstract_left.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: 0% 25%;
+}
+
+.right-poly {
+  background-image: url(polyabstract_right.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 400px;
+  background-position: 100% 70%;
+}
+
 .inspiration-content{
   color:white;
   /*text-align: center;*/
