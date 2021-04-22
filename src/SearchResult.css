@@ -586,7 +586,7 @@
 
 
 
-h1,
+.quotePage h1,
 h2,
 h3,
 h4 {
@@ -595,7 +595,7 @@ h4 {
   margin-top: 10px;
 }
 
-h1 {
+.quotePage h1 {
   font-size: 3em;
 }
 
