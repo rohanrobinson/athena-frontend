@@ -125,13 +125,15 @@ class SearchResult extends Component {
     event.preventDefault();
     if (this.state.likedQuotesList.includes(id)) {
       // already liked, remove from liked
+      console.log('dislike');
       const config = {
         headers: {
           Authorization: 'Bearer ' + this.state.token
         }
       };
       const body = {
-        removeQuote: this.state.quotes[this.state.current]._id.$oid,
+        // removeQuote: this.state.quotes[this.state.current]._id.$oid,
+        removeQuote: id,
         sentiment: this.state.quotes[this.state.current].sentimentName,
       };
       axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
