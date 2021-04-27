@@ -147,6 +147,17 @@ class SearchResult extends Component {
               likedQuotesList: response.data.savedQuotes,
               liked: false
             });
+
+            // decrease like count
+            for (var i=0; i < this.state.tenQuotes.length; i++) {
+              if (this.state.tenQuotes[i][0] === id) {
+                var temp1 = this.state.tenQuotes;
+                temp1[i][1] = temp1[i][1] - 1;
+                this.setState({
+                  tenQuotes: temp1
+                });
+              }
+            }
           })
           .catch((error) => {
             // error
@@ -178,6 +189,17 @@ class SearchResult extends Component {
           likedQuotesList: temp,
           liked: true
         });
+
+        // increase like count
+        for (var i=0; i < this.state.tenQuotes.length; i++) {
+          if (this.state.tenQuotes[i][0] === id) {
+            var temp1 = this.state.tenQuotes;
+            temp1[i][1] = temp1[i][1] + 1;
+            this.setState({
+              tenQuotes: temp1
+            });
+          }
+        }
       })
       .catch((err) => {
         // error
