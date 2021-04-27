@@ -89,8 +89,38 @@
 }
 
 .input_ques {
+    /*
     background-color: #cccfd1;
     border-radius: 5px;
+    */
+    background:transparent;
+}
+
+.input_ques {
+   outline: 0;
+   margin-top: 20px;
+   width: 50%;
+   /*border: 1px solid rgba(255,255,255,0.9);*/
+   border: 0;
+   padding-left: 5px;
+   background-color: rgba(255,255,255,0.9);
+   border-radius: 3px;
+   /*text-align: center;*/
+   color: black;
+   transition-duration: 0.25s;
+   font-weight: 300;
+}
+.input_ques:hover {
+   background-color: rgba(255,255,255,0.9);
+}
+.input_ques:focus {
+   background-color: white;
+   color: #53e3a6;
+   width: 65%;
+   border: 3px solid #53e3a6;
+   border-top: none;
+   border-left: none;
+   border-right: none;
 }
 
 #submit_survey {

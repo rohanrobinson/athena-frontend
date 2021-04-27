@@ -213,7 +213,7 @@ const Survey = () => {
       return (
         <div>
           <p>{questions[currentQuestionIndex].q}</p>
-          <input type="text" onChange={updateAnswer} value={selected} className="input_ques"/>
+          <input type="text" onChange={updateAnswer} value={selected} placeholder="Enter response..." className="input_ques"/>
         </div>
       )
     }
