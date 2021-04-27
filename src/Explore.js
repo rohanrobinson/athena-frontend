@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import "./explore.css";
+import Tilt from 'react-tilt'
 
 class Explore extends React.Component {
  
@@ -34,6 +35,7 @@ class Explore extends React.Component {
   displayPhilosophies () {
     return this.state.philosophies.map((phil) => {
       return (
+        <Tilt className="Tilt" options={{ max : 25 }}>
           <div key={phil.philosophy} className = "philosophy-card">
             <div className = "philosophy-card-image">
               <a>
@@ -52,6 +54,7 @@ class Explore extends React.Component {
               <p className="philosophy-tags">100% match</p>
             </div>
           </div>
+        </Tilt>
         )
     });
   }

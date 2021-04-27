@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "react-spinners": "^0.10.6",
+    "react-tilt": "^0.1.4",
     "seedrandom": "^3.0.5",
     "surge": "^0.21.7",
     "web-vitals": "^1.1.0"
