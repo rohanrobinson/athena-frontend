@@ -56,8 +56,6 @@ class Explore extends React.Component {
     });
   }
 
-
-
   render() {
     return (	
       <div className = "explore-page">

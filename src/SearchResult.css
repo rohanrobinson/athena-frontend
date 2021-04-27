@@ -830,3 +830,6 @@ h1 {
   border-radius: 8px;
 }
 
+.twitter-share-button:hover {
+    color: rgb(162, 71, 162);
+}
