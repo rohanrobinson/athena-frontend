@@ -32,7 +32,9 @@ class SearchResult extends Component {
   }
 
   componentDidMount () {
-    AOS.init();
+    AOS.init({
+      duration: 2000,
+    })
 
     // load the 10 quotes
     let axiosArray = [];

@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import "./explore.css";
+import AOS from "aos";
+
 
 class Explore extends React.Component {
  
@@ -12,12 +14,18 @@ class Explore extends React.Component {
       names: [],
       descriptions: [],
       philosophies: [],
+      displayCards: false, 
+      displayArrow: true
     };
   }
 
 
 
   componentDidMount(){
+    AOS.init({
+      duration: 2000,
+    })
+
     axios.get(`https://athena-back-end.herokuapp.com/api/allphilosophies` )
       .then((response) => {
           // success
@@ -31,10 +39,10 @@ class Explore extends React.Component {
       });
   }
 
-  displayPhilosophies () {
+  displayPhilosophies = () => {
     return this.state.philosophies.map((phil) => {
       return (
-          <div key={phil.philosophy} className = "philosophy-card">
+          <div key={phil.philosophy} data-aos="zoom-in" className = "philosophy-card" >
             <div className = "philosophy-card-image">
               <a>
                 <img alt={phil.philosophy} src={phil.imageUrl} />
@@ -56,11 +64,32 @@ class Explore extends React.Component {
     });
   }
 
+  displayArrow = () => {
+    return (
+      <button className="down-button" onClick={this.displayCards.bind(null, true)}>
+        <div class="arrow">
+            More philosophies please!
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+      </button>
+    )
+  }
 
+  displayCards = (bool) => {
+    this.setState({
+      displayCards: true
+    });
+    this.setState({
+      displayArrow: false
+    });
+  }
 
   render() {
     return (	
       <div className = "explore-page">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link>
         <div className="inspiration">
           <div className="left-hand">
           <div className="right-hand">
@@ -80,13 +109,14 @@ class Explore extends React.Component {
             <h2>Learn about new philosophies and browse through related quotes</h2>
           </div>
           <div className = "discover-philosophies">
-            {this.displayPhilosophies()}
+            {this.state.displayArrow && (this.displayArrow())}
+            {this.state.displayCards && (this.displayPhilosophies())}
           </div>
           </div>
           </div>
-
-  
         </div>
+
+
       </div>
                 
       );
