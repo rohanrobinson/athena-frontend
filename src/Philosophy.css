@@ -125,3 +125,21 @@ figure {
     font-size: 18px;
     color: black;
 }
+
+.left-poly-phil {
+  background-image: url(polyabstract_left.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: 0% 25%;
+  background-attachment: fixed;
+}
+
+.right-poly-phil {
+  background-image: url(polyabstract_right.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 400px;
+  background-position: 100% 70%;
+  background-attachment: fixed;
+}

@@ -37,22 +37,24 @@ class Explore extends React.Component {
       return (
         <Tilt className="Tilt" options={{ max : 25 }}>
           <div key={phil.philosophy} className = "philosophy-card">
-            <div className = "philosophy-card-image">
-              <a>
-                <img alt={phil.philosophy} src={phil.imageUrl} />
-              </a>
-            </div>
-            <div className = "philosophy-card-descr">
-              <Link 
+                        <Link 
                 to={{
                   pathname: '/philosophy',
                   aboutProps: {
                     phil: phil
                 }
               }}>
-                <h4>{phil.philosophy[0].toUpperCase() + phil.philosophy.slice(1)}</h4></Link>
+            <div className = "philosophy-card-image">
+              <a>
+                <img alt={phil.philosophy} src={phil.imageUrl} />
+              </a>
+            </div>
+            <div className = "philosophy-card-descr">
+
+                <h4>{phil.philosophy[0].toUpperCase() + phil.philosophy.slice(1)}</h4>
               <p className="philosophy-tags">100% match</p>
             </div>
+            </Link>
           </div>
         </Tilt>
         )
