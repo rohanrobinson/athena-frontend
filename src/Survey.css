@@ -38,15 +38,16 @@
 #survey_cont {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 70%;
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .survey_title {
-    font-size: 30px;
+    top: 0%;
+    font-size: 40px;
     color: white;
 }
 
@@ -83,13 +84,43 @@
 #ques {
     width: 80%;
     padding: 10px;
-    font-size: 20px;
+    font-size: 40px;
     color: #fcfcfc;
 }
 
 .input_ques {
+    /*
     background-color: #cccfd1;
     border-radius: 5px;
+    */
+    background:transparent;
+}
+
+.input_ques {
+   outline: 0;
+   margin-top: 20px;
+   width: 50%;
+   /*border: 1px solid rgba(255,255,255,0.9);*/
+   border: 0;
+   padding-left: 5px;
+   background-color: rgba(255,255,255,0.9);
+   border-radius: 3px;
+   /*text-align: center;*/
+   color: black;
+   transition-duration: 0.25s;
+   font-weight: 300;
+}
+.input_ques:hover {
+   background-color: rgba(255,255,255,0.9);
+}
+.input_ques:focus {
+   background-color: white;
+   color: #53e3a6;
+   width: 65%;
+   border: 3px solid #53e3a6;
+   border-top: none;
+   border-left: none;
+   border-right: none;
 }
 
 #submit_survey {
@@ -121,3 +152,66 @@
     border-radius: 20px;
     margin-top: 10px;
 }
+
+
+
+
+
+.arrow-div {
+    /*
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     */
+}
+.arrow-div svg {
+    /*
+     width: 100px;
+     height: auto;
+     margin: 0 2rem;
+     cursor: pointer;
+     overflow: visible;
+     */
+     cursor: pointer;
+     fill: white;
+}
+
+.arrow-div svg polygon, .arrow-div svg path {
+     transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.arrow-div svg:hover polygon, .arrow-div svg:hover path {
+     transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+     fill: #90cbc5;
+}
+.arrow-div svg:hover .arrow {
+     animation: arrow-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+.arrow-div svg:hover .arrow-fixed {
+     animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+ @keyframes arrow-anim {
+     0% {
+         opacity: 1;
+         transform: translateX(0);
+    }
+     5% {
+         transform: translateX(-0.1rem);
+    }
+     100% {
+         transform: translateX(1rem);
+         opacity: 0;
+    }
+}
+ @keyframes arrow-fixed-anim {
+     5% {
+         opacity: 0;
+    }
+     20% {
+         opacity: 0.4;
+    }
+     100% {
+         opacity: 1;
+    }
+}
+ 
