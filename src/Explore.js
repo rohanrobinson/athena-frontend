@@ -68,7 +68,7 @@ class Explore extends React.Component {
     return (
       <button className="down-button" onClick={this.displayCards.bind(null, true)}>
         <div class="arrow">
-            More philosophies please!
+            Click for more philosophies
             <span></span>
             <span></span>
             <span></span>
