@@ -20,6 +20,7 @@ class SearchResult extends Component {
       token: '',
       numLikes:'',
       currentQuote: '',
+      topics: [],
 
       quote: '',
       show: true,
@@ -36,6 +37,8 @@ class SearchResult extends Component {
     AOS.init({
       duration: 2000,
     })
+
+    this.getTopics(this.props.location.state.sentence);
 
     // load the 10 quotes
     let axiosArray = [];
@@ -99,6 +102,29 @@ class SearchResult extends Component {
       .catch((error) => {
         // error
         console.log(error);
+      });
+  }
+
+  getTopics = (sentence) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + this.state.token
+      }
+    };
+    const body = {
+      sentence: sentence,
+    };
+    axios.put('https://athena-back-end.herokuapp.com/api/sentiment/getTopics', body, config)
+      .then((res) => {
+        // success
+        console.log(res);
+        this.setState({
+          topics: res.data,
+        })
+      })
+      .catch((err) => {
+        // error
+        console.log(err)
       });
   }
 
@@ -382,8 +408,10 @@ class SearchResult extends Component {
             <>
             <div className="analysisModal"></div>
             <div className="analysisText">
-              Your input was: {this.sentence}
+              Your input was: {this.state.sentence}
               <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
+              <p>This is the sentiment: {this.state.quotes[0].sentimentName}</p>
+              <p>{this.state.topics}</p>
             </div>
             </>
           ):(
