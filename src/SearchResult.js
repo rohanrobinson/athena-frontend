@@ -28,6 +28,7 @@ class SearchResult extends Component {
       quoteId: '',
       reportClicked: false,
       analysisClicked: false,
+      inputAnalysisClicked: false
     };
   }
 
@@ -250,6 +251,18 @@ class SearchResult extends Component {
     }
   }
 
+  openInputAnalysis = () => {
+    this.setState({
+      inputAnalysisClicked: true,
+    });
+  }
+
+  closeInputAnalysis = () => {
+    this.setState({
+      inputAnalysisClicked: false,
+    });
+  }
+
   displayQuotes = (event) => {
     return this.state.quotes.map((quote) => {
       return (
@@ -293,7 +306,7 @@ class SearchResult extends Component {
             <>
             <div className="analysisModal"></div>
             <div className="analysisText">
-              We use a neural network to do magic. We are also pulling quotes from our database using a customized weighted randomization algorithm in order to provide you with the most relevant results!
+              Your quote was: this.state.currentQuote
               <br></br>
               <br></br>
               <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
@@ -353,6 +366,8 @@ class SearchResult extends Component {
 
           <button id="result_back_button" onClick={this.backToExplore}><FontAwesomeIcon icon={faArrowLeft} /> Home</button>
 
+          <button id="input_analysis_button" onClick={this.openInputAnalysis}>Analysis</button>
+
           <div>
             {this.displayQuotes()}
           </div>
@@ -362,6 +377,19 @@ class SearchResult extends Component {
         <p>Loading</p>
         </>
       )}
+
+      { (this.state.inputAnalysisClicked) ? (
+            <>
+            <div className="analysisModal"></div>
+            <div className="analysisText">
+              Your input was: {this.sentence}
+              <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
+            </div>
+            </>
+          ):(
+            <>
+            </>
+          )}
     </div>
 
     );
