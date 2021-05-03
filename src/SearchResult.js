@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SearchResult.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faInfoCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faInfoCircle, faExclamationCircle, faKiwiBird} from "@fortawesome/free-solid-svg-icons";
+import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons' 
+
 import AOS from "aos";
 
 class SearchResult extends Component {
@@ -248,6 +250,13 @@ class SearchResult extends Component {
     }
   }
 
+  shareQuoteTweet() {
+    let quote = quote.quote;
+    const tweet_text = "https://twitter.com/intent/tweet?text=" + quote;
+
+    return tweet_text;
+  }
+
   displayQuotes = (event) => {
     return this.state.quotes.map((quote) => {
       return (
@@ -263,7 +272,14 @@ class SearchResult extends Component {
           </div>
 
           <p className="likes_display">{this.displayLikes(quote._id.$oid)} people liked this quote</p>
-             
+
+          <a class="twitter-share-button" 
+              href={'https://twitter.com/intent/tweet?text=' + quote.quote + " Quote by " + quote.author + "."}
+              target="_blank"
+          >
+            <FontAwesomeIcon icon={faTwitter}  /> 
+          </a>
+
           <nav className="menu">
             <input type="checkbox" href="#" className="menu-open" name={quote._id.$oid} id={quote._id.$oid} />
             <label className="menu-open-button" htmlFor={quote._id.$oid}>
