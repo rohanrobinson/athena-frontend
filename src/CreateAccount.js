@@ -6,6 +6,8 @@ const CreateAccount = () => {
   const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
 
@@ -23,6 +25,8 @@ const CreateAccount = () => {
     const userSurveyObject = {
       email: username,
       password: password,
+      firstName: firstName,
+      lastName:lastName,
       savedQuotes: [],
       // surveyResults: {
       //   quote: favoriteQuote
@@ -70,12 +74,34 @@ const CreateAccount = () => {
     setPassword(event.target.value);
   }
 
+  const updateFirstName= (event) => {
+    setFirstName(event.target.value);
+  }
+
+  const updateLastName = (event) => {
+    setLastName(event.target.value);
+  }
+
   return (
     <div className="createAccountPage">
       <div className="container">
         <form className="log-form">
         <h1>Create an Account</h1>
         <br/>
+        <h2>First Name</h2>
+          <input
+            type="text"
+            name="firstName"
+            value={firstName}
+            onChange={updateFirstName}
+          />
+          <h2>Last Name</h2>
+          <input
+            type="text"
+            name="lastName"
+            value={lastName}
+            onChange={updateLastName}
+          />
         <h2>Email</h2>
           <input
             type="text"
@@ -84,7 +110,6 @@ const CreateAccount = () => {
             onChange={updateUsername}
             placeholder="example@gmail.com"
           />
-          <br />
 
           <h2>Password</h2>
           <input
@@ -93,15 +118,6 @@ const CreateAccount = () => {
             value={password}
             onChange={updatePassword}
           />
-          {/* <b>Pick your favorite of the quotes listed here!</b> <br />
-          <div className="quotes">
-            <input type="radio" name="quote1" value="Waste no more time arguing what a good man should be. Be One" className="quote" /> Waste no more time arguing what a good man should be. Be One < br />  < br />
-            <input type="radio" name="quote2" value="The words of truth are always paradoxical" className="quote" /> The words of truth are always paradoxical  < br />  < br />
-            <input type="radio" name="quote3" value="It is not so much our friends help that helps us, as the confidence of their help" className="quote" /> It is not so much our friends help that helps us, as the confidence of their help  < br />  < br />
-            <input type="radio" name="quote4" value="I finally figured out the only reason to be alive is to enjoy it" className="quote" /> I finally figured out the only reason to be alive is to enjoy it  < br />  < br />
-            <input type="radio" name="quote5" value="All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason." className="quote" /> All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. There is nothing higher than reason.  < br />  < br />
-            <input type="radio" name="quote6" value="Boredom is simply romanticism with a morning-after thirst." className="quote" /> Boredom is simply romanticism with a morning-after thirst.  < br />  < br />
-          </div> */}
 
           { incorrect ? (
             <>
