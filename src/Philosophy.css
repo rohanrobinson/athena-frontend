@@ -55,12 +55,25 @@ figure {
 .philosophy-descr {
     margin-top: 0px;
     margin-right: 0px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
 }
 
 #phil-image {
     border: 2px solid black;
     border-radius: 50%;
     float: left;
+}
+
+.portrait-container {
+
+}
+
+#phil-portrait {
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+    width: 30%;
 }
 
 
