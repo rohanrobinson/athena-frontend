@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 
 import "./Philosophy.css";
+import Tilt from 'react-tilt'
 
 
 class Philosophy extends React.Component {
@@ -90,10 +91,20 @@ class Philosophy extends React.Component {
                     <div className = "philosophy">
                     <div className = "philosophy-info">
                         <figure>
+                        <div className = "phil-info-content">
+                            
+                            <div className ="portrait-container">
+                            <img id="phil-portrait" src="https://via.placeholder.com/200"/>
+                            </div>
+                            
+                            <p className = "philosophy-descr">{this.state.description}</p>
+                        </div>
+                        {/*
                           <img id = "phil-image" alt="philosophy" src={this.state.imageUrl}/>
                               <figcaption className = "philosophy-descr">
                                   {this.state.description}
                               </figcaption>
+                        */}
                         </figure>
                         <div className = "philosophy-content">
                             <br></br>
