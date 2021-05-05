@@ -23,7 +23,7 @@ from io import BytesIO
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from transformers import pipeline, TFAutoModelForTokenClassification, AutoTokenizer
 import tensorflow as tf
-
+#new BERT model
 model = TFAutoModelForTokenClassification.from_pretrained("dbmdz/bert-large-cased-finetuned-conll03-english")
 tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 label_list = [
@@ -283,6 +283,7 @@ def validQuote(quote):
     tokens = tokenizer.tokenize(tokenizer.decode(tokenizer.encode(quote)))
     inputs = tokenizer.encode(quote, return_tensors="tf")
 
+    # We will be sustituting in new BERT model: ref line 27
     outputs = model(inputs)[0]
     predictions = tf.argmax(outputs, axis=2)
     nerList = [(token, label_list[prediction]) for token, prediction in zip(tokens, predictions[0].numpy())]
@@ -293,7 +294,7 @@ def validQuote(quote):
 
     # Summarization - Feature C/D
     #summary = summarizer(quote, max_length=len(quote), min_length=20, do_sample=False)[0]['summary_text']
-
+    '''
     #NTK POS Constraints https://www.nltk.org/book/ch05.html - Feature C/D
     NounCount = 0
     VerbCount = 0
@@ -319,7 +320,8 @@ def validQuote(quote):
             DetCount += 1
     POSratio = (VerbCount + NounCount) / ((AdjCount + DetCount) + 1) #proportionally, more verbs and nouns then adj's and det's
     #print(POSratio)
-    return POSratio > 3.0
+    '''
+    return True
 
 
 # PART D: Culmination of Parts A-C

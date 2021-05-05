@@ -11,7 +11,7 @@ def quoteObj(quote, split_quote, idx):
     return({
         "idx": idx,
         "label": int("motivational" in split_quote or "inspirational" in split_quote or "inspirational-quotes" in split_quote), 
-        "quote": quote, 
+        "sentence": quote, 
     }, 
     int("motivational" in split_quote or "inspirational" in split_quote or "inspirational-quotes" in split_quote))
 
@@ -68,7 +68,7 @@ def GetQuoteData(filename, quoteNum, maxLen, minLen):
     return quoteList
 
 trainData = GetQuoteData('quotes_dataset.csv', 100, 200, 50)
-print(trainData)
+#print(trainData)
 '''
 df = pd.DataFrame(dataset[picks])
 for column, typ in dataset.features.items():
