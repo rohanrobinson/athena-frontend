@@ -17,6 +17,7 @@ class Explore extends React.Component {
       email: '',
       userId: '',
       firstName: '',
+      philosophyPercentages: '',
     };
   }
 
@@ -43,7 +44,8 @@ class Explore extends React.Component {
           user: (JSON.parse(sessionStorage.getItem('user'))),
           firstName: (JSON.parse(sessionStorage.getItem('user')).firstName),
           email: (JSON.parse(sessionStorage.getItem('user')).email),
-          userId: (JSON.parse(sessionStorage.getItem('user'))._id.$oid)
+          userId: (JSON.parse(sessionStorage.getItem('user'))._id.$oid),
+          philosophyPercentages: (JSON.parse(sessionStorage.getItem('user')).surveyResults.philosophyPercentages)
         });
 
         console.log("name");
@@ -72,7 +74,7 @@ class Explore extends React.Component {
             <div className = "philosophy-card-descr">
 
                 <h4>{phil.philosophy[0].toUpperCase() + phil.philosophy.slice(1)}</h4>
-              <p className="philosophy-tags">100% match</p>
+              <p className="philosophy-tags">{phil.philosophy === 'logical positivism' ? (Math.round(this.state.philosophyPercentages['logicalPositivism'])):(Math.round(this.state.philosophyPercentages[phil.philosophy]))}% match</p>
             </div>
             </Link>
           </div>
