@@ -13,6 +13,10 @@ class Explore extends React.Component {
       names: [],
       descriptions: [],
       philosophies: [],
+      user: '',
+      email: '',
+      userId: '',
+      firstName: '',
     };
   }
 
@@ -30,6 +34,22 @@ class Explore extends React.Component {
         // error
         console.log(error);
       });
+    
+      if (sessionStorage.getItem('user') === null || sessionStorage.getItem('user') === '') {
+        console.log('login')
+      } 
+      else {
+        this.setState({
+          user: (JSON.parse(sessionStorage.getItem('user'))),
+          firstName: (JSON.parse(sessionStorage.getItem('user')).firstName),
+          email: (JSON.parse(sessionStorage.getItem('user')).email),
+          userId: (JSON.parse(sessionStorage.getItem('user'))._id.$oid)
+        });
+
+        console.log("name");
+        console.log(JSON.parse(sessionStorage.getItem('user')).firstName);
+
+      }
   }
 
   displayPhilosophies () {
@@ -68,7 +88,15 @@ class Explore extends React.Component {
           <div className="left-hand">
           <div className="right-hand">
           <div className="inspiration-content">
-            <h1>GET INSPIRATION</h1>
+            { this.state.firstName === "" || this.state.firstName === undefined ? (
+              <>
+              <h1>Welcome to Athena</h1>
+              </>
+            ):(
+              <>
+              <h1>Welcome, {this.state.firstName}</h1>
+              </>
+            )}
             <h2>Describe how you're feeling and we'll match you with quotes to provide you with inspiration</h2>
             <SearchBar/>
           </div>
