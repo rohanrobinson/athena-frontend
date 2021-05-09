@@ -21,6 +21,7 @@ class SearchResult extends Component {
       numLikes:'',
       currentQuote: '',
       topics: [],
+      POS: [],
 
       quote: '',
       show: true,
@@ -39,6 +40,8 @@ class SearchResult extends Component {
     })
 
     this.getTopics(this.props.location.state.sentence);
+
+    this.getPOS(this.props.location.state.sentence);
 
     // load the 10 quotes
     let axiosArray = [];
@@ -127,6 +130,31 @@ class SearchResult extends Component {
         console.log(err)
       });
   }
+
+  getPOS = (sentence) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + this.state.token
+      }
+    };
+    const body = {
+      sentence: sentence,
+    };
+    axios.put('https://athena-back-end.herokuapp.com/api/sentiment/getPOS', body, config)
+      .then((res) => {
+        // success
+        console.log(res);
+        this.setState({
+          POS: res.data,
+        })
+      })
+      .catch((err) => {
+        // error
+        console.log(err)
+      });
+  }
+
+
 
   nextQuote = () => {
     // update current quote
@@ -406,12 +434,12 @@ class SearchResult extends Component {
 
       { (this.state.inputAnalysisClicked) ? (
             <>
-            <div className="analysisModal"></div>
             <div className="analysisText">
               Your input was: {this.state.sentence}
-              <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
               <p>This is the sentiment: {this.state.quotes[0].sentimentName}</p>
-              <p>{this.state.topics}</p>
+              <p>Your topics are: {this.state.topics}</p>
+              <p>POS are: {this.state.POS}</p>
+              <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
             </div>
             </>
           ):(
