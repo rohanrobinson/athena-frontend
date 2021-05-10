@@ -4,6 +4,8 @@ import "./SearchResult.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faInfoCircle, faExclamationCircle, faKiwiBird} from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons' 
+import { FacebookIcon, FacebookShareButton } from "react-share";
+import { TumblrIcon, TumblrShareButton } from "react-share";
 
 import AOS from "aos";
 
@@ -253,8 +255,33 @@ class SearchResult extends Component {
               href={'https://twitter.com/intent/tweet?text=' + quote.quote + " Quote by " + quote.author + "."}
               target="_blank"
           >
-            <FontAwesomeIcon icon={faTwitter}  /> 
+            <FontAwesomeIcon icon={faTwitter} size="xs" /> 
           </a>
+
+          &nbsp;
+          <FacebookShareButton
+            url={"http://athena21w.surge.sh/"}
+            quote={quote.quote + ". Quote by " + quote.author + "."}
+            hashtag="#Athena-Philosopy"
+          >
+            <FacebookIcon size={40} round={true}></FacebookIcon>
+          </FacebookShareButton>
+          
+          &nbsp;
+          <TumblrShareButton
+            url={"http://athena21w.surge.sh/"}
+            title={"From athena-philosophy"}
+            caption={quote.quote + ". Quote by " + quote.author + "."}
+            tags={["#philosophy", "athena"]}
+          >
+            <TumblrIcon size={40} round={true}></TumblrIcon>
+          </TumblrShareButton>
+          
+
+
+
+         
+
 
           <nav className="menu">
             <input type="checkbox" href="#" className="menu-open" name={quote._id.$oid} id={quote._id.$oid} />
