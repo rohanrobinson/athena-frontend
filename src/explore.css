@@ -37,7 +37,9 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: 500px;
-  background-position: 0% 25%;
+  /*background-position: 0% 25%;*/
+  background-position: 0% 0%;
+  background-attachment: fixed;
 }
 
 .right-poly {
@@ -45,7 +47,9 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: 400px;
-  background-position: 100% 70%;
+  /*background-position: 100% 70%;*/
+  background-position: 100% 100%;
+  background-attachment: fixed;
 }
 
 .inspiration-content{
@@ -121,6 +125,15 @@
   transition: .3s;
 }
 
+.philosophy-card:hover h4 {
+  /*text-shadow: 2px 2px 8px #cccccc;*/
+  text-decoration: none;
+}
+
+.philosophy-card:hover {
+  text-decoration: none;
+}
+
 .philosophy-card-image{
   margin: 0;
   position: relative;
@@ -135,13 +148,13 @@
 }
 
 .philosophy-card-descr h4 {
-  color:var(--primary-col);
+  color:#007bff;
   padding-top: 10px;
   font-size: 30px;
 }
 
 .philosophy-card-descr {
-  color: var(--secondary-col);
+  color: #333333;
   font-size: 10px;
 }
 

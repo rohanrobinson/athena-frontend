@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SearchResult.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faInfoCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faInfoCircle, faExclamationCircle, faKiwiBird} from "@fortawesome/free-solid-svg-icons";
+import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons' 
+import { FacebookIcon, FacebookShareButton } from "react-share";
+import { TumblrIcon, TumblrShareButton } from "react-share";
+
 import AOS from "aos";
 
 class SearchResult extends Component {
@@ -305,6 +309,7 @@ class SearchResult extends Component {
     }
   }
 
+
   openInputAnalysis = () => {
     this.setState({
       inputAnalysisClicked: true,
@@ -315,6 +320,13 @@ class SearchResult extends Component {
     this.setState({
       inputAnalysisClicked: false,
     });
+
+  shareQuoteTweet() {
+    let quote = quote.quote;
+    const tweet_text = "https://twitter.com/intent/tweet?text=" + quote;
+
+    return tweet_text;
+
   }
 
   displayQuotes = (event) => {
@@ -332,7 +344,39 @@ class SearchResult extends Component {
           </div>
 
           <p className="likes_display">{this.displayLikes(quote._id.$oid)} people liked this quote</p>
-             
+
+          <a class="twitter-share-button" 
+              href={'https://twitter.com/intent/tweet?text=' + quote.quote + " Quote by " + quote.author + "."}
+              target="_blank"
+          >
+            <FontAwesomeIcon icon={faTwitter} size="xs" /> 
+          </a>
+
+          &nbsp;
+          <FacebookShareButton
+            url={"http://athena21w.surge.sh/"}
+            quote={quote.quote + ". Quote by " + quote.author + "."}
+            hashtag="#Athena-Philosopy"
+          >
+            <FacebookIcon size={40} round={true}></FacebookIcon>
+          </FacebookShareButton>
+          
+          &nbsp;
+          <TumblrShareButton
+            url={"http://athena21w.surge.sh/"}
+            title={"From athena-philosophy"}
+            caption={quote.quote + ". Quote by " + quote.author + "."}
+            tags={["#philosophy", "athena"]}
+          >
+            <TumblrIcon size={40} round={true}></TumblrIcon>
+          </TumblrShareButton>
+          
+
+
+
+         
+
+
           <nav className="menu">
             <input type="checkbox" href="#" className="menu-open" name={quote._id.$oid} id={quote._id.$oid} />
             <label className="menu-open-button" htmlFor={quote._id.$oid}>

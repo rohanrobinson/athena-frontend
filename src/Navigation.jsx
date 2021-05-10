@@ -5,6 +5,7 @@ import "./navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from 'react-bootstrap/Dropdown';
+import logo from "./images/athena-logo.png";
 // import axios from 'axios';
 
 class Navigation extends React.Component {
@@ -55,7 +56,8 @@ class Navigation extends React.Component {
           <nav>
           <Link class="nav-link" to="/explore">
               <div class="navbar-brand" to="/">
-                Athena
+                <img src={logo} id="athena-logo" alt="athena-logo" />
+                  Athena
               </div>
           </Link>
                 <ul>
@@ -99,8 +101,13 @@ class Navigation extends React.Component {
                       </Dropdown.Toggle>
 
                       <Dropdown.Menu>
+
                         <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account Info</Link></Dropdown.Item>
                         <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" >Log Out</Link></Dropdown.Item>
+
+//                         <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account</Link></Dropdown.Item>
+//                         <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" ><span id="logout-text">Log Out</span></Link></Dropdown.Item>
+
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>
