@@ -24,6 +24,8 @@ class SearchResult extends Component {
       token: '',
       numLikes:'',
       currentQuote: '',
+      topics: [],
+      POS: [],
 
       quote: '',
       show: true,
@@ -32,11 +34,18 @@ class SearchResult extends Component {
       quoteId: '',
       reportClicked: false,
       analysisClicked: false,
+      inputAnalysisClicked: false
     };
   }
 
   componentDidMount () {
-    AOS.init();
+    AOS.init({
+      duration: 2000,
+    })
+
+    this.getTopics(this.props.location.state.sentence);
+
+    this.getPOS(this.props.location.state.sentence);
 
     // load the 10 quotes
     let axiosArray = [];
@@ -102,6 +111,54 @@ class SearchResult extends Component {
         console.log(error);
       });
   }
+
+  getTopics = (sentence) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + this.state.token
+      }
+    };
+    const body = {
+      sentence: sentence,
+    };
+    axios.put('https://athena-back-end.herokuapp.com/api/sentiment/getTopics', body, config)
+      .then((res) => {
+        // success
+        console.log(res);
+        this.setState({
+          topics: res.data,
+        })
+      })
+      .catch((err) => {
+        // error
+        console.log(err)
+      });
+  }
+
+  getPOS = (sentence) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + this.state.token
+      }
+    };
+    const body = {
+      sentence: sentence,
+    };
+    axios.put('https://athena-back-end.herokuapp.com/api/sentiment/getPOS', body, config)
+      .then((res) => {
+        // success
+        console.log(res);
+        this.setState({
+          POS: res.data,
+        })
+      })
+      .catch((err) => {
+        // error
+        console.log(err)
+      });
+  }
+
+
 
   nextQuote = () => {
     // update current quote
@@ -252,11 +309,24 @@ class SearchResult extends Component {
     }
   }
 
+
+  openInputAnalysis = () => {
+    this.setState({
+      inputAnalysisClicked: true,
+    });
+  }
+
+  closeInputAnalysis = () => {
+    this.setState({
+      inputAnalysisClicked: false,
+    });
+
   shareQuoteTweet() {
     let quote = quote.quote;
     const tweet_text = "https://twitter.com/intent/tweet?text=" + quote;
 
     return tweet_text;
+
   }
 
   displayQuotes = (event) => {
@@ -334,7 +404,7 @@ class SearchResult extends Component {
             <>
             <div className="analysisModal"></div>
             <div className="analysisText">
-              We use a neural network to do magic. We are also pulling quotes from our database using a customized weighted randomization algorithm in order to provide you with the most relevant results!
+              Your quote was: this.state.currentQuote
               <br></br>
               <br></br>
               <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
@@ -394,6 +464,8 @@ class SearchResult extends Component {
 
           <button id="result_back_button" onClick={this.backToExplore}><FontAwesomeIcon icon={faArrowLeft} /> Home</button>
 
+          <button id="input_analysis_button" onClick={this.openInputAnalysis}>Analysis</button>
+
           <div>
             {this.displayQuotes()}
           </div>
@@ -403,6 +475,21 @@ class SearchResult extends Component {
         <p>Loading</p>
         </>
       )}
+
+      { (this.state.inputAnalysisClicked) ? (
+            <>
+            <div className="analysisText">
+              Your input was: {this.state.sentence}
+              <p>This is the sentiment: {this.state.quotes[0].sentimentName}</p>
+              <p>Your topics are: {this.state.topics}</p>
+              <p>POS are: {this.state.POS}</p>
+              <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
+            </div>
+            </>
+          ):(
+            <>
+            </>
+          )}
     </div>
 
     );
