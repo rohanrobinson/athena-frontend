@@ -320,6 +320,7 @@ class SearchResult extends Component {
     this.setState({
       inputAnalysisClicked: false,
     });
+  }
 
   shareQuoteTweet() {
     let quote = quote.quote;

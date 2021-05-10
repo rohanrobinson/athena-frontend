@@ -17,7 +17,7 @@ class Explore extends React.Component {
       philosophies: [],
 
       displayCards: false, 
-      displayArrow: true
+      displayArrow: true,
 
       user: '',
       email: '',
