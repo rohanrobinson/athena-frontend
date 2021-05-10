@@ -36,7 +36,7 @@ nav li {
 }
 
 .navbar-brand:hover {
-  color:#3498db;
+  color:#34b4db;
 }
 
 .nav-link {
@@ -48,7 +48,6 @@ nav li {
   font-weight: 400;
   list-style: none;
 }
-
 
 .icon-dropdown {
   margin-left: 10px;

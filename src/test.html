@@ -1,90 +1,27 @@
-<head>
-       <link rel="stylesheet" href="test.css">
-       <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-   </head>
-   
-   <body>
-       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-       <script>
-           AOS.init();
-       </script>
-       
-       <div class="background-container">
-           <img class=img1 src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/nietzsche.png?alt=media&token=e0ac842e-8ccc-4f15-a8bd-f4161b8d8c06" alt="">
-           <img class=img2 src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
-           <div class="stars"></div>
-           <div class="twinkling"></div>
-           <div class="clouds"></div>
-       </div> 
-   
-   
-   
-       <div class="item" data-aos="zoom-in">
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="zoom-in">
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="zoom-in">
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="zoom-in">
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="zoom-in">5
-           <p>Quote</p>
-           <br></br>
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="zoom-in">6
-           <p>Test1</p>
-           <br></br>
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="zoom-in">7
-           <p>Test1</p>
-           <br></br>
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="flip-up">8
-           <p>Test1</p>
-           <br></br>
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="flip-down">9
-           <p>Test1</p>
-           <br></br>
-           <p>“You have power over your mind - not outside events. Realize this, and you will find strength.”― Marcus Aurelius, Meditations</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="flip-right">10
-           <p>Test1</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-       <div class="item" data-aos="flip-down">11
-           <p>Test1</p>
-           <div class="mouse"></div>
-           <div class="scrollText">Scroll</div>
-       </div>
-   
-       <script src="test.js"></script>
-   </body>
-   
+<!DOCTYPE html>
+<html>
+<div className = "revealTest">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".moreInfo").click(function () {
+            var div= $("#displayCards");
+        div.toggle("slow").siblings().hide("slow");
+        });
+        });  
+    </script>
+    
+    <a class="moreInfo" name="Show1" href="javascript:void(0)">
+        <font size="5">QUESTION 1</font>
+    </a>
+    <div>
+        <div id="displayCards" style="display:none">
+            Answer to the question 1
+        </div> 
+    </div>  
+</div>
+
+
+</html>
+    
+    
