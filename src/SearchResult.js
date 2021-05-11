@@ -6,6 +6,7 @@ import { faArrowLeft, faInfoCircle, faExclamationCircle, faKiwiBird} from "@fort
 import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons' 
 import { FacebookIcon, FacebookShareButton } from "react-share";
 import { TumblrIcon, TumblrShareButton } from "react-share";
+import fear_symbol from "./fear_symbol.png";
 
 import AOS from "aos";
 
@@ -493,10 +494,14 @@ class SearchResult extends Component {
       { (this.state.inputAnalysisClicked) ? (
             <>
             <div className="analysisText">
+              <p>Input:</p>
               <div>
                 {this.displayMLData()}
               </div>
               <p>Our ML model interpreted your sentiment as:</p>
+              <div className="sentiment-symbol">
+                <img src={fear_symbol} alt="fear"/>
+              </div>
               <p className="sentiment">{this.state.quotes[0].sentimentName.toUpperCase()}</p>
               <p>POS are: {this.state.POS}</p>
               <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>

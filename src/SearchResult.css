@@ -794,6 +794,7 @@
 }
 
 .closeAnalysisModal {
+  margin-top: 10px;
   opacity: 100%;
   background-color: #90cbc5;
   width: 100px;
@@ -859,4 +860,8 @@
 .sentiment {
   font-size: 40px;
   color: #eeeeee;
+}
+
+.sentiment-symbol img {
+  width: 125px;
 }
