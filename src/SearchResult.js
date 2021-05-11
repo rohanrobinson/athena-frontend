@@ -336,7 +336,7 @@ class SearchResult extends Component {
     var keyTopics = this.state.topics;
     return words.map((word) => {
       return (
-        <span style={{color: keyTopics.includes(word) ? "red" : "white"}}>{word} </span>
+        <span className="userInputML" style={{color: keyTopics.includes(word) ? "#e23a3d" : "#eeeeee"}}>{word} </span>
 
       )
     });
@@ -480,7 +480,7 @@ class SearchResult extends Component {
 
           <button id="input_analysis_button" onClick={this.openInputAnalysis}>Analysis</button>
 
-          <div>
+          <div className = "ml-input-data">
             {this.displayQuotes()}
           </div>
       </>
@@ -496,7 +496,8 @@ class SearchResult extends Component {
               <div>
                 {this.displayMLData()}
               </div>
-              <p>Our ML model calculated your sentiment as: {this.state.quotes[0].sentimentName}</p>
+              <p>Our ML model interpreted your sentiment as:</p>
+              <p className="sentiment">{this.state.quotes[0].sentimentName.toUpperCase()}</p>
               <p>POS are: {this.state.POS}</p>
               <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
             </div>
