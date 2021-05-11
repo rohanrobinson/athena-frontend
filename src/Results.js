@@ -36,6 +36,7 @@ const Results = () => {
         setSurveyResults(results);
         setPhilosophies(res.data.surveyResults.philosophies);
         setloaded(true);
+        // sessionStorage.setItem('user', res.data);
       })
       .catch((err) => {
         // error
