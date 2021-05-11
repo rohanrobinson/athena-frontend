@@ -263,11 +263,11 @@ class Explore extends React.Component {
           <div className="inspiration-content">
             { this.state.firstName === "" || this.state.firstName === undefined ? (
               <>
-              <h1>Welcome to Athena</h1>
+              <h1>GET INSPIRED</h1>
               </>
             ):(
               <>
-              <h1>Welcome, {this.state.firstName}</h1>
+              <h1>GET INSPIRED, {this.state.firstName.toUpperCase()}</h1>
               </>
             )}
             <h2>Describe how you're feeling and we'll match you with quotes to provide you with inspiration</h2>

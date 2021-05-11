@@ -602,9 +602,9 @@
 
 
 .quotePage h1,
-h2,
-h3,
-h4 {
+.quotePage h2,
+.quotePage h3,
+.quotePage h4 {
   margin: 0;
   margin-bottom: 10px;
   margin-top: 10px;
