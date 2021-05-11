@@ -51,44 +51,46 @@ class Explore extends React.Component {
         console.log(error);
       });
     
-    // const config = {
-    //   headers: {
-    //     Authorization: 'Bearer ' + sessionStorage.getItem('token')
-    //   }
-    // };
-    // axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
-    //   .then((res) => {
-    //     console.log("result");
-    //     console.log(res.data);
-    //     sessionStorage.setItem('user', res.data); 
-    //     // this.setState({
-    //     //   user: res.data,
-    //     //   firstName: res.data.firstName,
-    //     //   email: res.data.email,
-    //     //   userId: res.data._id.$oid,
-    //     //   philosophyPercentages: res.data.surveyResults.philosophyPercentages
-    //     // });
-    //     console.log('done');
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    
 
     
       if (sessionStorage.getItem('user') === null || sessionStorage.getItem('user') === '') {
         console.log('login')
       } 
       else {
-        this.setState({
-          user: (JSON.parse(sessionStorage.getItem('user'))),
-          firstName: (JSON.parse(sessionStorage.getItem('user')).firstName),
-          email: (JSON.parse(sessionStorage.getItem('user')).email),
-          userId: (JSON.parse(sessionStorage.getItem('user'))._id.$oid),
-          philosophyPercentages: (JSON.parse(sessionStorage.getItem('user')).surveyResults.philosophyPercentages)
-        });
+        // this.setState({
+        //   user: (JSON.parse(sessionStorage.getItem('user'))),
+        //   firstName: (JSON.parse(sessionStorage.getItem('user')).firstName),
+        //   email: (JSON.parse(sessionStorage.getItem('user')).email),
+        //   userId: (JSON.parse(sessionStorage.getItem('user'))._id.$oid),
+        //   philosophyPercentages: (JSON.parse(sessionStorage.getItem('user')).surveyResults.philosophyPercentages)
+        // });
 
-        console.log("name");
-        console.log(JSON.parse(sessionStorage.getItem('user')).firstName);
+        // console.log("name");
+        // console.log(JSON.parse(sessionStorage.getItem('user')).firstName);
+
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' + sessionStorage.getItem('token')
+        }
+      };
+      axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
+        .then((res) => {
+          console.log("result");
+          console.log(res.data);
+          // sessionStorage.setItem('user', res.data); 
+          this.setState({
+            user: res.data,
+            firstName: res.data.firstName,
+            email: res.data.email,
+            userId: res.data._id.$oid,
+            philosophyPercentages: res.data.surveyResults.philosophyPercentages
+          });
+          console.log('done');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
 
         
 
