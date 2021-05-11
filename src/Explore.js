@@ -132,7 +132,7 @@ class Explore extends React.Component {
 //               <Link 
 
         <Tilt className="Tilt" options={{ max : 25 }}>
-          <div key={phil.philosophy} className = "philosophy-card">
+          <div key={phil.philosophy} className = "philosophy-card" data-aos="zoom-in">
                         <Link 
                 to={{
                   pathname: '/philosophy',
