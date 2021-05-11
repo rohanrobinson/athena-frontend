@@ -22,35 +22,35 @@ const AboutUs = () => {
   return (
     <div className="aboutus-content">
       {/* <img className = "aboutusimage" src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/Screen%20Shot%202021-04-05%20at%209.07.16%20PM.png?alt=media&token=5c74ca51-58ba-4f19-acfb-1db99b2d09bd"></img>   */}
-  
-      <div className="introduction">
-        <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/polygon_brain-removebg-preview.png?alt=media&token=9693145d-da4f-4a69-9d5d-210640b2f2b6"></img>
+      <div className="brain">
         <h1>We care deeply about mental health.</h1>
-        <p>Athena aims to open the minds of modern audiences to the collective wisdom of ancient philosophers.
-        We're on a mission to enlighten a world currently engaged in rigid thinking with narrow perspectives.</p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/polygon_brain-removebg-preview.png?alt=media&token=9693145d-da4f-4a69-9d5d-210640b2f2b6"></img>
+      </div>
+      <div className="left-poly">
+      <div className="right-poly">
+      <div className="introduction">
+          <p>Athena aims to open the minds of modern audiences to the collective wisdom of ancient philosophers.
+          We're on a mission to enlighten a world currently engaged in rigid thinking with narrow perspectives.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
 
       <div className="facts">
         <Tilt className="Tilt" options={{ max : 25 }}>
             <div className = "fact-card">
-              <h1>1 in 4</h1>
-              <br></br>
+              <div className = "stats">1 in 4</div>
               <br></br>
               people worldwide experience a mental health issue each year
             </div>
         </Tilt>
         <Tilt className="Tilt" options={{ max : 25 }}>
             <div className = "fact-card">
-              <h1>21%</h1>
-              <br></br>
+              <div className = "stats">21%</div>
               <br></br>
               of Americans will be clinically depressed at some point in their life
             </div>
         </Tilt>
         <Tilt className="Tilt" options={{ max : 25 }}>
             <div className = "fact-card">
-              <h1>#1</h1>
-              <br></br>
+              <div className = "stats">#1</div>
               <br></br>
               Depression is the #1 cause of disability worldwide. 
             </div>
@@ -60,24 +60,21 @@ const AboutUs = () => {
       <div className="facts">
         <Tilt className="Tilt" options={{ max : 25 }}>
             <div className = "fact-card">
-              <h1>40</h1>
+              <div className = "stats">40</div>
               <br></br>
-              <br></br>
-              One person dies by suicide every 40 seconds. For each death, there are >20 attempts.
+              One person dies by suicide every 40 seconds. 
             </div>
         </Tilt>
         <Tilt className="Tilt" options={{ max : 25 }}>
             <div className = "fact-card">
-              <h1>800k</h1>
-              <br></br>
+              <div className = "stats">800k</div>
               <br></br>
               Close to 800,000 people die from suicide every year. 
             </div>
         </Tilt>
         <Tilt className="Tilt" options={{ max : 25 }}>
             <div className = "fact-card">
-              <h1>1/3</h1>
-              <br></br>
+              <div className = "stats">1/3</div>
               <br></br>
               depressed patients are treatment resistant or treatment refractory
             </div>
@@ -87,13 +84,14 @@ const AboutUs = () => {
       <div className="numbers">
         <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/hand-heart.png?alt=media&token=c4d2c3b2-1f0d-493c-a794-400459f8d0cf"></img>
         <h1>We want to decrease those numbers </h1>
-        <p>We will decrease these numbers by...</p>
+        <p>We will decrease these numbers by... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
 
       <br></br>
       <br></br>
       <br></br>
       <h1>Our Team</h1>
+
 
 
       <div className="team">
@@ -172,6 +170,14 @@ const AboutUs = () => {
             </div>
           </div>
         </Tilt>
+      </div>
+
+      <div className="story">
+        <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/tree-removebg-preview.png?alt=media&token=2a2638fc-7da3-46f5-8d1a-fc05839e58da"></img>
+        <br></br>
+        <br></br>
+        <h1>Our Story</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
 
       <div className="support">
@@ -298,7 +304,8 @@ const AboutUs = () => {
         <p>Suyash is a CS major at Dartmouth College.</p>
         <button className="closeModal" onClick={() => setSuyashModalIsOpen(false)}>Close Modal</button>
       </Modal>
-
+      </div>
+      </div>
       </div>
   )
 }
