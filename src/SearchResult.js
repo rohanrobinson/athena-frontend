@@ -6,6 +6,7 @@ import { faArrowLeft, faInfoCircle, faExclamationCircle, faKiwiBird} from "@fort
 import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons' 
 import { FacebookIcon, FacebookShareButton } from "react-share";
 import { TumblrIcon, TumblrShareButton } from "react-share";
+import fear_symbol from "./fear_symbol.png";
 
 import AOS from "aos";
 
@@ -18,6 +19,7 @@ class SearchResult extends Component {
       current: 0,
       loaded: false,
       sentence: this.props.location.state.sentence || '',
+      sentenceWords: this.props.location.state.sentence.split(" ") || [],
       likedQuotesList: [],
       liked: false,
       id: '',
@@ -330,6 +332,18 @@ class SearchResult extends Component {
 
   }
 
+  displayMLData = () => {
+    var words = this.state.sentenceWords;
+    var keyTopics = this.state.topics;
+    return words.map((word) => {
+      return (
+        <span className="userInputML" style={{color: keyTopics.includes(word) ? "#e23a3d" : "#eeeeee"}}>{word} </span>
+
+      )
+    });
+  }
+
+
   displayQuotes = (event) => {
     return this.state.quotes.map((quote) => {
       return (
@@ -467,7 +481,7 @@ class SearchResult extends Component {
 
           <button id="input_analysis_button" onClick={this.openInputAnalysis}>Analysis</button>
 
-          <div>
+          <div className = "ml-input-data">
             {this.displayQuotes()}
           </div>
       </>
@@ -480,9 +494,15 @@ class SearchResult extends Component {
       { (this.state.inputAnalysisClicked) ? (
             <>
             <div className="analysisText">
-              Your input was: {this.state.sentence}
-              <p>This is the sentiment: {this.state.quotes[0].sentimentName}</p>
-              <p>Your topics are: {this.state.topics}</p>
+              <p>Input:</p>
+              <div>
+                {this.displayMLData()}
+              </div>
+              <p>Our ML model interpreted your sentiment as:</p>
+              <div className="sentiment-symbol">
+                <img src={fear_symbol} alt="fear"/>
+              </div>
+              <p className="sentiment">{this.state.quotes[0].sentimentName.toUpperCase()}</p>
               <p>POS are: {this.state.POS}</p>
               <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
             </div>
