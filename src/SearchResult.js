@@ -18,6 +18,7 @@ class SearchResult extends Component {
       current: 0,
       loaded: false,
       sentence: this.props.location.state.sentence || '',
+      sentenceWords: this.props.location.state.sentence.split(" ") || [],
       likedQuotesList: [],
       liked: false,
       id: '',
@@ -330,6 +331,18 @@ class SearchResult extends Component {
 
   }
 
+  displayMLData = () => {
+    var words = this.state.sentenceWords;
+    var keyTopics = this.state.topics;
+    return words.map((word) => {
+      return (
+        <span style={{color: keyTopics.includes(word) ? "red" : "white"}}>{word} </span>
+
+      )
+    });
+  }
+
+
   displayQuotes = (event) => {
     return this.state.quotes.map((quote) => {
       return (
@@ -480,9 +493,10 @@ class SearchResult extends Component {
       { (this.state.inputAnalysisClicked) ? (
             <>
             <div className="analysisText">
-              Your input was: {this.state.sentence}
-              <p>This is the sentiment: {this.state.quotes[0].sentimentName}</p>
-              <p>Your topics are: {this.state.topics}</p>
+              <div>
+                {this.displayMLData()}
+              </div>
+              <p>Our ML model calculated your sentiment as: {this.state.quotes[0].sentimentName}</p>
               <p>POS are: {this.state.POS}</p>
               <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
             </div>
