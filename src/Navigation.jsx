@@ -102,11 +102,11 @@ class Navigation extends React.Component {
 
                       <Dropdown.Menu>
 
-                        <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account Info</Link></Dropdown.Item>
-                        <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" >Log Out</Link></Dropdown.Item>
+                        {/* <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account Info</Link></Dropdown.Item> */}
+                        {/* <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" >Log Out</Link></Dropdown.Item> */}
 
-//                         <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account</Link></Dropdown.Item>
-//                         <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" ><span id="logout-text">Log Out</span></Link></Dropdown.Item>
+                         <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account</Link></Dropdown.Item>
+                         <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" ><span id="logout-text">Log Out</span></Link></Dropdown.Item>
 
                       </Dropdown.Menu>
                     </Dropdown>
