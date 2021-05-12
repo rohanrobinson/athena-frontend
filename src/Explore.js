@@ -4,7 +4,9 @@ import axios from 'axios';
 import SearchBar from './SearchBar';
 import "./explore.css";
 import AOS from "aos";
-import Tilt from 'react-tilt'
+import Tilt from 'react-tilt';
+import backendUrl from './backendUrl';
+
 
 
 class Explore extends React.Component {
@@ -36,7 +38,7 @@ class Explore extends React.Component {
       duration: 2000,
     })
 
-    axios.get(`https://athena-back-end.herokuapp.com/api/allphilosophies` )
+    axios.get(`${backendUrl}/api/allphilosophies` )
       .then((response) => {
           // success
           console.log("here");
@@ -74,7 +76,7 @@ class Explore extends React.Component {
           Authorization: 'Bearer ' + sessionStorage.getItem('token')
         }
       };
-      axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
+      axios.get(`${backendUrl}/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
         .then((res) => {
           console.log("result");
           console.log(res.data);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import "./searchBar.css";
+import backendUrl from './backendUrl';
 
 const SearchBar = () => {
   const history = useHistory();
@@ -19,7 +20,7 @@ const SearchBar = () => {
     const data = {
       sentence: sentence,
     }
-    axios.post(`https://athena-back-end.herokuapp.com/api/sentiment/sentence/getten`, data)
+    axios.post(`${backendUrl}/api/sentiment/sentence/getten`, data)
       .then(res => {
           // success
           history.push({

@@ -7,6 +7,7 @@ import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 import { FacebookIcon, FacebookShareButton } from "react-share";
 import { TumblrIcon, TumblrShareButton } from "react-share";
 import fear_symbol from "./fear_symbol.png";
+import backendUrl from './backendUrl';
 
 import AOS from "aos";
 
@@ -53,7 +54,7 @@ class SearchResult extends Component {
     let axiosArray = [];
     const quotesList = this.props.location.state.data;
     for (var i=0; i < quotesList.length; i++) {
-      let newPromise = axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quotesList[i][0]}`);
+      let newPromise = axios.get(`${backendUrl}/api/quote/${quotesList[i][0]}`);
       axiosArray.push(newPromise);
     }
     axios.all(axiosArray)
@@ -86,7 +87,7 @@ class SearchResult extends Component {
             }
           };
         
-          axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${id}`, config)
+          axios.get(`${backendUrl}/api/auth/get/${id}`, config)
           .then((res) => {
             // success
             this.setState({ likedQuotesList: res.data.savedQuotes });
@@ -123,7 +124,7 @@ class SearchResult extends Component {
     const body = {
       sentence: sentence,
     };
-    axios.put('https://athena-back-end.herokuapp.com/api/sentiment/getTopics', body, config)
+    axios.put('${backendUrl}/api/sentiment/getTopics', body, config)
       .then((res) => {
         // success
         console.log(res);
@@ -146,7 +147,7 @@ class SearchResult extends Component {
     const body = {
       sentence: sentence,
     };
-    axios.put('https://athena-back-end.herokuapp.com/api/sentiment/getPOS', body, config)
+    axios.put('${backendUrl}/api/sentiment/getPOS', body, config)
       .then((res) => {
         // success
         console.log(res);
@@ -199,10 +200,10 @@ class SearchResult extends Component {
         removeQuote: id,
         sentiment: this.state.quotes[this.state.current].sentimentName,
       };
-      axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
+      axios.put(`${backendUrl}/api/auth/removeQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success, get new user object
-        axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
+        axios.get(`${backendUrl}/api/auth/get/${this.state.id}`, config)
           .then((response) => {
             // success
             sessionStorage.setItem('user', JSON.stringify(response.data));
@@ -242,7 +243,7 @@ class SearchResult extends Component {
         addQuote: id,
         sentiment: this.state.quotes[this.state.current].sentimentName,
       };
-      axios.put(`https://athena-back-end.herokuapp.com/api/auth/saveQuote/${this.state.id}`, body, config)
+      axios.put(`${backendUrl}/api/auth/saveQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success
         var temp = this.state.likedQuotesList;

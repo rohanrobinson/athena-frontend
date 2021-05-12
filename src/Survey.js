@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import "./Survey.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import backendUrl from './backendUrl';
 
 const Survey = () => {
   const history = useHistory();
@@ -171,7 +172,7 @@ const Survey = () => {
       }
     };
     console.log(body);
-    axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+    axios.put(`${backendUrl}/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
       .then((response) => {
         // success
         console.log("success");

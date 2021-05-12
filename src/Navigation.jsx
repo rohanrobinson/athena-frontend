@@ -20,15 +20,7 @@ class Navigation extends React.Component {
       Authorization: 'Bearer ' + sessionStorage.getItem('token')
     }
   };
-  //
-  //  axios.get(`https://athena-back-end.herokuapp.com/api/auth/get`, config).then(
-  //    res => {
-  //      this.setState({
-  //        user: res.data
-  //      });
-  //      console.log(res)
-  //    }
-  //  )
+
   }
 
   iconClicked = () => {

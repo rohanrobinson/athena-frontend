@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import PhilosophySmall from "./PhilosophySmall";
 import "./Results.css";
+import backendUrl from './backendUrl';
 
 const SurveyInfo = () => {
   const history = useHistory();
@@ -30,7 +31,7 @@ const SurveyInfo = () => {
 
       var quotes = [];
 
-      axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
+      axios.get(`${backendUrl}/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
       .then((res) => {
         // success
         const results = res.data.surveyResults;
