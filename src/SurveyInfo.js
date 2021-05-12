@@ -75,11 +75,22 @@ const SurveyInfo = () => {
           <div>
             { loaded && philosophies !== "" ? (
               <>
-              <div id="phil_results">
+              {philosophies !== [] && philosophies !== undefined ? (
+                <>
+                <div id="phil_results">
                 { philosophies.map((phil) => (
                   <PhilosophySmall key={phil} name={phil}/>
                 ))}
               </div>
+                </>
+              ):(
+                <>
+                  <br></br>
+                  <h2>Take the survey to get recommended philosophies.</h2>
+                  <br></br>
+                </>
+              )}
+              
               </>
             ):(
               <>
