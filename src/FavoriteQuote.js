@@ -4,7 +4,7 @@ import "./FavoriteQuote.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
-
+import backendUrl from './backendUrl';
 
 const FavoriteQuote = ({ quoteId }) => {
   const history = useHistory();
@@ -13,7 +13,7 @@ const FavoriteQuote = ({ quoteId }) => {
   const [sentiment, setSentiment] = useState();
 
   useEffect(() => {
-    axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quoteId}`)
+    axios.get(`${backendUrl}/api/quote/${quoteId}`)
       .then ((response) => {
         // success
         // console.log("quote:");
@@ -44,11 +44,11 @@ const FavoriteQuote = ({ quoteId }) => {
       sentiment: sentiment
     };
     console.log(body);
-    axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+    axios.put(`${backendUrl}/api/auth/removeQuote/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
     .then((res) => {
       // success, get new user object
       console.log(res);
-      axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
+      axios.get(`${backendUrl}/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
         .then((response) => {
           // success
           console.log(response);

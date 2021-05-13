@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import axios from 'axios';
-import "./home.css"
+import "./home.css";
+import backendUrl from './backendUrl';
 
 class Home extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ handleLogin = e => {
     password: this.state.password,
   }
 
-  axios.post(`https://athena-back-end.herokuapp.com/api/auth/login`, loginObject )
+  axios.post(`${backendUrl}/api/auth/login`, loginObject )
       .then(res => {
         console.log("here");
         console.log(res);

@@ -3,7 +3,8 @@ import React from "react";
 import axios from "axios";
 
 import "./Philosophy.css";
-import Tilt from 'react-tilt'
+import Tilt from 'react-tilt';
+import backendUrl from './backendUrl';
 
 
 class Philosophy extends React.Component {
@@ -27,6 +28,8 @@ class Philosophy extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
+
+
         const body = {
           philosophy: this.state.name,
         }
@@ -70,7 +73,7 @@ class Philosophy extends React.Component {
         event.preventDefault();
         const l = this.state.quotes.length;
         const j = Math.floor(Math.random()*l);
-        axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
+        axios.get(`${backendUrl}/api/quote/${this.state.quotes[j]}`)
           .then ((response) => {
             // success
             console.log("quote:");

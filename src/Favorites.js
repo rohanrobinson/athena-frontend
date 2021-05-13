@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import FavoriteQuote from "./FavoriteQuote";
 import "./Favorites.css";
 import QuoteOfTheDay from "./QuoteOfTheDay";
+import backendUrl from './backendUrl';
 
 const Favorites = () => {
   const [user, setUser] = useState();
@@ -29,7 +30,7 @@ const Favorites = () => {
 
       var quotes = [];
 
-      axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
+      axios.get(`${backendUrl}/api/auth/get/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, config)
       .then((res) => {
         // success
         quotes = res.data.savedQuotes;
