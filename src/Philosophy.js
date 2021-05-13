@@ -35,7 +35,7 @@ class Philosophy extends React.Component {
         }
         console.log('body');
         console.log(body);
-        axios.put(`https://athena-back-end.herokuapp.com/api/philosophy/getquotes`, body)
+        axios.put(`${backendUrl}/api/philosophy/getquotes`, body)
           .then((res) => {
             // success
             const quotesList = res.data.map((a) => {
@@ -46,7 +46,7 @@ class Philosophy extends React.Component {
             })
             const l = quotesList.length;
             const j = Math.floor(Math.random()*l);
-            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quotesList[j]}`)
+            axios.get(`${backendUrl}/api/quote/${quotesList[j]}`)
               .then ((response) => {
                 // success
                 console.log("quote:");
