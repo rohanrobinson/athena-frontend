@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Survey.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -54,6 +55,28 @@ const Survey = () => {
       quote: "The philosophers have only interpreted the world, in various ways. The point, however, is to change it.",
       ans: ""
     },
+    {
+      type: "user-info", 
+      info: "What is your First Name?",
+      ans: ""
+    },
+    {
+      type: "user-info", 
+      info: "What is your Last Name?",
+      ans: ""
+    },
+    {
+      type: "user-info",
+      info: "What email address would be best for you?",
+      ans: ""
+    },
+    {
+      type: "user-info", 
+      info: "Create a password. Make it good!", 
+      ans: ""
+    }
+
+
   ];
 
   const [questions, setQuestions] = useState(originalQuestions);
@@ -176,6 +199,11 @@ const Survey = () => {
       temp[currentQuestionIndex].ans = event.target.value;
       setQuestions(temp);
     }
+    if (questions[currentQuestionIndex].type === "user-info") {
+      setSelected(event.target.value);
+      temp[currentQuestionIndex].ans = event.target.value;
+      setQuestions(temp);
+    }
 
     if (questions[currentQuestionIndex].type === "slider") {
       setSelected(event.target.value);
@@ -228,6 +256,20 @@ const Survey = () => {
         </div>
       )
     }
+    else if (questions[currentQuestionIndex].type === "user-info"){
+      return (
+        <div>
+          <h2 className="user-info-header">{questions[currentQuestionIndex].info}</h2>
+          <input
+            className="input_ques"
+            type="text"
+            placeholder="Enter response..."
+            value={selected}
+            onChange={updateAnswer}
+          />
+        </div>
+      )
+    }
     else {
       return (
         <p>error</p>
@@ -238,10 +280,22 @@ const Survey = () => {
 
   return (
     <div>
-      { loggedIn ? (
-        <>
+      
+
           <div id="out_cont">
           <div id="survey_cont">
+          <div id="navigation_div">
+              <Link className="navigation_link" id="skip_link" to="/createAccount">
+                  <span className="navigation_span">Skip Survey</span>
+              </Link> 
+
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <Link className="navigation_link" id="login_link" to="/login">
+                  <span className="navigation_span">Log In</span>
+              </Link> 
+            </div>
+
+            <p className="survey_title">Welcome to Athena!</p>
             <p className="survey_title">Complete the survey to find your suggested philosophies.</p>
             <div id="question_cont">
               <div className="button_cont">
@@ -289,23 +343,17 @@ const Survey = () => {
             
             {validated ? (
               <button id="submit_survey" onClick={submitSurvey}>Submit</button>
-            ):(
-              <>
-              </>
-            )}
+            ):
+              <></>
+            }
           </div>
         </div>
         <div className="transition">
           <div className="transition-bg">
           </div>
         </div>
-        </>
-      ):(
-        <>
-          <p>Please Log In</p>
-        </>
-      )}
     </div>
   )
 }
-export default Survey;
+
+export default withRouter(Survey);

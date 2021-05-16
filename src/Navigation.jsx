@@ -55,7 +55,7 @@ class Navigation extends React.Component {
         <div className="navigation">
           <nav>
           <Link class="nav-link" to="/explore">
-              <div class="navbar-brand" to="/">
+              <div class="navbar-brand" to="/explore">
                 <img src={logo} id="athena-logo" alt="athena-logo" />
                   Athena
               </div>
@@ -118,16 +118,19 @@ class Navigation extends React.Component {
       return (
         <div className="navigation">
           <nav>
-              <Link class="navbar-brand" to="/">
-                Athena
-              </Link>
+          <Link class="nav-link" to="/explore">
+              <div class="navbar-brand" to="/explore">
+                <img src={logo} id="athena-logo" alt="athena-logo" />
+                  Athena
+              </div>
+          </Link>
                 <ul>
                   <li
                     class={`nav-item  ${
                       this.props.location.pathname === "/contact" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/createAccount">
+                    <Link class="nav-link" to="/">
                       Sign Up
                     </Link>
                   </li>
