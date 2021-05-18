@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useHistory, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import backendUrl from './backendUrl';
 
 const PhilosophySmall = (props) => {
   const history = useHistory();
@@ -11,7 +12,7 @@ const PhilosophySmall = (props) => {
 
   useEffect(() => {
     if (props.name) {
-      axios.get(`https://athena-back-end.herokuapp.com/api/philosophy/name/${props.name}`)
+      axios.get(`${backendUrl}/api/philosophy/name/${props.name}`)
       .then((response) => {
         // success
         setPhil(response.data);

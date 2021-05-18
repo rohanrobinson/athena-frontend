@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./QuoteOfTheDay.css";
+import backendUrl from './backendUrl';
 
 const QuoteOfTheDay = () => {
     const [author, setAuthor] = useState();
@@ -8,7 +9,7 @@ const QuoteOfTheDay = () => {
     const [quotesList, setQuotesList] = useState();
 
   useEffect(() => {
-    axios.get(`https://athena-back-end.herokuapp.com/api/sentiment/name/neutral`)
+    axios.get(`${backendUrl}/api/sentiment/name/neutral`)
         .then((response) => {
             // success
             var qList = [];
@@ -23,7 +24,7 @@ const QuoteOfTheDay = () => {
             const rng = seedrandom(ddmm);
             console.log(rng());
             const j = Math.floor(rng()*qList.length);
-            axios.get(`https://athena-back-end.herokuapp.com/api/quote/${qList[j]}`)
+            axios.get(`${backendUrl}/api/quote/${qList[j]}`)
                 .then((res) => {
                     // success
                     setQuote(res.data.quote);
@@ -43,7 +44,7 @@ const QuoteOfTheDay = () => {
   const getQuote= (event) => {
     event.preventDefault();
     const j = Math.floor(Math.random()*quotesList.length);
-    axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quotesList[j]}`)
+    axios.get(`${backendUrl}/api/quote/${quotesList[j]}`)
         .then((res) => {
             // success
             setQuote(res.data.quote);

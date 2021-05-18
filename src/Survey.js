@@ -5,6 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 import "./Survey.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import backendUrl from './backendUrl';
 
 const Survey = () => {
   const history = useHistory();
@@ -128,16 +129,32 @@ const Survey = () => {
 
 
 
+
+    var philosophyPercentages = {
+      nihilism: Math.random()*50,
+      taoism: Math.random()*50,
+      hedonism: Math.random()*50,
+      buddhism: Math.random()*50,
+      rationalism: Math.random()*50,
+      stoicism: Math.random()*50,
+      existentialism: Math.random()*50,
+      marxism: Math.random()*50,
+      logicalPositivism: Math.random()*50,
+      relativism: Math.random()*50,
+    }
     // question 1
     switch(questions[0].ans) {
       case 'nothing, there is no point':
         philosophies.push("nihilism");
+        philosophyPercentages.nihilism = Math.random()*50+50
         break;
       case 'to be humble and to help others':
         philosophies.push("taoism");
+        philosophyPercentages.taoism = Math.random()*50+50
         break;
       case 'to maximize pleasure':
         philosophies.push("hedonism");
+        philosophyPercentages.hedonism = Math.random()*50+50
         break;
       default:
         break;
@@ -146,12 +163,15 @@ const Survey = () => {
     switch(questions[1].ans) {
       case 'meditation':
         philosophies.push("buddhism");
+        philosophyPercentages.buddhism = Math.random()*50+50
         break;
       case 'logic':
         philosophies.push("rationalism");
+        philosophyPercentages.rationalism = Math.random()*50+50
         break;
       case 'discipline':
         philosophies.push("stoicism");
+        philosophyPercentages.stoicism = Math.random()*50+50
         break;
       default:
         break;
@@ -159,10 +179,12 @@ const Survey = () => {
     // question 5
     if (questions[4].ans > 5) {
       philosophies.push("existentialism");
+      philosophyPercentages.existentialism = Math.random()*50+50
     }
     // question 6
     if (questions[5].ans > 5) {
       philosophies.push("marxism");
+      philosophyPercentages.marxism = Math.random()*50+50
     }
 
     //get user personal name, and login information (questionss 7 through 10)
@@ -186,10 +208,11 @@ const Survey = () => {
     }
 
     const body = {
-        surveyResults: {
-          questions: questions,
-          philosophies: philosophies,
-        },
+      surveyResults: {
+        questions: questions,
+        philosophies: philosophies,
+        philosophyPercentages: philosophyPercentages,
+      }
     };
 
     console.log(body);

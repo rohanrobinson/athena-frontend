@@ -546,6 +546,21 @@
   background-color: rgba(255, 255, 255, 0.74);
 }
 
+#input_analysis_button {
+  position: fixed;
+  top: 40px;
+  right: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 25px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.589);
+}
+
+#input_analysis_button:hover {
+  background-color: rgba(255, 255, 255, 0.74);
+}
+
 .heart_button {
   cursor: pointer;
 }
@@ -587,9 +602,9 @@
 
 
 .quotePage h1,
-h2,
-h3,
-h4 {
+.quotePage h2,
+.quotePage h3,
+.quotePage h4 {
   margin: 0;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -755,7 +770,7 @@ h4 {
 
 .analysisText {
   width: 1000px;
-	height: 550px;	
+	height: 750px;	
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -767,10 +782,10 @@ h4 {
   padding-top: 15px;
   border-radius: 25px;
   border-color: red;
-  background-color: white;
+  background-color: #323639;
   text-align: center;
   font-size: 30px;
-  color: black;
+  color: #eeeeee;
 }
 
 .analysisText img {
@@ -779,6 +794,7 @@ h4 {
 }
 
 .closeAnalysisModal {
+  margin-top: 10px;
   opacity: 100%;
   background-color: #90cbc5;
   width: 100px;
@@ -832,4 +848,20 @@ h4 {
 
 .twitter-share-button:hover {
     color: rgb(162, 71, 162);
+}
+
+
+
+
+.userInputML {
+  font-size: 40px;
+}
+
+.sentiment {
+  font-size: 40px;
+  color: #eeeeee;
+}
+
+.sentiment-symbol img {
+  width: 125px;
 }

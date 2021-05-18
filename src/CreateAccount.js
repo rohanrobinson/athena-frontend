@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import "./createAccount.css"
+import "./createAccount.css";
+import backendUrl from './backendUrl';
+
 const CreateAccount = () => {
   const history = useHistory();
   const [username, setUsername] = useState('');
@@ -33,14 +35,14 @@ const CreateAccount = () => {
       // },
     }
 
-    axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
+    axios.post(`${backendUrl}/api/auth/signup`, userSurveyObject )
       .then(resp => {
         // success
         const loginObject = {
           email: username,
           password: password,
         }
-        axios.post(`https://athena-back-end.herokuapp.com/api/auth/login`, loginObject )
+        axios.post(`${backendUrl}/api/auth/login`, loginObject )
             .then(res => {
               console.log("here");
               console.log(res);

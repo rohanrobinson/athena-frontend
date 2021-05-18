@@ -3,7 +3,8 @@ import React from "react";
 import axios from "axios";
 
 import "./Philosophy.css";
-import Tilt from 'react-tilt'
+import Tilt from 'react-tilt';
+import backendUrl from './backendUrl';
 
 
 class Philosophy extends React.Component {
@@ -13,12 +14,6 @@ class Philosophy extends React.Component {
             sessionStorage.setItem('philosophy', JSON.stringify(this.props.location.aboutProps.phil));
         }
         this.state = {
-            // phil: this.props.location.aboutProps.phil,
-            // name: this.props.location.aboutProps.phil.philosophy,
-            // description: this.props.location.aboutProps.phil.description,
-            // imageUrl: this.props.location.aboutProps.phil.imageUrl,
-            // quote: "sample quote",
-            // quotee: "sample quote author" // quotee is the name of someone who said a quote
             phil: JSON.parse(sessionStorage.getItem('philosophy')),
             name: JSON.parse(sessionStorage.getItem('philosophy')).philosophy,
             description: JSON.parse(sessionStorage.getItem('philosophy')).description,
@@ -33,23 +28,44 @@ class Philosophy extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        const l = this.state.quotes.length;
-        const j = Math.floor(Math.random()*l);
-        axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
-          .then ((response) => {
+
+
+        const body = {
+          philosophy: this.state.name,
+        }
+        console.log('body');
+        console.log(body);
+        axios.put(`${backendUrl}/api/philosophy/getquotes`, body)
+          .then((res) => {
             // success
-            console.log("quote:");
-            console.log(response.data.quote);
+            const quotesList = res.data.map((a) => {
+              return a[0];
+            })
             this.setState({
-              quoteId: response.data._id.$oid,
-              quote: response.data.quote,
-              author: response.data.author,
-            });
-          })
+              quotes: quotesList,
+            })
+            const l = quotesList.length;
+            const j = Math.floor(Math.random()*l);
+            axios.get(`${backendUrl}/api/quote/${quotesList[j]}`)
+              .then ((response) => {
+                // success
+                console.log("quote:");
+                console.log(response.data.quote);
+                this.setState({
+                  quoteId: response.data._id.$oid,
+                  quote: response.data.quote,
+                  author: response.data.author,
+                });
+              })
           .catch((err) => {
             // error
             alert(err);
             console.log(err)
+          });
+          })
+          .catch((err) => {
+            // error
+            console.log(err);
           });
     }
 
@@ -57,7 +73,7 @@ class Philosophy extends React.Component {
         event.preventDefault();
         const l = this.state.quotes.length;
         const j = Math.floor(Math.random()*l);
-        axios.get(`https://athena-back-end.herokuapp.com/api/quote/${this.state.quotes[j]}`)
+        axios.get(`${backendUrl}/api/quote/${this.state.quotes[j]}`)
           .then ((response) => {
             // success
             console.log("quote:");
@@ -114,6 +130,11 @@ class Philosophy extends React.Component {
                                 <p className = "related-quote-author">-{this.state.author}</p>
                             </div>
                             <button id="next_phil_button" onClick={this.getQuote}>Next Quote</button>
+                        </div>
+                        <div className = "references">
+                          <a href="https://bigthink.com/scotty-hendricks/10-schools-of-philosophy-and-why-you-should-know-them">*Source of philosophy description</a>
+                          <br></br>
+                          <a href="https://plato.stanford.edu/">*Click here for more information about philosophy</a>
                         </div>
                     </div>
                     </div>

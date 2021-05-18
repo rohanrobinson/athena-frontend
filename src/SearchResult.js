@@ -6,6 +6,8 @@ import { faArrowLeft, faInfoCircle, faExclamationCircle, faKiwiBird} from "@fort
 import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons' 
 import { FacebookIcon, FacebookShareButton } from "react-share";
 import { TumblrIcon, TumblrShareButton } from "react-share";
+import fear_symbol from "./fear_symbol.png";
+import backendUrl from './backendUrl';
 
 import AOS from "aos";
 
@@ -18,12 +20,15 @@ class SearchResult extends Component {
       current: 0,
       loaded: false,
       sentence: this.props.location.state.sentence || '',
+      sentenceWords: this.props.location.state.sentence.split(" ") || [],
       likedQuotesList: [],
       liked: false,
       id: '',
       token: '',
       numLikes:'',
       currentQuote: '',
+      topics: [],
+      POS: [],
 
       quote: '',
       show: true,
@@ -32,17 +37,24 @@ class SearchResult extends Component {
       quoteId: '',
       reportClicked: false,
       analysisClicked: false,
+      inputAnalysisClicked: false
     };
   }
 
   componentDidMount () {
-    AOS.init();
+    AOS.init({
+      duration: 2000,
+    })
+
+    this.getTopics(this.props.location.state.sentence);
+
+    this.getPOS(this.props.location.state.sentence);
 
     // load the 10 quotes
     let axiosArray = [];
     const quotesList = this.props.location.state.data;
     for (var i=0; i < quotesList.length; i++) {
-      let newPromise = axios.get(`https://athena-back-end.herokuapp.com/api/quote/${quotesList[i][0]}`);
+      let newPromise = axios.get(`${backendUrl}/api/quote/${quotesList[i][0]}`);
       axiosArray.push(newPromise);
     }
     axios.all(axiosArray)
@@ -75,7 +87,7 @@ class SearchResult extends Component {
             }
           };
         
-          axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${id}`, config)
+          axios.get(`${backendUrl}/api/auth/get/${id}`, config)
           .then((res) => {
             // success
             this.setState({ likedQuotesList: res.data.savedQuotes });
@@ -102,6 +114,54 @@ class SearchResult extends Component {
         console.log(error);
       });
   }
+
+  getTopics = (sentence) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + this.state.token
+      }
+    };
+    const body = {
+      sentence: sentence,
+    };
+    axios.put(`${backendUrl}/api/sentiment/getTopics`, body, config)
+      .then((res) => {
+        // success
+        console.log(res);
+        this.setState({
+          topics: res.data,
+        })
+      })
+      .catch((err) => {
+        // error
+        console.log(err)
+      });
+  }
+
+  getPOS = (sentence) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + this.state.token
+      }
+    };
+    const body = {
+      sentence: sentence,
+    };
+    axios.put(`${backendUrl}/api/sentiment/getPOS`, body, config)
+      .then((res) => {
+        // success
+        console.log(res);
+        this.setState({
+          POS: res.data,
+        })
+      })
+      .catch((err) => {
+        // error
+        console.log(err)
+      });
+  }
+
+
 
   nextQuote = () => {
     // update current quote
@@ -140,10 +200,10 @@ class SearchResult extends Component {
         removeQuote: id,
         sentiment: this.state.quotes[this.state.current].sentimentName,
       };
-      axios.put(`https://athena-back-end.herokuapp.com/api/auth/removeQuote/${this.state.id}`, body, config)
+      axios.put(`${backendUrl}/api/auth/removeQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success, get new user object
-        axios.get(`https://athena-back-end.herokuapp.com/api/auth/get/${this.state.id}`, config)
+        axios.get(`${backendUrl}/api/auth/get/${this.state.id}`, config)
           .then((response) => {
             // success
             sessionStorage.setItem('user', JSON.stringify(response.data));
@@ -183,7 +243,7 @@ class SearchResult extends Component {
         addQuote: id,
         sentiment: this.state.quotes[this.state.current].sentimentName,
       };
-      axios.put(`https://athena-back-end.herokuapp.com/api/auth/saveQuote/${this.state.id}`, body, config)
+      axios.put(`${backendUrl}/api/auth/saveQuote/${this.state.id}`, body, config)
       .then((res) => {
         // success
         var temp = this.state.likedQuotesList;
@@ -252,12 +312,38 @@ class SearchResult extends Component {
     }
   }
 
+
+  openInputAnalysis = () => {
+    this.setState({
+      inputAnalysisClicked: true,
+    });
+  }
+
+  closeInputAnalysis = () => {
+    this.setState({
+      inputAnalysisClicked: false,
+    });
+  }
+
   shareQuoteTweet() {
     let quote = quote.quote;
     const tweet_text = "https://twitter.com/intent/tweet?text=" + quote;
 
     return tweet_text;
+
   }
+
+  displayMLData = () => {
+    var words = this.state.sentenceWords;
+    var keyTopics = this.state.topics;
+    return words.map((word) => {
+      return (
+        <span className="userInputML" style={{color: keyTopics.includes(word) ? "#e23a3d" : "#eeeeee"}}>{word} </span>
+
+      )
+    });
+  }
+
 
   displayQuotes = (event) => {
     return this.state.quotes.map((quote) => {
@@ -334,7 +420,7 @@ class SearchResult extends Component {
             <>
             <div className="analysisModal"></div>
             <div className="analysisText">
-              We use a neural network to do magic. We are also pulling quotes from our database using a customized weighted randomization algorithm in order to provide you with the most relevant results!
+              Your quote was: this.state.currentQuote
               <br></br>
               <br></br>
               <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
@@ -394,7 +480,9 @@ class SearchResult extends Component {
 
           <button id="result_back_button" onClick={this.backToExplore}><FontAwesomeIcon icon={faArrowLeft} /> Home</button>
 
-          <div>
+          <button id="input_analysis_button" onClick={this.openInputAnalysis}>Analysis</button>
+
+          <div className = "ml-input-data">
             {this.displayQuotes()}
           </div>
       </>
@@ -403,6 +491,27 @@ class SearchResult extends Component {
         <p>Loading</p>
         </>
       )}
+
+      { (this.state.inputAnalysisClicked) ? (
+            <>
+            <div className="analysisText">
+              <p>Input:</p>
+              <div>
+                {this.displayMLData()}
+              </div>
+              <p>Our ML model interpreted your sentiment as:</p>
+              <div className="sentiment-symbol">
+                <img src={fear_symbol} alt="fear"/>
+              </div>
+              <p className="sentiment">{this.state.quotes[0].sentimentName.toUpperCase()}</p>
+              <p>POS are: {this.state.POS}</p>
+              <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
+            </div>
+            </>
+          ):(
+            <>
+            </>
+          )}
     </div>
 
     );

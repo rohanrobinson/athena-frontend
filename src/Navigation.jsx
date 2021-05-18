@@ -20,15 +20,7 @@ class Navigation extends React.Component {
       Authorization: 'Bearer ' + sessionStorage.getItem('token')
     }
   };
-  //
-  //  axios.get(`https://athena-back-end.herokuapp.com/api/auth/get`, config).then(
-  //    res => {
-  //      this.setState({
-  //        user: res.data
-  //      });
-  //      console.log(res)
-  //    }
-  //  )
+
   }
 
   iconClicked = () => {
@@ -101,8 +93,13 @@ class Navigation extends React.Component {
                       </Dropdown.Toggle>
 
                       <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account</Link></Dropdown.Item>
-                        <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" ><span id="logout-text">Log Out</span></Link></Dropdown.Item>
+
+                        {/* <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account Info</Link></Dropdown.Item> */}
+                        {/* <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" >Log Out</Link></Dropdown.Item> */}
+
+                         <Dropdown.Item href="#/action-2"><Link className="nav-link"  to="/surveyInfo">Account</Link></Dropdown.Item>
+                         <Dropdown.Item href="#/action-1"><Link className="nav-link" onClick={() => this.logout()} to="/" ><span id="logout-text">Log Out</span></Link></Dropdown.Item>
+
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>
