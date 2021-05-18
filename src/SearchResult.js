@@ -342,7 +342,7 @@ class SearchResult extends Component {
       sentimentIcon=<img src={fear_symbol} alt="fear"/>
     }
     else if(sentiment=="JOY"){
-      sentimentIcon=<img src={fear_symbol} alt="joy"/>
+      sentimentIcon=<img src={joy_symbol} alt="joy"/>
     }
     else if(sentiment=="SADNESS"){
       sentimentIcon=<img src={sadness_symbol} alt="sadness"/>
