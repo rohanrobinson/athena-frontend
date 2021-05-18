@@ -881,8 +881,24 @@
   position: absolute;
   z-index: 1;
   font-size: 20px;
+
+  width: 80px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -40px;
 }
 
 .toolTipML:hover .toolTipPOS {
   visibility: visible;
+}
+
+.toolTipML .toolTipPOS::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
 }
