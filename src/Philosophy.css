@@ -80,7 +80,7 @@ figure {
 .philosophy {
     text-align: center;
     width: 100%;
-    background-color: white;
+    /* background-color: white; */
     background-size: contain;
     border-radius: 8px;
     padding-top: 20px;
@@ -155,4 +155,9 @@ figure {
   background-size: 400px;
   background-position: 100% 70%;
   background-attachment: fixed;
+}
+
+.references {
+    color:black;
+    text-align: left;
 }
