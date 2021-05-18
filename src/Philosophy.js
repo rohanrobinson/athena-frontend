@@ -115,6 +115,11 @@ class Philosophy extends React.Component {
                             </div>
                             <button id="next_phil_button" onClick={this.getQuote}>Next Quote</button>
                         </div>
+                        <div className = "references">
+                          <a href="https://bigthink.com/scotty-hendricks/10-schools-of-philosophy-and-why-you-should-know-them">*Source of philosophy description</a>
+                          <br></br>
+                          <a href="https://plato.stanford.edu/">*Click here for more information about philosophy</a>
+                        </div>
                     </div>
                     </div>
             </div>
