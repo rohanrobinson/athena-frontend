@@ -335,9 +335,14 @@ class SearchResult extends Component {
   displayMLData = () => {
     var words = this.state.sentenceWords;
     var keyTopics = this.state.topics;
-    return words.map((word) => {
+    var wordsPOS = this.state.POS;
+    return words.map((word,index) => {
+      const wordPOS = wordsPOS[index][1];
       return (
+        <div className="toolTipML">
         <span className="userInputML" style={{color: keyTopics.includes(word) ? "#e23a3d" : "#eeeeee"}}>{word} </span>
+        <span className="toolTipPOS">{wordPOS}</span>
+        </div>
 
       )
     });
@@ -503,7 +508,6 @@ class SearchResult extends Component {
                 <img src={fear_symbol} alt="fear"/>
               </div>
               <p className="sentiment">{this.state.quotes[0].sentimentName.toUpperCase()}</p>
-              <p>POS are: {this.state.POS}</p>
               <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
             </div>
             </>
