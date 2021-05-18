@@ -7,6 +7,8 @@ import { faTwitter, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 import { FacebookIcon, FacebookShareButton } from "react-share";
 import { TumblrIcon, TumblrShareButton } from "react-share";
 import fear_symbol from "./fear_symbol.png";
+import sadness_symbol from "./sadness_symbol.png";
+import joy_symbol from "./joy_symbol.png";
 
 import AOS from "aos";
 
@@ -332,6 +334,29 @@ class SearchResult extends Component {
 
   }
 
+  displaySentimentIcon = () => {
+    const sentiment = this.state.quotes[0].sentimentName.toUpperCase();
+    let sentimentIcon;
+
+    if(sentiment=="FEAR"){
+      sentimentIcon=<img src={fear_symbol} alt="fear"/>
+    }
+    else if(sentiment=="JOY"){
+      sentimentIcon=<img src={fear_symbol} alt="joy"/>
+    }
+    else if(sentiment=="SADNESS"){
+      sentimentIcon=<img src={sadness_symbol} alt="sadness"/>
+    }
+    else{
+      sentimentIcon=<img src={fear_symbol} alt="anger"/>
+    }
+
+    return (
+      <div>
+          {sentimentIcon}
+      </div>);
+  }
+
   displayMLData = () => {
     var words = this.state.sentenceWords;
     var keyTopics = this.state.topics;
@@ -505,7 +530,7 @@ class SearchResult extends Component {
               </div>
               <p>Our ML model interpreted your sentiment as:</p>
               <div className="sentiment-symbol">
-                <img src={fear_symbol} alt="fear"/>
+                {this.displaySentimentIcon()}
               </div>
               <p className="sentiment">{this.state.quotes[0].sentimentName.toUpperCase()}</p>
               <button className="closeAnalysisModal" onClick={this.closeInputAnalysis}>Close</button>
