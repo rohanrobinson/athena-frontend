@@ -27,19 +27,20 @@ def compute_metrics(eval_pred):
         predictions = predictions[:, 0]
     return metric.compute(predictions=predictions, references=labels)
 
+# Find a good sample amount. Trained on as many samples as possible...
+
 def BertModel():
-    trainingArr = GetQuoteData('quotes_dataset.csv', 500, 200, 50) #500 samples for test and train
-    splitNum = int(.70  * len(trainingArr)) #greater train distribution
+    trainingArr = GetQuoteData('quotes_dataset.csv', 10000, 60) #43000 samples for test and train
+    splitNum = int(.80  * len(trainingArr)) #greater train distribution
     # Let's make a larger dictionary...
     trainSet = trainingArr[:splitNum]
     testSet = trainingArr[splitNum:]
-
     pdDict = {
         'train': Dataset.from_pandas(pd.DataFrame(trainSet)),
         'test': Dataset.from_pandas(pd.DataFrame(testSet))
     }
 
-    dataset = pdDict#Dataset.from_pandas(pd.DataFrame(pdDict)) Uncomment to convert dataset to Dataset type, otherwise generic dictionary
+    dataset = pdDict #Dataset.from_pandas(pd.DataFrame(pdDict)) Uncomment to convert dataset to Dataset type, otherwise generic dictionary
 
     #print(dataset)
     '''

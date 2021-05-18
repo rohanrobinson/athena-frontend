@@ -22,8 +22,8 @@ def readForQuotes(filename, author, philosophyName="", philosophyId=""):
             # quote['philosophyId'] = philosophyId
             # quotes.append(quote)
             quotes.append(temp1)
-    print(quotes)
-    print(len(quotes))
+    #print(quotes)
+    #print(len(quotes))
     return quotes
 
-readForQuotes('Aristotle.txt', 'Aristotle')
+#readForQuotes('Aristotle.txt', 'Aristotle')

@@ -1,74 +1,107 @@
 import csv
 #from bookParser import bookParse
 import datasets #pip install datasets
-import random
+from random import shuffle
 import pandas as pd
 from IPython.display import display, HTML
 from datasets import list_datasets, load_dataset, list_metrics, load_metric
+import sys
 
+csv.field_size_limit(sys.maxsize)
+
+def getNumJargon(filename, limit, startingIdx):
+    count = 0
+    quoteObjArr = []
+    with open(filename, newline='') as csvfile:
+        quotereader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        for row in quotereader:
+            split_quote = (' '.join(row))
+            # Get rid of initial number and comma; ie: [3,]Hippety Hopper returns in McKimsons Pop Im Pop.
+            i=0
+            char = split_quote[i]
+            while char != ',':
+                i+=1
+                char = split_quote[i]
+            split_quote = split_quote[i+1:]
+            #print(split_quote)
+            quoteObjArr.append(
+                ({
+                    "idx": startingIdx,
+                    "label": 0,
+                    "sentence": split_quote, 
+                }))
+            count+=1
+            startingIdx+=1
+            if count == limit:
+                break
+    return quoteObjArr
+
+#print(getNumJargon('cv-unique-has-end-punct-sentences.csv', 5, 3)) #Size is 100k https://www.kaggle.com/mfekadu/sentences
 
 def quoteObj(quote, split_quote, idx):
+    ValidTags = ["inspirational", "philosophy", "inspirational-quotes", "inspiration", "motivational", "life-lessons", "motivation", "motivational-quotes", "wisdom-quotes"]
     return({
         "idx": idx,
-        "label": int("motivational" in split_quote or "inspirational" in split_quote or "inspirational-quotes" in split_quote), 
+        "label": int(any(tag in split_quote for tag in ValidTags)),
         "sentence": quote, 
     }, 
-    int("motivational" in split_quote or "inspirational" in split_quote or "inspirational-quotes" in split_quote))
+    int(any(tag in split_quote for tag in ValidTags)))
 
 #Moving to single source: (Quotes-500k Dataset)
 # Applies tagging to extracted quotes - 1: motivational in tag; 0: otherwise
-def GetQuoteData(filename, quoteNum, maxLen, minLen):
+def GetQuoteData(filename, quoteNum, jargonPercentage):
     idx = 1
     quoteList = []
     posCount = 0
     negCount = 0
+    posCountLimit = int(quoteNum//2)
+    negCountLimit = int(quoteNum//2) - int(quoteNum//2 * (jargonPercentage/100))
+    jargonCountLimit = int(quoteNum//2 * (jargonPercentage/100))
     with open(filename, newline='') as csvfile:
         quotereader = csv.reader(csvfile, delimiter=' ', quotechar='|')
         for row in quotereader:
             split_quote = (' '.join(row))
             prevChar = ""
-            if len(split_quote) > maxLen or len(split_quote) < minLen:
-                pass
-            else:
-                quote = '"'
-                if split_quote[0] == '"':
-                    split_quote = split_quote[1:]
-                for char in split_quote:
-                    quote+=char
-                    if (prevChar == "," or prevChar == ":") and char == '"' and len(quote) > minLen:
-                        quote = quote[:-2] + '"'
-                        quoteObject, result = quoteObj(quote, split_quote, idx)
-                        if result and posCount < quoteNum//2:
-                            idx+=1
-                            posCount+=1
-                            quoteList.append(quoteObject)
-                        elif negCount < quoteNum//2:
-                            idx+=1
-                            negCount+=1
-                            quoteList.append(quoteObject)
-                        break
-                    elif char == '"' and len(quote) > minLen:
-                        quoteObject, result = quoteObj(quote, split_quote, idx)
-                        if result and posCount < quoteNum//2:
-                            idx+=1
-                            posCount+=1
-                            quoteList.append(quoteObject)
-                        elif negCount < quoteNum//2:
-                            idx+=1
-                            negCount+=1
-                            quoteList.append(quoteObject)
-                        break
-                    elif (prevChar == "," or prevChar == "?" or prevChar == "!" or prevChar == ":" or prevChar == ".") and char != " ":
-                        break
-                    prevChar = char
-            
-            if posCount == quoteNum//2 and negCount == quoteNum//2:
-                break
-            
+            quote = '"'
+            if split_quote[0] == '"':
+                split_quote = split_quote[1:]
+            for char in split_quote:
+                quote+=char
+                if (prevChar == "," or prevChar == ":") and char == '"':
+                    quote = quote[:-2] + '"'
+                    quoteObject, result = quoteObj(quote, split_quote, idx)
+                    if result and posCount < posCountLimit:
+                        idx+=1
+                        posCount+=1
+                        quoteList.append(quoteObject)
+                    elif negCount < negCountLimit:
+                        idx+=1
+                        negCount+=1
+                        quoteList.append(quoteObject)
+                    break
+                elif char == '"': #and len(quote) > minLen:
+                    quoteObject, result = quoteObj(quote, split_quote, idx)
+                    if result and posCount < posCountLimit:
+                        idx+=1
+                        posCount+=1
+                        quoteList.append(quoteObject)
+                    elif negCount < negCountLimit:
+                        idx+=1
+                        negCount+=1
+                        quoteList.append(quoteObject)
+                    break
+                elif (prevChar == "," or prevChar == "?" or prevChar == "!" or prevChar == ":" or prevChar == ".") and char != " ":
+                    break
+                prevChar = char
+        quoteList.extend(getNumJargon('cv-unique-has-end-punct-sentences.csv', jargonCountLimit, idx))
+    shuffle(quoteList)
+    #print("POSCOUNT: "+str(posCount))
+    #print("NEGCOUNT: "+str(negCount))
     return quoteList
 
-trainData = GetQuoteData('quotes_dataset.csv', 100, 200, 50)
+#trainData = GetQuoteData('quotes_dataset.csv', 7000, 60)
 #print(trainData)
+#print(len(trainData))
 '''
 df = pd.DataFrame(dataset[picks])
 for column, typ in dataset.features.items():
