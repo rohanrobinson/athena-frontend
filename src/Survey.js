@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Survey.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +15,8 @@ const Survey = () => {
   const [userId, setUserId] = useState();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selected, setSelected] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [incorrect, setIncorrect] = useState(false);
   const [validated, setValidated] = useState(false);
 
   const originalQuestions = [
@@ -55,6 +58,28 @@ const Survey = () => {
       quote: "The philosophers have only interpreted the world, in various ways. The point, however, is to change it.",
       ans: ""
     },
+    {
+      type: "user-info", 
+      info: "What is your First Name?",
+      ans: ""
+    },
+    {
+      type: "user-info", 
+      info: "What is your Last Name?",
+      ans: ""
+    },
+    {
+      type: "user-info",
+      info: "What email address would be best for you?",
+      ans: ""
+    },
+    {
+      type: "user-info", 
+      info: "Create a password. Make it good!", 
+      ans: ""
+    }
+
+
   ];
 
   const [questions, setQuestions] = useState(originalQuestions);
@@ -98,9 +123,13 @@ const Survey = () => {
     event.preventDefault();
     console.log("submit");
     console.log(questions);
-
+    
     // grade the survey
     var philosophies = [];
+
+
+
+
     var philosophyPercentages = {
       nihilism: Math.random()*50,
       taoism: Math.random()*50,
@@ -158,12 +187,26 @@ const Survey = () => {
       philosophyPercentages.marxism = Math.random()*50+50
     }
 
+    //get user personal name, and login information (questionss 7 through 10)
+    var firstName = questions[6].ans;
+    var lastName = questions[7].ans;
+    var email = questions[8].ans;
+    var password = questions[9].ans;
 
     const config = {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('token')
       }
     };
+    
+    const userSurveyObject = {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName:lastName,
+      savedQuotes: [],
+    }
+
     const body = {
       surveyResults: {
         questions: questions,
@@ -171,19 +214,65 @@ const Survey = () => {
         philosophyPercentages: philosophyPercentages,
       }
     };
+
     console.log(body);
-    axios.put(`${backendUrl}/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
-      .then((response) => {
-        // success
-        console.log("success");
-        console.log(response);
-        setValidated(false);
-        history.push('/results');
-      })
-      .catch((error) => {
-        // error
-        console.log(error);
-      });
+    axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
+    .then(resp => {
+      // success
+      const loginObject = {
+        email: email,
+        password: password,
+      }
+      axios.post(`https://athena-back-end.herokuapp.com/api/auth/login`, loginObject )
+          .then(res => {
+            console.log("here");
+            console.log(res);
+            //console.log(res.data);
+            //console.log(res.data.token);
+            sessionStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('user', res.data.user);
+            console.log(sessionStorage.getItem('user'));
+            setIsLoading(false);
+            // history.push('/survey');
+            axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+                    .then((response) => {
+                      // success
+                      console.log("success");
+                      console.log(response);
+                      setValidated(false);
+                      history.push('/results');
+                    })
+                    .catch((error) => {
+                      // error
+                      console.log(error);
+                    });
+          })
+          .catch((error) => {
+            // alert('Incorrect username or password.');
+            console.log(error);
+            this.setState({ isLoading: false, incorrect: true });
+            setIsLoading(false);
+          });
+    })
+    .catch((err) => {
+      console.log(err);
+      setIsLoading(false);
+      setIncorrect(true);
+    });
+
+    // need to adjust for user's without an account
+    // axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+    //   .then((response) => {
+    //     // success
+    //     console.log("success");
+    //     console.log(response);
+    //     setValidated(false);
+    //     history.push('/results');
+    //   })
+    //   .catch((error) => {
+    //     // error
+    //     console.log(error);
+    //   });
   };
 
   const updateAnswer = (event) => {
@@ -194,6 +283,11 @@ const Survey = () => {
       setQuestions(temp);
     }
     if (questions[currentQuestionIndex].type === "input") {
+      setSelected(event.target.value);
+      temp[currentQuestionIndex].ans = event.target.value;
+      setQuestions(temp);
+    }
+    if (questions[currentQuestionIndex].type === "user-info") {
       setSelected(event.target.value);
       temp[currentQuestionIndex].ans = event.target.value;
       setQuestions(temp);
@@ -250,6 +344,20 @@ const Survey = () => {
         </div>
       )
     }
+    else if (questions[currentQuestionIndex].type === "user-info"){
+      return (
+        <div>
+          <h2 className="user-info-header">{questions[currentQuestionIndex].info}</h2>
+          <input
+            className="input_ques"
+            type="text"
+            placeholder="Enter response..."
+            value={selected}
+            onChange={updateAnswer}
+          />
+        </div>
+      )
+    }
     else {
       return (
         <p>error</p>
@@ -260,10 +368,22 @@ const Survey = () => {
 
   return (
     <div>
-      { loggedIn ? (
-        <>
+      
+
           <div id="out_cont">
           <div id="survey_cont">
+          <div id="navigation_div">
+              <Link className="navigation_link" id="skip_link" to="/createAccount">
+                  <span className="navigation_span">Skip Survey</span>
+              </Link> 
+
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <Link className="navigation_link" id="login_link" to="/login">
+                  <span className="navigation_span">Log In</span>
+              </Link> 
+            </div>
+
+            <p className="survey_title">Welcome to Athena!</p>
             <p className="survey_title">Complete the survey to find your suggested philosophies.</p>
             <div id="question_cont">
               <div className="button_cont">
@@ -311,23 +431,17 @@ const Survey = () => {
             
             {validated ? (
               <button id="submit_survey" onClick={submitSurvey}>Submit</button>
-            ):(
-              <>
-              </>
-            )}
+            ):
+              <></>
+            }
           </div>
         </div>
         <div className="transition">
           <div className="transition-bg">
           </div>
         </div>
-        </>
-      ):(
-        <>
-          <p>Please Log In</p>
-        </>
-      )}
     </div>
   )
 }
-export default Survey;
+
+export default withRouter(Survey);
