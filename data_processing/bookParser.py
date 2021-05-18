@@ -393,7 +393,7 @@ def bookParse(title, selection, author):
 #bookParse("Pride-and-Prejudice", "A", "Jane Austen")
 
 #TypeB Project Gutenburg 
-bookParse("Gatsby", "B", "F. Scott Fitzgerald")
+#bookParse("Gatsby", "B", "F. Scott Fitzgerald")
 #bookParse("ScarletLetter", "B", "Nathaniel Hawthorne")
 #bookParse("AliceAndWonderland", "B", "Lewis Carroll")
 #bookParse("OliverTwist", "B", "Charles Dickens")
