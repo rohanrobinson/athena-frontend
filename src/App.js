@@ -45,9 +45,14 @@ function App() {
           {/* The Survey Component gets Rendered First */}
           <Route path="/" exact component={Survey} />  
 
+          <Route path="/survey" exact component={Survey} /> 
+
           <Route path="/surveyInfo"component={SurveyInfo} />
 
-          <Route path="/results" component={Results} />
+          <Route path="/results">
+            <Navigation />
+            <Results />
+          </Route>
 
         </Switch>
       </Router>

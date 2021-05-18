@@ -14,6 +14,8 @@ const Survey = () => {
   const [userId, setUserId] = useState();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selected, setSelected] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [incorrect, setIncorrect] = useState(false);
   const [validated, setValidated] = useState(false);
 
   const originalQuestions = [
@@ -120,9 +122,12 @@ const Survey = () => {
     event.preventDefault();
     console.log("submit");
     console.log(questions);
-
+    
     // grade the survey
     var philosophies = [];
+
+
+
     // question 1
     switch(questions[0].ans) {
       case 'nothing, there is no point':
@@ -160,31 +165,91 @@ const Survey = () => {
       philosophies.push("marxism");
     }
 
+    //get user personal name, and login information (questionss 7 through 10)
+    var firstName = questions[6].ans;
+    var lastName = questions[7].ans;
+    var email = questions[8].ans;
+    var password = questions[9].ans;
 
     const config = {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('token')
       }
     };
+    
+    const userSurveyObject = {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName:lastName,
+      savedQuotes: [],
+    }
+
     const body = {
-      surveyResults: {
-        questions: questions,
-        philosophies: philosophies,
-      }
+        surveyResults: {
+          questions: questions,
+          philosophies: philosophies,
+        },
     };
+
     console.log(body);
-    axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
-      .then((response) => {
-        // success
-        console.log("success");
-        console.log(response);
-        setValidated(false);
-        history.push('/results');
-      })
-      .catch((error) => {
-        // error
-        console.log(error);
-      });
+    axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
+    .then(resp => {
+      // success
+      const loginObject = {
+        email: email,
+        password: password,
+      }
+      axios.post(`https://athena-back-end.herokuapp.com/api/auth/login`, loginObject )
+          .then(res => {
+            console.log("here");
+            console.log(res);
+            //console.log(res.data);
+            //console.log(res.data.token);
+            sessionStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('user', res.data.user);
+            console.log(sessionStorage.getItem('user'));
+            setIsLoading(false);
+            // history.push('/survey');
+            axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+                    .then((response) => {
+                      // success
+                      console.log("success");
+                      console.log(response);
+                      setValidated(false);
+                      history.push('/results');
+                    })
+                    .catch((error) => {
+                      // error
+                      console.log(error);
+                    });
+          })
+          .catch((error) => {
+            // alert('Incorrect username or password.');
+            console.log(error);
+            this.setState({ isLoading: false, incorrect: true });
+            setIsLoading(false);
+          });
+    })
+    .catch((err) => {
+      console.log(err);
+      setIsLoading(false);
+      setIncorrect(true);
+    });
+
+    // need to adjust for user's without an account
+    // axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+    //   .then((response) => {
+    //     // success
+    //     console.log("success");
+    //     console.log(response);
+    //     setValidated(false);
+    //     history.push('/results');
+    //   })
+    //   .catch((error) => {
+    //     // error
+    //     console.log(error);
+    //   });
   };
 
   const updateAnswer = (event) => {
