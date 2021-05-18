@@ -770,8 +770,8 @@
 
 .analysisText {
   width: 1000px;
-	height: 750px;	
-	position: absolute;
+	height: 95%;	
+	position: fixed;
 	top:0;
 	bottom: 0;
 	left: 0;
