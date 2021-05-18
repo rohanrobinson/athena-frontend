@@ -16,7 +16,6 @@ sampleList = ["We are very happy to show you the 🤗 Transformers library.",
 '''
 # If file too large use split -b 100kb filename.txt 
 
-
 # quoteArr = readForQuotes('Aristotle.txt', 'Aristotle') - run 1
 # quoteArr = readForQuotes('ScarletLetter.txt', 'Nathaniel Hawthorne') - run 2
 # quoteArr = readForQuotes('Apology.txt', 'Plato') - run 3
