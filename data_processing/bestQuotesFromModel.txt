@@ -1,8 +1,6 @@
 Originally from modelResults.txt
 
 'Aristole.txt' by Aristole
-quoteArr = readForQuotes('Aristotle.txt', 'Aristotle')
-34/683=0.04978038067349927
 
 "Thus the reason why men enjoy seeing a likeness is, that in contemplating it they find themselves learning or inferring, and saying perhaps, 'Ah, that is he.'"
 'It follows plainly, in the first place, that the change, of fortune presented must not be the spectacle of a virtuous man brought from prosperity to adversity: for this moves neither pity nor fear; it merely shocks us.' 
@@ -13,82 +11,31 @@ quoteArr = readForQuotes('Aristotle.txt', 'Aristotle')
 "'Yes,' we say, 'but the impossible is the higher thing; for the ideal type must surpass the reality.'"
 "In addition to which, we urge that the irrational sometimes does not violate reason; just as 'it is probable that a thing may happen contrary to probability.'"
 
--------xxxxx-------
-
-quoteArr = readForQuotes('ScarletLetter.txt', 'Nathaniel Hawthorne')
-148/2570=0.05758754863813229
+'ScarletLetter.txt' by 'Nathaniel Hawthorne'
 
 'No aim, that I have ever cherished, would they recognize as laudable; no success of mine—if my life, beyond its domestic scope, had ever been brightened by success—would they deem otherwise than worthless, if not positively disgraceful.'
-'“The little power you might once have possessed over the tribe of unrealities is gone!', 'Peace be with all the world!', 
-'If thou feelest it to be for thy soul’s peace, and that thy earthly punishment will thereby be made more effectual to salvation, I charge thee to speak out the name of thy fellow-sinner and fellow-sufferer!', 
-'“Live, therefore, and bear about thy doom with thee, in the eyes of men and women,—in the eyes of him whom thou didst call thy husband,—in the eyes of yonder child!', 
-'I,—a man of thought,—the bookworm of great libraries,—a man already in decay, having given my best years to feed the hungry dream of knowledge,—what had I to do with youth and beauty like thine own!', 
-'Were it not, thinkest thou, for thy little one’s temporal and eternal welfare that she be taken out of thy charge, and clad soberly, and disciplined strictly, and instructed in the truths of heaven and earth?', 
-'Without question, she is equally in the dark as to her soul, its present depravity, and future destiny!', 
-'If they would serve their fellow-men, let them do it by making manifest the power and reality of conscience, in constraining them to penitential self-abasement!', 
-'Wouldst thou have me to believe, O wise and pious friend, that a false show can be better—can be more for God’s glory, or man’s welfare—than God’s own truth?', 
-'He, if it stand with his good pleasure, can cure; or he can kill!', 'But see, now, how passion takes hold upon this man, and hurrieth him out of himself!', 
--------Checkpoint-------
-'It kept him down, on a level with the lowest; him, the man of ethereal attributes, whose voice the angels might else have listened to and answered!', 
-'Oftenest persuasive, but sometimes terrible!', 'Would not the people start up in their seats, by a simultaneous impulse, and tear him down out of the pulpit which he defiled?', 
-'“The saint on earth!', '“A good evening to you, venerable Father Wilson!', 'Come up hither, I pray you, and pass a pleasant hour with me!”  Good heavens!', 
-'But what shall we say, when an individual discovers a revelation addressed to himself alone, on the same vast sheet of record!', 
-'“Pious Master Dimmesdale, can this be you?', 'We men of study, whose heads are in our books, have need to be straitly looked after!', 
-'“Yes, it seems to be my glove, indeed!”  “And since Satan saw fit to steal it, your reverence must needs handle him without gloves, henceforward,” remarked the old sexton, grimly smiling.', 
-'Was existence worth accepting, even to the happiest among them?', 'But the visionary little maid, on her part, beckoned likewise, as if to say,—“This is a better place!', 
-'“I would speak a word with you,” said she,—“a word that concerns us much.”  “Aha!', 'On my life, Hester, I made my entreaty to the worshipful magistrate that it might be done forthwith!”  “It lies not in the pleasure of the magistrates to take off this badge,” calmly replied Hester.', 
-'“But let it pass!', 'But it was the constant shadow of my presence!—the closest propinquity of the man whom he had most vilely wronged!—and who had grown to exist only by this perpetual poison of the direst revenge!', 
-'“Dost thou remember me, Hester, as I was nine years agone?', '“I have already told thee what I am!', 
-'I pity thee, for the good that has been wasted in thy nature!”  “And I thee,” answered Hester Prynne, “for the hatred that has transformed a wise and just man to a fiend!', 
-'If not for his sake, then doubly for thine own!', 'Forgive, and leave his further retribution to the Power that claims it!', 
-'He has done me worse wrong than I did him!”  Let men tremble to win the hand of woman, unless they win along with it the utmost passion of her heart!', 
-'“Ask yonder old man whom thou hast been talking with!', 
-'“Will not it come of its own accord, when I am a woman grown?”  “Run away, child,” answered her mother, “and catch the sunshine!', 
-'“O brook!', '“Is it thou?', '“In such life as has been mine these seven years past!', '“What else could I look for, being what I am, and leading such a life as mine?', 
-'“And surely thou workest good among them!', 'What can a ruined soul, like mine, effect towards the redemption of other souls?—or a polluted soul towards their purification?', 
-'And as for the people’s reverence, would that it were turned to scorn and hatred!', 'Is there no reality in the penitence thus sealed and witnessed by good works?', 
-'“There is no substance in it!', 'Even thus much of truth would save me!', '“An enemy!', 'In all things else, I have striven to be true!', 
-'Truth was the one virtue which I might have held fast, and did hold fast, through all extremity; save when thy good,—thy life,—thy fame,—were put in question!', 
-'“Let God punish!', 'What will now be the course of his revenge?”  “There is a strange secrecy in his nature,” replied Hester, thoughtfully; “and it has grown upon him by the hidden practices of his revenge.', 
-'“Think for me, Hester!', '“But how to avoid it?', '“Wilt thou die for very weakness?', 
-'“It is too mighty for me to struggle with!”  “Heaven would show mercy,” rejoined Hester, “hadst thou but the strength to take advantage of it.”  “Be thou strong for me!” answered he.', 
-'“Doth the universe lie within the compass of yonder town, which only a little time ago was but a leaf-strewn desert, as lonely as this around us?', 
-'So brief a journey would bring thee from a world where thou hast been most wretched, to one where thou mayest still be happy!', 
-'In our native land, whether in some remote rural village or in vast London,—or, surely, in Germany, in France, in pleasant Italy,—thou wouldst be beyond his power and knowledge!', 
-'“I am powerless to go!', '“But thou shalt leave it all behind thee!', 
-'Up, and away!”  “O Hester!” cried Arthur Dimmesdale, in whose eyes a fitful light, kindled by her enthusiasm, flashed up and died away, “thou tellest of running a race to a man whose knees are tottering beneath him!', 
-'But now,—since I am irrevocably doomed,—wherefore should I not snatch the solace allowed to the condemned culprit before his execution?', 
-'“Methought the germ of it was dead in me!', 
-'I seem to have flung myself—sick, sin-stained, and sorrow-blackened—down upon these forest-leaves, and to have risen up all made anew, and with new powers to glorify Him that hath been merciful!', 
-'“The past is gone!', 'Such was the sympathy of Nature—that wild, heathen Nature of the forest, never subjugated by human law, nor illumined by higher truth—with the bliss of these two spirits!', 
-'But I know whose brow she has!”  “Dost thou know, Hester,” said Arthur Dimmesdale, with an unquiet smile, “that this dear child, tripping about always at thy side, hath caused me many an alarm?', 
-'But she is mostly thine!”  “No, no!', 'Be the foregone evil what it might, how could they doubt that their earthly lives and future destinies were conjoined, when they beheld at once the material union, and the spiritual idea, in whom they met, and were to dwell immortally together?', 
-'Fear nothing!', '“How slow thou art!', 'Pearl misses something which she has always seen me wear!”  “I pray you,” answered the minister, “if thou hast any means of pacifying the child, do it forthwith!', 
-'“Pearl,” said she, sadly, “look down at thy feet!', '“Now thou art my mother indeed!', '“Come thou, and entreat his blessing!', 
-'“At least, they shall say of me,” thought this exemplary man, “that I leave no public duty unperformed, nor ill performed!” Sad, indeed, that an introspection so profound and acute as this poor minister’s should be so miserably deceived!', 
-'He might have said to the friends who greeted him,—“I am not the man for whom you take me!', 
-'And, even with this terror in his heart, he could hardly avoid laughing, to imagine how the sanctified old patriarchal deacon would have been petrified by his minister’s impiety!', 
-'“Well, well, we must needs talk thus in the daytime!', '“Have I then sold myself,” thought the minister, “to the fiend whom, if men say true, this yellow-starched and velveted old hag has chosen for her prince and master!”  The wretched minister!', 
-'Here he had studied and written; here, gone through fast and vigil, and come forth half alive; here, striven to pray; here, borne a hundred thousand agonies!', 
-'There was the Bible, in its rich old Hebrew, with Moses and the Prophets speaking to him, and God’s voice through all!', 
-'“Heaven grant it be a better one; for, in good sooth, I hardly think to tarry with my flock through the flitting seasons of another year!', 
-'“Yet a little while, and she will be beyond your reach!', '“Wherefore have all the people left their work to-day?', '“Yonder divine man!', 
-'Who, now, that saw him pass in the procession, would think how little while it is since he went forth out of his study,—chewing a Hebrew text of Scripture in his mouth, I warrant,—to take an airing in the forest!', 
-'Let me tell thee, in thine ear!', 'Never, on New England soil, had stood the man so honored by his mortal brethren as the preacher!', 
-'So etherealized by spirit as he was, and so apotheosized by worshipping admirers, did his footsteps, in the procession, really tread upon the dust of earth?', 
-'“Hester,” said he, “come hither!', 'At this instant, old Roger Chillingworth thrust himself through the crowd,—or, perhaps, so dark, disturbed, and evil, was his look, he rose up out of some nether region,—to snatch back his victim from what he sought to do!', '“Madman, hold!', 
-'“Wave back that woman!', 'Do not blacken your fame, and perish in dishonor!', 'Would you bring infamy on your sacred profession?”  “Ha, tempter!', 
-'“Thy power is not what it was!', 'Thy strength, Hester; but let it be guided by the will which God hath granted me!', 
-'This wretched and wronged old man is opposing it with all his might!—with all his own might, and the fiend’s!', 
-'“Is not this better,” murmured he, “than what we dreamed of in the forest?”  “I know not!', 
-'Yea; so we may both die, and little Pearl die with us!”  “For thee and Pearl, be it as God shall order,” said the minister; “and God is merciful!', 
-'“God’s eye beheld it!', 'But he hid it cunningly from men, and walked among you with the mien of a spirit, mournful, because so pure in a sinful world!—and sad, because he missed his heavenly kindred!', 
-'Now, at the death-hour, he stands up before you!', 'Behold!', '“The law we broke!—the sin here so awfully revealed!—let these alone be in thy thoughts!', 
-'God knows; and He is merciful!', 'By bringing me hither, to die this death of triumphant ignominy before the people!', 
-'After exhausting life in his efforts for mankind’s spiritual good, he had made the manner of his death a parable, in order to impress on his admirers the mighty and mournful lesson, that, in the view of Infinite Purity, we are sinners all alike.', 
-'Among many morals which press upon us from the poor minister’s miserable experience, we put only this into a sentence:—“Be true!', 'Be true!', 'Be true!', 
-'Creating the works from print editions not protected by U.S. copyright law means that no one owns a United States copyright in these works, so the Foundation (and you!)']
+'“The little power you might once have possessed over the tribe of unrealities is gone!', 'Peace be with all the world!'
+'If thou feelest it to be for thy soul’s peace, and that thy earthly punishment will thereby be made more effectual to salvation, I charge thee to speak out the name of thy fellow-sinner and fellow-sufferer!' 
+'“Live, therefore, and bear about thy doom with thee, in the eyes of men and women,—in the eyes of him whom thou didst call thy husband,—in the eyes of yonder child!'
+'I,—a man of thought,—the bookworm of great libraries,—a man already in decay, having given my best years to feed the hungry dream of knowledge,—what had I to do with youth and beauty like thine own!'
+'Were it not, thinkest thou, for thy little one’s temporal and eternal welfare that she be taken out of thy charge, and clad soberly, and disciplined strictly, and instructed in the truths of heaven and earth?'
+'Without question, she is equally in the dark as to her soul, its present depravity, and future destiny!'
+'If they would serve their fellow-men, let them do it by making manifest the power and reality of conscience, in constraining them to penitential self-abasement!' 
+'Wouldst thou have me to believe, O wise and pious friend, that a false show can be better—can be more for God’s glory, or man’s welfare—than God’s own truth?'
+'He, if it stand with his good pleasure, can cure; or he can kill!', 'But see, now, how passion takes hold upon this man, and hurrieth him out of himself!'
+'But what shall we say, when an individual discovers a revelation addressed to himself alone, on the same vast sheet of record!'
+'I pity thee, for the good that has been wasted in thy nature!”  “And I thee,” answered Hester Prynne, “for the hatred that has transformed a wise and just man to a fiend!' 
+'If not for his sake, then doubly for thine own!', 'Forgive, and leave his further retribution to the Power that claims it!'
+'Is there no reality in the penitence thus sealed and witnessed by good works?'
+'Truth was the one virtue which I might have held fast, and did hold fast, through all extremity; save when thy good,—thy life,—thy fame,—were put in question!'
+'“Doth the universe lie within the compass of yonder town, which only a little time ago was but a leaf-strewn desert, as lonely as this around us?'
+'So brief a journey would bring thee from a world where thou hast been most wretched, to one where thou mayest still be happy!'
+'Such was the sympathy of Nature—that wild, heathen Nature of the forest, never subjugated by human law, nor illumined by higher truth—with the bliss of these two spirits!'
+'Be the foregone evil what it might, how could they doubt that their earthly lives and future destinies were conjoined, when they beheld at once the material union, and the spiritual idea, in whom they met, and were to dwell immortally together?'
+'After exhausting life in his efforts for mankind’s spiritual good, he had made the manner of his death a parable, in order to impress on his admirers the mighty and mournful lesson, that, in the view of Infinite Purity, we are sinners all alike.'
+'Among many morals which press upon us from the poor minister’s miserable experience, we put only this into a sentence:—“Be true!', 'Be true!', 'Be true!'
 
+-------xxxxx-------
 quoteArr = readForQuotes('Apology.txt', 'Plato') 
 45/514=0.08754863813229571
 
