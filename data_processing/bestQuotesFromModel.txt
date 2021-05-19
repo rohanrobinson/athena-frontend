@@ -37,112 +37,43 @@ Originally from modelResults.txt
 
 'Apology.txt' by Plato 
 
-What could be the meaning of this—that he who knew nothing, and knew that he knew nothing, should be declared by the oracle to be the wisest of men?,
-The question may be asked, Why will he persist in following a profession which leads him to death?,
-For he will certainly obey God rather than man; and will continue to preach to all men of all ages the necessity of virtue and improvement; and if they refuse to listen to him he will still persevere and reprove them.,
-Never mind the manner, which may or may not be good; but think only of the truth of my words, and give heed to that: let the speaker speak truly and the judge decide justly.,
-May I succeed, if to succeed be for my good and yours, or likely to avail me in my cause!,
-I found that the men most in repute were all but the most foolish; and that others less esteemed were really wiser and better.,
-But now please to answer the next question: Can a man believe in spiritual and divine agencies, and not in spirits or demigods?,
+What could be the meaning of this—that he who knew nothing, and knew that he knew nothing, should be declared by the oracle to be the wisest of men?
+The question may be asked, Why will he persist in following a profession which leads him to death?
+For he will certainly obey God rather than man; and will continue to preach to all men of all ages the necessity of virtue and improvement; and if they refuse to listen to him he will still persevere and reprove them.
+Never mind the manner, which may or may not be good; but think only of the truth of my words, and give heed to that: let the speaker speak truly and the judge decide justly.
+May I succeed, if to succeed be for my good and yours, or likely to avail me in my cause!
+I found that the men most in repute were all but the most foolish; and that others less esteemed were really wiser and better.
+But now please to answer the next question: Can a man believe in spiritual and divine agencies, and not in spirits or demigods?
 “Let me die forthwith and be avenged of my enemy, rather than abide here by the beaked ships, a laughing-stock and a burden of the earth.”
-For the fear of death is indeed the pretence of wisdom, and not real wisdom, being a pretence of knowing the unknown; and no one knows whether death, which men in their fear apprehend to be the greatest evil, may not be the greatest good.,
-When I do not know whether death is a good or an evil, why should I propose a penalty which would certainly be an evil?,
-For I am quite sure that wherever I go, there, as here, the young men will flock to me; and if I drive them away, their elders will drive me out at their request; and if I let them come, their fathers and friends will drive me out for their sakes.,
-But if death is the journey to another place, and there, as men say, all the dead abide, what good, O my friends and judges, can be greater than this?,
-Above all, I shall then be able to continue my search into true and false knowledge; as in this world, so also in the next; and I shall find out who is wise, and who pretends to be wise, and is not.,
+For the fear of death is indeed the pretence of wisdom, and not real wisdom, being a pretence of knowing the unknown; and no one knows whether death, which men in their fear apprehend to be the greatest evil, may not be the greatest good.
+When I do not know whether death is a good or an evil, why should I propose a penalty which would certainly be an evil?
+For I am quite sure that wherever I go, there, as here, the young men will flock to me; and if I drive them away, their elders will drive me out at their request; and if I let them come, their fathers and friends will drive me out for their sakes.
+But if death is the journey to another place, and there, as men say, all the dead abide, what good, O my friends and judges, can be greater than this?
+Above all, I shall then be able to continue my search into true and false knowledge; as in this world, so also in the next; and I shall find out who is wise, and who pretends to be wise, and is not.
+
+'TheRepublic1.txt' by 'Plato'
+
+But ought we to render evil for evil at all, when to do so will only make men more evil?
+Can justice produce injustice any more than the art of horsemanship can make bad horsemen, or heat produce cold?
+'If because I do evil, Thou punishest me by evil, what is the difference between Thee and me?'
+The language of men proves this--our 'gracious' and 'blessed' tyrant and the like--all which tends to show that justice is the interest of the stronger; and that injustice is more profitable and also stronger than justice.'
+Is not the strength of injustice only a remnant of justice? Is not absolute injustice absolute weakness also?
+And is not the end of the soul happiness, and justice the excellence of the soul by which happiness is attained?
+'Justice is like the arts in having no external interest, and in not aiming at excess, and justice is to happiness what the implement of the workman is to his work.'
+'virtue is concerned with action, art with production'
+Another flaw or inaccuracy of language may be noted in the words 'men who are injured are made more unjust.'
+'When workmen strive to do better than well, They do confound their skill in covetousness.'
+How different is the case of the unjust who clings to appearance as the true reality!
+His high character makes him a ruler; he can marry where he likes, trade where he likes, help his friends and hurt his enemies; having got rich by dishonesty he can worship the gods better, and will therefore be more loved by them than the just.'
+"Virtue", as Hesiod says, "is honourable but difficult, vice is easy and profitable."
+I hear some one saying that "wickedness is not easily concealed," to which I reply that "nothing great is easy."
+Union and force and rhetoric will do much; and if men say that they cannot prevail over the gods, still how do we know that there are gods?
+let the just be thought unjust and the unjust just, and do you still prove to us the superiority of justice
+that power is the foundation of right; or that a monarch has a divine right to govern well or ill; or that virtue is self-love or the love of power; or that war is the natural state of man; or that private vices are public benefits.
+What the poets and story-tellers say--that the wicked prosper and the righteous are afflicted, or that justice is another's gain?
+Has not the question been already answered, for we have decided that one man cannot in his life play many parts, any more than he can act both tragedy and comedy, or be rhapsodist and actor at once?
 
 ---- Checkpoint ----
-quoteArr = readForQuotes('TheRepublic1.txt', 'Plato')
-88/578=0.1522491349480969
-
-The greatest of all logical truths, and the one of which writers on philosophy are most apt to lose sight, the difference between words and things, has been most strenuously insisted on by him (cp.,
-To this is appended a restatement of the nature of justice according to common opinion, and an answer is demanded to the question--What is justice, stripped of appearances?,
-To Plato himself, the enquiry 'what was the intention of the writer,' or 'what was the principal argument of the Republic' would have been hardly intelligible, and therefore had better be at once dismissed (cp.,
-Is not the Republic the vehicle of three or four great truths which, to Plato's own mind, are most naturally represented in the form of the State?,
-Like Cephalus, he is limited in his point of view, and represents the proverbial stage of morality which has rules of life rather than principles; and he quotes Simonides (cp.,
-When attacked by Glaucon he is humorously protected by Socrates 'as one who has never been his enemy and is now his friend.',
-There is no evidence that either the idea of good or the conception of a perfect state were comprehended in the Socratic teaching, though he certainly dwelt on the nature of the universal and of final causes (cp.,
-; Phaedo); and a deep thinker like him, in his thirty or forty years of public teaching, could hardly have failed to touch on the nature of family relations, for which there is also some positive evidence in the Memorabilia (Mem.),
-A real element of Socratic teaching, which is more prominent in the Republic than in any of the other Dialogues of Plato, is the use of example and illustration (Greek): 'Let us apply the test of common instances.',
-'You,' says Adeimantus, ironically, in the sixth book, 'are so unaccustomed to speak in images.',
-Plato is most true to the character of his master when he describes him as 'not of this world.',
-'You should come to me oftener, Socrates, for I am too old to go to you; and at my time of life, having lost other pleasures, I care the more for conversation.',
-Socrates, who is evidently preparing for an argument, next asks, What is the meaning of the word justice?,
-'There must be exceptions.',
-'And yet,' says Polemarchus, 'the definition which has been given has the authority of Simonides.',
-Here Cephalus retires to look after the sacrifices, and bequeaths, as Socrates facetiously remarks, the possession of the argument to his heir, Polemarchus...,
-The portrait of the just man is a natural frontispiece or introduction to the long discourse which follows, and may perhaps imply that in all our perplexity about the nature of justice, there is no difficulty in discerning 'who is a just man.',
-...He proceeds: What did Simonides mean by this saying of his?,
-He meant that you were to do what was proper, good to friends and harm to enemies.',
-Every act does something to somebody; and following this analogy, Socrates asks, What is this due and proper thing which justice does, and to whom?,
-'In making alliances with the one, and going to war with the other.',
-Then in time of peace what is the good of justice?,
-'When you want to have money safely kept and not used.',
-And are our friends to be only the good, and our enemies to be the evil?,
-But ought we to render evil for evil at all, when to do so will only make men more evil?,
-Can justice produce injustice any more than the art of horsemanship can make bad horsemen, or heat produce cold?,
-The final conclusion is, that no sage or poet ever said that the just return evil for evil; this was a maxim of some rich and mighty man, Periander, Perdiccas, or Ismenias the Theban (about B.C.,
-398-381)...,
-Similar words are applied by the Persian mystic poet to the Divine being when the questioning spirit is stirred within him:--'If because I do evil, Thou punishest me by evil, what is the difference between Thee and me?',
-In this both Plato and Kheyam rise above the level of many Christian (?),
-The first definition of justice easily passes into the second; for the simple words 'to speak the truth and pay your debts' is substituted the more abstract 'to do good to your friends and harm to your enemies.',
-'Socrates,' he says, 'what folly is this?--Why do you agree to be vanquished by one another in a pretended argument?',
-'Listen,' he says, 'my answer is that might is right, justice the interest of the stronger: now praise me.',
-Do you mean that because Polydamas the wrestler, who is stronger than we are, finds the eating of beef for his interest, the eating of beef is also for our interest, who are not so strong?,
-Thrasymachus is saved from this speedy downfall by his disciple Cleitophon, who introduces the word 'thinks;'--not the actual interest of the ruler, but what he thinks or what seems to be his interest, is justice.,
-'Tell me, Socrates,' he says, 'have you a nurse?',
-The language of men proves this--our 'gracious' and 'blessed' tyrant and the like--all which tends to show (1) that justice is the interest of the stronger; and (2) that injustice is more profitable and also stronger than justice.',
-'And what can I do more for you?',
-he says; 'would you have me put the words bodily into your souls?',
-Is not the reason, that their interest is not comprehended in their art, and is therefore the concern of another art, the art of pay, which is common to the arts in general, and therefore not identical with any one of them?,
-And if a State (or Church) were composed entirely of good men, they would be affected by the last motive only; and there would be as much 'nolo episcopari' as there is at present of the opposite...,
-Is not the strength of injustice only a remnant of justice?,
-Is not absolute injustice absolute weakness also?,
-Another question has not been answered: Is the just or the unjust the happier?,
-And is not the end of the soul happiness, and justice the excellence of the soul by which happiness is attained?,
-Thrasymachus replies: 'Let this be your entertainment, Socrates, at the festival of Bendis.',
-'Justice is like the arts (1) in having no external interest, and (2) in not aiming at excess, and (3) justice is to happiness what the implement of the workman is to his work.',
-Among early enquirers into the nature of human action the arts helped to fill up the void of speculation; and at first the comparison of the arts and the virtues was not perceived by them to be fallacious.,
-The contemporaries of Plato were in a state of transition, and had not yet fully realized the common-sense distinction of Aristotle, that 'virtue is concerned with action, art with production' (Nic.,
-Another flaw or inaccuracy of language may be noted in the words 'men who are injured are made more unjust.',
-'When workmen strive to do better than well,    They do confound their skill in covetousness.',
-He is not satisfied with the indirect manner in which, at the end of the last book, Socrates had disposed of the question 'Whether the just or the unjust is the happier.',
-He begins by dividing goods into three classes:--first, goods desirable in themselves; secondly, goods desirable in themselves and for their results; thirdly, goods desirable for their results only.,
-He will first of all speak of the nature and origin of justice; secondly, of the manner in which men view justice as a necessity and not a good; and thirdly, he will prove the reasonableness of this view.,
-How different is the case of the unjust who clings to appearance as the true reality!,
-His high character makes him a ruler; he can marry where he likes, trade where he likes, help his friends and hurt his enemies; having got rich by dishonesty he can worship the gods better, and will therefore be more loved by them than the just.',
-'Take another kind of argument which is found both in poetry and prose:--"Virtue," as Hesiod says, "is honourable but difficult, vice is easy and profitable.",
-'When a lively-minded ingenuous youth hears all this, what will be his conclusion?,
-"Will he," in the language of Pindar, "make justice his high tower, or fortify himself with crooked deceit?",
-I hear some one saying that "wickedness is not easily concealed," to which I reply that "nothing great is easy.",
-Union and force and rhetoric will do much; and if men say that they cannot prevail over the gods, still how do we know that there are gods?,
-Then why not sin and pay for indulgences out of your sin?,
-'How can we resist such arguments in favour of injustice?,
-And please, as Glaucon said, to exclude reputation; let the just be thought unjust and the unjust just, and do you still prove to us the superiority of justice'...,
-that power is the foundation of right; or that a monarch has a divine right to govern well or ill; or that virtue is self-love or the love of power; or that war is the natural state of man; or that private vices are public benefits.,
-And still the unjust must appear just; that is 'the homage which vice pays to virtue.',
-He seems to feel the difficulty of 'justifying the ways of God to man.',
-May we not more truly say that the old-fashioned notion of justice is enlarged by Socrates, and becomes equivalent to universal order or well-being, first in the State, and secondly in the individual?,
-), 'whether the virtues are one or many,' viz.,
-His answer in substance amounts to this,--that under favourable conditions, i.e.,
-'Seek ye first the kingdom of God and his righteousness, and all these things shall be added unto you.',
-'But,' said Glaucon, interposing, 'are they not to have a relish?',
-''Tis a city of pigs, Socrates.',
-But what shall their education be?,
-'What do you mean?',
-Shall our youth be encouraged to beat their fathers by the example of Zeus, or our citizens be incited to quarrel by hearing or seeing representations of strife among the gods?,
-For gods as well as men hate the lie in the soul, or principle of falsehood; and as for any other form of lying which is used for a purpose and is regarded as innocent in certain exceptional cases--what need have the gods of this?,
-On the other hand, when we compare the lively fancy of Plato with the dried-up abstractions of modern treatises on philosophy, we are compelled to say with Protagoras, that the 'mythus is more interesting' (Protag.),
-We should insist that the word was inseparable from the intention, and that we must not be 'falsely true,' i.e.,
-Still worse is the attribution of such weakness to the gods; as when the goddesses say, 'Alas!,
-my travail!',
-'Certainly not.',
-That is a lesson which Homer teaches in some places: 'The Achaeans marched on breathing prowess, in silent awe of their leaders;'--but a very different one in other places: 'O heavy with wine, who hast the eyes of a dog, but the heart of a stag.',
-There is a nobler strain heard in the words:--'Endure, my soul, thou hast endured worse.',
-What the poets and story-tellers say--that the wicked prosper and the righteous are afflicted, or that justice is another's gain?,
-'Do you ask whether tragedy and comedy are to be admitted?',
-Yes, but also something more--Is it not doubtful whether our guardians are to be imitators at all?,
-Or rather, has not the question been already answered, for we have decided that one man cannot in his life play many parts, any more than he can act both tragedy and comedy, or be rhapsodist and actor at once?,
 
 quoteArr = readForQuotes('TheRepublic2.txt', 'Plato')
 97/649=0.14946070878274267
