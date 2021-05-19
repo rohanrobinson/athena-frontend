@@ -35,56 +35,23 @@ Originally from modelResults.txt
 'After exhausting life in his efforts for mankind’s spiritual good, he had made the manner of his death a parable, in order to impress on his admirers the mighty and mournful lesson, that, in the view of Infinite Purity, we are sinners all alike.'
 'Among many morals which press upon us from the poor minister’s miserable experience, we put only this into a sentence:—“Be true!', 'Be true!', 'Be true!'
 
--------xxxxx-------
-quoteArr = readForQuotes('Apology.txt', 'Plato') 
-45/514=0.08754863813229571
+'Apology.txt' by Plato 
 
-For the speech breathes throughout a spirit of defiance, “ut non supplex aut reus sed magister aut dominus videretur esse judicum” (Cic.,
-The idealization of the sufferer is carried still further in the “Georgias”, in which the thesis is maintained, that “to suffer is better than to do evil;” and the art of rhetoric is described as only useful for the purpose of self-accusation.,
-(Compare for Anaxagoras, Phædo, Laws; for the Sophists, Meno, Republic, Tim., Theaet., Soph., etc.),
 What could be the meaning of this—that he who knew nothing, and knew that he knew nothing, should be declared by the oracle to be the wisest of men?,
-“If he is the corrupter, who is the improver of the citizens?” (Compare Meno.),
-“All men everywhere.” But how absurd, how contrary to analogy is this!,
 The question may be asked, Why will he persist in following a profession which leads him to death?,
 For he will certainly obey God rather than man; and will continue to preach to all men of all ages the necessity of virtue and improvement; and if they refuse to listen to him he will still persevere and reprove them.,
-Anytus proposes death as the penalty: and what counter-proposition shall he make?,
-Or why should he propose any counter-penalty when he does not know whether death, which Anytus proposes, is a good or an evil?,
-But leaving this question, which does not admit of a precise solution, we may go on to ask what was the impression which Plato in the “Apology” intended to give of the character and conduct of his master in the last great scene?,
-Did he intend to represent him (1) as employing sophistries; (2) as designedly irritating the judges?,
-Or are these sophistries to be regarded as belonging to the age in which he lived and to his personal character, and this apparent haughtiness as flowing from the natural elevation of his position?,
-(Compare Euthyph.),
-APOLOGY   How you, O Athenians, have been affected by my accusers, I cannot tell; but I know that they almost made me forget who I was—so persuasively did they speak; and yet they have hardly uttered a word of truth.,
 Never mind the manner, which may or may not be good; but think only of the truth of my words, and give heed to that: let the speaker speak truly and the judge decide justly.,
 May I succeed, if to succeed be for my good and yours, or likely to avail me in my cause!,
-“Who is he?” said I; “and of what country?,
-and what does he charge?” “Evenus the Parian,” he replied; “he is the man, and his charge is five minæ.” Happy is Evenus, I said to myself, if he really has this wisdom, and teaches at such a moderate charge.,
-I dare say, Athenians, that some one among you will reply, “Yes, Socrates, but what is the origin of these accusations which are brought against you; there must have been something strange which you have been doing?,
-When I heard the answer, I said to myself, What can the god mean?,
-And I swear to you, Athenians, by the dog I swear!—for I must tell you the truth—the result of my mission was just this: I found that the men most in repute were all but the most foolish; and that others less esteemed were really wiser and better.,
-But is not this rather disgraceful, and a very considerable proof of what I was saying, that you have no interest in the matter?,
-And what do you say of the audience,—do they improve them?,
-But perhaps the members of the assembly corrupt them?—or do they too improve them?,
-Is that what you affirm?,
-And now, Meletus, I will ask you another question—by Zeus I will: Which is better, to live among bad citizens, or among good ones?,
-And when you accuse me of corrupting and deteriorating the youth, do you allege that I corrupt them intentionally or unintentionally?,
-Then, by the gods, Meletus, of whom we are speaking, tell me and the court, in somewhat plainer terms, what you mean!,
-And so, Meletus, you really think that I do not believe in any god?,
+I found that the men most in repute were all but the most foolish; and that others less esteemed were really wiser and better.,
 But now please to answer the next question: Can a man believe in spiritual and divine agencies, and not in spirits or demigods?,
-Are they not either gods or the sons of gods?,
-For if the demigods are the illegitimate sons of gods, whether by the nymphs or by any other mothers, of whom they are said to be the sons—what human being will ever believe that there are no gods if they are the sons of gods?,
-Some one will say: And are you not ashamed, Socrates, of a course of life which is likely to bring you to an untimely end?,
-“Let me die forthwith,” he replies, “and be avenged of my enemy, rather than abide here by the beaked ships, a laughing-stock and a burden of the earth.” Had Achilles any thought of death and danger?,
+“Let me die forthwith and be avenged of my enemy, rather than abide here by the beaked ships, a laughing-stock and a burden of the earth.”
 For the fear of death is indeed the pretence of wisdom, and not real wisdom, being a pretence of knowing the unknown; and no one knows whether death, which men in their fear apprehend to be the greatest evil, may not be the greatest good.,
-Is not this ignorance of a disgraceful sort, the ignorance which is the conceit that a man knows what he does not know?,
-Now do you really imagine that I could have survived all these years, if I had led a public life, supposing that like a good man I had always maintained the right and had made justice, as I ought, the first thing?,
-And if those among you who are said to be superior in wisdom and courage, and any other virtue, demean themselves in this way, how shameful is their conduct!,
 When I do not know whether death is a good or an evil, why should I propose a penalty which would certainly be an evil?,
 For I am quite sure that wherever I go, there, as here, the young men will flock to me; and if I drive them away, their elders will drive me out at their request; and if I let them come, their fathers and friends will drive me out for their sakes.,
-Some one will say: Yes, Socrates, but cannot you hold your tongue, and then you may go into a foreign city, and no one will interfere with you?,
 But if death is the journey to another place, and there, as men say, all the dead abide, what good, O my friends and judges, can be greater than this?,
 Above all, I shall then be able to continue my search into true and false knowledge; as in this world, so also in the next; and I shall find out who is wise, and who pretends to be wise, and is not.,
-Creating the works from print editions not protected by U.S. copyright law means that no one owns a United States copyright in these works, so the Foundation (and you!)
 
+---- Checkpoint ----
 quoteArr = readForQuotes('TheRepublic1.txt', 'Plato')
 88/578=0.1522491349480969
 
