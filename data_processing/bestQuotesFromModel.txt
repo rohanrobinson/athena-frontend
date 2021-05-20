@@ -113,7 +113,6 @@ Thus liberty, when out of all order and reason, passes into the worst form of se
 If a person has the audacity to say the contrary, the answer is--Then why do criminals require the hand of the executioner, and not die of themselves?,
 'Truly,' he said, 'injustice would not be very terrible if it brought a cessation of evil; but I rather believe that the injustice which murders others may tend to quicken and stimulate the life of the unjust.',
 
-
 'TheRepublic5.txt' by 'Plato'
 
 We must consecrate that which we believe to be the most holy, and that 'which is the most holy will be the most useful.',
@@ -920,15 +919,8 @@ quoteArr = readForQuotes('TheRepublic13.txt', 'Plato')
 quoteArr = readForQuotes('ThePrince.txt', 'Nicolo Machiavelli')
 9/918=0.00980392156862745
 
-Therefore, my son, if you wish to please me, and to bring success and honour to yourself, do right and study, because others will help you if you help yourself.”     OFFICE — Æt.,
+Therefore, my son, if you wish to please me, and to bring success and honour to yourself, do right and study, because others will help you if you help yourself.”   
 The wish to acquire is in truth very natural and common, and men always do so when they can, and for this they will be praised not blamed; but when they cannot do so, yet wish to do so by any means, then there is folly and blame.,
-[1] “Le radici e corrispondenze,” their roots (i.e.,
-[1] CONCERNING THE WAY IN WHICH PRINCES SHOULD KEEP FAITH    [1] “The present chapter has given greater offence than any other  portion of Machiavelli’s writings.” Burd, “Il Principe,” p. 297.,
-It may be that the meaning attached to the  word “fede” was “the faith,” i.e.,
-[1] “Guilds or societies,” “in arti o in tribu.” “Arti” were craft or  trade guilds, cf.,
-This again either does not happen, or, if it does, it will not be for your security, because that deliverance is of no avail which does not depend upon yourself; those only are reliable, certain, and durable that depend on yourself and your valour.,
-And it will be well for thee to rule thy conduct by my counsel, and to learn in this way to enjoy what my life-work and dangers have gained; and in this thou wilt easily succeed when thou hast learnt to believe that what I have told thee is true.,
-Creating the works from print editions not protected by U.S. copyright law means that no one owns a United States copyright in these works, so the Foundation (and you!)
 
 quoteArr = readForQuotes('Leviathan1.txt', 'Thomas Hobbes')
 91/969=0.09391124871001032
@@ -961,19 +953,14 @@ In Demonstration, in Councell, and all rigourous search of Truth, Judgement does
 The secret thoughts of a man run over all things, holy, prophane, clean, obscene, grave, and light, without shame, or blame; which verball discourse cannot do, farther than the Judgement shall approve of the Time, Place, and Persons.,
 Acquired Wit  As for Acquired Wit, (I mean acquired by method and instruction,) there is none but Reason; which is grounded on the right use of Speech; and produceth the Sciences.,
 For what argument of Madnesse can there be greater, than to clamour, strike, and throw stones at our best friends?,
-25.),
-3.),
 "Whom I have filled with the Spirit of wisdome to make garments for Aaron," is not meant a spirit put into them, that can make garments; but the wisdome of their own spirits in that kind of work.,
 Neither did the other Prophets of the old Testament pretend Enthusiasme; or, that God spake in them; but to them by Voyce, Vision, or Dream; and the Burthen Of The Lord was not Possession, but Command.,
 How then could the Jewes fall into this opinion of possession?,
 And hence it came to passe, when our Saviour (Mark 3.21.),
-20.),
 some said, "He hath a Divell, and is mad;" whereas others holding him for a Prophet, sayd, "These are not the words of one that hath a Divell.",
 So in the old Testament he that came to anoynt Jehu, (2 Kings 9.11.),
 was a Prophet; but some of the company asked Jehu, "What came that mad-man for?",
 As for that our Saviour speaketh to the disease, as to a person; it is the usuall phrase of all that cure by words onely, as Christ did, (and Inchanters pretend to do, whether they speak to a Divel or not.),
-39.),
-43.),
 "The first cause does not necessarily inflow any thing into the second, by force of the Essential subordination of the second causes, by which it may help it to worke?",
 The former is nothing else, but Sense and Memory, and is Absolute Knowledge; as when we see a Fact doing, or remember it done: And this is the Knowledge required in a Witnesse.,
 Consequences from Quantity, and Motion Indeterminate;               which, being the Principles or first foundation of               Philosophy, is called Philosophia Prima                PHILOSOPHIA PRIMA             b.,
@@ -1848,9 +1835,6 @@ in these words, "From that time forward, when Moses entred into the Tabernacle o
 
 quoteArr = readForQuotes('Leviathan5.txt', 'Thomas Hobbes')
 2/78=0.02564102564102564
-
-h God, he heard a Voice which spake unto him from over the Mercy-Seate, which is over the Arke of the Testimony, from between the Cherubins he spake unto him.",
-Creating the works from print editions not protected by U.S. copyright law means that no one owns a United States copyright in these works, so the Foundation (and you!),
 
 quoteArr = readForQuotes('AdventuresOfTomSawyer1.txt', 'Mark Twain')
 56/1750=0.032
