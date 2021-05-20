@@ -51,6 +51,11 @@ For I am quite sure that wherever I go, there, as here, the young men will flock
 But if death is the journey to another place, and there, as men say, all the dead abide, what good, O my friends and judges, can be greater than this?
 Above all, I shall then be able to continue my search into true and false knowledge; as in this world, so also in the next; and I shall find out who is wise, and who pretends to be wise, and is not.
 
+'ThePrince.txt' by Nicolo Machiavelli
+
+Therefore, my son, if you wish to please me, and to bring success and honour to yourself, do right and study, because others will help you if you help yourself.”   
+The wish to acquire is in truth very natural and common, and men always do so when they can, and for this they will be praised not blamed; but when they cannot do so, yet wish to do so by any means, then there is folly and blame.,
+
 'TheRepublic1.txt' by 'Plato'
 
 But ought we to render evil for evil at all, when to do so will only make men more evil?
@@ -915,12 +920,6 @@ Creating the works from public domain print editions means that no one owns a Un
 
 quoteArr = readForQuotes('TheRepublic13.txt', 'Plato')
 0/34=0.0
-
-quoteArr = readForQuotes('ThePrince.txt', 'Nicolo Machiavelli')
-9/918=0.00980392156862745
-
-Therefore, my son, if you wish to please me, and to bring success and honour to yourself, do right and study, because others will help you if you help yourself.”   
-The wish to acquire is in truth very natural and common, and men always do so when they can, and for this they will be praised not blamed; but when they cannot do so, yet wish to do so by any means, then there is folly and blame.,
 
 quoteArr = readForQuotes('Leviathan1.txt', 'Thomas Hobbes')
 91/969=0.09391124871001032
