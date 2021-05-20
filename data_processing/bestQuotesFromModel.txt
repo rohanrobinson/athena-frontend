@@ -113,54 +113,16 @@ Thus liberty, when out of all order and reason, passes into the worst form of se
 If a person has the audacity to say the contrary, the answer is--Then why do criminals require the hand of the executioner, and not die of themselves?,
 'Truly,' he said, 'injustice would not be very terrible if it brought a cessation of evil; but I rather believe that the injustice which murders others may tend to quicken and stimulate the life of the unjust.',
 
----- Checkpoint ------ 
+
 'TheRepublic5.txt' by 'Plato'
 
-Niebuhr has asked a trifling question, which may be briefly noticed in this place--Was Plato a good citizen?,
-There are serious errors which have a side of truth and which therefore may fairly demand a careful consideration: there are truths mixed with error of which we may indeed say, 'The half is better than the whole.',
-The evils of debt and the inequality of property were far greater in ancient than in modern times, and the accidents to which property was subject from war, or revolution, or taxation, or other legislative interference, were also greater.,
-Any other mode of vesting property which was found to be more advantageous, would in time acquire the same basis of right; 'the most useful,' in Plato's words, 'would be the most sacred.',
-When we consider the question, without any fear of immediate application to practice, in the spirit of Plato's Republic, are we quite sure that the received notions of property are the best?,
-Is the distribution of wealth which is customary in civilized countries the most favourable that can be conceived for the education and development of the mass of mankind?,
-There may come a time when the saying, 'Have I not a right to do what I will with my own?',
-He knows that this latter institution is not more than four or five thousand years old: may not the end revert to the beginning?,
-But have we not here fallen into a contradiction?,
-Is it desirable?',
-For as Glaucon intimates, and as we far more strongly insist, 'Great doubts may be entertained about both these points.',
-We have learned, though as yet imperfectly, that the individual man has an endless value in the sight of God, and that we honour Him when we honour the darkened and disfigured image of Him (Laws).,
-This is the lesson which Christ taught in a parable when He said, 'Their angels do always behold the face of My Father which is in heaven.',
-Yet here the analogy of the animals might have saved Plato from a gigantic error, if he had 'not lost sight of his own illustration.',
-But should not life rest on the moral rather than upon the physical?,
 We must consecrate that which we believe to be the most holy, and that 'which is the most holy will be the most useful.',
-Wherever we may think of such speculations, we can hardly deny that they have been more rife in this generation than in any other; and whither they are tending, who can predict?,
-They isolate the animal part of his nature; we regard him as a creature having many sides, or aspects, moving between good and evil, striving to rise above himself and to become 'a little lower than the angels.',
-Is it for this that we are asked to throw away the civilization which is the growth of ages?,
-Nothing is commoner than the remark, that 'So and so is like his father or his uncle'; and an aged person may not unfrequently note a resemblance in a youth to a long-forgotten ancestor, observing that 'Nature sometimes skips a generation.',
-Yet whence has the progress of cities and nations arisen, if not from remarkable individuals, coming into the world we know not how, and from causes over which we have no control?,
-But who can oppose the voice of prudence to the 'mightiest passions of mankind' (Laws), especially when they have been licensed by custom and religion?,
-The state physician hardly likes to probe the wound: it is beyond his art; a matter which he cannot safely let alone, but which he dare not touch:  'We do but skin and film the ulcerous place.',
-Who can weigh virtue, or even fortune against health, or moral and mental qualities against bodily?,
-We ask, with Aristotle, What is the use of a man knowing the idea of good, if he does not know what is good for this individual, this state, this condition of society?,
-How rarely can we say of any modern enquirer in the magnificent language of Plato, that 'He is the spectator of all time and of all existence!',
-They do not understand that the experience of ages is required to enable them to fill up 'the intermediate axioms.',
-But when, after having arrived at the idea of good, which is the end of the science of dialectic, he is asked, What is the nature, and what are the divisions of the science?,
-Is God above or below the idea of good?,
-For, as we may be allowed to say, a little parodying the words of Plato, 'they have seen bad imitations of the philosopher-statesman.',
-But a man in whom the power of thought and action are perfectly balanced, equal to the present, reaching forward to the future, 'such a one,' ruling in a constitutional state, 'they have never seen.',
-The powers of action and feeling are necessarily weaker and more balanced when they are diffused through a community; whence arises the often discussed question, 'Can a nation, like an individual, have a conscience?',
-Secondly, he affirms that music and gymnastic are not, as common opinion is apt to imagine, intended, the one for the cultivation of the mind and the other of the body, but that they are both equally designed for the improvement of the mind.,
-It is an abstraction under which no individuals are comprehended, a whole which has no parts (Arist., Nic.,
-And yet such visions often have an immense effect; for although the method of science cannot anticipate science, the idea of science, not as it is, but as it will be in the future, is a great and inspiring principle.,
-The nearest approach in modern philosophy to the universal science of Plato, is to be found in the Hegelian 'succession of moments in the unity of the idea.',
-But Aristotle was out of all patience with the account I gave him of Scotus and Ramus, as I presented them to him; and he asked them "whether the rest of the tribe were as great dunces as themselves?"').,
-If any one is desirous of carrying out in detail the Platonic education of after-life, some such counsels as the following may be offered to him:--That he shall choose the branch of knowledge to which his own mind most distinctly inclines,
+
+---- Checkpoint ------ 
 
 quoteArr = readForQuotes('TheRepublic6.txt', 'Plato') 
 98/682=0.1436950146627566
 
-The only difference is that in the Laws the common meals are extended to women, and the warriors number about 5000, but in the Republic only 1000.',
-Such a state, whether inhabited by Gods or sons of Gods, will make them blessed who dwell therein; and therefore to this we are to look for the pattern of the state, and to cling to this, and, as far as possible, to seek for one which is like this.,
-And we will begin by speaking of the nature and origin of the second.',
 The question is asked, 'Whether the state of innocence which is described in the myth, or a state like our own which possesses art and science and distinguishes good from evil, is the preferable condition of man.',
 He converts into a stately sentence the humorous fancy about the animals, who 'are so imbued with the spirit of democracy that they make the passers-by get out of their way.',
 He is inclined to believe that the idea of creation in the Timaeus is derived from the narrative in Genesis; and he is strangely taken with the coincidence (?),
