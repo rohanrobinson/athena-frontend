@@ -53,12 +53,8 @@ Above all, I shall then be able to continue my search into true and false knowle
 
 'ThePrince.txt' by Nicolo Machiavelli
 
-Therefore, my son, if you wish to please me, and to bring success and honour to yourself, do right and study, because others will help you if you help yourself.”   
-The wish to acquire is in truth very natural and common, and men always do so when they can, and for this they will be praised not blamed; but when they cannot do so, yet wish to do so by any means, then there is folly and blame.,
-
-'AdventuresOfTomSawyer1.txt' by Mark Twain'
-
-'AdventuresOfTomSawyer2.txt' by Mark Twain'
+Therefore, my son, if you wish to please me, and to bring success and honour to yourself, do right and study, because others will help you if you help yourself.  
+The wish to acquire is in truth very natural and common, and men always do so when they can, and for this they will be praised not blamed; but when they cannot do so, yet wish to do so by any means, then there is folly and blame.
 
 'TheRepublic1.txt' by 'Plato'
 
@@ -126,105 +122,12 @@ If a person has the audacity to say the contrary, the answer is--Then why do cri
 
 We must consecrate that which we believe to be the most holy, and that 'which is the most holy will be the most useful.',
 
----- Checkpoint ------ 
-
-quoteArr = readForQuotes('TheRepublic6.txt', 'Plato') 
-98/682=0.1436950146627566
+'TheRepublic6.txt' by 'Plato'
 
 The question is asked, 'Whether the state of innocence which is described in the myth, or a state like our own which possesses art and science and distinguishes good from evil, is the preferable condition of man.',
-He converts into a stately sentence the humorous fancy about the animals, who 'are so imbued with the spirit of democracy that they make the passers-by get out of their way.',
-He is inclined to believe that the idea of creation in the Timaeus is derived from the narrative in Genesis; and he is strangely taken with the coincidence (?),
-The beginning and end of all his noble reflections and of his arguments, good and bad, is the aspiration 'that in this little plot of earth belonging to mortal man life may pass in freedom and peace.',
-The life there depicted appeared to him wholly unlike that of Christian commonwealths, in which 'he saw nothing but a certain conspiracy of rich men procuring their own commodities under the name and title of the Commonwealth.',
-For the wise men did easily foresee this to be the one and only way to the wealth of a community, if equality of all things should be brought in and established' (Utopia).).,
-'I have the more cause,' says Hythloday, 'to fear that my words shall not be believed, for that I know how difficultly and hardly I myself would have believed another man telling the same, if I had not myself seen it with mine own eyes.',
-Or again: 'If you had been with me in Utopia, and had presently seen their fashions and laws as I did which lived there five years and more, and would never have come thence, but only to make the new land known here,' etc.,
-When he had thus long reasoned the matter, they laid hold on him, accused him, and condemned him into exile, not as a despiser of religion, but as a seditious person and a raiser up of dissension among the people').',
-In the public services 'no prayers be used, but such as every man may boldly pronounce without giving offence to any sect.',
-He says significantly, 'There be that give worship to a man that was once of excellent virtue or of famous glory, not only as God, but also the chiefest and highest God.,
-Neither give they any divine honours to any other than him.',
-He extends the idea of happiness so as to include the happiness of others; and he argues ingeniously, 'All men agree that we ought to make others happy; but if others, how much more ourselves!',
-But the mother; yea and that also in good earnest: "Peace, son," saith she, "I think he be some of the ambassadors' fools."'),
-He is very severe on the sports of the gentry; the Utopians count 'hunting the lowest, the vilest, and the most abject part of butchery.',
-The 'New Atlantis' is only a fragment, and far inferior in merit to the 'Utopia.',
-They do not, however, adopt his system of lots, but bring together the best natures, male and female, 'according to philosophical rules.',
-He would not have his citizens waste their time in the consideration of what he calls 'the dead signs of things.',
-They gain an imaginary distinctness when embodied in a State or in a system of philosophy, but they still remain the visions of 'a world unrealized.',
-But can you persuade us, if we refuse to listen to you?,
-Adeimantus added: Has no one told you of the torch-race on horseback in honour of the goddess which will take place in the evening?,
-Yes, that is very true, but may I ask another question?--What do you consider to be the greatest blessing which you have reaped from your wealth?,
-Now to this peace of mind the possession of wealth greatly contributes; and therefore I say, that, setting one thing against another, of the many advantages which wealth has to give, to a man of sense this is in my opinion the greatest.,
-Well said, Cephalus, I replied; but as concerning justice, what is it?--to speak the truth and to pay your debts--no more than this?,
-Tell me then, O thou heir of the argument, what did Simonides say, and according to you truly say, about justice?,
-When Simonides said that the repayment of a debt was justice, he did not mean to include that case?,
-I replied; and if we asked him what due or proper thing is given by medicine, and to whom, what answer do you think that he would make to us?,
-And what is that which justice gives, and to whom?,
-And in what sort of actions or with a view to what result is the just man most able to do harm to his enemy and good to his friend?,
-But when a man is well, my dear Polemarchus, there is no need of a physician?,
-You think that justice may be of use in peace as well as in war?,
-And what similar use or power of acquisition has justice in time of peace?,
-Yes, Polemarchus, but surely not in the use of money; for you do not want a just man to be your counsellor in the purchase or sale of a horse; a man who is knowing about horses would be better for that, would he not?,
-Then what is that joint use of silver or gold in which the just man is to be preferred?,
-And when you want to keep a pruning-hook safe, then justice is useful to the individual and to the state; but when you want to use it, then the art of the vine-dresser?,
-And when you want to keep a shield or a lyre, and not to use them, you would say that justice is useful; but when you want to use them, then the art of the soldier or of the musician?,
-And so of all other things;--justice is useful when they are useless, and useless when they are useful?,
-But let us consider this further point: Is not he who can best strike a blow in a boxing match or in any kind of fighting best able to ward off a blow?,
-And this is a lesson which I suspect you must have learnt out of Homer; for he, speaking of Autolycus, the maternal grandfather of Odysseus, who is a favourite of his, affirms that  'He was excellent above all men in theft and perjury.',
-And so, you and Homer and Simonides are agreed that justice is an art of theft; to be practised however 'for the good of friends and for the harm of enemies,'--that was what you were saying?,
-Yes, but do not persons often err about good and evil: many who are not good seem to be so, and conversely?,
-And in that case they will be right in doing good to the evil and evil to the good?,
-But the good are just and would not do an injustice?,
-Then I suppose that we ought to do good to the just and harm to the unjust?,
-Very true, he said: and I think that we had better correct an error into which we seem to have fallen in the use of the words 'friend' and 'enemy.',
-And instead of saying simply as we did at first, that it is just to do good to our friends and harm to our enemies, we should further say: It is just to do good to our friends when they are good and harm to our enemies when they are evil?,
-And will not men who are injured be deteriorated in that which is the proper virtue of man?,
-And can the just by justice make men unjust, or speaking generally, can the good by virtue make them bad?,
 Then to injure a friend or any one else is not the act of a just man, but of the opposite, who is the unjust?,
-I believe that Periander or Perdiccas or Xerxes or Ismenias the Theban, or some other rich and mighty man, who had a great opinion of his own power, was the first to say that justice is 'doing good to your friends and harm to your enemies.',
-Yes, I said; but if this definition of justice also breaks down, what other can be offered?,
-He roared out to the whole company: What folly, Socrates, has taken possession of you all?,
-And why, when we are seeking for justice, a thing more precious than many pieces of gold, do you say that we are weakly yielding to one another and not doing our utmost to get at the truth?,
-he replied, with a bitter laugh;--that's your ironical style!,
-But suppose that he were to retort, 'Thrasymachus, what do you mean?,
-If one of these numbers which you interdict be the true answer to the question, am I falsely to say some other number which is not the right one?--is that your meaning?',
-I replied; and even if they are not, but only appear to be so to the person who is asked, ought he not to say what he thinks, whether you and I forbid him or not?,
-But what if I give you an answer about justice other and better, he said, than any of these?,
-Why, my good friend, I said, how can any one answer who knows, and says that he knows, just nothing; and who, even if he has some faint notions of his own, is told by a man of authority not to utter them?,
-Will you then kindly answer, for the edification of the company and of myself?,
-Well, he said, have you never heard that forms of government differ; there are tyrannies, and there are democracies, and there are aristocracies?,
-I will; and first tell me, Do you admit that it is just for subjects to obey their rulers?,
-But are the rulers of states absolutely infallible, or are they sometimes liable to err?,
-Then in making their laws they may sometimes make them rightly, and sometimes not?,
-When they make them rightly, they make them agreeably to their interest; when they are mistaken, contrary to their interest; you admit that?,
-And the laws which they make must be obeyed by their subjects,--and that is what you call justice?,
-Then justice, according to your argument, is not only obedience to the interest of the stronger but the reverse?,
-But let us consider: Have we not admitted that the rulers may be mistaken about their own interest in what they command, and also that to obey them is justice?,
-But, said Cleitophon, he meant by the interest of the stronger what the stronger thought to be his interest,--this was what the weaker had to do; and this was affirmed by him to be justice.,
-Tell me, Thrasymachus, I said, did you mean by justice what the stronger thought to be his interest, whether really so or not?,
-or that he who errs in arithmetic or grammar is an arithmetician or grammarian at the time when he is making the mistake, in respect of the mistake?,
-Indeed, Thrasymachus, and do I really appear to you to argue like an informer?,
-Then medicine does not consider the interest of medicine, but the interest of the body?,
-Nor does the art of horsemanship consider the interests of the art of horsemanship, but the interests of the horse; neither do any other arts care for themselves, for they have no needs; they care only for that which is the subject of their art?,
-Then, I said, no science or art considers or enjoins the interest of the stronger or superior, but only the interest of the subject and weaker?,
-And the pilot likewise, in the strict sense of the term, is a ruler of sailors and not a mere sailor?,
-When we had got to this point in the argument, and every one saw that the definition of justice had been completely upset, Thrasymachus, instead of replying to me, said: Tell me, Socrates, have you got a nurse?,
-Secondly, in their dealings with the State: when there is an income-tax, the just man will pay more and the unjust less on the same amount of income; and when there is anything to be received the one gains nothing and the other much.,
-And how am I to convince you, he said, if you are not already convinced by what I have just said; what more can I do for you?,
-Then why in the case of lesser offices do men never take them willingly without payment, unless under the idea that they govern for the advantage not of themselves but of others?,
-And each art gives us a particular good and not merely a general one--medicine, for example, gives us health; navigation, safety at sea, and so on?,
-You would not be inclined to say, would you, that navigation is the art of medicine, at least if we are to adopt your exact use of language?,
-And we have admitted, I said, that the good of each art is specially confined to the art?,
-Then, if there be any good which all artists have in common, that is to be attributed to something of which they all have the common use?,
-And when the artist is benefited by receiving pay the advantage is gained by an additional use of the art of pay, which is not the art professed by him?,
-The various arts may be doing their own business and benefiting that over which they preside, but would the artist receive any benefit from his art unless he were paid as well?,
-But does he therefore confer no benefit when he works for nothing?,
-You mean that you do not understand the nature of this payment which to the best men is the great inducement to rule?,
-This latter question need not be further discussed at present; but when Thrasymachus says that the life of the unjust is more advantageous than that of the just, his new statement appears to me to be of a far more serious character.,
-Then shall we try to find some way of convincing him, if we can, that he is saying what is not true?,
-You say that perfect injustice is more gainful than perfect justice?,
-I suppose that you would call justice virtue and injustice vice?,
-And do the unjust appear to you to be wise and good?,
-Now, I said, you are on more substantial and almost unanswerable ground; for if the injust,
+
+---- Checkpoint ------ 
 
 quoteArr = readForQuotes('TheRepublic7.txt', 'Plato') 
 129/743=0.17362045760430686
