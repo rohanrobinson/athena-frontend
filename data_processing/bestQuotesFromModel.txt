@@ -93,10 +93,7 @@ And he who grovels in the world of sense, and has only this uncertain perception
 Having determined that the many have no knowledge of true being, and have no clear patterns in their minds of justice, beauty, truth, and that philosophers have such patterns, we have now to ask whether they or the many shall be rulers in our State.,
 If at this instant a friend whispers to him, 'Now the gods lighten thee; thou art a great fool' and must be educated--do you think that he will listen?,
 
----- Checkpoint ----
-
-quoteArr = readForQuotes('TheRepublic3.txt', 'Plato') 
-83/526=0.15779467680608364
+'TheRepublic3.txt' by 'Plato'
 
 When mankind see that the happiness of states is only to be found in that image, will they be angry with us for attempting to delineate it?,
 Ought our guardians then to be ignorant of this supreme principle, of which every man has a presentiment, and without which no man has any real knowledge of anything?,
@@ -111,88 +108,13 @@ And so we get four names--two for intellect, and two for opinion,--reason or min
 Nor is it easy to say how far ideas of order and fixedness may have had a moral and elevating influence on the minds of men, 'who,' in the words of the Timaeus, 'might learn to regulate their erring lives according to them.',
 Thus liberty, when out of all order and reason, passes into the worst form of servitude
 
----- Checkpoint ----
+'TheRepublic4.txt' by 'Plato'
 
-quoteArr = readForQuotes('TheRepublic4.txt', 'Plato') 
-75/539=0.1391465677179963
-The words (Greek) have been variously translated--'squared and cubed' (Donaldson), 'equalling and equalled in power' (Weber), 'by involution and evolution,' i.e.,
-(Greek) = 'numbers squared from' or 'upon diameters'; (Greek) = 'rational,' i.e.,
-12 and 18, will furnish three intervals and four terms, and these terms and intervals stand related to one another in the sesqui-altera ratio, i.e.,
-In other words, the whole expression will be: (1), for the first harmony, 400/9: (2), for the second harmony, 8000/27.',
-), Proclus (super prima Eucl.,
-Nor do I think that (Greek) can mean 'two incommensurables,' which he arbitrarily assumes to be 2 and 3, but rather, as the preceding clause implies, (Greek), i.e.,
-The greatest objection to the translation is the sense given to the words (Greek), 'a base of three with a third added to it, multiplied by 5.',
-'True,' he said; 'very true.',
-'Nay, that you must tell me.',
-'I can only say, that I should not much like to be in their place.',
-Truly a tyrannical son is a blessing to his father and mother!,
-'No small catalogue of crimes truly, even if the perpetrators are few.',
-And may we not ask the same question about the men themselves, requesting some one to look into them who is able to penetrate the inner nature of man, and will not be panic-struck by the vain pomp of tyranny?,
-'Who is that?',
-'There I suspect that you are right.',
-You will say, 'The owners of slaves are not generally in any fear of them.',
-He will be in the midst of his enemies.',
-And so let us have a final trial and proclamation; need we hire a herald, or shall I proclaim the result?,
-'Made the proclamation yourself.',
-The son of Ariston (the best) is of opinion that the best and justest of men is also the happiest, and that this is he who is the most royal master of himself; and that the unjust man is he who is the greatest tyrant of himself and of his State.,
-And I add further--'seen or unseen by gods or men.',
-Is there any better criterion than experience and knowledge?,
-And which of the three has the truest knowledge and the widest experience?,
-Let us examine this: Is not pleasure opposed to pain, and is there not a mean state which is neither?,
-But can that which is neither become both?,
-Now which is the purer satisfaction--that of eating and drinking, or that of knowledge?,
-This is the interval between a good and bad man in happiness only: what must be the difference between them in comeliness of life and virtue!,
-Is not the noble that which subjects the beast to the man, or rather to the God in man; the ignoble, that which subjects the man to the beast?,
-And if so, who would receive gold on condition that he was to degrade the noblest part of himself under the worst?--who would sell his son or daughter into the hands of brutal and evil men, for any amount of money?,
-And will he sell his own fairer and diviner part without any compunction to the most godless and foul?,
-'What, then, shall a man profit, if he gain the whole world' and become more and more wicked?,
-Or what shall he profit by escaping discovery, if the concealment of evil prevents the cure?,
-'In that case,' said he, 'he will never be a politician.',
-'You mean that he will be a citizen of the ideal city, which has no place upon earth.',
-Whether such a state is or ever will be matters not; he will act according to that pattern and no other...,
-But this is not so much as saying, in homely phrase, 'They are a thousand miles asunder.',
-there, for the kingdom of God is within you.'),
-But much as I love the man, I love truth more, and therefore I must speak out: and first of all, will you explain what is imitation, for really I do not understand?,
-'How likely then that I should understand!',
-'True, but in your presence I can hardly venture to say what I think.',
-And is there not a maker of the works of all workmen, who makes not only vessels but plants and animals, himself, the earth and heaven, and things in heaven and under the earth?,
-'He must be a wizard indeed!',
-'Not if philosophers may be believed.',
-'Very true.',
-But if a person could create as well as imitate, he would rather leave some permanent work and not an imitation only; he would rather be the receiver than the giver of praise?,
-'Yes, for then he would have more honour and advantage.',
-If you are only twice and not thrice removed from the truth--not an imitator or an image-maker, please to inform us what good you have ever done to mankind?,
-Is there any city which professes to have received laws from you, as Sicily and Italy have from Charondas, Sparta from Lycurgus, Athens from Solon?,
-And the art of measuring and weighing and calculating comes in to save our bewildered minds from the power of appearance; for, as we were saying, two contrary opinions of the same about the same and at the same time, cannot both of them be true.,
-But is a man in harmony with himself when he is the subject of these conflicting influences?,
-'In the latter case.',
-He indulges the feelings, while he enfeebles the reason; and we refuse to allow him to have authority over the mind of man; for he has no measure of greater and less, and is a maker of images and very far gone from truth.,
-'I agree with you.',
-'And can we conceive things greater still?',
-Not, perhaps, in this brief span of life: but should an immortal being care about anything short of eternity?,
-'I do not understand what you mean?',
-'Surely you are not prepared to prove that?',
-'Then let me hear this argument, of which you make so light.',
 If a person has the audacity to say the contrary, the answer is--Then why do criminals require the hand of the executioner, and not die of themselves?,
 'Truly,' he said, 'injustice would not be very terrible if it brought a cessation of evil; but I rather believe that the injustice which murders others may tend to quicken and stimulate the life of the unjust.',
-'I should like to hear about them.',
-He said that for every evil deed they were punished tenfold--now the journey was of a thousand years' duration, because the life of man was reckoned as a hundred years--and the rewards of virtue were in the same proportion.,
-(This Ardiaeus was a cruel tyrant, who had murdered his father, and his elder brother, a thousand years before.),
-A new period of mortal life has begun, and you may choose what divinity you please; the responsibility of choosing is with you--God is blameless.',
-'Let not the first be careless in his choice, nor the last despair.',
-He asks only 'What good have they done?',
-and is not satisfied with the reply, that 'They have given innocent pleasure to mankind.',
-He himself ceased to be a poet when he became a disciple of Socrates; though, as he tells us of Solon, 'he might have been one of the greatest of them, if he had not been deterred by other pursuits' (Tim.),
-And we look in vain for that healthy atmosphere of which Plato speaks,--'the beauty which meets the sense like a breeze and imperceptibly draws the soul, even in childhood, into harmony with the beauty of reason.',
-Shakespeare has taught us how great men should speak and act; he has drawn characters of a wonderful purity and depth; he has ennobled the human mind, but, like Homer (Rep.), he 'has left no way of life.',
-But the philosopher will still be justified in asking, 'How may the heavenly gift of poesy be devoted to the good of mankind?',
-It may be compared with those other paradoxes of the Gorgias, that 'No statesman was ever unjustly put to death by the city of which he was the head'; and that 'No Sophist was ever defrauded by his pupils' (Gorg.)...,
-In the Republic, as elsewhere, he wavers between the original soul which has to be restored, and the character which is developed by training and education...,
-The routine of good actions and good habits is an inferior sort of goodness; and, as Coleridge says, 'Common sense is intolerable which is not based on metaphysics,' so Plato would have said, 'Habit is worthless which is not based upon philosophy.',
-'Virtue is free, and as a man honours or dishonours her he will have more or less of her.',
 
-quoteArr = readForQuotes('TheRepublic5.txt', 'Plato') 
-38/502=0.07569721115537849
+---- Checkpoint ------ 
+'TheRepublic5.txt' by 'Plato'
 
 Niebuhr has asked a trifling question, which may be briefly noticed in this place--Was Plato a good citizen?,
 There are serious errors which have a side of truth and which therefore may fairly demand a careful consideration: there are truths mixed with error of which we may indeed say, 'The half is better than the whole.',
