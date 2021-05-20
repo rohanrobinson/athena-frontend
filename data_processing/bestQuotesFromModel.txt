@@ -73,81 +73,27 @@ that power is the foundation of right; or that a monarch has a divine right to g
 What the poets and story-tellers say--that the wicked prosper and the righteous are afflicted, or that justice is another's gain?
 Has not the question been already answered, for we have decided that one man cannot in his life play many parts, any more than he can act both tragedy and comedy, or be rhapsodist and actor at once?
 
----- Checkpoint ----
+'TheRepublic2.txt' by 'Plato'
 
-quoteArr = readForQuotes('TheRepublic2.txt', 'Plato')
-97/649=0.14946070878274267
-
-But what can show a more disgraceful state of education than to have to go abroad for justice because you have none of your own at home?,
-'The style is to conform to the subject and the metre to the style.',
-For he does not see that the word which is full of associations to his own mind is difficult and unmeaning to that of another; or that the sequence which is clear to himself is puzzling to others.,
-Must we not at any rate admit that there is in human nature a higher and a lower principle, divided by no distinct line, which at times break asunder and take up arms against one another?,
-If I went to a sculptor and blamed him for having painted the eye, which is the noblest feature of the face, not purple but black, he would reply: 'The eye must be an eye, and you should look at the statue as a whole.',
------ Checkpoint -----
-Both might be equally described by the terms 'law,' 'order,' 'harmony;' but while the idea of good embraces 'all time and all existence,' the conception of justice is not extended beyond man.,
-'The shorter will satisfy me.',
-Well then, you would admit that the qualities of states mean the qualities of the individuals who compose them?,
-Now the thirsty soul may feel two distinct impulses; the animal one saying 'Drink;' the rational one, which says 'Do not drink.',
-But is passion a third principle, or akin to desire?,
-Now is there not here a third principle which is often found to come to the assistance of reason against desire, but never of desire against reason?,
-Will the just state or the just individual steal, lie, commit adultery, or be guilty of impiety to gods and men?,
-'No.',
-And is not the reason of this that the several principles, whether in the state or in the individual, do their own business?,
-Again the old question returns upon us: Is justice or injustice the more profitable?,
-Thus there are five forms in all, both of states and of souls...,
-He implies, what he does not say, that if, by the advice of reason, or by the impulse of anger, a man is restrained from drinking, this proves that thirst, or desire under which thirst is included, is distinct from anger and reason.,
-The chief difficulty in this early analysis of the mind is to define exactly the place of the irascible faculty (Greek), which may be variously described under the terms righteous indignation, spirit, passion.,
-We may observe how nearly Plato approaches Aristotle's famous thesis, that 'good actions produce good habits.',
-Perhaps he hoped to find some a priori method of developing the parts out of the whole; or he might have asked which of the ideas contains the other ideas, and possibly have stumbled on the Hegelian identity of the 'ego' and the 'universal.',
-The company, as you have just heard, are resolved to have a further explanation.',
-Thrasymachus said, 'Do you think that we have come hither to dig for gold, or to hear you discourse?',
-Glaucon added, 'Yes, Socrates, and there is reason in spending the whole of life in such discussions; but pray, without more ado, tell us how this community is to be carried out, and how the interval between birth and education is to be filled up.',
-Well, I said, the subject has several difficulties--What is possible?,
-'Fear not,' he replied, 'for you are speaking among friends.',
-'Then,' said Glaucon, laughing, 'in case you should murder us we will acquit you beforehand, and you shall be held free from the guilt of deceiving us.',
-Admitting that women differ from men in capacity, do not men equally differ from one another?,
-'Nay, I think that a considerable doubt will be entertained on both points.',
-'Certainly.',
-'Then the wives of our guardians will have a fine easy time when they are having children.',
-'But how shall we know the degrees of affinity, when all things are common?',
-Can there be strife and contention among those who are of one mind; or lawsuits about property when men have nothing but their bodies which they call their own; or suits about violence when every one is bound to defend himself?,
-At the same time, if any conceited youth begins to dream of appropriating the State to himself, he must be reminded that 'half is better than the whole.',
-But is such a community possible?--as among the animals, so also among men; and if possible, in what way possible?,
-But what shall be done to the hero?,
-Fill the bowl then, and give the best seats and meats to the brave--may they do them good!,
-'But, my dear Socrates, you are forgetting the main question: Is such a State possible?,
-I grant all and more than you say about the blessedness of being one family--fathers, brothers, mothers, daughters, going out to war together; but I want to ascertain the possibility of this ideal State.',
-'Not a whit.',
-Is this ideal at all the worse for being impracticable?,
-'Socrates, all the world will take off his coat and rush upon you with sticks and stones, and therefore I would advise you to prepare an answer.',
-'And I was right,' he replied; 'however, I will stand by you as a sort of do-nothing, well-meaning ally.',
-'But will curiosity make a philosopher?,
-Are the lovers of sights and sounds, who let out their ears to every chorus at the Dionysiac festivals, to be called philosophers?',
-'Then how are we to describe the true?',
-Perhaps he of whom we say the last will be angry with us; can we pacify him without revealing the disorder of his mind?,
+But what can show a more disgraceful state of education than to have to go abroad for justice because you have none of your own at home?
+'The style is to conform to the subject and the metre to the style.'
+For he does not see that the word which is full of associations to his own mind is difficult and unmeaning to that of another; or that the sequence which is clear to himself is puzzling to others.
+Must we not at any rate admit that there is in human nature a higher and a lower principle, divided by no distinct line, which at times break asunder and take up arms against one another?
+If I went to a sculptor and blamed him for having painted the eye, which is the noblest feature of the face, not purple but black, he would reply: 'The eye must be an eye, and you should look at the statue as a whole.'
+Both might be equally described by the terms 'law,' 'order,' 'harmony;' but while the idea of good embraces 'all time and all existence,' the conception of justice is not extended beyond man.
+Now the thirsty soul may feel two distinct impulses; the animal one saying 'Drink;' the rational one, which says 'Do not drink.'
+Admitting that women differ from men in capacity, do not men equally differ from one another?
+Can there be strife and contention among those who are of one mind; or lawsuits about property when men have nothing but their bodies which they call their own; or suits about violence when every one is bound to defend himself?
+At the same time, if any conceited youth begins to dream of appropriating the State to himself, he must be reminded that 'half is better than the whole.'
+'Socrates, all the world will take off his coat and rush upon you with sticks and stones, and therefore I would advise you to prepare an answer.'
+Are the lovers of sights and sounds, who let out their ears to every chorus at the Dionysiac festivals, to be called philosophers?'
 Suppose we say that, if he has knowledge we rejoice to hear it, but knowledge must be of something which is, as ignorance is of something which is not; and there is a third thing, which both is and is not, and is matter of opinion only.,
-And by faculties I mean powers unseen and distinguishable only by the difference in their objects, as opinion and knowledge differ, since the one is liable to err, but the other is unerring and is the mightiest of all our faculties.,
 Now I would ask my good friend, who denies abstract beauty and justice, and affirms a many beautiful and a many just, whether everything he sees is not in some point of view different--the beautiful ugly, the pious impious, the just unjust?,
-Is not the double also the half, and are not heavy and light relative terms which pass into one another?,
-Everything is and is not, as in the old riddle--'A man and not a man shot and did not shoot a bird and not a bird with a stone and not a stone.',
 And he who grovels in the world of sense, and has only this uncertain perception of things, is not a philosopher, but a lover of opinion only...,
-To us some of his difficulties are puzzling only from their simplicity: we do not perceive that the answer to them 'is tumbling out at our feet.',
 Having determined that the many have no knowledge of true being, and have no clear patterns in their minds of justice, beauty, truth, and that philosophers have such patterns, we have now to ask whether they or the many shall be rulers in our State.,
-But who can doubt that philosophers should be chosen, if they have the other qualities which are required in a ruler?,
-What do you say?',
-'Then how is such an admission reconcileable with the doctrine that philosophers should be kings?',
-Did we not say of him just now, that he loved truth and hated falsehood, and that he could not rest in the multiplicity of phenomena, but was led by a sympathy in his own nature to the contemplation of the absolute?,
-What principle of rival Sophists or anybody else can overcome in such an unequal contest?,
 If at this instant a friend whispers to him, 'Now the gods lighten thee; thou art a great fool' and must be educated--do you think that he will listen?,
-Are we not right in saying that the love of knowledge, no less than riches, may divert him?,
-Will they not be vile and bastard, devoid of truth and nature?,
-'They will.',
-'A great work, too, will have been accomplished by them.',
-'And is her proper state ours or some other?',
-But we were afraid to enter upon a subject of such difficulty, and now the question recurs and has not grown easier:--How may philosophy be safely studied?,
-'You are in earnest, Socrates, but the world will be equally earnest in withstanding you--no more than Thrasymachus.',
-'That will be a long time hence.',
-And we foresaw that there was no chance of perfection either in states or individuals until a necessity was laid upon philosophers--no,
+
+---- Checkpoint ----
 
 quoteArr = readForQuotes('TheRepublic3.txt', 'Plato') 
 83/526=0.15779467680608364
