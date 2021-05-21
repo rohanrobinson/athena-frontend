@@ -15,7 +15,7 @@ sampleList = ["We are very happy to show you the 🤗 Transformers library.",
     "You miss 100 percent of the shots you don't take"]
 '''
 # If file too large use split -b 100kb filename.txt 
-
+# Run History
 # quoteArr = readForQuotes('Aristotle.txt', 'Aristotle') - run 1
 # quoteArr = readForQuotes('ScarletLetter.txt', 'Nathaniel Hawthorne') - run 2
 # quoteArr = readForQuotes('Apology.txt', 'Plato') - run 3
@@ -39,7 +39,12 @@ sampleList = ["We are very happy to show you the 🤗 Transformers library.",
 #quoteArr = readForQuotes('Leviathan4.txt', 'Thomas Hobbes') - run 21
 #quoteArr = readForQuotes('Leviathan5.txt', 'Thomas Hobbes')- run 22
 #quoteArr = readForQuotes('AdventuresOfTomSawyer1.txt', 'Mark Twain') - run 23
-quoteArr = readForQuotes('AdventuresOfTomSawyer2.txt', 'Mark Twain') #run 24
+#quoteArr = readForQuotes('AdventuresOfTomSawyer2.txt', 'Mark Twain') - run 24
+#---- Additional Runs
+#quoteArr = readForQuotes('AliceAndWonderland.txt', 'Lewis Carroll') - run 25
+#quoteArr = readForQuotes('BeyondGoodAndEvil1.txt', 'Friedrich Wilhelm Nietzsche') - run 26
+quoteArr = readForQuotes('BeyondGoodAndEvil2.txt', 'Friedrich Wilhelm Nietzsche')
+
 batch = tokenizer(
     quoteArr,#quoteArr,
     padding=True,
