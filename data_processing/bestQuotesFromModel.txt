@@ -166,10 +166,9 @@ Is not the noble that which subjects the beast to the man, or rather to the god 
 The imitative poet who aims at being popular is not by nature made, nor is his art intended, to please or to affect the rational principle in the soul; but he will prefer the passionate and fitful temper, which is easily imitated,
 'Even for the last comer, if he chooses wisely and will live diligently, there is appointed a happy and not undesirable existence.,
 
----- Checkpoint ------ 
+'TheRepublic13.txt' by 'Plato'
 
-quoteArr = readForQuotes('TheRepublic13.txt', 'Plato')
-0/34=0.0
+---- Checkpoint ------ 
 
 quoteArr = readForQuotes('Leviathan1.txt', 'Thomas Hobbes')
 91/969=0.09391124871001032
