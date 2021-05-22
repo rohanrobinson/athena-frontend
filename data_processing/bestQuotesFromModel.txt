@@ -2,32 +2,28 @@ Originally from modelResults.txt
 
 'Aristole.txt' by Aristole
 
-'It follows plainly, in the first place, that the change, of fortune presented must not be the spectacle of a virtuous man brought from prosperity to adversity: for this moves neither pity nor fear; it merely shocks us.' 
-'Critics jump at certain groundless conclusions; they pass adverse judgment and then proceed to reason on it; and, assuming that the poet has said whatever they happen to think, find fault if a thing is inconsistent with their own fancy.' 
-"The impossible is the higher thing; for the ideal type must surpass the reality."
-"We urge that the irrational sometimes does not violate reason; just as 'it is probable that a thing may happen contrary to probability.'"
+It follows plainly, in the first place, that the change, of fortune presented must not be the spectacle of a virtuous man brought from prosperity to adversity: for this moves neither pity nor fear; it merely shocks us.
+Critics jump at certain groundless conclusions; they pass adverse judgment and then proceed to reason on it; and, assuming that the poet has said whatever they happen to think, find fault if a thing is inconsistent with their own fancy. 
+The impossible is the higher thing; for the ideal type must surpass the reality.
+We urge that the irrational sometimes does not violate reason; just as it is probable that a thing may happen contrary to probability.
 
 'ScarletLetter.txt' by Nathaniel Hawthorne
 
-'No aim, that I have ever cherished, would they recognize as laudable; no success of mine—if my life, beyond its domestic scope, had ever been brightened by success—would they deem otherwise than worthless, if not positively disgraceful.'
-'If thou feelest it to be for thy soul’s peace, and that thy earthly punishment will thereby be made more effectual to salvation, I charge thee to speak out the name of thy fellow-sinner and fellow-sufferer!' 
-'“Live, therefore, and bear about thy doom with thee, in the eyes of men and women,—in the eyes of him whom thou didst call thy husband,—in the eyes of yonder child!'
-'I,—a man of thought,—the bookworm of great libraries,—a man already in decay, having given my best years to feed the hungry dream of knowledge,—what had I to do with youth and beauty like thine own!'
-'Were it not, thinkest thou, for thy little one’s temporal and eternal welfare that she be taken out of thy charge, and clad soberly, and disciplined strictly, and instructed in the truths of heaven and earth?'
-'If they would serve their fellow-men, let them do it by making manifest the power and reality of conscience, in constraining them to penitential self-abasement!' 
-'Wouldst thou have me to believe, O wise and pious friend, that a false show can be better—can be more for God’s glory, or man’s welfare—than God’s own truth?'
-'He, if it stand with his good pleasure, can cure; or he can kill!', 'But see, now, how passion takes hold upon this man, and hurrieth him out of himself!'
-'But what shall we say, when an individual discovers a revelation addressed to himself alone, on the same vast sheet of record!'
-'I pity thee, for the good that has been wasted in thy nature!”  “And I thee,” answered Hester Prynne, “for the hatred that has transformed a wise and just man to a fiend!' 
-'If not for his sake, then doubly for thine own!', 'Forgive, and leave his further retribution to the Power that claims it!'
-'Is there no reality in the penitence thus sealed and witnessed by good works?'
-'Truth was the one virtue which I might have held fast, and did hold fast, through all extremity; save when thy good,—thy life,—thy fame,—were put in question!'
-'“Doth the universe lie within the compass of yonder town, which only a little time ago was but a leaf-strewn desert, as lonely as this around us?'
-'So brief a journey would bring thee from a world where thou hast been most wretched, to one where thou mayest still be happy!'
-'Such was the sympathy of Nature—that wild, heathen Nature of the forest, never subjugated by human law, nor illumined by higher truth—with the bliss of these two spirits!'
-'Be the foregone evil what it might, how could they doubt that their earthly lives and future destinies were conjoined, when they beheld at once the material union, and the spiritual idea, in whom they met, and were to dwell immortally together?'
-'After exhausting life in his efforts for mankind’s spiritual good, he had made the manner of his death a parable, in order to impress on his admirers the mighty and mournful lesson, that, in the view of Infinite Purity, we are sinners all alike.'
-'Among many morals which press upon us from the poor minister’s miserable experience, we put only this into a sentence:—“Be true!', 'Be true!', 'Be true!'
+No aim, that I have ever cherished, would they recognize as laudable; no success of mine—if my life, beyond its domestic scope, had ever been brightened by success—would they deem otherwise than worthless, if not positively disgraceful.
+If thou feelest it to be for thy soul’s peace, and that thy earthly punishment will thereby be made more effectual to salvation, I charge thee to speak out the name of thy fellow-sinner and fellow-sufferer!
+If they would serve their fellow-men, let them do it by making manifest the power and reality of conscience, in constraining them to penitential self-abasement!
+Wouldst thou have me to believe, O wise and pious friend, that a false show can be better—can be more for God’s glory, or man’s welfare—than God’s own truth?
+But what shall we say, when an individual discovers a revelation addressed to himself alone, on the same vast sheet of record!
+I pity thee, for the good that has been wasted in thy nature!”  “And I thee,” answered Hester Prynne, “for the hatred that has transformed a wise and just man to a fiend!
+If not for his sake, then doubly for thine own!', 'Forgive, and leave his further retribution to the Power that claims it!
+Is there no reality in the penitence thus sealed and witnessed by good works?
+Truth was the one virtue which I might have held fast, and did hold fast, through all extremity; save when thy good,—thy life,—thy fame,—were put in question!
+Doth the universe lie within the compass of yonder town, which only a little time ago was but a leaf-strewn desert, as lonely as this around us?
+So brief a journey would bring thee from a world where thou hast been most wretched, to one where thou mayest still be happy!
+Such was the sympathy of Nature—that wild, heathen Nature of the forest, never subjugated by human law, nor illumined by higher truth—with the bliss of these two spirits!
+Be the foregone evil what it might, how could they doubt that their earthly lives and future destinies were conjoined, when they beheld at once the material union, and the spiritual idea, in whom they met, and were to dwell immortally together?
+After exhausting life in his efforts for mankind’s spiritual good, he had made the manner of his death a parable, in order to impress on his admirers the mighty and mournful lesson, that, in the view of Infinite Purity, we are sinners all alike.
+Among many morals which press upon us from the poor minister’s miserable experience, we put only this into a sentence:—“Be true!', 'Be true!', 'Be true!'
 
 'Apology.txt' by Plato 
 
@@ -38,7 +34,6 @@ Never mind the manner, which may or may not be good; but think only of the truth
 May I succeed, if to succeed be for my good and yours, or likely to avail me in my cause!
 I found that the men most in repute were all but the most foolish; and that others less esteemed were really wiser and better.
 But now please to answer the next question: Can a man believe in spiritual and divine agencies, and not in spirits or demigods?
-“Let me die forthwith and be avenged of my enemy, rather than abide here by the beaked ships, a laughing-stock and a burden of the earth.”
 For the fear of death is indeed the pretence of wisdom, and not real wisdom, being a pretence of knowing the unknown; and no one knows whether death, which men in their fear apprehend to be the greatest evil, may not be the greatest good.
 When I do not know whether death is a good or an evil, why should I propose a penalty which would certainly be an evil?
 For I am quite sure that wherever I go, there, as here, the young men will flock to me; and if I drive them away, their elders will drive me out at their request; and if I let them come, their fathers and friends will drive me out for their sakes.
@@ -54,25 +49,24 @@ The wish to acquire is in truth very natural and common, and men always do so wh
 
 But ought we to render evil for evil at all, when to do so will only make men more evil?
 Can justice produce injustice any more than the art of horsemanship can make bad horsemen, or heat produce cold?
-'If because I do evil, Thou punishest me by evil, what is the difference between Thee and me?'
+If because I do evil, Thou punishest me by evil, what is the difference between Thee and me?
 The language of men proves this--our 'gracious' and 'blessed' tyrant and the like--all which tends to show that justice is the interest of the stronger; and that injustice is more profitable and also stronger than justice.'
-Is not the strength of injustice only a remnant of justice? Is not absolute injustice absolute weakness also?
-And is not the end of the soul happiness, and justice the excellence of the soul by which happiness is attained?
-'Justice is like the arts in having no external interest, and in not aiming at excess, and justice is to happiness what the implement of the workman is to his work.'
-'virtue is concerned with action, art with production'
+Is not the end of the soul happiness, and justice the excellence of the soul by which happiness is attained?
+Justice is like the arts in having no external interest, and in not aiming at excess, and justice is to happiness what the implement of the workman is to his work.
+Virtue is concerned with action, art with production
 Another flaw or inaccuracy of language may be noted in the words 'men who are injured are made more unjust.'
-'When workmen strive to do better than well, They do confound their skill in covetousness.'
+When workmen strive to do better than well, They do confound their skill in covetousness.
 How different is the case of the unjust who clings to appearance as the true reality!
-His high character makes him a ruler; he can marry where he likes, trade where he likes, help his friends and hurt his enemies; having got rich by dishonesty he can worship the gods better, and will therefore be more loved by them than the just.'
+His high character makes him a ruler; he can marry where he likes, trade where he likes, help his friends and hurt his enemies; having got rich by dishonesty he can worship the gods better, and will therefore be more loved by them than the just.
 "Virtue", as Hesiod says, "is honourable but difficult, vice is easy and profitable."
 I hear some one saying that "wickedness is not easily concealed," to which I reply that "nothing great is easy."
 Union and force and rhetoric will do much; and if men say that they cannot prevail over the gods, still how do we know that there are gods?
-let the just be thought unjust and the unjust just, and do you still prove to us the superiority of justice
-that power is the foundation of right; or that a monarch has a divine right to govern well or ill; or that virtue is self-love or the love of power; or that war is the natural state of man; or that private vices are public benefits.
+Let the just be thought unjust and the unjust just, and do you still prove to us the superiority of justice?
+That power is the foundation of right; or that a monarch has a divine right to govern well or ill; or that virtue is self-love or the love of power; or that war is the natural state of man; or that private vices are public benefits.
 What the poets and story-tellers say--that the wicked prosper and the righteous are afflicted, or that justice is another's gain?
 Has not the question been already answered, for we have decided that one man cannot in his life play many parts, any more than he can act both tragedy and comedy, or be rhapsodist and actor at once?
 But what can show a more disgraceful state of education than to have to go abroad for justice because you have none of your own at home?
-'The style is to conform to the subject and the metre to the style.'
+The style is to conform to the subject and the metre to the style.
 For he does not see that the word which is full of associations to his own mind is difficult and unmeaning to that of another; or that the sequence which is clear to himself is puzzling to others.
 Must we not at any rate admit that there is in human nature a higher and a lower principle, divided by no distinct line, which at times break asunder and take up arms against one another?
 If I went to a sculptor and blamed him for having painted the eye, which is the noblest feature of the face, not purple but black, he would reply: 'The eye must be an eye, and you should look at the statue as a whole.'
@@ -81,7 +75,7 @@ Now the thirsty soul may feel two distinct impulses; the animal one saying 'Drin
 Admitting that women differ from men in capacity, do not men equally differ from one another?
 Can there be strife and contention among those who are of one mind; or lawsuits about property when men have nothing but their bodies which they call their own; or suits about violence when every one is bound to defend himself?
 At the same time, if any conceited youth begins to dream of appropriating the State to himself, he must be reminded that 'half is better than the whole.'
-'Socrates, all the world will take off his coat and rush upon you with sticks and stones, and therefore I would advise you to prepare an answer.'
+Socrates, all the world will take off his coat and rush upon you with sticks and stones, and therefore I would advise you to prepare an answer.
 Are the lovers of sights and sounds, who let out their ears to every chorus at the Dionysiac festivals, to be called philosophers?'
 Suppose we say that, if he has knowledge we rejoice to hear it, but knowledge must be of something which is, as ignorance is of something which is not; and there is a third thing, which both is and is not, and is matter of opinion only.
 Now I would ask my good friend, who denies abstract beauty and justice, and affirms a many beautiful and a many just, whether everything he sees is not in some point of view different--the beautiful ugly, the pious impious, the just unjust?
@@ -127,7 +121,7 @@ Is any better than experience and wisdom and reason?
 Injustice is a gain to the perfectly unjust who are reputed to be just
 Is not the noble that which subjects the beast to the man, or rather to the god in man; and the ignoble that which subjects the man to the beast?'
 The imitative poet who aims at being popular is not by nature made, nor is his art intended, to please or to affect the rational principle in the soul; but he will prefer the passionate and fitful temper, which is easily imitated
-'Even for the last comer, if he chooses wisely and will live diligently, there is appointed a happy and not undesirable existence.
+Even for the last comer, if he chooses wisely and will live diligently, there is appointed a happy and not undesirable existence.
 
 'Leviathan.txt' by Thomas Hobbes
 
@@ -138,7 +132,7 @@ Justice is the constant will of giving to every man his own.
 
 'BeyondGoodAndEvil.txt' by Friedrich Wilhelm Nietzsche
 
-"Philosophy itself is criticism and critical science--and nothing else whatever!"
+Philosophy itself is criticism and critical science--and nothing else whatever!
 Well-being, as you understand it--is certainly not a goal; it seems to us an end; a condition which at once renders man ludicrous and contemptible--and makes his destruction desirable!
 And that your sympathy for the "creature in man" applies to that which has to be fashioned, bruised, forged, stretched, roasted, annealed, refined--to that which must necessarily suffer, and is meant to suffer?
 It is desirable that as few people as possible should reflect upon morals, and consequently it is very desirable that morals should not some day become interesting!
