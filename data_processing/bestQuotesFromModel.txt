@@ -2,14 +2,10 @@ Originally from modelResults.txt
 
 'Aristole.txt' by Aristole
 
-"Thus the reason why men enjoy seeing a likeness is, that in contemplating it they find themselves learning or inferring, and saying perhaps, 'Ah, that is he.'"
 'It follows plainly, in the first place, that the change, of fortune presented must not be the spectacle of a virtuous man brought from prosperity to adversity: for this moves neither pity nor fear; it merely shocks us.' 
-"Such an event is probable in Agathon's sense of the word: 'it is probable,' he says, 'that many things should happen contrary to probability.'"
-"Epic poetry must have as many kinds as Tragedy: it must be simple, or complex, or 'ethical,' or 'pathetic.'"
-"Sometimes an expression is metaphorical, as 'Now all gods and men were sleeping through the night,'--while at the same time the poet says: 'Often indeed as he turned his gaze to the Trojan plain, he marvelled at the sound of flutes and pipes.'" 
 'Critics jump at certain groundless conclusions; they pass adverse judgment and then proceed to reason on it; and, assuming that the poet has said whatever they happen to think, find fault if a thing is inconsistent with their own fancy.' 
 "The impossible is the higher thing; for the ideal type must surpass the reality."
-"In addition to which, we urge that the irrational sometimes does not violate reason; just as 'it is probable that a thing may happen contrary to probability.'"
+"We urge that the irrational sometimes does not violate reason; just as 'it is probable that a thing may happen contrary to probability.'"
 
 'ScarletLetter.txt' by Nathaniel Hawthorne
 
@@ -18,7 +14,6 @@ Originally from modelResults.txt
 '“Live, therefore, and bear about thy doom with thee, in the eyes of men and women,—in the eyes of him whom thou didst call thy husband,—in the eyes of yonder child!'
 'I,—a man of thought,—the bookworm of great libraries,—a man already in decay, having given my best years to feed the hungry dream of knowledge,—what had I to do with youth and beauty like thine own!'
 'Were it not, thinkest thou, for thy little one’s temporal and eternal welfare that she be taken out of thy charge, and clad soberly, and disciplined strictly, and instructed in the truths of heaven and earth?'
-'Without question, she is equally in the dark as to her soul, its present depravity, and future destiny!'
 'If they would serve their fellow-men, let them do it by making manifest the power and reality of conscience, in constraining them to penitential self-abasement!' 
 'Wouldst thou have me to believe, O wise and pious friend, that a false show can be better—can be more for God’s glory, or man’s welfare—than God’s own truth?'
 'He, if it stand with his good pleasure, can cure; or he can kill!', 'But see, now, how passion takes hold upon this man, and hurrieth him out of himself!'
