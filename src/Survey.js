@@ -199,13 +199,7 @@ const Survey = () => {
       }
     };
     
-    const userSurveyObject = {
-      email: email,
-      password: password,
-      firstName: firstName,
-      lastName:lastName,
-      savedQuotes: [],
-    }
+
 
     const body = {
       surveyResults: {
@@ -214,6 +208,19 @@ const Survey = () => {
         philosophyPercentages: philosophyPercentages,
       }
     };
+
+    const userSurveyObject = {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName:lastName,
+      savedQuotes: [],
+      surveyResults: {
+        questions: questions,
+        philosophies: philosophies,
+        philosophyPercentages: philosophyPercentages,
+      }
+    }
 
     console.log(body);
     axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
@@ -233,19 +240,21 @@ const Survey = () => {
             sessionStorage.setItem('user', res.data.user);
             console.log(sessionStorage.getItem('user'));
             setIsLoading(false);
+            setValidated(false);
+            history.push('/results');
             // history.push('/survey');
-            axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
-                    .then((response) => {
-                      // success
-                      console.log("success");
-                      console.log(response);
-                      setValidated(false);
-                      history.push('/results');
-                    })
-                    .catch((error) => {
-                      // error
-                      console.log(error);
-                    });
+            // axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+            //         .then((response) => {
+            //           // success
+            //           console.log("success");
+            //           console.log(response);
+            //           setValidated(false);
+            //           history.push('/results');
+            //         })
+            //         .catch((error) => {
+            //           // error
+            //           console.log(error);
+            //         });
           })
           .catch((error) => {
             // alert('Incorrect username or password.');
