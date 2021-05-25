@@ -47,8 +47,8 @@ class Navigation extends React.Component {
         <div className="navigation">
           <nav>
           <Link class="nav-link" to="/explore">
-              <div class="navbar-brand" to="/">
-                <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/Screen%20Shot%202021-05-19%20at%208.05.46%20AM.png?alt=media&token=5e9e25ef-ba06-472e-83a1-3aa76bad87e0" id="athena-logo" alt="athena-logo" />
+              <div class="navbar-brand" to="/explore">
+                <img src={logo} id="athena-logo" alt="athena-logo" />
                   Athena
               </div>
           </Link>
@@ -115,16 +115,19 @@ class Navigation extends React.Component {
       return (
         <div className="navigation">
           <nav>
-              <Link class="navbar-brand" to="/">
-                Athena
-              </Link>
+          <Link class="nav-link" to="/explore">
+              <div class="navbar-brand" to="/explore">
+                <img src={logo} id="athena-logo" alt="athena-logo" />
+                  Athena
+              </div>
+          </Link>
                 <ul>
                   <li
                     class={`nav-item  ${
                       this.props.location.pathname === "/contact" ? "active" : ""
                     }`}
                   >
-                    <Link class="nav-link" to="/createAccount">
+                    <Link class="nav-link" to="/">
                       Sign Up
                     </Link>
                   </li>

@@ -122,11 +122,43 @@
    border-left: none;
    border-right: none;
 }
+.user-info-header {
+    color:#fcfcfc
+}
 
 #submit_survey {
     width: 20%;
     align-content: center;
 }
+
+
+
+.navigation_link {
+    width: 10%;
+    align-content: center;
+    color: white;
+    font-size: 40px;
+}
+
+.navigation_link:hover {
+    color: yellow;
+}
+
+
+#navigation_span:hover {
+    width: 10%;
+    align-content: center;
+    background-color: rgb(197, 143, 197);
+}
+
+#skip_link {
+    margin-right: 500px;
+}
+
+
+/* #navigation_span {
+    margin-top: 150px;
+} */
 
 #mult_choice {
     display: flex;
@@ -152,10 +184,6 @@
     border-radius: 20px;
     margin-top: 10px;
 }
-
-
-
-
 
 .arrow-div {
     /*

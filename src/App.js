@@ -10,21 +10,49 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navigation />
+       
         <Switch>
-          <Route path="/" exact component={() => <Home />} />
+          <Route path="/login"  exact>
+            <Navigation />
+            <Home/>
+          </Route>
+          
           <Route path="/quotesSaved" exact component={() => <QuotesSaved />} />
-          <Route path="/createAccount" exact component={() => <CreateAccount />} />
-          <Route path="/explore" exact component={() => <Explore />} />
-          <Route path="/aboutus" exact component={() => <AboutUs />} />
+
+          <Route path="/createAccount" exact>
+            <Navigation />
+            <CreateAccount />
+          </Route>
+
+          <Route path="/explore" exact >
+            <Navigation />
+            <Explore />
+          </Route>
+          
+          <Route path="/aboutus" exact  >
+            <Navigation />
+            <AboutUs />
+          </Route>
+
           <Route path="/philosophy" component={Philosophy} />
           <Route path="/search" component={SearchResult} />
-          <Route path="/favorites" component={Favorites} />
-          <Route path="/survey" component={Survey} />
+
+          <Route path="/favorites">
+            <Navigation />
+            <Favorites />
+          </Route>
+          
+          {/* The Survey Component gets Rendered First */}
+          <Route path="/" exact component={Survey} />  
+
+          <Route path="/survey" exact component={Survey} /> 
 
           <Route path="/surveyInfo"component={SurveyInfo} />
 
-          <Route path="/results" component={Results} />
+          <Route path="/results">
+            <Navigation />
+            <Results />
+          </Route>
 
         </Switch>
       </Router>

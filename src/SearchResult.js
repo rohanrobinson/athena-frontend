@@ -124,7 +124,7 @@ class SearchResult extends Component {
     const body = {
       sentence: sentence,
     };
-    axios.put('${backendUrl}/api/sentiment/getTopics', body, config)
+    axios.put(`${backendUrl}/api/sentiment/getTopics`, body, config)
       .then((res) => {
         // success
         console.log(res);
@@ -147,7 +147,7 @@ class SearchResult extends Component {
     const body = {
       sentence: sentence,
     };
-    axios.put('${backendUrl}/api/sentiment/getPOS', body, config)
+    axios.put(`${backendUrl}/api/sentiment/getPOS`, body, config)
       .then((res) => {
         // success
         console.log(res);
