@@ -35,7 +35,7 @@ class Explore extends React.Component {
 
   componentDidMount(){
     AOS.init({
-      duration: 2000,
+      duration: 1000,
     })
 
     axios.get(`${backendUrl}/api/allphilosophies` )
@@ -168,7 +168,7 @@ class Explore extends React.Component {
   displayTopPhilosophies = () => {
     console.log("percents");
     console.log(this.state.philosophyPercentages);
-    var phils = this.state.philosophies.slice(0,3)
+    var phils = this.state.philosophies.slice(0,4)
     if (this.state.philosophyPercentages) {
       var ps = [];
       var temp = this.state.philosophies;
@@ -184,7 +184,7 @@ class Explore extends React.Component {
         return second[1] - first[1];
       });
 
-      phils = ps.slice(0, 3).map((data) => {
+      phils = ps.slice(0, 4).map((data) => {
         return data[2];
       });
     }
@@ -284,7 +284,7 @@ class Explore extends React.Component {
           <div className="discover-content">
             <h1>DISCOVER PHILOSOPHIES</h1>
             <h2>Learn about new philosophies and browse through related quotes</h2>
-            <h2>Your Selected Philosophies:</h2>
+            
           </div>
           <div className = "discover-philosophies">
             {this.state.displayCards ? (this.displayPhilosophies()):(this.displayTopPhilosophies())}
