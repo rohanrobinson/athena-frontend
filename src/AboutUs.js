@@ -29,8 +29,14 @@ const AboutUs = () => {
       <div className="left-poly">
       <div className="right-poly">
       <div className="introduction">
-          <p>Athena aims to open the minds of modern audiences to the collective wisdom of ancient philosophers.
-          We're on a mission to enlighten a world currently engaged in rigid thinking with narrow perspectives.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>
+          The average American today is richer, healthier, and safer than 99% of mankind in the past. 
+          Yet significant portions of American are affected by poor mental health, ranging from depression to anxiety to neuroticism. 
+          Psychological well-being has been on the decline at an alarming rate, despite enormous material progress.
+          The wisdom and knowledge generated over thousands of years by philosophers raised in conditions magnitudes harsher than our own is largely unknown and ignored, despite its enormous potential to increase people’s mental, emotional, and spiritual well-being. 
+          Athena aims to open the minds of modern audiences to the collective wisdom of ancient philosophers.
+          We're on a mission to enlighten a world currently engaged in rigid thinking with narrow perspectives.
+          </p>
       </div>
 
       <div className="facts">
@@ -84,7 +90,12 @@ const AboutUs = () => {
       <div className="numbers">
         <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/hand-heart.png?alt=media&token=c4d2c3b2-1f0d-493c-a794-400459f8d0cf"></img>
         <h1>We want to decrease those numbers </h1>
-        <p>We will decrease these numbers by... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>
+        Athena delivers curated philosophical advice to user based on their based on their personal preferences and circumstances.
+        Users will submit answers to a survey, which our internal algorithms use to create a personalized philosophical profile for the user. 
+        Based on this profile, the user will be matched with potential interesting philosophies. 
+        Users can also submit text detailing a specific difficult life circumstances and receive a list of advice/wisdom from the greatest philosophers, psychologists, religious figures, etc. of history.
+        </p>
       </div>
 
       <br></br>
@@ -177,7 +188,11 @@ const AboutUs = () => {
         <br></br>
         <br></br>
         <h1>Our Story</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>
+          Our team started as a group of Dartmouth College students brought together by a common concern for those affected by mental health disorders. 
+          We believe that the number of resources available to those with mental health disorders is severely lacking. 
+          As a result, our team sees the need to bring a diverse range of alleviations to people. 
+        </p>
       </div>
 
       <div className="support">

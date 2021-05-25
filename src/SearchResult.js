@@ -419,12 +419,14 @@ class SearchResult extends Component {
           { (this.state.analysisClicked && this.state.currentQuote === quote._id.$oid) ? (
             <>
             <div className="analysisModal"></div>
-            <div className="analysisText">
-              Your quote was: this.state.currentQuote
-              <br></br>
-              <br></br>
-              <img src="https://firebasestorage.googleapis.com/v0/b/athena-84a5c.appspot.com/o/neural%20network.jpeg?alt=media&token=fad91623-6c55-409b-afd6-afb7048c8055" alt="Neural Network Picture"></img>
-              <br></br>
+            <div className="methodologyText">
+              <div className="methodologyTitle">
+                Methodology
+              </div>
+              After you enter your input, our algorithm uses an advanced state-of-the-art artificial intelligence model to identify the
+              primary sentiments expressed in your input. We then find a set of quotes that will potentially be useful based on the 
+              sentiments in your input that we find. These quotes are scored based on their syntactical similarity to your input, how useful they have been 
+              to other users, and how similar in topic they are to your quote. The highest scoring quotes are displayed to you here. 
               <br></br>
               <button className="closeAnalysisModal" onClick={this.closeAnalysisModal}>Close</button>
             </div>
