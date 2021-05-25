@@ -23,37 +23,37 @@ const Survey = () => {
     {
       type: "mult",
       q: "What is the point of life?",
-      a: "nothing, there is no point", // nihilism
-      b: "to be humble and to help others", //taoism
-      c: "to maximize pleasure", // hedonism
+      a: "nothing, there is no real point", // nihilism, existentialism
+      b: "to be humble, peaceful, and to help others", //taoism, buddhism, marxism
+      c: "to maximize our happiness", // hedonism, stoicism, rationalism
       ans: ""
     },
     {
       type: "mult",
       q: "What do you value most?",
-      a: "meditation", //buddhism
-      b: "logic", // rationalism
-      c: "discipline", // stoicism
+      a: "inner peace", //buddhism, taoism
+      b: "logic", // rationalism, stoicism
+      c: "freedom", //existentialism, hedonism 
       ans: ""
     },
     {
       type: "input",
       q: "What philosophies are you familiar with?",
       ans: ""
-    },
+    }, 
     {
       type: "input",
       q: "What are you looking to get out of Athena?",
       ans: ""
     },
     {
-      type: "slider", //existentialism
+      type: "slider", //buddhism
       q:  "Use the slider to show how much you agree with the following: 1 (I strongly disagree) - 10 (I strongly agree)",
-      quote: "I realize today that nothing in the world is more distasteful to a man than to take the path that leads to himself.",
+      quote: "There is no fear for one whose mind is not filled with desires.",
       ans: ""
     },
     {
-      type: "slider", // marxism
+      type: "slider", //marxism
       q:  "Use the slider to show how much you agree with the following (1 (I strongly disagree) - 10 (I strongly agree))",
       quote: "The philosophers have only interpreted the world, in various ways. The point, however, is to change it.",
       ans: ""
@@ -128,8 +128,6 @@ const Survey = () => {
     var philosophies = [];
 
 
-
-
     var philosophyPercentages = {
       nihilism: Math.random()*50,
       taoism: Math.random()*50,
@@ -144,48 +142,87 @@ const Survey = () => {
     }
     // question 1
     switch(questions[0].ans) {
-      case 'nothing, there is no point':
-        philosophies.push("nihilism");
-        philosophyPercentages.nihilism = Math.random()*50+50
+      case 'nothing, there is no real point':
+        philosophyPercentages.nihilism = Math.random()*(69-51)+51
+        philosophyPercentages.existentialism = Math.random()*(69-51)+51
         break;
-      case 'to be humble and to help others':
-        philosophies.push("taoism");
-        philosophyPercentages.taoism = Math.random()*50+50
+      case 'to be humble, peaceful, and to help others':
+        philosophyPercentages.taoism = Math.random()*(69-51)+51
+        philosophyPercentages.marxism = Math.random()*(69-51)+51
         break;
-      case 'to maximize pleasure':
+      case 'to maximize our happiness':
         philosophies.push("hedonism");
-        philosophyPercentages.hedonism = Math.random()*50+50
+        philosophyPercentages.hedonism = Math.random()*(69-51)+51
+        philosophyPercentages.stoicism = Math.random()*(69-51)+51
+        philosophyPercentages.stoicism = Math.random()*(69-51)+51
         break;
       default:
         break;
     }
     // question 2
     switch(questions[1].ans) {
-      case 'meditation':
-        philosophies.push("buddhism");
-        philosophyPercentages.buddhism = Math.random()*50+50
+      case 'inner peace':
+        if (philosophyPercentages.taoism > 50) {
+          philosophyPercentages.taoism = Math.random()*(99-70)+70
+        } else {
+          philosophyPercentages.taoism = Math.random()*(69-51)+51
+        }
+        philosophyPercentages.buddhism = Math.random()*(69-51)+51
         break;
       case 'logic':
-        philosophies.push("rationalism");
-        philosophyPercentages.rationalism = Math.random()*50+50
+        if (philosophyPercentages.stoicism > 50) {
+          philosophyPercentages.stoicism = Math.random()*(99-70)+70
+          philosophyPercentages.rationalism = Math.random()*(99-70)+70
+        } else {
+          philosophyPercentages.stoicism = Math.random()*(69-51)+51
+          philosophyPercentages.rationalism = Math.random()*(69-51)+51
+        }
         break;
-      case 'discipline':
-        philosophies.push("stoicism");
-        philosophyPercentages.stoicism = Math.random()*50+50
+      case 'freedom':
+        if (philosophyPercentages.existentialism > 50) {
+          philosophyPercentages.existentialism = Math.random()*(99-70)+70
+        } else {
+          philosophyPercentages.existentialism = Math.random()*(69-51)+51
+        }
+        if (philosophyPercentages.hedonism > 50) {
+          philosophyPercentages.hedonism = Math.random()*(99-70)+70
+        } else {
+          philosophyPercentages.hedonism = Math.random()*(69-51)+51
+        }
         break;
       default:
         break;
     }
     // question 5
     if (questions[4].ans > 5) {
-      philosophies.push("existentialism");
-      philosophyPercentages.existentialism = Math.random()*50+50
+      if (philosophyPercentages.buddhism > 50) {
+        philosophyPercentages.buddhism = Math.random()*(99-70)+70
+      } else {
+        philosophyPercentages.buddhism = Math.random()*(69-51)+51
+      }
     }
     // question 6
     if (questions[5].ans > 5) {
-      philosophies.push("marxism");
-      philosophyPercentages.marxism = Math.random()*50+50
+      if (philosophyPercentages.marxism > 50) {
+        philosophyPercentages.marxism = Math.random()*(99-70)+70
+      } else {
+        philosophyPercentages.marxism = Math.random()*(69-51)+51
+      }
     }
+
+    var sortedArray = [];
+    for (var philosophy in philosophyPercentages) {
+      sortedArray.push([philosophy, philosophyPercentages[philosophy]]);
+    }
+
+    sortedArray.sort(function(a,b) {
+      return a[1] - b[1]
+    });
+
+    philosophies.push(sortedArray[9][0])
+    philosophies.push(sortedArray[8][0])
+    philosophies.push(sortedArray[7][0])
+
 
     //get user personal name, and login information (questionss 7 through 10)
     var firstName = questions[6].ans;
@@ -199,7 +236,13 @@ const Survey = () => {
       }
     };
     
-
+    const userSurveyObject = {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName:lastName,
+      savedQuotes: [],
+    }
 
     const body = {
       surveyResults: {
@@ -208,19 +251,6 @@ const Survey = () => {
         philosophyPercentages: philosophyPercentages,
       }
     };
-
-    const userSurveyObject = {
-      email: email,
-      password: password,
-      firstName: firstName,
-      lastName:lastName,
-      savedQuotes: [],
-      surveyResults: {
-        questions: questions,
-        philosophies: philosophies,
-        philosophyPercentages: philosophyPercentages,
-      }
-    }
 
     console.log(body);
     axios.post(`https://athena-back-end.herokuapp.com/api/auth/signup`, userSurveyObject )
@@ -240,21 +270,19 @@ const Survey = () => {
             sessionStorage.setItem('user', res.data.user);
             console.log(sessionStorage.getItem('user'));
             setIsLoading(false);
-            setValidated(false);
-            history.push('/results');
             // history.push('/survey');
-            // axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
-            //         .then((response) => {
-            //           // success
-            //           console.log("success");
-            //           console.log(response);
-            //           setValidated(false);
-            //           history.push('/results');
-            //         })
-            //         .catch((error) => {
-            //           // error
-            //           console.log(error);
-            //         });
+            axios.put(`https://athena-back-end.herokuapp.com/api/auth/update/${JSON.parse(sessionStorage.getItem('user'))._id.$oid}`, body, config)
+                    .then((response) => {
+                      // success
+                      console.log("success");
+                      console.log(response);
+                      setValidated(false);
+                      history.push('/results');
+                    })
+                    .catch((error) => {
+                      // error
+                      console.log(error);
+                    });
           })
           .catch((error) => {
             // alert('Incorrect username or password.');
