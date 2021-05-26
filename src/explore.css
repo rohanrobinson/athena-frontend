@@ -116,10 +116,10 @@
 .philosophy-card {
   background-color: white;
   background-size: contain;
-  margin: 0px 20px 20px 20px;
+  margin: 10px 20px 20px 20px;
   padding: 8px;
   width: 320px;
-  height: 427px;
+  /*height: 427px;*/
   position: relative;
   border-radius: 8px;
   transition: .3s;

@@ -5,6 +5,7 @@ import axios from "axios";
 import "./Philosophy.css";
 import Tilt from 'react-tilt';
 import backendUrl from './backendUrl';
+import philosopherImg from "./images/existentialism.jpg";
 
 
 class Philosophy extends React.Component {
@@ -18,6 +19,7 @@ class Philosophy extends React.Component {
             name: JSON.parse(sessionStorage.getItem('philosophy')).philosophy,
             description: JSON.parse(sessionStorage.getItem('philosophy')).description,
             imageUrl: JSON.parse(sessionStorage.getItem('philosophy')).imageUrl,
+            imageUrl2: JSON.parse(sessionStorage.getItem('philosophy')).imageUrl2,
             quotes: JSON.parse(sessionStorage.getItem('philosophy')).quotes,
             quote: '',
             author: '',// quotee is the name of someone who said a quote 
@@ -110,7 +112,8 @@ class Philosophy extends React.Component {
                         <div className = "phil-info-content">
                             
                             <div className ="portrait-container">
-                            <img id="phil-portrait" src="https://via.placeholder.com/200"/>
+                            {/* <img id="phil-portrait" src={philosopherImg}/> */}
+                            <img id="phil-portrait" src={this.state.imageUrl2}/>
                             </div>
                             
                             <p className = "philosophy-descr">{this.state.description}</p>
